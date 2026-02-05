@@ -73,6 +73,10 @@ app.post('/api/contact', (req, res) => {
 // Fallback for SPA (if we were using one, but for static files this is fine)
 // Just serving index.html for root is handled by express.static
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
+}
+
+module.exports = app;
