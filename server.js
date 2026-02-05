@@ -28,7 +28,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Email Setup (Mock for now, easy to swap for real SMTP)
 // For production, use real credentials or a service like SendGrid
 const { Resend } = require('resend');
-const resend = new Resend(process.env.RESEND_API_KEY);
+let resend;
+if (process.env.RESEND_API_KEY) {
+    resend = new Resend(process.env.RESEND_API_KEY);
+} else {
+    console.warn("Resend API Key is missing. Email sending will be disabled.");
+}
 
 // ... (Middleware remains)
 
@@ -60,30 +65,31 @@ app.post('/api/contact', async (req, res) => {
         console.log(`Inquiry saved. ID: ${inquiryId}`);
 
         // 2. Send Real Email via Resend
-        try {
-            const data = await resend.emails.send({
-                from: 'Pineforge Website <onboarding@resend.dev>', // Default testing domain. 
-                // CRITICAL: User needs to verify domain on Resend to use 'admin@pineforge.digital'.
-                // For now, 'onboarding@resend.dev' only sends to the account owner's email.
-                // I will use that for safety until they verify domain.
-                to: ['admin@pineforge.digital'], // This MUST be the email they signed up with on Resend (if using testing domain)
-                subject: `New Inquiry from ${name}`,
-                html: `
-                    <h3>New Contact Form Submission</h3>
-                    <p><strong>Name:</strong> ${name}</p>
-                    <p><strong>Email:</strong> ${email}</p>
-                    <p><strong>Message:</strong></p>
-                    <p>${message}</p>
-                `
-            });
+        if (resend) {
+            try {
+                const data = await resend.emails.send({
+                    from: 'Pineforge Website <onboarding@resend.dev>',
+                    to: ['admin@pineforge.digital'],
+                    subject: `New Inquiry from ${name}`,
+                    html: `
+                        <h3>New Contact Form Submission</h3>
+                        <p><strong>Name:</strong> ${name}</p>
+                        <p><strong>Email:</strong> ${email}</p>
+                        <p><strong>Message:</strong></p>
+                        <p>${message}</p>
+                    `
+                });
 
-            console.log('Email sent via Resend:', data);
-            return res.status(200).json({ message: 'Message received successfully!' });
+                console.log('Email sent via Resend:', data);
+                return res.status(200).json({ message: 'Message received successfully!' });
 
-        } catch (emailErr) {
-            console.error('Resend Error:', emailErr);
-            // We still return success to the user because we saved it to DB at least.
-            return res.status(200).json({ message: 'Message saved (Email delivery pending config).' });
+            } catch (emailErr) {
+                console.error('Resend Error:', emailErr);
+                return res.status(200).json({ message: 'Message saved (Email delivery pending config).' });
+            }
+        } else {
+            console.log('Email skipped (Resend not configured)');
+            return res.status(200).json({ message: 'Message saved successfully!' });
         }
     });
 });
