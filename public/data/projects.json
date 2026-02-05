@@ -1,0 +1,58 @@
+[
+    {
+        "id": "gym-exersize-logger",
+        "title": "Gym Exersize Logger",
+        "category": "Mobile Application",
+        "status": "In Development",
+        "description": "A comprehensive fitness tracking platform designed to support gym members and facilities. Track workouts, monitor progress, and achieve goals.",
+        "problem": "Generic fitness apps lack integration with specific facility equipment and fail to provide actionable data for gym owners.",
+        "techStack": [
+            "React Native",
+            "Node.js",
+            "PostgreSQL",
+            "Redis",
+            "JavaScript",
+            "Python",
+            "Vercel",
+            "Railway",
+            "Git"
+        ],
+        "timeline": [
+            {
+                "date": "Jan 2026",
+                "event": "Project Initialization"
+            },
+            {
+                "date": "Feb 2026",
+                "event": "Core API Development & Schema Design"
+            }
+        ]
+    },
+    {
+        "id": "chemref-hub",
+        "title": "ChemRef Hub",
+        "category": "Educational Platform",
+        "status": "Beta",
+        "description": "A comprehensive chemistry database containing chemical formulas, properties, and a suite of mathematical calculators for stoichiometry and reaction analysis.",
+        "problem": "Students and professionals often struggle to find a centralized, accurate source for chemical data and quick calculation tools.",
+        "techStack": [
+            "JavaScript",
+            "Python",
+            "React Native",
+            "Vercel",
+            "Railway",
+            "Git",
+            "PostgreSQL"
+        ],
+        "timeline": [
+            {
+                "date": "Dec 2025",
+                "event": "Chemical Property Database Population"
+            },
+            {
+                "date": "Jan 2026",
+                "event": "Calculator Logic Implementation"
+            }
+        ]
+    }
+]

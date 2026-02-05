@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | Pineforge Digital LLC</title>
+    <meta name="description"
+        content="Deep dive into the technical details and development timeline of our software products.">
+    <link rel="icon" type="image/png" href="logo_resized_clear.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <header class="main-nav">
+            <a href="index.html" class="logo">
+                <img src="Brand_Logo_clear.png" alt="Pineforge Digital LLC">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="project-detail-content" style="min-height: 50vh;">
+            <!-- Content loaded via JS -->
+            <p style="padding: 4rem 0;">Loading project details...</p>
+        </main>
+
+        <!-- Template for JS to populate -->
+        <template id="detail-template">
+            <section class="hero" style="padding-bottom: 2rem;">
+                <div class="hero-content">
+                    <span class="status-badge" id="detail-status"></span>
+                    <h1 id="detail-title"></h1>
+                    <p class="hero-subtext" id="detail-desc"></p>
+                </div>
+            </section>
+
+
+
+            <section>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+                    <div>
+                        <div class="section-header">
+                            <span class="section-label">Infrastructure</span>
+                            <h2>Tech Stack</h2>
+                        </div>
+                        <div class="tech-grid" id="detail-stack">
+                            <!-- Tags go here -->
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="section-header">
+                            <span class="section-label">Progress</span>
+                            <h2>Timeline</h2>
+                        </div>
+                        <div class="engineering-log" id="detail-timeline">
+                            <!-- Timeline items go here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <footer>
+            <div class="footer-top">
+                <div class="footer-col" style="max-width: 300px;">
+                    <h4>Pineforge Digital LLC</h4>
+                    <p>Building reliable digital products.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pineforge Digital LLC. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="js/cookies.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
