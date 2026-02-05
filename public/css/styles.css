@@ -295,21 +295,17 @@ textarea::placeholder {
 }
 
 /* Header */
-/* Navbar Changes */
 .main-nav {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 0;
     position: relative;
-    /* Context for absolute hamburger */
 }
 
 .hamburger {
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 2rem;
-    /* Aligns with roughly center of padding height */
+    display: none;
+    /* Hidden on desktop */
 }
 
 .logo {
@@ -628,5 +624,129 @@ footer {
     .cookie-buttons {
         width: 100%;
         justify-content: flex-end;
+    }
+}
+
+/* =========================================
+   Responsive Navigation (Mobile/Tablet)
+   ========================================= */
+
+/* Hamburger Menu Icon Structure */
+.hamburger {
+    /* Display is handled by media query below */
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: white;
+    border-radius: 2px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0px;
+}
+
+.hamburger span:nth-child(2) {
+    top: 9px;
+}
+
+.hamburger span:nth-child(3) {
+    top: 18px;
+}
+
+/* Hamburger Animation (X shape) */
+.hamburger.open span:nth-child(1) {
+    top: 9px;
+    transform: rotate(135deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+.hamburger.open span:nth-child(3) {
+    top: 9px;
+    transform: rotate(-135deg);
+}
+
+/* Mobile Styling */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Navbar Changes */
+    .main-nav {
+        /* Keep flex interactions but adjust for mobile if needed */
+        padding: 1.5rem 0;
+    }
+
+    .hamburger {
+        display: block;
+        /* Show hamburger */
+        position: absolute;
+        right: 0;
+        top: 2rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* Hide off-screen */
+        width: 75%;
+        height: 100vh;
+        background: rgba(11, 13, 16, 0.98);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        box-shadow: -10px 0 20px rgba(0, 0, 0, 0.5);
+        border-left: 1px solid var(--border-color);
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links.active {
+        right: 0;
+        /* Slide in */
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        font-size: 1.5rem;
+        font-weight: 500;
+        display: block;
+        padding: 1rem;
+    }
+
+    .tech-grid {
+        justify-content: center;
     }
 }
