@@ -68,7 +68,7 @@ app.post('/api/contact', async (req, res) => {
         if (resend) {
             try {
                 const data = await resend.emails.send({
-                    from: 'Pineforge Website <onboarding@resend.dev>',
+                    from: 'Pineforge Website <admin@pineforge.digital>',
                     to: ['admin@pineforge.digital'],
                     subject: `New Inquiry from ${name}`,
                     html: `
