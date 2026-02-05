@@ -1,27 +1,23 @@
-const sqlite3 = require('sqlite3').verbose();
 const { Pool } = require('pg');
 const path = require('path');
 
 let db;
-let dbType = 'sqlite';
 
-if (process.env.DATABASE_URL) {
-    // --- PostgreSQL Setup (Production/Railway) ---
-    dbType = 'postgres';
-    console.log('Detected DATABASE_URL. Switching to PostgreSQL...');
+// Check for EITHER Railway's default (DATABASE_URL) or Vercel's default (POSTGRES_URL)
+const connectionString = process.env.DATABASE_URL || process.env.POSTGRES_URL;
+
+if (connectionString) {
+    // --- PostgreSQL Setup (Production/Railway/Vercel) ---
+    console.log('Detected Database Connection String. Switching to PostgreSQL...');
 
     const pool = new Pool({
-        connectionString: process.env.DATABASE_URL,
+        connectionString: connectionString,
         ssl: {
             rejectUnauthorized: false
         }
     });
 
-    // Wrapper to match SQLite's run() and get() methods roughly, for easier migration
-    // Note: SQLite's run() callback provides `this.lastID`. PG returns `RETURNING id`.
-    // We will need to adjust the CALLER (server.js) or make this wrapper strictly uniform.
-    // For simplicity, let's export a unified interface.
-
+    // Wrapper to match SQLite's run() and get() methods roughly
     db = {
         query: (text, params) => pool.query(text, params),
 
@@ -67,6 +63,11 @@ if (process.env.DATABASE_URL) {
 } else {
     // --- SQLite Setup (Local Development) ---
     console.log('No DATABASE_URL found. Using local SQLite database.');
+
+    // Lazy load sqlite3 so it doesn't crash Vercel if the native module fails
+    // This is the critical fix for "FUNCTION_INVOCATION_FAILED"
+    const sqlite3 = require('sqlite3').verbose();
+
     const dbPath = path.resolve(__dirname, 'inquiries.db');
     const sqliteDb = new sqlite3.Database(dbPath, (err) => {
         if (err) console.error('Error opening SQLite DB:', err.message);
@@ -80,7 +81,6 @@ if (process.env.DATABASE_URL) {
     db = {
         run: (sql, params, callback) => sqliteDb.run(sql, params, callback),
         query: (sql, params) => {
-            // For simple queries if needed later
             return new Promise((resolve, reject) => {
                 sqliteDb.all(sql, params, (err, rows) => {
                     if (err) reject(err);
