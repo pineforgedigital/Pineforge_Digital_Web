@@ -295,12 +295,21 @@ textarea::placeholder {
 }
 
 /* Header */
+/* Navbar Changes */
 .main-nav {
-    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-md) 0;
-    /* No border for cleaner look */
+    padding: 1.5rem 0;
+    position: relative;
+    /* Context for absolute hamburger */
+}
+
+.hamburger {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 2rem;
+    /* Aligns with roughly center of padding height */
 }
 
 .logo {
