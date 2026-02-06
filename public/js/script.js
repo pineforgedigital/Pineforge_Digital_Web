@@ -227,6 +227,27 @@ function init() {
     loadEngineeringLog();
     initBackToTop();
     initMobileMenu();
+    initScrollReveal();
+}
+
+// Scroll Reveal Logic
+function initScrollReveal() {
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Run once
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.15, // Trigger when 15% visible
+        rootMargin: "0px 0px -50px 0px" // Offset slightly so it triggers before bottom
+    });
+
+    reveals.forEach(el => observer.observe(el));
 }
 
 if (document.readyState === 'loading') {
