@@ -832,10 +832,15 @@ main {
     .hamburger {
         display: block;
         /* Show hamburger */
-        /* Remove absolute positioning to respect flex container padding */
         position: static;
+        /* Respect flex flow */
         margin-left: auto;
-        /* Push to right if needed, though space-between handles it */
+        /* Push to right */
+        /* Force dimensions to prevent flexing/stretching */
+        width: 30px;
+        height: 20px;
+        flex: 0 0 30px;
+        /* Don't grow, don't shrink */
     }
 
     .nav-links {
@@ -871,23 +876,21 @@ main {
         visibility: visible;
     }
 
-    right: 0;
-    /* Slide in */
-}
 
-.nav-links li {
-    width: 100%;
-    text-align: center;
-}
 
-.nav-links li a {
-    font-size: 1.5rem;
-    font-weight: 500;
-    display: block;
-    padding: 1rem;
-}
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
 
-.tech-grid {
-    justify-content: center;
-}
+    .nav-links li a {
+        font-size: 1.5rem;
+        font-weight: 500;
+        display: block;
+        padding: 1rem;
+    }
+
+    .tech-grid {
+        justify-content: center;
+    }
 }
