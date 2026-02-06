@@ -10,6 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+app.set('trust proxy', 1); // Trust first proxy (Vercel)
 app.use(helmet()); // Security Headers
 app.use(bodyParser.json());
 const cookieParser = require('cookie-parser');
