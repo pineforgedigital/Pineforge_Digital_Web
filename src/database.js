@@ -61,35 +61,50 @@ if (connectionString) {
         .catch(err => console.error('Error creating PG table:', err));
 
 } else {
-    // --- SQLite Setup (Local Development) ---
-    console.log('No DATABASE_URL found. Using local SQLite database.');
+    // --- SQLite / Fallback Setup ---
 
-    // Lazy load sqlite3 so it doesn't crash Vercel if the native module fails
-    // This is the critical fix for "FUNCTION_INVOCATION_FAILED"
-    const sqlite3 = require('sqlite3').verbose();
+    // CRITICAL: On Vercel (Production), file system is Read-Only.
+    // Determining if we are in a serverless environment where we cannot write files.
+    const isProduction = process.env.NODE_ENV === 'production' || process.env.VERCEL;
 
-    const dbPath = path.resolve(__dirname, 'inquiries.db');
-    const sqliteDb = new sqlite3.Database(dbPath, (err) => {
-        if (err) console.error('Error opening SQLite DB:', err.message);
-        else {
-            console.log('Connected to local SQLite database.');
-            initSqliteDb(sqliteDb);
-        }
-    });
+    if (isProduction) {
+        console.warn('WARNING: No DATABASE_URL found in Production. Database features will be disabled to prevent crash.');
 
-    // Provide the same interface
-    db = {
-        run: (sql, params, callback) => sqliteDb.run(sql, params, callback),
-        query: (sql, params) => {
-            return new Promise((resolve, reject) => {
-                sqliteDb.all(sql, params, (err, rows) => {
-                    if (err) reject(err);
-                    else resolve({ rows });
+        // Mock DB to allow server to start (serves static pages) but fails gracefully on form submit
+        db = {
+            query: async () => { throw new Error('Database not configured'); },
+            run: async (sql, params, callback) => {
+                console.error('Attempted DB write without configuration.');
+                if (callback) callback(new Error('Database not configured (Contact Form unavailable)'));
+            },
+            close: () => { }
+        };
+    } else {
+        // Local Development (SQLite)
+        console.log('No DATABASE_URL found. Using local SQLite database.');
+        const sqlite3 = require('sqlite3').verbose();
+        const dbPath = path.resolve(__dirname, 'inquiries.db');
+        const sqliteDb = new sqlite3.Database(dbPath, (err) => {
+            if (err) console.error('Error opening SQLite DB:', err.message);
+            else {
+                console.log('Connected to local SQLite database.');
+                initSqliteDb(sqliteDb);
+            }
+        });
+
+        db = {
+            run: (sql, params, callback) => sqliteDb.run(sql, params, callback),
+            query: (sql, params) => {
+                return new Promise((resolve, reject) => {
+                    sqliteDb.all(sql, params, (err, rows) => {
+                        if (err) reject(err);
+                        else resolve({ rows });
+                    });
                 });
-            });
-        },
-        close: () => sqliteDb.close()
-    };
+            },
+            close: () => sqliteDb.close()
+        };
+    }
 }
 
 function initSqliteDb(sqliteDb) {
