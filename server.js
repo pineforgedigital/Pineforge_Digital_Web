@@ -33,7 +33,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html'] }));
 
 // Email Setup (Mock for now, easy to swap for real SMTP)
 // For production, use real credentials or a service like SendGrid
