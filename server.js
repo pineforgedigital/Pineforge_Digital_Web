@@ -53,16 +53,14 @@ app.use((req, res, next) => {
     if (req.path.endsWith('.html')) {
         return res.redirect(301, req.path.slice(0, -5));
     }
-    if (req.path === '/index') {
-        return res.redirect(301, '/home');
+    if (req.path === '/index' || req.path === '/home') {
+        return res.redirect(301, '/');
     }
     next();
 });
 
 // Serve 'home' manually since there is no home.html
-app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+// Route for Home is handled by root '/' and middleware redirect above.
 
 // Explicitly serve root to prevent static middleware ambiguity
 app.get('/', (req, res) => {
