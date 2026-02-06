@@ -9,8 +9,11 @@ const rateLimit = require('express-rate-limit');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const compression = require('compression');
+
 // Middleware
 app.set('trust proxy', 1); // Trust first proxy (Vercel)
+app.use(compression()); // Gzip Compression
 app.use(helmet()); // Security Headers
 app.use(bodyParser.json());
 const cookieParser = require('cookie-parser');
@@ -134,6 +137,11 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
 
 // Fallback for SPA (if we were using one, but for static files this is fine)
 // Just serving index.html for root is handled by express.static
+
+// Fallback: 404 Handler (must be last route)
+app.use((req, res) => {
+    res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+});
 
 if (require.main === module) {
     app.listen(PORT, () => {
