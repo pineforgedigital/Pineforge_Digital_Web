@@ -803,6 +803,11 @@ main {
 
 /* Mobile Styling */
 @media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+        /* Prevent horizontal scroll/zoom-out revealing menu */
+    }
+
     .container {
         padding: 0 1.5rem;
     }
@@ -811,7 +816,6 @@ main {
         font-size: 2.5rem;
     }
 
-    /* Navbar Changes */
     /* Navbar Changes */
     .main-nav {
         /* Reduce padding to match desktop sleekness */
@@ -837,8 +841,9 @@ main {
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%;
-        /* Hide off-screen */
+        right: 0;
+        /* Position at right edge, but transform it off-screen */
+        transform: translateX(100%);
         width: 75%;
         height: 100vh;
         background: rgba(11, 13, 16, 0.98);
@@ -849,32 +854,40 @@ main {
         justify-content: center;
         align-items: center;
         gap: 2rem;
-        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Use transform for performant sliding */
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s;
         z-index: 1000;
         box-shadow: -10px 0 20px rgba(0, 0, 0, 0.5);
         border-left: 1px solid var(--border-color);
         margin: 0;
         padding: 0;
+        visibility: hidden;
+        /* Hide completely when closed */
     }
 
     .nav-links.active {
-        right: 0;
         /* Slide in */
+        transform: translateX(0);
+        visibility: visible;
     }
 
-    .nav-links li {
-        width: 100%;
-        text-align: center;
-    }
+    right: 0;
+    /* Slide in */
+}
 
-    .nav-links li a {
-        font-size: 1.5rem;
-        font-weight: 500;
-        display: block;
-        padding: 1rem;
-    }
+.nav-links li {
+    width: 100%;
+    text-align: center;
+}
 
-    .tech-grid {
-        justify-content: center;
-    }
+.nav-links li a {
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: block;
+    padding: 1rem;
+}
+
+.tech-grid {
+    justify-content: center;
+}
 }
