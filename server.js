@@ -34,12 +34,20 @@ app.use((req, res, next) => {
     next();
 });
 
+// Clean URL Redirects
 app.use((req, res, next) => {
     if (req.path.endsWith('.html')) {
-        const newPath = req.path.slice(0, -5);
-        return res.redirect(301, newPath);
+        return res.redirect(301, req.path.slice(0, -5));
+    }
+    if (req.path === '/index') {
+        return res.redirect(301, '/home');
     }
     next();
+});
+
+// Serve 'home' manually since there is no home.html
+app.get('/home', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html'] }));
