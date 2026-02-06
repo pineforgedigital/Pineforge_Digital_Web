@@ -836,11 +836,11 @@ main {
         /* Respect flex flow */
         margin-left: auto;
         /* Push to right */
-        /* Force dimensions to prevent flexing/stretching */
-        width: 30px;
-        height: 20px;
-        flex: 0 0 30px;
-        /* Don't grow, don't shrink */
+        /* Force dimensions with !important to override any browser anomalies/cache issues */
+        width: 30px !important;
+        max-width: 30px !important;
+        height: 20px !important;
+        flex: 0 0 30px !important;
     }
 
     .nav-links {
