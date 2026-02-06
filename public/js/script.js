@@ -68,7 +68,7 @@ async function loadProjects() {
         }
 
         container.innerHTML = projectsToShow.map(project => `
-            <a href="project-detail?id=${project.id}" class="card reveal" style="display: block; text-decoration: none;">
+            <a href="project-detail?id=${project.id}" class="card" style="display: block; text-decoration: none;">
                 <span class="status-badge">${project.status}</span>
                 <h3>${project.title}</h3>
                 <p>${project.description}</p>
