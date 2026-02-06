@@ -64,6 +64,11 @@ app.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+// Explicitly serve root to prevent static middleware ambiguity
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html'] }));
 
 // Email Setup (Mock for now, easy to swap for real SMTP)
