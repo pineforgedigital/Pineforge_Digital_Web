@@ -221,10 +221,14 @@ function initMobileMenu() {
 }
 
 // Initialize
-function init() {
-    loadProjects();
-    loadProjectDetail();
-    loadEngineeringLog();
+async function init() {
+    // Wait for content to load before enabling scroll observer
+    await Promise.all([
+        loadProjects(),
+        loadProjectDetail(),
+        loadEngineeringLog()
+    ]);
+
     initBackToTop();
     initMobileMenu();
     initScrollReveal();
