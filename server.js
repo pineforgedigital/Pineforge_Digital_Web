@@ -3,14 +3,24 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const db = require('./database');
 const nodemailer = require('nodemailer');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+app.use(helmet()); // Security Headers
 app.use(bodyParser.json());
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
+
+// Rate Limiting (Max 5 inquiries per hour per IP)
+const contactLimiter = rateLimit({
+    windowMs: 60 * 60 * 1000, // 1 hour
+    max: 5,
+    message: { error: 'Too many requests, please try again later.' }
+});
 
 // Cookie Logger Middleware
 app.use((req, res, next) => {
@@ -38,11 +48,22 @@ if (process.env.RESEND_API_KEY) {
 // ... (Middleware remains)
 
 // API: Handle Contact Form
-app.post('/api/contact', async (req, res) => {
+app.post('/api/contact', contactLimiter, async (req, res) => {
     const { name, email, message } = req.body;
 
     if (!name || !email || !message) {
         return res.status(400).json({ error: 'All fields are required' });
+    }
+
+    // Input Validation
+    if (name.length > 100) return res.status(400).json({ error: 'Name is too long.' });
+    if (email.length > 255) return res.status(400).json({ error: 'Email is too long.' });
+    if (message.length > 2000) return res.status(400).json({ error: 'Message is too long.' });
+
+    // Basic Email Validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        return res.status(400).json({ error: 'Invalid email address.' });
     }
 
     // 1. Save to Database
