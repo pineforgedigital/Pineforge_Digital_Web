@@ -14,7 +14,18 @@ const compression = require('compression');
 // Middleware
 app.set('trust proxy', 1); // Trust first proxy (Vercel)
 app.use(compression()); // Gzip Compression
-app.use(helmet()); // Security Headers
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            "default-src": ["'self'"],
+            "script-src": ["'self'", "vercel.live", "vercel.com", "'unsafe-inline'"],
+            "style-src": ["'self'", "'unsafe-inline'", "fonts.googleapis.com"],
+            "font-src": ["'self'", "fonts.gstatic.com"],
+            "img-src": ["'self'", "data:", "pineforgedigital.com"],
+            "connect-src": ["'self'", "vercel.live", "vercel.com"]
+        }
+    }
+}));
 app.use(bodyParser.json());
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
