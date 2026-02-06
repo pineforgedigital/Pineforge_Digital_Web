@@ -1,0 +1,57 @@
+/* Contact Page Styles */
+
+/* Main Layout Grid */
+.contact-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* Info Card */
+.contact-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.info-header {
+    margin-bottom: 1.5rem;
+}
+
+/* Info Labels */
+.info-label {
+    color: white;
+    font-weight: 500;
+}
+
+.info-label.mt {
+    margin-top: 1.5rem;
+}
+
+/* Direct Contact Section */
+.direct-contact {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.direct-contact h4 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Logic */
+@media screen and (max-width: 768px) {
+    .contact-section {
+        grid-template-columns: 1fr;
+        /* Stack vertically */
+        gap: 3rem;
+    }
+
+    .contact-card {
+        padding: 1.5rem;
+        /* Slightly smaller padding on mobile */
+    }
+}
