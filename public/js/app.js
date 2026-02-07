@@ -66,9 +66,7 @@ async function submitForm(event) {
     }
 }
 
-function closeModal() {
-    document.getElementById('successModal').classList.remove('active');
-}
+
 
 // Project Loading Logic
 async function loadProjects() {
@@ -310,6 +308,23 @@ async function init() {
     if (contactForm) {
         console.log('Contact form found, binding listener');
         contactForm.addEventListener('submit', submitForm);
+    }
+    // Bind Modal Close Logic
+    const closeBtn = document.getElementById('closeModalBtn');
+    const modalOverlay = document.getElementById('successModal');
+
+    if (closeBtn && modalOverlay) {
+        // Close on button click
+        closeBtn.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+        });
+
+        // Close on click outside (overlay click)
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+            }
+        });
     }
 }
 
