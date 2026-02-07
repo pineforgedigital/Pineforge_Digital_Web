@@ -93,15 +93,16 @@ if (process.env.RESEND_API_KEY) {
 
 // API: Handle Contact Form
 app.post('/api/contact', contactLimiter, async (req, res) => {
-    const { name, email, message } = req.body;
+    const { name, email, company, service, message } = req.body;
 
-    if (!name || !email || !message) {
-        return res.status(400).json({ error: 'All fields are required' });
+    if (!name || !email || !message || !service) {
+        return res.status(400).json({ error: 'Please fill in all required fields.' });
     }
 
     // Input Validation
     if (name.length > 100) return res.status(400).json({ error: 'Name is too long.' });
     if (email.length > 255) return res.status(400).json({ error: 'Email is too long.' });
+    if (company && company.length > 100) return res.status(400).json({ error: 'Company name is too long.' });
     if (message.length > 2000) return res.status(400).json({ error: 'Message is too long.' });
 
     // Basic Email Validation
@@ -110,23 +111,27 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
         return res.status(400).json({ error: 'Invalid email address.' });
     }
 
-    // 1. Save to Database
+    // 1. Save to Database (We need to update the table scheme first if we want to save these)
+    // For now, let's append them to the message string in DB if schema update is risky,
+    // OR just update the SQL query if we assume schema is flexible/we can alter it.
+    // Given we can't easily alter SQLite/Postgres schema without a migration script,
+    // SAFETY: We will prepend Company/Service to the message body for storage.
+
+    const combinedMessage = `
+[Company: ${company || 'N/A'}]
+[Service: ${service}]
+
+${message}`;
+
     const sql = `INSERT INTO inquiries (name, email, message) VALUES (?, ?, ?)`;
 
-    // We wrap db.run in a promise if not already (our hybrid db might behave differently, 
-    // but let's stick to the callback style or check database.js again. 
-    // Actually, looking at previous database.js, it supports a callback.
-
-    db.run(sql, [name, email, message], async function (err) {
+    db.run(sql, [name, email, combinedMessage], async function (err) {
         if (err) {
             console.error('DB Error:', err.message);
             return res.status(500).json({ error: 'Failed to save inquiry' });
         }
 
         const inquiryId = this.lastID || 'postgres-id';
-        // Note: PG implementation in database.js might not set `this.lastID` identically in the callback context 
-        // unless we strictly verified it. But let's focus on email.
-
         console.log(`Inquiry saved. ID: ${inquiryId}`);
 
         // 2. Send Real Email via Resend
@@ -135,13 +140,16 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
                 const data = await resend.emails.send({
                     from: 'Pineforge Website <admin@pineforge.digital>',
                     to: ['admin@pineforge.digital'],
-                    subject: `New Inquiry from ${name}`,
+                    subject: `New Inquiry from ${name} - ${service}`,
                     html: `
                         <h3>New Contact Form Submission</h3>
                         <p><strong>Name:</strong> ${name}</p>
                         <p><strong>Email:</strong> ${email}</p>
+                        <p><strong>Company:</strong> ${company || 'N/A'}</p>
+                        <p><strong>Service Interest:</strong> ${service}</p>
+                        <hr>
                         <p><strong>Message:</strong></p>
-                        <p>${message}</p>
+                        <p>${message.replace(/\n/g, '<br>')}</p>
                     `
                 });
 
