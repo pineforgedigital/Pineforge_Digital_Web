@@ -144,12 +144,11 @@ ${message}`;
         // 2. Send Real Email via Resend
         if (resend) {
             try {
-                const data = await resend.emails.send({
+                // 1. Send Admin Notification (To You)
+                await resend.emails.send({
                     from: 'Pineforge Website <admin@pineforge.digital>',
                     to: ['admin@pineforge.digital'],
-                    reply_to: email, // Directly reply to the customer
-                    subject: `New Inquiry: ${service} - ${name}`,
-                    subject: `New Inquiry: ${service} - ${name}`,
+                    reply_to: email, // Reply to Customer
                     subject: `New Inquiry: ${service} - ${name}`,
                     html: `
                         <!DOCTYPE html>
@@ -214,26 +213,87 @@ ${message}`;
                                 <!-- Footer -->
                                 <tr>
                                     <td style="background-color: #0b1120; padding: 24px; text-align: center; border-top: 1px solid #1e293b;">
-                                        <p style="margin: 0; font-size: 13px; color: #64748b;">
-                                        </p>
                                         <p style="margin: 12px 0 0; font-size: 12px; color: #475569;">
                                             &copy; ${new Date().getFullYear()} Pineforge Digital LLC
                                         </p>
                                     </td>
                                 </tr>
                             </table>
-                            
                         </body>
                         </html>
                     `
                 });
 
-                console.log('Email sent via Resend:', data);
+                // 2. Send User Confirmation (To Customer)
+                await resend.emails.send({
+                    from: 'Caleb Cannon <admin@pineforge.digital>',
+                    to: [email],
+                    reply_to: 'admin@pineforge.digital',
+                    subject: `Received: Your Inquiry to Pineforge Digital`,
+                    html: `
+                        <!DOCTYPE html>
+                        <html>
+                        <body style="font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #0B1120; color: #f8fafc; padding: 40px 20px; margin: 0;">
+                            
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px; margin: 0 auto; background: #0f172a; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.15); border: 1px solid #1e293b;">
+                                
+                                <!-- Header -->
+                                <tr>
+                                    <td style="background-color: #1e293b; padding: 30px; text-align: center; border-bottom: 2px solid #38bdf8;">
+                                        <h1 style="margin: 0; color: #f8fafc; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">Pineforge Digital</h1>
+                                    </td>
+                                </tr>
+
+                                <!-- Content -->
+                                <tr>
+                                    <td style="padding: 40px 30px;">
+                                        <p style="margin: 0 0 20px; font-size: 16px; color: #f8fafc; line-height: 1.6;">
+                                            Hello ${name},
+                                        </p>
+                                        <p style="margin: 0 0 20px; font-size: 16px; color: #cbd5e1; line-height: 1.6;">
+                                            Thanks for getting in touch with Pineforge Digital — I appreciate you reaching out.
+                                        </p>
+                                        <p style="margin: 0 0 20px; font-size: 16px; color: #cbd5e1; line-height: 1.6;">
+                                            I’ve received your message and will take a look at the details you shared. If I need any clarification or next steps, I’ll follow up shortly. In the meantime, feel free to reply to this email if there’s anything additional you’d like me to know.
+                                        </p>
+                                        <p style="margin: 0 0 20px; font-size: 16px; color: #cbd5e1; line-height: 1.6;">
+                                            Looking forward to learning more about your project.
+                                        </p>
+                                        <div style="margin-top: 40px; border-top: 1px solid #334155; padding-top: 20px;">
+                                            <p style="margin: 0 0 5px; font-size: 16px; color: #f8fafc; font-weight: 600;">Best regards,</p>
+                                            <p style="margin: 0 0 5px; font-size: 16px; color: #38bdf8; font-weight: 700;">Caleb Cannon</p>
+                                            <p style="margin: 0 0 5px; font-size: 14px; color: #94a3b8;">Pineforge Digital LLC</p>
+                                            <p style="margin: 0; font-size: 14px; color: #94a3b8;">
+                                                <a href="mailto:admin@pineforge.digital" style="color: #38bdf8; text-decoration: none;">admin@pineforge.digital</a>
+                                            </p>
+                                            <p style="margin: 5px 0 0; font-size: 14px; color: #94a3b8;">
+                                                <a href="https://pineforge.digital" style="color: #38bdf8; text-decoration: none;">https://pineforge.digital</a>
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- Footer -->
+                                <tr>
+                                    <td style="background-color: #0b1120; padding: 24px; text-align: center; border-top: 1px solid #1e293b;">
+                                        <p style="margin: 0; font-size: 12px; color: #475569;">
+                                            &copy; ${new Date().getFullYear()} Pineforge Digital LLC
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </body>
+                        </html>
+                    `
+                });
+
+                console.log('Emails sent via Resend');
                 return res.status(200).json({ message: 'Message received successfully!' });
 
             } catch (emailErr) {
                 console.error('Resend Error:', emailErr);
-                return res.status(200).json({ message: 'Message saved (Email delivery pending config).' });
+                // Even if email fails, we saved to DB, so tell user it's ok but maybe log check
+                return res.status(200).json({ message: 'Message saved (Email delivery issue).' });
             }
         } else {
             console.log('Email skipped (Resend not configured)');
