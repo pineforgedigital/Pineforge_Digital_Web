@@ -18,6 +18,15 @@ async function submitForm(event) {
         message: form.message.value
     };
 
+    // Client-side validation for custom select
+    if (!formData.service) {
+        statusText.style.color = '#ef4444';
+        statusText.innerText = 'Please select a service.';
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Send Message';
+        return;
+    }
+
     try {
         const response = await fetch('/api/contact', {
             method: 'POST',
@@ -33,6 +42,11 @@ async function submitForm(event) {
             statusText.style.color = 'var(--accent-color)';
             statusText.innerText = 'Message sent successfully! We will get back to you soon.';
             form.reset();
+            // Reset custom select UI
+            document.getElementById('selectTriggerText').innerText = 'Select a service...';
+            document.getElementById('selectTriggerText').style.color = '';
+            document.querySelectorAll('.custom-option').forEach(opt => opt.classList.remove('selected'));
+            document.getElementById('service').value = '';
         } else {
             statusText.style.color = '#ef4444'; // Red-ish for error
             statusText.innerText = result.error || 'Failed to send message.';
