@@ -39,8 +39,12 @@ async function submitForm(event) {
         const result = await response.json();
 
         if (response.ok) {
-            statusText.style.color = 'var(--accent-color)';
-            statusText.innerText = 'Message sent successfully! We will get back to you soon.';
+            // Show success modal
+            document.getElementById('successModal').classList.add('active');
+
+            // Clear status text just in case
+            statusText.innerText = '';
+
             form.reset();
             // Reset custom select UI
             document.getElementById('selectTriggerText').innerText = 'Select a service...';
@@ -59,6 +63,10 @@ async function submitForm(event) {
         submitBtn.disabled = false;
         submitBtn.innerText = 'Send Message';
     }
+}
+
+function closeModal() {
+    document.getElementById('successModal').classList.remove('active');
 }
 
 // Project Loading Logic
