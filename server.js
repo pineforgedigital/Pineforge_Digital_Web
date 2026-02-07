@@ -215,7 +215,6 @@ ${message}`;
                                 <tr>
                                     <td style="background-color: #0b1120; padding: 24px; text-align: center; border-top: 1px solid #1e293b;">
                                         <p style="margin: 0; font-size: 13px; color: #64748b;">
-                                            You can simply reply to this email to contact the customer directly.
                                         </p>
                                         <p style="margin: 12px 0 0; font-size: 12px; color: #475569;">
                                             &copy; ${new Date().getFullYear()} Pineforge Digital LLC
