@@ -1,4 +1,5 @@
 async function submitForm(event) {
+    console.log('submitForm called');
     event.preventDefault();
 
     const form = document.getElementById('contactForm');
@@ -303,6 +304,13 @@ async function init() {
     initMobileMenu();
     initScrollReveal();
     initCustomSelect();
+
+    // Bind Form Submit manually
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        console.log('Contact form found, binding listener');
+        contactForm.addEventListener('submit', submitForm);
+    }
 }
 
 // Scroll Reveal Logic
