@@ -13,6 +13,8 @@ async function submitForm(event) {
     const formData = {
         name: form.name.value,
         email: form.email.value,
+        company: form.company.value,
+        service: form.service.value,
         message: form.message.value
     };
 
@@ -145,6 +147,52 @@ async function loadProjectDetail() {
     }
 }
 
+// Custom Select Logic
+function initCustomSelect() {
+    const customSelect = document.getElementById('customSelect');
+    if (!customSelect) return;
+
+    const trigger = customSelect.querySelector('.select-trigger');
+    const options = customSelect.querySelectorAll('.custom-option');
+    const triggerText = document.getElementById('selectTriggerText');
+    const hiddenInput = document.getElementById('service');
+
+    // Toggle dropdown
+    trigger.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent closing immediately
+        customSelect.classList.toggle('open');
+    });
+
+    // Select option
+    options.forEach(option => {
+        option.addEventListener('click', () => {
+            const value = option.getAttribute('data-value');
+            const text = option.innerText;
+
+            // Update UI
+            triggerText.innerText = text;
+            triggerText.style.color = 'white'; // Make selected text white
+
+            // Update hidden input
+            hiddenInput.value = value;
+
+            // Close dropdown
+            customSelect.classList.remove('open');
+
+            // Remove selected class from all and add to current
+            options.forEach(opt => opt.classList.remove('selected'));
+            option.classList.add('selected');
+        });
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!customSelect.contains(e.target)) {
+            customSelect.classList.remove('open');
+        }
+    });
+}
+
 // Engineering Log Logic (About Page)
 async function loadEngineeringLog() {
     const container = document.getElementById('engineering-log-container');
@@ -232,6 +280,7 @@ async function init() {
     initBackToTop();
     initMobileMenu();
     initScrollReveal();
+    initCustomSelect();
 }
 
 // Scroll Reveal Logic

@@ -317,7 +317,8 @@ label {
 }
 
 input,
-textarea {
+textarea,
+select {
     width: 100%;
     padding: 0.75rem 1rem;
     background-color: rgba(11, 17, 32, 0.6);
@@ -334,7 +335,8 @@ textarea {
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
     outline: none;
     border-color: var(--accent-color);
     background-color: rgba(255, 255, 255, 0.05);
@@ -343,6 +345,12 @@ textarea:focus {
 input::placeholder,
 textarea::placeholder {
     color: rgba(255, 255, 255, 0.25);
+}
+
+/* Fix for Select Options (Browser Native Dropdown) */
+select option {
+    background-color: var(--bg-secondary);
+    color: white;
 }
 
 /* Header */
