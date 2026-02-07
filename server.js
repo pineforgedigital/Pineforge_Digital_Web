@@ -147,16 +147,50 @@ ${message}`;
                 const data = await resend.emails.send({
                     from: 'Pineforge Website <admin@pineforge.digital>',
                     to: ['admin@pineforge.digital'],
-                    subject: `New Inquiry from ${name} - ${service}`,
+                    reply_to: email, // Directly reply to the customer
+                    subject: `New Inquiry: ${service} - ${name}`,
                     html: `
-                        <h3>New Contact Form Submission</h3>
-                        <p><strong>Name:</strong> ${name}</p>
-                        <p><strong>Email:</strong> ${email}</p>
-                        <p><strong>Company:</strong> ${company || 'N/A'}</p>
-                        <p><strong>Service Interest:</strong> ${service}</p>
-                        <hr>
-                        <p><strong>Message:</strong></p>
-                        <p>${message.replace(/\n/g, '<br>')}</p>
+                        <!DOCTYPE html>
+                        <html>
+                        <head>
+                            <style>
+                                body { font-family: 'Inter', sans-serif; background-color: #f4f4f5; color: #18181b; padding: 20px; }
+                                .container { max-width: 600px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+                                .header { text-align: center; border-bottom: 1px solid #e4e4e7; padding-bottom: 20px; margin-bottom: 20px; }
+                                .header h2 { margin: 0; color: #1e293b; }
+                                .detail-row { display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid #f4f4f5; padding-bottom: 8px; }
+                                .label { font-weight: 600; color: #64748b; }
+                                .value { font-weight: 500; color: #0f172a; }
+                                .message-box { background: #f8fafc; padding: 20px; border-radius: 6px; border-left: 4px solid #3b82f6; margin-top: 20px; }
+                                .footer { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 30px; }
+                            </style>
+                        </head>
+                        <body>
+                            <div class="container">
+                                <div class="header">
+                                    <h2>New Website Inquiry</h2>
+                                    <p style="margin: 5px 0 0; color: #64748b; font-size: 14px;">from pineforge.digital</p>
+                                </div>
+                                
+                                <div class="detail-row"><span class="label">Name</span> <span class="value">${name}</span></div>
+                                <div class="detail-row"><span class="label">Email</span> <span class="value">${email}</span></div>
+                                <div class="detail-row"><span class="label">Company</span> <span class="value">${company || 'N/A'}</span></div>
+                                <div class="detail-row"><span class="label">Service</span> <span class="value" style="color: #3b82f6;">${service}</span></div>
+
+                                <div style="margin-top: 30px;">
+                                    <p class="label" style="margin-bottom: 10px;">Message:</p>
+                                    <div class="message-box">
+                                        ${message.replace(/\n/g, '<br>')}
+                                    </div>
+                                </div>
+
+                                <div class="footer">
+                                    <p>Reply directly to this email to contact the customer.</p>
+                                    <p>&copy; ${new Date().getFullYear()} Pineforge Digital LLC</p>
+                                </div>
+                            </div>
+                        </body>
+                        </html>
                     `
                 });
 
