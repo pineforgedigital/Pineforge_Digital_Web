@@ -149,45 +149,81 @@ ${message}`;
                     to: ['admin@pineforge.digital'],
                     reply_to: email, // Directly reply to the customer
                     subject: `New Inquiry: ${service} - ${name}`,
+                    subject: `New Inquiry: ${service} - ${name}`,
                     html: `
                         <!DOCTYPE html>
                         <html>
-                        <body style="font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f4f4f5; color: #18181b; padding: 20px; margin: 0;">
-                            <div style="max-width: 600px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border: 1px solid #e4e4e7;">
-                                <div style="text-align: center; border-bottom: 1px solid #e4e4e7; padding-bottom: 20px; margin-bottom: 20px;">
-                                    <h2 style="margin: 0; color: #1e293b; font-size: 24px;">New Website Inquiry</h2>
-                                    <p style="margin: 5px 0 0; color: #64748b; font-size: 14px;">from pineforge.digital</p>
-                                </div>
+                        <body style="font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f8fafc; color: #334155; padding: 40px 20px; margin: 0;">
+                            
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
                                 
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid #f4f4f5; padding-bottom: 8px;">
-                                    <span style="font-weight: 600; color: #64748b; min-width: 100px;">Name:</span> 
-                                    <span style="font-weight: 500; color: #0f172a;">${name}</span>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid #f4f4f5; padding-bottom: 8px;">
-                                    <span style="font-weight: 600; color: #64748b; min-width: 100px;">Email:</span> 
-                                    <span style="font-weight: 500; color: #0f172a;"><a href="mailto:${email}" style="color: #3b82f6; text-decoration: none;">${email}</a></span>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid #f4f4f5; padding-bottom: 8px;">
-                                    <span style="font-weight: 600; color: #64748b; min-width: 100px;">Company:</span> 
-                                    <span style="font-weight: 500; color: #0f172a;">${company || 'N/A'}</span>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid #f4f4f5; padding-bottom: 8px;">
-                                    <span style="font-weight: 600; color: #64748b; min-width: 100px;">Service:</span> 
-                                    <span style="font-weight: 600; color: #3b82f6;">${service}</span>
-                                </div>
+                                <!-- Header -->
+                                <tr>
+                                    <td style="background-color: #0f172a; padding: 30px; text-align: center;">
+                                        <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">Pineforge Digital</h1>
+                                        <div style="width: 40px; height: 4px; background-color: #3b82f6; margin: 15px auto 0; border-radius: 2px;"></div>
+                                        <p style="margin: 15px 0 0; color: #94a3b8; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Website Inquiry</p>
+                                    </td>
+                                </tr>
 
-                                <div style="margin-top: 30px;">
-                                    <p style="font-weight: 600; color: #64748b; margin-bottom: 10px;">Message:</p>
-                                    <div style="background: #f8fafc; padding: 20px; border-radius: 6px; border-left: 4px solid #3b82f6; color: #334155; line-height: 1.6;">
-                                        ${message.replace(/\n/g, '<br>')}
-                                    </div>
-                                </div>
+                                <!-- Content -->
+                                <tr>
+                                    <td style="padding: 40px 30px;">
+                                        
+                                        <!-- Key Details Grid -->
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="padding-bottom: 20px; border-bottom: 1px solid #e2e8f0;">
+                                                    <p style="margin: 0 0 4px; font-size: 12px; text-transform: uppercase; color: #64748b; font-weight: 700;">Name</p>
+                                                    <p style="margin: 0; font-size: 16px; color: #0f172a; font-weight: 500;">${name}</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 20px 0; border-bottom: 1px solid #e2e8f0;">
+                                                    <p style="margin: 0 0 4px; font-size: 12px; text-transform: uppercase; color: #64748b; font-weight: 700;">Email</p>
+                                                    <p style="margin: 0; font-size: 16px; color: #0f172a; font-weight: 500;">
+                                                        <a href="mailto:${email}" style="color: #3b82f6; text-decoration: none;">${email}</a>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 20px 0; border-bottom: 1px solid #e2e8f0;">
+                                                    <p style="margin: 0 0 4px; font-size: 12px; text-transform: uppercase; color: #64748b; font-weight: 700;">Company</p>
+                                                    <p style="margin: 0; font-size: 16px; color: #0f172a; font-weight: 500;">${company || 'N/A'}</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 20px 0;">
+                                                    <p style="margin: 0 0 4px; font-size: 12px; text-transform: uppercase; color: #64748b; font-weight: 700;">Service Interest</p>
+                                                    <span style="display: inline-block; background: #eff6ff; color: #2563eb; padding: 4px 12px; border-radius: 999px; font-size: 14px; font-weight: 600;">${service}</span>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-                                <div style="text-align: center; font-size: 12px; color: #94a3b8; margin-top: 30px; border-top: 1px solid #e4e4e7; padding-top: 20px;">
-                                    <p style="margin: 0;">This email was sent from your website contact form.</p>
-                                    <p style="margin: 5px 0 0;">&copy; ${new Date().getFullYear()} Pineforge Digital LLC</p>
-                                </div>
-                            </div>
+                                        <!-- Message Box -->
+                                        <div style="margin-top: 30px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 24px;">
+                                            <p style="margin: 0 0 12px; font-size: 12px; text-transform: uppercase; color: #64748b; font-weight: 700;">Message</p>
+                                            <div style="color: #334155; font-size: 15px; line-height: 1.6;">
+                                                ${message.replace(/\n/g, '<br>')}
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+
+                                <!-- Footer -->
+                                <tr>
+                                    <td style="background-color: #f8fafc; padding: 24px; text-align: center; border-top: 1px solid #e2e8f0;">
+                                        <p style="margin: 0; font-size: 13px; color: #64748b;">
+                                            You can simply reply to this email to contact the customer directly.
+                                        </p>
+                                        <p style="margin: 12px 0 0; font-size: 12px; color: #94a3b8;">
+                                            &copy; ${new Date().getFullYear()} Pineforge Digital LLC
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
                         </body>
                         </html>
                     `
