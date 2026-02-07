@@ -152,41 +152,40 @@ ${message}`;
                     html: `
                         <!DOCTYPE html>
                         <html>
-                        <head>
-                            <style>
-                                body { font-family: 'Inter', sans-serif; background-color: #f4f4f5; color: #18181b; padding: 20px; }
-                                .container { max-width: 600px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-                                .header { text-align: center; border-bottom: 1px solid #e4e4e7; padding-bottom: 20px; margin-bottom: 20px; }
-                                .header h2 { margin: 0; color: #1e293b; }
-                                .detail-row { display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid #f4f4f5; padding-bottom: 8px; }
-                                .label { font-weight: 600; color: #64748b; }
-                                .value { font-weight: 500; color: #0f172a; }
-                                .message-box { background: #f8fafc; padding: 20px; border-radius: 6px; border-left: 4px solid #3b82f6; margin-top: 20px; }
-                                .footer { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 30px; }
-                            </style>
-                        </head>
-                        <body>
-                            <div class="container">
-                                <div class="header">
-                                    <h2>New Website Inquiry</h2>
+                        <body style="font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f4f4f5; color: #18181b; padding: 20px; margin: 0;">
+                            <div style="max-width: 600px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border: 1px solid #e4e4e7;">
+                                <div style="text-align: center; border-bottom: 1px solid #e4e4e7; padding-bottom: 20px; margin-bottom: 20px;">
+                                    <h2 style="margin: 0; color: #1e293b; font-size: 24px;">New Website Inquiry</h2>
                                     <p style="margin: 5px 0 0; color: #64748b; font-size: 14px;">from pineforge.digital</p>
                                 </div>
                                 
-                                <div class="detail-row"><span class="label">Name</span> <span class="value">${name}</span></div>
-                                <div class="detail-row"><span class="label">Email</span> <span class="value">${email}</span></div>
-                                <div class="detail-row"><span class="label">Company</span> <span class="value">${company || 'N/A'}</span></div>
-                                <div class="detail-row"><span class="label">Service</span> <span class="value" style="color: #3b82f6;">${service}</span></div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid #f4f4f5; padding-bottom: 8px;">
+                                    <span style="font-weight: 600; color: #64748b; min-width: 100px;">Name:</span> 
+                                    <span style="font-weight: 500; color: #0f172a;">${name}</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid #f4f4f5; padding-bottom: 8px;">
+                                    <span style="font-weight: 600; color: #64748b; min-width: 100px;">Email:</span> 
+                                    <span style="font-weight: 500; color: #0f172a;"><a href="mailto:${email}" style="color: #3b82f6; text-decoration: none;">${email}</a></span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid #f4f4f5; padding-bottom: 8px;">
+                                    <span style="font-weight: 600; color: #64748b; min-width: 100px;">Company:</span> 
+                                    <span style="font-weight: 500; color: #0f172a;">${company || 'N/A'}</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid #f4f4f5; padding-bottom: 8px;">
+                                    <span style="font-weight: 600; color: #64748b; min-width: 100px;">Service:</span> 
+                                    <span style="font-weight: 600; color: #3b82f6;">${service}</span>
+                                </div>
 
                                 <div style="margin-top: 30px;">
-                                    <p class="label" style="margin-bottom: 10px;">Message:</p>
-                                    <div class="message-box">
+                                    <p style="font-weight: 600; color: #64748b; margin-bottom: 10px;">Message:</p>
+                                    <div style="background: #f8fafc; padding: 20px; border-radius: 6px; border-left: 4px solid #3b82f6; color: #334155; line-height: 1.6;">
                                         ${message.replace(/\n/g, '<br>')}
                                     </div>
                                 </div>
 
-                                <div class="footer">
-                                    <p>Reply directly to this email to contact the customer.</p>
-                                    <p>&copy; ${new Date().getFullYear()} Pineforge Digital LLC</p>
+                                <div style="text-align: center; font-size: 12px; color: #94a3b8; margin-top: 30px; border-top: 1px solid #e4e4e7; padding-top: 20px;">
+                                    <p style="margin: 0;">This email was sent from your website contact form.</p>
+                                    <p style="margin: 5px 0 0;">&copy; ${new Date().getFullYear()} Pineforge Digital LLC</p>
                                 </div>
                             </div>
                         </body>
