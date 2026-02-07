@@ -1,3 +1,10 @@
+// Load environment variables locally
+try {
+    process.loadEnvFile();
+} catch (err) {
+    // .env file not found (normal in production/Vercel)
+}
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
