@@ -716,6 +716,27 @@ footer {
     box-shadow: 0 0 10px rgba(56, 189, 248, 0.1);
 }
 
+/* Page Header (Privacy/Terms) */
+.page-header {
+    text-align: center;
+    padding-top: 12rem;
+    /* Clear fixed navbar */
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Helper Class for Legal Pages */
+.legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     h1 {
@@ -731,7 +752,7 @@ footer {
     }
 
     .page-header {
-        padding-top: 6rem;
+        padding-top: 10rem;
     }
 
     .footer-top {
