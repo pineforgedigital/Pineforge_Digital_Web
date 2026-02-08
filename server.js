@@ -168,18 +168,17 @@ ${message}`;
 
                                 <!-- Content -->
                                 <tr>
-                                    <td style="padding: 40px 30px; background-color: #0f172a;">
+                                    <td style="padding: 40px 30px; background-color: #0f172a; background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 20px 20px;">
                                         
-                                        <!-- Key Details Grid -->
+                                        <!-- Key Details Grid (2-Column) -->
                                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                             <tr>
-                                                <td style="padding-bottom: 20px; border-bottom: 1px solid #334155;">
+                                                <td width="48%" valign="top" style="padding-bottom: 20px; border-bottom: 1px solid #334155;">
                                                     <p style="margin: 0 0 4px; font-size: 12px; text-transform: uppercase; color: #94a3b8; font-weight: 700;">Name</p>
                                                     <p style="margin: 0; font-size: 16px; color: #f8fafc; font-weight: 500;">${name}</p>
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding: 20px 0; border-bottom: 1px solid #334155;">
+                                                <td width="4%" style="border-bottom: 1px solid #334155;">&nbsp;</td>
+                                                <td width="48%" valign="top" style="padding-bottom: 20px; border-bottom: 1px solid #334155;">
                                                     <p style="margin: 0 0 4px; font-size: 12px; text-transform: uppercase; color: #94a3b8; font-weight: 700;">Email</p>
                                                     <p style="margin: 0; font-size: 16px; color: #f8fafc; font-weight: 500;">
                                                         <a href="mailto:${email}" style="color: #38bdf8; text-decoration: none;">${email}</a>
@@ -187,15 +186,16 @@ ${message}`;
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td style="padding: 20px 0; border-bottom: 1px solid #334155;">
+                                                <td width="48%" valign="top" style="padding-top: 20px; padding-bottom: 5px;">
                                                     <p style="margin: 0 0 4px; font-size: 12px; text-transform: uppercase; color: #94a3b8; font-weight: 700;">Company</p>
                                                     <p style="margin: 0; font-size: 16px; color: #f8fafc; font-weight: 500;">${company || 'N/A'}</p>
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding: 20px 0;">
+                                                <td width="4%" style="">&nbsp;</td>
+                                                <td width="48%" valign="top" style="padding-top: 20px; padding-bottom: 5px;">
                                                     <p style="margin: 0 0 4px; font-size: 12px; text-transform: uppercase; color: #94a3b8; font-weight: 700;">Service Interest</p>
-                                                    <span style="display: inline-block; background-color: rgba(56, 189, 248, 0.1); background-image: linear-gradient(90deg, rgba(56, 189, 248, 0.15) 0%, rgba(56, 189, 248, 0.05) 100%); color: #38bdf8; padding: 6px 14px; border-radius: 999px; font-size: 14px; font-weight: 600; border: 1px solid rgba(56, 189, 248, 0.2); box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);">${service}</span>
+                                                    <div style="margin-top: 5px;">
+                                                        <span style="display: inline-block; background-color: rgba(56, 189, 248, 0.1); background-image: linear-gradient(90deg, rgba(56, 189, 248, 0.15) 0%, rgba(56, 189, 248, 0.05) 100%); color: #38bdf8; padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; border: 1px solid rgba(56, 189, 248, 0.2); box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);">${service}</span>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         </table>
@@ -248,7 +248,7 @@ ${message}`;
 
                                 <!-- Content -->
                                 <tr>
-                                    <td style="padding: 40px 30px; background-color: #0f172a;">
+                                    <td style="padding: 40px 30px; background-color: #0f172a; background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 20px 20px;">
                                         <p style="margin: 0 0 20px; font-size: 16px; color: #f8fafc; line-height: 1.6;">
                                             Hello ${name},
                                         </p>
