@@ -516,31 +516,69 @@ select option {
 }
 
 /* Apple-Style Glassmorphism Cards */
-/* Apple-Style Glassmorphism Cards - High Vibrancy */
+/* Apple-Style Glassmorphism Cards - High Vibrancy & Depth */
 .card {
-    background-color: rgba(30, 41, 59, 0.3);
-    /* Let more gradient through */
-    backdrop-filter: blur(30px) saturate(200%);
-    /* Hyper-vibrant Apple Style */
-    -webkit-backdrop-filter: blur(30px) saturate(200%);
-    padding: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    /* Crisper rim */
-    border-radius: 16px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: rgba(30, 41, 59, 0.4);
+    /* Deeper glass base */
+    backdrop-filter: blur(40px) saturate(220%);
+    /* Stronger blur for depth */
+    -webkit-backdrop-filter: blur(40px) saturate(220%);
+    padding: 2.5rem;
+    /* More breathing room */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Subtle outer rim */
+    border-radius: 24px;
+    /* Rounder, modern corners */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     height: 100%;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* Multi-layer shadow for 3D pop */
+    box-shadow:
+        0 8px 32px 0 rgba(0, 0, 0, 0.36),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .card:hover {
-    background-color: rgba(30, 41, 59, 0.5);
-    /* Slightly lighter on hover */
+    background-color: rgba(30, 41, 59, 0.6);
+    border-color: rgba(56, 189, 248, 0.3);
+    /* Blue tint on hover */
+    transform: translateY(-4px);
+    /* Higher lift */
+    box-shadow:
+        0 20px 40px -5px rgba(0, 0, 0, 0.2),
+        0 10px 20px -5px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(56, 189, 248, 0.3),
+        /* Outer glow ring */
+        inset 0 0 20px rgba(56, 189, 248, 0.1);
+    /* Inner glow */
+}
+
+/* Specific styling for project Tech Items */
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.tech-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.tech-item:hover {
+    background: rgba(255, 255, 255, 0.1);
     border-color: var(--accent-color);
-    transform: translateY(-2px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 40px rgba(56, 189, 248, 0.2);
-    /* Colored glow */
+    transform: translateY(-1px);
 }
 
 .card::before {
@@ -653,13 +691,17 @@ footer {
 .status-badge {
     display: inline-flex;
     align-items: center;
-    padding: 0.25rem 0.6rem;
-    background: rgba(14, 165, 233, 0.1);
+    padding: 0.35rem 0.8rem;
+    background: rgba(14, 165, 233, 0.15);
     color: var(--accent-color);
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 600;
     border-radius: 100px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.1);
 }
 
 /* Responsive */
