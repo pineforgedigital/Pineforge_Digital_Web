@@ -168,7 +168,7 @@ ${message}`;
 
                                 <!-- Content -->
                                 <tr>
-                                    <td style="padding: 40px 30px; background-color: #0f172a; background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 20px 20px;">
+                                    <td style="padding: 40px 30px; background-color: #0B1120; background-image: radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.2) 0%, rgba(129, 140, 248, 0.1) 30%, rgba(11, 17, 32, 0) 70%), linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px); background-size: 100% 100%, 20px 20px, 20px 20px; background-repeat: no-repeat, repeat, repeat;">
                                         
                                         <!-- Key Details Grid (2-Column) -->
                                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
@@ -248,7 +248,7 @@ ${message}`;
 
                                 <!-- Content -->
                                 <tr>
-                                    <td style="padding: 40px 30px; background-color: #0f172a; background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 20px 20px;">
+                                    <td style="padding: 40px 30px; background-color: #0B1120; background-image: radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.2) 0%, rgba(129, 140, 248, 0.1) 30%, rgba(11, 17, 32, 0) 70%), linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px); background-size: 100% 100%, 20px 20px, 20px 20px; background-repeat: no-repeat, repeat, repeat;">
                                         <p style="margin: 0 0 20px; font-size: 16px; color: #f8fafc; line-height: 1.6;">
                                             Hello ${name},
                                         </p>
