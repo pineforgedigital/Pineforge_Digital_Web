@@ -373,10 +373,9 @@ select option {
     /* No margin needed */
     background: rgba(11, 17, 32, 0.5);
     /* More translucent to let colors pop */
-    /* More translucent to let colors pop */
-    backdrop-filter: blur(50px) saturate(200%);
-    /* Max vibrancy */
-    -webkit-backdrop-filter: blur(50px) saturate(200%);
+    backdrop-filter: blur(50px) saturate(300%);
+    /* Hyper-Vibrant */
+    -webkit-backdrop-filter: blur(50px) saturate(300%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     /* Slightly brighter border */
 }
@@ -517,13 +516,13 @@ select option {
 }
 
 /* Apple-Style Glassmorphism Cards */
-/* Apple-Style Glassmorphism Cards - Ultimate Depth */
+/* Apple-Style Glassmorphism Cards - Ultimate Depth & Vibrancy */
 .card {
-    background-color: rgba(20, 25, 40, 0.4);
-    /* Lighter, clearer dark base */
-    backdrop-filter: blur(50px) saturate(200%);
-    /* Maximum frost */
-    -webkit-backdrop-filter: blur(50px) saturate(200%);
+    background: linear-gradient(145deg, rgba(40, 50, 80, 0.4) 0%, rgba(20, 25, 40, 0.3) 100%);
+    /* Dynamic Sheen */
+    backdrop-filter: blur(50px) saturate(300%);
+    /* Hyper-Vibrant */
+    -webkit-backdrop-filter: blur(50px) saturate(300%);
     padding: 2.5rem;
     border: 1px solid rgba(255, 255, 255, 0.12);
     /* Crisper, brighter edge */
@@ -568,8 +567,8 @@ select option {
     border-radius: 50px;
     font-size: 0.85rem;
     color: var(--text-color);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
     transition: all 0.2s ease;
 }
