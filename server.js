@@ -160,7 +160,7 @@ ${message}`;
                                 
                                 <!-- Header -->
                                 <tr>
-                                    <td style="background-color: #1e293b; padding: 30px; text-align: center; border-bottom: 2px solid #38bdf8;">
+                                    <td style="background-color: #1e293b; background-image: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); padding: 30px; text-align: center; border-bottom: 2px solid #38bdf8;">
                                         <img src="https://pineforge.digital/images/Brand_Logo_clear.png" alt="Pineforge Digital" style="width: 140px; height: auto; display: block; margin: 0 auto 15px;">
                                         <p style="margin: 0; color: #94a3b8; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">Website Inquiry</p>
                                     </td>
@@ -168,7 +168,7 @@ ${message}`;
 
                                 <!-- Content -->
                                 <tr>
-                                    <td style="padding: 40px 30px;">
+                                    <td style="padding: 40px 30px; background-color: #0f172a;">
                                         
                                         <!-- Key Details Grid -->
                                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
@@ -195,7 +195,7 @@ ${message}`;
                                             <tr>
                                                 <td style="padding: 20px 0;">
                                                     <p style="margin: 0 0 4px; font-size: 12px; text-transform: uppercase; color: #94a3b8; font-weight: 700;">Service Interest</p>
-                                                    <span style="display: inline-block; background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 6px 14px; border-radius: 999px; font-size: 14px; font-weight: 600; border: 1px solid rgba(56, 189, 248, 0.2);">${service}</span>
+                                                    <span style="display: inline-block; background-color: rgba(56, 189, 248, 0.1); background-image: linear-gradient(90deg, rgba(56, 189, 248, 0.15) 0%, rgba(56, 189, 248, 0.05) 100%); color: #38bdf8; padding: 6px 14px; border-radius: 999px; font-size: 14px; font-weight: 600; border: 1px solid rgba(56, 189, 248, 0.2); box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);">${service}</span>
                                                 </td>
                                             </tr>
                                         </table>
@@ -203,7 +203,7 @@ ${message}`;
                                         <!-- Message Box -->
                                         <div style="margin-top: 35px;">
                                             <p style="margin: 0 0 12px; font-size: 12px; text-transform: uppercase; color: #94a3b8; font-weight: 700;">Message</p>
-                                            <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 24px; color: #e2e8f0; font-size: 15px; line-height: 1.6;">
+                                            <div style="background-color: #1e293b; background-image: linear-gradient(145deg, #1e293b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 8px; padding: 24px; color: #e2e8f0; font-size: 15px; line-height: 1.6; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);">
                                                 ${message.replace(/\n/g, '<br>')}
                                             </div>
                                         </div>
@@ -241,14 +241,14 @@ ${message}`;
                                 
                                 <!-- Header -->
                                 <tr>
-                                    <td style="background-color: #1e293b; padding: 30px; text-align: center; border-bottom: 2px solid #38bdf8;">
+                                    <td style="background-color: #1e293b; background-image: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); padding: 30px; text-align: center; border-bottom: 2px solid #38bdf8;">
                                         <img src="https://pineforge.digital/images/Brand_Logo_clear.png" alt="Pineforge Digital" style="width: 140px; height: auto; display: block; margin: 0 auto 15px;">
                                     </td>
                                 </tr>
 
                                 <!-- Content -->
                                 <tr>
-                                    <td style="padding: 40px 30px;">
+                                    <td style="padding: 40px 30px; background-color: #0f172a;">
                                         <p style="margin: 0 0 20px; font-size: 16px; color: #f8fafc; line-height: 1.6;">
                                             Hello ${name},
                                         </p>
