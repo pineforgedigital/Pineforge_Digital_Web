@@ -487,6 +487,13 @@ select option {
 }
 
 /* Sections */
+/* Page Headers (Privacy/Terms) */
+.page-header {
+    padding-top: 8rem;
+    padding-bottom: 2rem;
+    max-width: 800px;
+}
+
 .section-header {
     margin-bottom: 3rem;
 }
@@ -666,6 +673,10 @@ footer {
     }
 
     .hero {
+        padding-top: 6rem;
+    }
+
+    .page-header {
         padding-top: 6rem;
     }
 
