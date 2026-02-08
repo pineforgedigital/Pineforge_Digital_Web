@@ -150,6 +150,7 @@ ${message}`;
                     to: ['admin@pineforge.digital'],
                     reply_to: email, // Reply to Customer
                     subject: `New Inquiry: ${service} - ${name}`,
+                    text: `Name: ${name}\nEmail: ${email}\nCompany: ${company || 'N/A'}\nService: ${service}\n\nMessage:\n${message}`,
                     html: `
                         <!DOCTYPE html>
                         <html>
@@ -225,63 +226,32 @@ ${message}`;
                 });
 
                 // 2. Send User Confirmation (To Customer)
+                // Using "Personal Letter" style for better Primary Inbox placement
                 await resend.emails.send({
                     from: 'Caleb Cannon <admin@pineforge.digital>',
                     to: [email],
                     reply_to: 'admin@pineforge.digital',
                     subject: `Received: Your Inquiry to Pineforge Digital`,
+                    text: `Hello ${name},\n\nThanks for getting in touch with Pineforge Digital — I appreciate you reaching out.\n\nI’ve received your message and will take a look at the details you shared. If I need any clarification or next steps, I’ll follow up shortly. In the meantime, feel free to reply to this email if there’s anything additional you’d like me to know.\n\nLooking forward to learning more about your project.\n\nBest regards,\nCaleb Cannon\nPineforge Digital LLC\nadmin@pineforge.digital\nhttps://pineforge.digital`,
                     html: `
                         <!DOCTYPE html>
                         <html>
-                        <body style="font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #0B1120; color: #f8fafc; padding: 40px 20px; margin: 0;">
+                        <body style="font-family: sans-serif; font-size: 16px; line-height: 1.6; color: #333333; padding: 20px;">
+                            <p>Hello ${name},</p>
                             
-                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px; margin: 0 auto; background: #0f172a; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.15); border: 1px solid #1e293b;">
-                                
-                                <!-- Header -->
-                                <tr>
-                                    <td style="background-color: #1e293b; padding: 30px; text-align: center; border-bottom: 2px solid #38bdf8;">
-                                        <h1 style="margin: 0; color: #f8fafc; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">Pineforge Digital</h1>
-                                    </td>
-                                </tr>
-
-                                <!-- Content -->
-                                <tr>
-                                    <td style="padding: 40px 30px;">
-                                        <p style="margin: 0 0 20px; font-size: 16px; color: #f8fafc; line-height: 1.6;">
-                                            Hello ${name},
-                                        </p>
-                                        <p style="margin: 0 0 20px; font-size: 16px; color: #cbd5e1; line-height: 1.6;">
-                                            Thanks for getting in touch with Pineforge Digital — I appreciate you reaching out.
-                                        </p>
-                                        <p style="margin: 0 0 20px; font-size: 16px; color: #cbd5e1; line-height: 1.6;">
-                                            I’ve received your message and will take a look at the details you shared. If I need any clarification or next steps, I’ll follow up shortly. In the meantime, feel free to reply to this email if there’s anything additional you’d like me to know.
-                                        </p>
-                                        <p style="margin: 0 0 20px; font-size: 16px; color: #cbd5e1; line-height: 1.6;">
-                                            Looking forward to learning more about your project.
-                                        </p>
-                                        <div style="margin-top: 40px; border-top: 1px solid #334155; padding-top: 20px;">
-                                            <p style="margin: 0 0 5px; font-size: 16px; color: #f8fafc; font-weight: 600;">Best regards,</p>
-                                            <p style="margin: 0 0 5px; font-size: 16px; color: #38bdf8; font-weight: 700;">Caleb Cannon</p>
-                                            <p style="margin: 0 0 5px; font-size: 14px; color: #94a3b8;">Pineforge Digital LLC</p>
-                                            <p style="margin: 0; font-size: 14px; color: #94a3b8;">
-                                                <a href="mailto:admin@pineforge.digital" style="color: #38bdf8; text-decoration: none;">admin@pineforge.digital</a>
-                                            </p>
-                                            <p style="margin: 5px 0 0; font-size: 14px; color: #94a3b8;">
-                                                <a href="https://pineforge.digital" style="color: #38bdf8; text-decoration: none;">https://pineforge.digital</a>
-                                            </p>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <!-- Footer -->
-                                <tr>
-                                    <td style="background-color: #0b1120; padding: 24px; text-align: center; border-top: 1px solid #1e293b;">
-                                        <p style="margin: 0; font-size: 12px; color: #475569;">
-                                            &copy; ${new Date().getFullYear()} Pineforge Digital LLC
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
+                            <p>Thanks for getting in touch with Pineforge Digital — I appreciate you reaching out.</p>
+                            
+                            <p>I’ve received your message and will take a look at the details you shared. If I need any clarification or next steps, I’ll follow up shortly. In the meantime, feel free to reply to this email if there’s anything additional you’d like me to know.</p>
+                            
+                            <p>Looking forward to learning more about your project.</p>
+                            
+                            <div style="margin-top: 40px;">
+                                <p style="margin-bottom: 0; font-weight: bold;">Best regards,</p>
+                                <p style="margin-top: 5px; margin-bottom: 0;">Caleb Cannon</p>
+                                <p style="margin-top: 5px; margin-bottom: 0; color: #666;">Pineforge Digital LLC</p>
+                                <p style="margin-top: 5px; margin-bottom: 0;"><a href="mailto:admin@pineforge.digital" style="color: #38bdf8; text-decoration: none;">admin@pineforge.digital</a></p>
+                                <p style="margin-top: 5px;"><a href="https://pineforge.digital" style="color: #38bdf8; text-decoration: none;">https://pineforge.digital</a></p>
+                            </div>
                         </body>
                         </html>
                     `
