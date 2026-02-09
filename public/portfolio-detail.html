@@ -4,15 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Projects | Pineforge Digital LLC</title>
+    <title>Portfolio Details | Pineforge Digital LLC</title>
     <meta name="description"
-        content="Explore the portfolio of software products, mobile apps, and internal tools built by Pineforge Digital.">
-    <meta property="og:title" content="Projects | Pineforge Digital">
-    <meta property="og:description"
-        content="A collection of our products currently in development or active use, including Gym Exersize Logger and ChemRef Hub.">
+        content="Deep dive into the technical details and development timeline of our software products.">
     <link rel="icon" type="image/png" href="images/favicon_optimized.png">
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -30,40 +27,66 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="/">Home</a></li>
-                    <li><a href="projects">Projects</a></li>
+                    <li><a href="portfolio">Portfolio</a></li>
                     <li><a href="about">About</a></li>
                     <li><a href="contact">Contact</a></li>
                 </ul>
             </nav>
         </header>
 
-        <main>
+        <main id="portfolio-detail-content" style="min-height: 50vh;">
+            <!-- Content loaded via JS -->
+            <p style="padding: 4rem 0;">Loading portfolio details...</p>
+        </main>
+
+        <!-- Template for JS to populate -->
+        <template id="detail-template">
             <section class="hero" style="padding-bottom: 2rem;">
-                <div class="hero-content reveal">
-                    <h1>Projects</h1>
-                    <p class="hero-subtext">A collection of our products currently in development or active use.</p>
+                <div class="hero-content">
+                    <span class="status-badge" id="detail-status"></span>
+                    <h1 id="detail-title"></h1>
+                    <p class="hero-subtext" id="detail-desc"></p>
                 </div>
             </section>
 
+
+
             <section>
-                <div class="card-grid" id="projects-container" data-page="projects">
-                    <!-- Projects loaded via JS -->
-                    <p>Loading projects...</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+                    <div>
+                        <div class="section-header">
+                            <span class="section-label">Infrastructure</span>
+                            <h2>Tech Stack</h2>
+                        </div>
+                        <div class="tech-grid" id="detail-stack">
+                            <!-- Tags go here -->
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="section-header">
+                            <span class="section-label">Progress</span>
+                            <h2>Timeline</h2>
+                        </div>
+                        <div class="engineering-log" id="detail-timeline">
+                            <!-- Timeline items go here -->
+                        </div>
+                    </div>
                 </div>
             </section>
-        </main>
+        </template>
 
         <footer>
             <div class="footer-top">
                 <div class="footer-col" style="max-width: 300px;">
                     <h4>Pineforge Digital LLC</h4>
-                    <p>Building reliable software products and systems in Wisconsin.</p>
+                    <p>Building reliable digital products.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
                         <li><a href="about">About</a></li>
-                        <li><a href="projects">Projects</a></li>
+                        <li><a href="portfolio">Portfolio</a></li>
                         <li><a href="contact">Contact</a></li>
                     </ul>
                 </div>
@@ -77,7 +100,6 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Pineforge Digital LLC. All rights reserved.</p>
-                <p>Designed & Built in Wisconsin, USA.</p>
             </div>
         </footer>
     </div>

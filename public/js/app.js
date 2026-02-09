@@ -70,7 +70,7 @@ async function submitForm(event) {
 
 // Project Loading Logic
 async function loadProjects() {
-    const container = document.getElementById('projects-container');
+    const container = document.getElementById('portfolio-container');
     if (!container) return; // Not on a page with projects
 
     const isHome = container.getAttribute('data-page') === 'home';
@@ -91,7 +91,7 @@ async function loadProjects() {
         }
 
         container.innerHTML = projectsToShow.map(project => `
-            <a href="project-detail?id=${project.id}" class="card" style="display: block; text-decoration: none;">
+            <a href="portfolio-detail?id=${project.id}" class="card" style="display: block; text-decoration: none;">
                 <span class="status-badge">${project.status}</span>
                 <h3>${project.title}</h3>
                 <p>${project.description}</p>
@@ -100,32 +100,32 @@ async function loadProjects() {
 
     } catch (error) {
         console.error('Failed to load projects:', error);
-        container.innerHTML = `<p>Unable to load projects: ${error.message}</p>`;
+        container.innerHTML = `<p>Unable to load portfolio: ${error.message}</p>`;
     }
 }
 
 // Project Detail Page Logic
 async function loadProjectDetail() {
-    const content = document.getElementById('project-detail-content');
+    const content = document.getElementById('portfolio-detail-content');
     if (!content) return;
 
     const urlParams = new URLSearchParams(window.location.search);
     const projectId = urlParams.get('id');
 
     if (!projectId) {
-        content.innerHTML = '<p>Project not found.</p>';
+        content.innerHTML = '<p>Portfolio item not found.</p>';
         return;
     }
 
     try {
         const response = await fetch('/data/projects.json');
-        if (!response.ok) throw new Error('Failed to load project data');
+        if (!response.ok) throw new Error('Failed to load portfolio data');
 
         const projects = await response.json();
         const project = projects.find(p => p.id === projectId);
 
         if (!project) {
-            content.innerHTML = '<p>Project not found.</p>';
+            content.innerHTML = '<p>Portfolio item not found.</p>';
             return;
         }
 
@@ -164,7 +164,7 @@ async function loadProjectDetail() {
 
     } catch (error) {
         console.error('Error loading detail:', error);
-        content.innerHTML = '<p>Error loading project details.</p>';
+        content.innerHTML = '<p>Error loading portfolio details.</p>';
     }
 }
 
