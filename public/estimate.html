@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Project Estimate | Pineforge Digital LLC</title>
+    <meta name="description"
+        content="Configure your project requirements to receive a non-binding estimated investment range for your custom software or website.">
+    <link rel="icon" type="image/png" href="images/favicon_optimized.png">
+    <link rel="stylesheet" href="css/styles.css?v=2">
+    <link rel="stylesheet" href="css/contact.css?v=2">
+    <!-- Reusing contact styles for form consistency -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Specific Styles for Estimate Page */
+        .estimate-group {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .estimate-group h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .radio-grid,
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .option-card {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent-color);
+        }
+
+        .option-card input[type="radio"],
+        .option-card input[type="checkbox"] {
+            margin-right: 1rem;
+            accent-color: var(--accent-color);
+            transform: scale(1.2);
+        }
+
+        .option-card label {
+            cursor: pointer;
+            width: 100%;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .option-card input:checked+label {
+            color: #fff;
+        }
+
+        .option-card:has(input:checked) {
+            border-color: var(--accent-color);
+            background: rgba(56, 189, 248, 0.1);
+        }
+
+        .result-area {
+            display: none;
+            /* Hidden by default */
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(145deg, rgba(8, 12, 24, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
+            border: 1px solid var(--accent-color);
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .price-range {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 1rem 0;
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+        }
+
+        .result-disclaimer {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="main-nav">
+            <a href="/" class="logo">
+                <img src="images/Brand_Logo_clear.png" alt="Pineforge Digital LLC">
+            </a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="services">Services</a></li>
+                    <li><a href="process">Process</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero" style="padding-bottom: 2rem; min-height: 40vh;">
+                <div class="hero-content reveal">
+                    <h1>Website Project Estimate</h1>
+                    <p class="hero-subtext">Configure your project to receive an estimated investment range.</p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                        Estimates are non-binding and based on typical project scope. Final pricing is determined after
+                        review.
+                    </p>
+                </div>
+            </section>
+
+            <section class="contact-section" style="display: block; max-width: 800px; margin: 0 auto;">
+                <div class="reveal">
+                    <form id="estimateForm">
+
+                        <!-- Section A: Website Type -->
+                        <div class="estimate-group">
+                            <h2>Section A: Website Type</h2>
+                            <div class="radio-grid">
+                                <div class="option-card">
+                                    <input type="radio" name="type" id="type_info" value="Informational" checked>
+                                    <label for="type_info">Informational Business Site</label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" name="type" id="type_service" value="Service-Based">
+                                    <label for="type_service">Service-Based Business</label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" name="type" id="type_professional" value="Professional Firm">
+                                    <label for="type_professional">Professional Firm (Legal/Finance)</label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" name="type" id="type_app" value="Custom Web App">
+                                    <label for="type_app">Custom Web Application</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section B: Page Scope -->
+                        <div class="estimate-group">
+                            <h2>Section B: Project Scope</h2>
+                            <div class="radio-grid">
+                                <div class="option-card">
+                                    <input type="radio" name="scope" id="scope_core" value="Core Pages Only" checked>
+                                    <label for="scope_core">Core Pages Only (Home, About, Contact)</label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" name="scope" id="scope_small" value="Small Site">
+                                    <label for="scope_small">Small Site (4–6 Pages)</label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" name="scope" id="scope_medium" value="Medium Site">
+                                    <label for="scope_medium">Medium Site (7–10 Pages)</label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" name="scope" id="scope_large" value="Large Site">
+                                    <label for="scope_large">Large Site (10+ Pages)</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section C: Design & UX -->
+                        <div class="estimate-group">
+                            <h2>Section C: Design & UX</h2>
+                            <div class="radio-grid">
+                                <div class="option-card">
+                                    <input type="radio" name="design" id="design_std" value="Standard" checked>
+                                    <label for="design_std">Standard Professional Design</label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" name="design" id="design_custom" value="Custom Branding">
+                                    <label for="design_custom">Custom Layout & Branding Alignment</label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" name="design" id="design_advanced" value="Advanced UI">
+                                    <label for="design_advanced">Advanced UI Interactions & Animations</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section D: Features -->
+                        <div class="estimate-group">
+                            <h2>Section D: Features</h2>
+                            <div class="checkbox-grid">
+                                <div class="option-card">
+                                    <input type="checkbox" name="features" id="feat_contact" value="Contact Form">
+                                    <label for="feat_contact">Contact Form</label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" name="features" id="feat_logic" value="Custom Form Logic">
+                                    <label for="feat_logic">Custom Form Logic / Validation</label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" name="features" id="feat_auth" value="User Accounts">
+                                    <label for="feat_auth">User Accounts / Authentication</label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" name="features" id="feat_cms" value="CMS">
+                                    <label for="feat_cms">Admin Dashboard or CMS</label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" name="features" id="feat_db" value="Database">
+                                    <label for="feat_db">Database-Backed Content</label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" name="features" id="feat_api" value="Integrations">
+                                    <label for="feat_api">Third-Party Integrations (API/CRM)</label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" name="features" id="feat_seo" value="SEO Fundamentals">
+                                    <label for="feat_seo">SEO Fundamentals</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section E: Deployment -->
+                        <div class="estimate-group">
+                            <h2>Section E: Deployment & Support</h2>
+                            <div class="checkbox-grid">
+                                <div class="option-card">
+                                    <input type="checkbox" name="deployment" id="dept_hosting" value="Hosting Setup">
+                                    <label for="dept_hosting">Hosting & Deployment Setup</label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" name="deployment" id="dept_maint" value="Maintenance">
+                                    <label for="dept_maint">Ongoing Maintenance (Optional)</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Final User Info -->
+                        <div class="estimate-group">
+                            <h2>Your Contact Info</h2>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Your Name"
+                                    autocomplete="name"
+                                    style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; width: 100%; border-radius: 8px; color: white;">
+                            </div>
+                            <div class="form-group" style="margin-top: 1rem;">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required
+                                    placeholder="your.email@example.com" autocomplete="email"
+                                    style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; width: 100%; border-radius: 8px; color: white;">
+                            </div>
+                        </div>
+
+                        <!-- Result Area -->
+                        <div id="resultArea" class="result-area">
+                            <h3>Estimated Project Range</h3>
+                            <div class="price-range" id="priceDisplay">$2,500 – $3,200</div>
+                            <p class="result-disclaimer">
+                                This estimate is a preliminary range based on your selections. Final pricing is provided
+                                after reviewing project details and requirements.
+                            </p>
+                            <button type="submit" class="btn btn-primary" id="submitBtn">Request Final Quote</button>
+                        </div>
+
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-top">
+                <div class="footer-col" style="max-width: 300px;">
+                    <h4>Pineforge Digital LLC</h4>
+                    <p>Building reliable software products and systems in Wisconsin.</p>
+                </div>
+                <!-- Standard Footer Cols -->
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="services">Services</a></li>
+                        <li><a href="process">Process</a></li>
+                        <li><a href="about">About</a></li>
+                        <li><a href="contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy">Privacy Policy</a></li>
+                        <li><a href="terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pineforge Digital LLC. All rights reserved.</p>
+                <p>Designed & Built in Wisconsin, USA.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="js/estimate.js"></script>
+    <script src="js/app.js"></script> <!-- Reusing nav logic -->
+</body>
+
+</html>

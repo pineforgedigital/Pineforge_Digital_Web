@@ -149,7 +149,7 @@ ${message}`;
                     from: 'Pineforge Website <admin@pineforge.digital>',
                     to: ['admin@pineforge.digital'],
                     reply_to: email, // Reply to Customer
-                    subject: `New Inquiry: ${service} - ${name}`,
+                    subject: req.body.isEstimate ? `New Estimate Request: ${name}` : `New Inquiry: ${service} - ${name}`,
                     text: `Name: ${name}\nEmail: ${email}\nCompany: ${company || 'N/A'}\nService: ${service}\n\nMessage:\n${message}`,
                     html: `
                         <!DOCTYPE html>
@@ -162,7 +162,7 @@ ${message}`;
                                 <tr>
                                     <td style="background-color: #1e293b; background-image: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); padding: 30px; text-align: center; border-bottom: 2px solid #38bdf8;">
                                         <img src="https://pineforge.digital/images/Brand_Logo_clear.png" alt="Pineforge Digital" style="width: 140px; height: auto; display: block; margin: 0 auto 15px;">
-                                        <p style="margin: 0; color: #94a3b8; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">Website Inquiry</p>
+                                        <p style="margin: 0; color: #94a3b8; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">${req.body.isEstimate ? 'Project Estimate Request' : 'Website Inquiry'}</p>
                                     </td>
                                 </tr>
 

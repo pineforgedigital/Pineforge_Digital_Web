@@ -1,0 +1,6 @@
+@echo off
+echo Killing Node processes...
+taskkill /F /IM node.exe >nul 2>&1
+echo Starting Server...
+start /B node server.js
+echo Server started!
