@@ -9,6 +9,14 @@
         <loc>https://pineforge.digital/about</loc>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://pineforge.digital/services</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pineforge.digital/process</loc>
+        <priority>0.8</priority>
+    </url>
 
     <url>
         <loc>https://pineforge.digital/contact</loc>
