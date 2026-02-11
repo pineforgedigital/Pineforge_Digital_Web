@@ -139,8 +139,8 @@ body {
 }
 
 .back-to-top:hover {
-    border-color: var(--accent-color);
-    background: rgba(14, 165, 233, 0.1);
+    border-color: var(--accent-warm);
+    background: rgba(245, 158, 11, 0.1);
 }
 
 /* Grid Background & Northern Lights Gradient */
@@ -271,9 +271,9 @@ section {
 }
 
 .tech-item:hover {
-    border-color: var(--accent-color);
-    color: white;
-    background: rgba(14, 165, 233, 0.1);
+    border-color: var(--accent-warm);
+    color: #fbbf24;
+    background: rgba(245, 158, 11, 0.1);
 }
 
 /* Engineering Log / Timeline */
@@ -648,7 +648,7 @@ select option {
 
 .tech-item:hover {
     background: rgba(255, 255, 255, 0.1);
-    border-color: var(--accent-color);
+    border-color: var(--accent-warm);
     transform: translateY(-1px);
 }
 
@@ -779,16 +779,16 @@ footer {
     display: inline-flex;
     align-items: center;
     padding: 0.35rem 0.8rem;
-    background: rgba(14, 165, 233, 0.15);
-    color: var(--accent-color);
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--accent-warm);
     font-size: 0.75rem;
     font-weight: 600;
     border-radius: 100px;
     margin-bottom: 1.25rem;
-    border: 1px solid rgba(56, 189, 248, 0.2);
+    border: 1px solid rgba(245, 158, 11, 0.2);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.1);
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.1);
 }
 
 /* Page Header (Privacy/Terms) */
@@ -883,7 +883,7 @@ footer {
 }
 
 .cookie-content a {
-    color: var(--accent-color);
+    color: var(--accent-warm);
     text-decoration: underline;
 }
 
