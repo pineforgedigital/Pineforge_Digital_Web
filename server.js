@@ -298,17 +298,26 @@ ${message}`;
                                                 </div>
 
                                                 <!-- 4. Feature Selection -->
-                                                <div style="margin-top: 24px;">
-                                                    <h3 style="margin: 0 0 12px; color: #fff; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Selected Features</h3>
-                                                    <div style="font-size: 12px; color: #cbd5e1; line-height: 1.6;">
-                                                        ${selections.features && selections.features.length > 0 ?
-                            selections.features.map(f => `<span style="display: inline-block; background: rgba(255,255,255,0.05); padding: 2px 8px; border-radius: 4px; margin: 0 4px 4px 0; border: 1px solid rgba(255,255,255,0.1);">${f}</span>`).join('')
-                            : '<span style="color: #64748b;">None selected</span>'}
-                                                        ${selections.deployment && selections.deployment.length > 0 ?
-                            selections.deployment.map(d => `<span style="display: inline-block; background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 2px 8px; border-radius: 4px; margin: 0 4px 4px 0; border: 1px solid rgba(56, 189, 248, 0.2);">${d}</span>`).join('')
+                                    <div style="margin-top: 24px;">
+                                        <h3 style="margin: 0 0 12px; color: #fff; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Selected Features</h3>
+                                        <table width="100%" cellpadding="6" style="font-size: 12px; border-collapse: collapse;">
+                                            ${selections.features && selections.features.length > 0 ?
+                            selections.features.map(f => `
+                                                <tr style="border-bottom: 1px solid #1e293b;">
+                                                    <td style="color: #cbd5e1; width: 80%;">${f}</td>
+                                                    <td style="color: #10b981; text-align: right;">✔</td>
+                                                </tr>`).join('')
+                            : '<tr><td style="color: #64748b;">None selected</td></tr>'}
+
+                                            ${selections.deployment && selections.deployment.length > 0 ?
+                            selections.deployment.map(d => `
+                                                <tr style="border-bottom: 1px solid #1e293b;">
+                                                    <td style="color: #38bdf8; width: 80%;">${d}</td>
+                                                    <td style="color: #38bdf8; text-align: right;">Included</td>
+                                                </tr>`).join('')
                             : ''}
-                                                    </div>
-                                                </div>
+                                        </table>
+                                    </div>
 
                                                 <hr style="border: 0; border-top: 1px solid #334155; margin: 24px 0;">
 
