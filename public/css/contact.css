@@ -22,7 +22,7 @@
 
 /* Info Labels */
 .info-label {
-    color: white;
+    color: var(--accent-warm);
     font-weight: 500;
 }
 
