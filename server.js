@@ -243,152 +243,158 @@ ${message}`;
                     // NEW ADMIN TEMPLATE (Internal Brief)
                     // ----------------------------------------
                     adminHtml = `
+                        <!DOCTYPE html>
+                        <html>
+                        <body style="font-family: 'Inter', system-ui, sans-serif; background-color: #0B1120; color: #cbd5e1; padding: 20px; margin: 0;">
+                            
+                            <div style="max-width: 600px; margin: 0 auto; background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; overflow: hidden;">
+                                
+                                <!-- 1. Header -->
+                                <div style="background: #1e293b; padding: 15px; border-bottom: 1px solid #334155; text-align: center;">
+                                    <h2 style="margin: 0; color: #fff; font-size: 16px; letter-spacing: 0.5px; text-transform: uppercase;">Pineforge Digital</h2>
+                                    <p style="margin: 4px 0 0; font-size: 11px; color: #94a3b8; text-transform: uppercase;">New Website Estimate Submission</p>
+                                    <p style="margin: 2px 0 0; font-size: 10px; color: #475569;">${new Date().toLocaleString()}</p>
+                                </div>
 
-                        < !DOCTYPE html >
-                            <html>
-                                <body style="font-family: 'Inter', system-ui, sans-serif; background-color: #0B1120; color: #cbd5e1; padding: 20px; margin: 0;">
+                                <div style="padding: 24px;">
 
-                                    <div style="max-width: 600px; margin: 0 auto; background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; overflow: hidden;">
+                                    <!-- 2. Client Info -->
+                                    <table width="100%" style="font-size: 13px; margin-bottom: 20px;">
+                                        <tr>
+                                            <td width="30%" style="color: #64748b;">Name</td>
+                                            <td style="color: #fff; font-weight: 500;">${name}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: #64748b;">Email</td>
+                                            <td style="color: #38bdf8;">${email}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: #64748b;">Company</td>
+                                            <td style="color: #fff;">${company || 'Not Provided'}</td>
+                                        </tr>
+                                    </table>
 
-                                        <!-- 1. Header -->
-                                        <div style="background: #1e293b; padding: 15px; border-bottom: 2px solid #38bdf8; text-align: center;">
-                                            <h2 style="margin: 0; color: #fff; font-size: 16px; letter-spacing: 0.5px; text-transform: uppercase;">Pineforge Digital</h2>
-                                            <p style="margin: 4px 0 0; font-size: 11px; color: #94a3b8; text-transform: uppercase;">New Website Estimate Submission</p>
-                                            <p style="margin: 2px 0 0; font-size: 10px; color: #64748b;">${new Date().toLocaleString()}</p>
-                                        </div>
+                                    <hr style="border: 0; border-top: 1px solid #334155; margin: 20px 0;">
 
-                                        <div style="padding: 24px;">
-
-                                            <!-- 2. Client Info -->
-                                            <table width="100%" style="font-size: 13px; margin-bottom: 20px;">
-                                                <tr>
-                                                    <td width="30%" style="color: #64748b;">Name</td>
-                                                    <td style="color: #fff; font-weight: 500;">${name}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="color: #64748b;">Email</td>
-                                                    <td style="color: #38bdf8;">${email}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="color: #64748b;">Company</td>
-                                                    <td style="color: #fff;">${company || 'Not Provided'}</td>
-                                                </tr>
-                                            </table>
-
-                                            <hr style="border: 0; border-top: 1px solid #334155; margin: 20px 0;">
-
-                                                <!-- 3. Project Snapshot -->
-                                                <h3 style="margin: 0 0 12px; color: #fff; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Project Snapshot</h3>
-                                                <div style="background: #1e293b; padding: 16px; border-radius: 6px; font-size: 13px; line-height: 1.8; border-left: 3px solid #38bdf8;">
-                                                    <div><span style="color: #94a3b8;">Type:</span> <strong style="color: #fff;">${selections.type}</strong></div>
-                                                    <div><span style="color: #94a3b8;">Scope:</span> <strong style="color: #fff;">${selections.scope}</strong></div>
-                                                    <div><span style="color: #94a3b8;">Design:</span> <strong style="color: #fff;">${selections.design}</strong></div>
-                                                    <div><span style="color: #94a3b8;">Goal:</span> <strong style="color: #fff;">${selections.goal}</strong></div>
-
-                                                    <!-- Warning Badges in Snapshot -->
-                                                    <div style="margin-top: 8px;">
-                                                        ${selections.content === 'Need Help' || selections.content === 'Later' ?
-                            '<div><span style="color: #fca5a5;">⚠ Content Not Ready</span></div>' :
+                                    <!-- 3. Project Snapshot -->
+                                    <h3 style="margin: 0 0 12px; color: #fff; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Project Snapshot</h3>
+                                    <div style="background: #1e293b; padding: 16px; border-radius: 6px; font-size: 13px; line-height: 1.8; border-left: 3px solid #38bdf8;">
+                                        <div><span style="color: #94a3b8;">Type:</span> <strong style="color: #fff;">${selections.type}</strong></div>
+                                        <div><span style="color: #94a3b8;">Scope:</span> <strong style="color: #fff;">${selections.scope}</strong></div>
+                                        <div><span style="color: #94a3b8;">Design:</span> <strong style="color: #fff;">${selections.design}</strong></div>
+                                        <div><span style="color: #94a3b8;">Goal:</span> <strong style="color: #fff;">${selections.goal}</strong></div>
+                                        
+                                        <!-- Warning Badges in Snapshot -->
+                                        <div style="margin-top: 8px;">
+                                            ${selections.content === 'Need Help' || selections.content === 'Later' ?
+                            '<div><span style="color: #fca5a5;">⚠ Content Not Ready (Risk Flag)</span></div>' :
                             '<div><span style="color: #94a3b8;">Content:</span> <strong style="color: #fff;">' + selections.content + '</strong></div>'}
-
-                                                        ${selections.timeline === 'Urgent' ?
+                                            
+                                            ${selections.timeline === 'Urgent' ?
                             '<div><span style="color: #fca5a5;">⚠ Urgent Timeline (&lt; 4 Weeks)</span></div>' :
                             '<div><span style="color: #94a3b8;">Timeline:</span> <strong style="color: #fff;">' + selections.timeline + '</strong></div>'}
-                                                    </div>
-                                                </div>
+                                        </div>
+                                    </div>
 
-                                                <!-- 4. Feature Selection -->
+                                    <!-- 4. Selected Features (Table Format) -->
                                     <div style="margin-top: 24px;">
                                         <h3 style="margin: 0 0 12px; color: #fff; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Selected Features</h3>
                                         <table width="100%" cellpadding="6" style="font-size: 12px; border-collapse: collapse;">
                                             ${selections.features && selections.features.length > 0 ?
                             selections.features.map(f => `
                                                 <tr style="border-bottom: 1px solid #1e293b;">
-                                                    <td style="color: #cbd5e1; width: 80%;">${f}</td>
-                                                    <td style="color: #10b981; text-align: right;">✔</td>
+                                                    <td style="color: #cbd5e1; width: 90%;">• ${f}</td>
                                                 </tr>`).join('')
                             : '<tr><td style="color: #64748b;">None selected</td></tr>'}
-
+                                            
                                             ${selections.deployment && selections.deployment.length > 0 ?
                             selections.deployment.map(d => `
                                                 <tr style="border-bottom: 1px solid #1e293b;">
-                                                    <td style="color: #38bdf8; width: 80%;">${d}</td>
-                                                    <td style="color: #38bdf8; text-align: right;">Included</td>
+                                                    <td style="color: #38bdf8; width: 90%;">• ${d} (Deployment)</td>
                                                 </tr>`).join('')
                             : ''}
                                         </table>
                                     </div>
 
-                                                <hr style="border: 0; border-top: 1px solid #334155; margin: 24px 0;">
+                                    <hr style="border: 0; border-top: 1px solid #334155; margin: 24px 0;">
 
-                                                    <!-- 5. INTERNAL PRICING BREAKDOWN (Admin Only) -->
-                                                    <h3 style="margin: 0 0 16px; color: #38bdf8; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Internal Pricing Breakdown (Admin Only)</h3>
-
-                                                    <table width="100%" cellpadding="8" style="font-size: 12px; border-collapse: collapse;">
-                                                        <tr style="border-bottom: 1px solid #334155; color: #64748b;">
-                                                            <th align="left" style="font-weight: 600;">Item</th>
-                                                            <th align="right" style="font-weight: 600;">Internal Cost</th>
-                                                        </tr>
-
-                                                        ${pricingBreakdown.breakdown.map(item => `
+                                    <!-- 5. INTERNAL PRICING BREAKDOWN (Admin Only) -->
+                                    <h3 style="margin: 0 0 16px; color: #38bdf8; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Internal Pricing Breakdown (Admin Only)</h3>
+                                    
+                                    <table width="100%" cellpadding="8" style="font-size: 12px; border-collapse: collapse;">
+                                        <tr style="border-bottom: 1px solid #334155; color: #64748b;">
+                                            <th align="left" style="font-weight: 600;">Item</th>
+                                            <th align="right" style="font-weight: 600;">Internal Cost</th>
+                                        </tr>
+                                        
+                                        ${pricingBreakdown.breakdown.map(item => `
                                         <tr style="border-bottom: 1px solid #1e293b;">
                                             <td style="color: #e2e8f0;">${item.item}</td>
                                             <td align="right" style="font-family: monospace; color: #cbd5e1;">${fmt(item.cost)}</td>
                                         </tr>
                                         `).join('')}
-                                                    </table>
+                                    </table>
 
-                                                    <!-- 6. Multipliers -->
-                                                    <div style="margin-top: 20px;">
-                                                        <h4 style="margin: 0 0 10px; color: #fff; font-size: 12px; text-transform: uppercase;">Complexity & Scheduling Multipliers</h4>
-                                                        <div style="background: #0b1120; padding: 12px; border-radius: 6px; font-size: 12px; border: 1px solid #1e293b;">
-                                                            ${pricingBreakdown.multipliers.map(m => `
-                                                <div style="display: flex; justify-content: space-between; margin-bottom: 6px; align-items: center;">
-                                                    <div>
-                                                        <span style="color: #cbd5e1; font-weight: 600;">${m.name}</span>
-                                                        <div style="color: #64748b; font-size: 10px;">Applied factor: ${m.factor}</div>
-                                                    </div>
-                                                    <div style="color: #fbbf24; font-family: monospace; font-weight: bold;">&times; ${m.val}</div>
+                                    <!-- 6. Multipliers & Math -->
+                                    <div style="margin-top: 20px;">
+                                        <h4 style="margin: 0 0 10px; color: #fff; font-size: 12px; text-transform: uppercase;">Complexity & Scheduling Logic</h4>
+                                        <div style="background: #0b1120; padding: 12px; border-radius: 6px; font-size: 12px; border: 1px solid #1e293b; font-family: monospace; line-height: 1.6;">
+                                            
+                                            <div style="display: flex; justify-content: space-between; color: #94a3b8; margin-bottom: 4px;">
+                                                <span>Subtotal (Sum of items)</span>
+                                                <span>${fmt(pricingBreakdown.subtotal)}</span>
+                                            </div>
+
+                                            ${pricingBreakdown.multipliers.map((m, index) => {
+                                // Calculate cumulative total for display
+                                let currentTotal = pricingBreakdown.subtotal;
+                                for (let i = 0; i <= index; i++) {
+                                    currentTotal *= pricingBreakdown.multipliers[i].val;
+                                }
+                                return `
+                                                <div style="display: flex; justify-content: space-between; color: #cbd5e1; margin-bottom: 4px;">
+                                                    <span>${m.name} (&times;${m.val})</span>
+                                                    <span style="color: #fbbf24;">&rarr; ${fmt(currentTotal)}</span>
                                                 </div>
-                                            `).join('')}
-                                                        </div>
-                                                    </div>
+                                                `;
+                            }).join('')}
 
-                                                    <!-- 7. Internal Calculation Summary -->
-                                                    <div style="margin-top: 20px; text-align: right;">
-                                                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 12px;">
-                                                            <span style="color: #94a3b8;">Subtotal (before multipliers)</span>
-                                                            <span style="font-family: monospace; color: #cbd5e1;">${fmt(pricingBreakdown.subtotal)}</span>
-                                                        </div>
-                                                        <div style="display: flex; justify-content: space-between; padding-top: 12px; border-top: 1px solid #334155;">
-                                                            <span style="color: #fff; font-weight: 600; font-size: 13px;">Final Internal Total</span>
-                                                            <span style="font-family: monospace; font-weight: 700; color: #fff; font-size: 16px;">${fmt(pricingBreakdown.total)}</span>
-                                                        </div>
-                                                    </div>
+                                            <div style="display: flex; justify-content: space-between; margin-top: 8px; padding-top: 8px; border-top: 1px solid #334155; font-weight: bold; color: #fff;">
+                                                <span>Final Risk-Adjusted Total</span>
+                                                <span>${fmt(pricingBreakdown.total)}</span>
+                                            </div>
 
-                                                    <div style="height: 30px;"></div>
+                                        </div>
+                                    </div>
 
-                                                    <!-- 8. Client-Facing Estimate -->
-                                                    <div style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); padding: 16px; border-radius: 8px; text-align: center;">
-                                                        <h4 style="margin: 0 0 8px; font-size: 11px; text-transform: uppercase; color: #10b981; letter-spacing: 1px;">Estimate Presented to Client</h4>
-                                                        <div style="font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 4px;">
-                                                            ${fmt(pricingBreakdown.clientRange.min)} – ${fmt(pricingBreakdown.clientRange.max)}
-                                                        </div>
-                                                        <p style="margin: 0; font-size: 10px; color: #64748b;">Client sees range only. Itemized pricing is internal.</p>
-                                                    </div>
+                                    <div style="height: 30px;"></div>
 
-                                                    <hr style="border: 0; border-top: 1px solid #334155; margin: 30px 0;">
+                                    <!-- 8. Client-Facing Estimate -->
+                                    <div style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); padding: 16px; border-radius: 8px; text-align: center;">
+                                        <h4 style="margin: 0 0 8px; font-size: 11px; text-transform: uppercase; color: #10b981; letter-spacing: 1px;">Estimate Presented to Client</h4>
+                                        <div style="font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 4px;">
+                                            ${fmt(pricingBreakdown.clientRange.min)} – ${fmt(pricingBreakdown.clientRange.max)}
+                                        </div>
+                                        <p style="margin: 0; font-size: 10px; color: #64748b;">Client sees range only. Itemized pricing is internal.</p>
+                                    </div>
 
-                                                        <!-- 10. Raw Submission -->
-                                                        <h4 style="margin: 0 0 10px; font-size: 10px; color: #475569; text-transform: uppercase;">Raw Submission Data</h4>
-                                                        <pre style="background: #0b1120; padding: 10px; border-radius: 4px; font-size: 10px; color: #475569; white-space: pre-wrap; margin: 0;">${message}</pre>
+                                    <!-- 9. Suggested Next Step -->
+                                    <div style="margin-top: 24px; padding: 12px; border-left: 2px solid #38bdf8; background: #1e293b;">
+                                        <h4 style="margin: 0 0 4px; color: #fff; font-size: 12px;">Suggested Next Step:</h4>
+                                        <p style="margin: 0; font-size: 12px; color: #cbd5e1;">Schedule a discovery call to confirm scope, content readiness, and timeline before issuing a formal quote.</p>
+                                    </div>
 
-                                                    </div>
-                                                </div>
-                                            </body>
-                                        </html>
-                                        `;
+                                    <hr style="border: 0; border-top: 1px solid #334155; margin: 30px 0;">
+                                    
+                                    <!-- 10. Raw Submission (Appendix) -->
+                                    <h4 style="margin: 0 0 10px; font-size: 10px; color: #475569; text-transform: uppercase;">Appendix / Raw Data</h4>
+                                    <pre style="background: #0b1120; padding: 10px; border-radius: 4px; font-size: 10px; color: #334155; white-space: pre-wrap; margin: 0;">${message}</pre>
 
+                                </div>
+                            </div>
+                        </body>
+                        </html>
+                    `;
                 } else {
                     // ----------------------------------------
                     // STANDARD INQUIRY TEMPLATE (Legacy)
