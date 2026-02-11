@@ -177,9 +177,30 @@ Estimated Range: ${priceDisplay.textContent}
                 submitBtn.textContent = 'Request Sent!';
                 submitBtn.style.backgroundColor = '#10b981'; // Green
                 submitBtn.style.borderColor = '#10b981';
-                setTimeout(() => {
+                submitBtn.textContent = 'Request Sent!';
+                submitBtn.style.backgroundColor = '#10b981'; // Green
+                submitBtn.style.borderColor = '#10b981';
+
+                // Show Success Modal
+                const modal = document.getElementById('successModal');
+                if (modal) {
+                    modal.classList.add('active');
+
+                    // Handle Close
+                    const closeBtn = document.getElementById('closeModalBtn');
+                    if (closeBtn) {
+                        closeBtn.onclick = () => window.location.href = '/';
+                    }
+
+                    // Close on outside click
+                    modal.onclick = (e) => {
+                        if (e.target === modal) {
+                            window.location.href = '/';
+                        }
+                    };
+                } else {
                     alert('We have received your estimate request. We will review the details and contact you shortly.');
-                }, 500);
+                }
             } else {
                 throw new Error('Server error');
             }
