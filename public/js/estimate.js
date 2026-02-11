@@ -153,7 +153,17 @@ Business Goal: ${document.querySelector('input[name="goal"]:checked')?.value}
 
 Estimated Range: ${priceDisplay.textContent}
             `,
-            isEstimate: true
+            isEstimate: true,
+            selections: {
+                type: document.querySelector('input[name="type"]:checked')?.value || 'Informational',
+                scope: document.querySelector('input[name="scope"]:checked')?.value || 'Core Pages Only',
+                design: document.querySelector('input[name="design"]:checked')?.value || 'Standard',
+                features: Array.from(form.querySelectorAll('input[name="features"]:checked')).map(cb => cb.value),
+                deployment: Array.from(form.querySelectorAll('input[name="deployment"]:checked')).map(cb => cb.value),
+                content: document.querySelector('input[name="content"]:checked')?.value || 'Ready',
+                timeline: document.querySelector('input[name="timeline"]:checked')?.value || 'Flexible',
+                goal: document.querySelector('input[name="goal"]:checked')?.value || 'Generate Leads'
+            }
         };
 
         try {
