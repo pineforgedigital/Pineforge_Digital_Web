@@ -473,15 +473,121 @@ ${message}`;
                     html: adminHtml
                 });
 
-                // 2. Send User Confirmation (To Customer) - UNCHANGED
-                // ... (Keep existing User Confirmation Logic)
-                await resend.emails.send({
-                    from: 'Caleb Cannon <admin@pineforge.digital>',
-                    to: [email],
-                    reply_to: 'admin@pineforge.digital',
-                    subject: `Received: Your Inquiry to Pineforge Digital`,
-                    text: `Hello ${name},\n\nThanks for getting in touch with Pineforge Digital — I appreciate you reaching out.\n\nI’ve received your message and will take a look at the details you shared. If I need any clarification or next steps, I’ll follow up shortly. In the meantime, feel free to reply to this email if there’s anything additional you’d like me to know.\n\nLooking forward to learning more about your project.\n\nBest regards,\nCaleb Cannon\nPineforge Digital LLC\nadmin@pineforge.digital\nhttps://pineforge.digital`,
-                    html: `
+                // 2. Send User Confirmation (To Customer)
+                // ----------------------------------------
+                let userSubject = `Received: Your Inquiry to Pineforge Digital`;
+                let userHtml = '';
+
+                if (isEstimate && pricingBreakdown) {
+                    // ----------------------------------------
+                    // OPTION A: NEW CLIENT ESTIMATE TEMPLATE
+                    // ----------------------------------------
+                    userSubject = `We've Received Your Project Estimate Request`;
+
+                    userHtml = `
+                    <!DOCTYPE html>
+                    <html>
+                    <body style="font-family: 'Inter', system-ui, sans-serif; background-color: #0B1120; color: #cbd5e1; padding: 20px; margin: 0;">
+                        
+                        <div style="max-width: 600px; margin: 0 auto; background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; overflow: hidden;">
+                            
+                            <!-- 1. Header -->
+                            <div style="background: #1e293b; padding: 30px 20px; border-bottom: 2px solid #38bdf8; text-align: center;">
+                                <img src="https://pineforge.digital/images/Brand_Logo_clear.png" alt="Pineforge Digital" style="width: 120px; height: auto; display: block; margin: 0 auto 16px;">
+                                <h1 style="margin: 0; color: #fff; font-size: 18px; font-weight: 600; letter-spacing: 0.5px;">Your Project Estimate Has Been Received</h1>
+                            </div>
+
+                            <div style="padding: 30px;">
+
+                                <!-- 2. Greeting -->
+                                <p style="margin: 0 0 16px; font-size: 15px; color: #e2e8f0; line-height: 1.6;">Hello ${name.split(' ')[0]},</p>
+                                <p style="margin: 0 0 24px; font-size: 14px; color: #94a3b8; line-height: 1.6;">
+                                    Thanks for configuring your project with Pineforge Digital. We've received your details and have prepared an initial estimated range based on your selections.
+                                </p>
+
+                                <hr style="border: 0; border-top: 1px solid #334155; margin: 24px 0;">
+
+                                <!-- 3. Project Summary -->
+                                <h3 style="margin: 0 0 16px; color: #fff; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Your Project Summary</h3>
+                                <div style="background: #1e293b; border-radius: 8px; padding: 20px; border: 1px solid #334155;">
+                                    <table width="100%" cellpadding="4" style="font-size: 13px; border-collapse: collapse;">
+                                        <tr>
+                                            <td style="color: #94a3b8; width: 40%;">Website Type</td>
+                                            <td style="color: #fff; font-weight: 500;">${selections.type}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: #94a3b8;">Scope</td>
+                                            <td style="color: #fff; font-weight: 500;">${selections.scope}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: #94a3b8;">Design Level</td>
+                                            <td style="color: #fff; font-weight: 500;">${selections.design}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: #94a3b8;">Timeline</td>
+                                            <td style="color: #fff; font-weight: 500;">${selections.timeline}</td>
+                                        </tr>
+                                    </table>
+                                    
+                                    ${selections.features && selections.features.length > 0 ? `
+                                    <div style="margin-top: 16px; pt-16px; border-top: 1px dashed #475569; padding-top: 12px;">
+                                        <p style="margin: 0 0 8px; font-size: 11px; text-transform: uppercase; color: #94a3b8;">Selected Features</p>
+                                        <div style="font-size: 12px; color: #cbd5e1; line-height: 1.6;">
+                                            ${selections.features.map(f => `<span style="display:inline-block; margin-right: 8px;">• ${f}</span>`).join('')}
+                                        </div>
+                                    </div>` : ''}
+                                </div>
+
+                                <!-- 4. Estimated Investment Range -->
+                                <div style="margin-top: 30px; text-align: center; background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 12px; padding: 24px;">
+                                    <p style="margin: 0 0 8px; font-size: 11px; text-transform: uppercase; color: #38bdf8; letter-spacing: 1px; font-weight: 600;">Estimated Investment Range</p>
+                                    <div style="font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 8px; text-shadow: 0 2px 10px rgba(56,189,248,0.2);">
+                                        ${fmt(pricingBreakdown.clientRange.min)} – ${fmt(pricingBreakdown.clientRange.max)}
+                                    </div>
+                                    <p style="margin: 0; font-size: 11px; color: #64748b; line-height: 1.4; max-width: 80%; margin: 0 auto;">
+                                        This range is an estimate based on the information provided and may change after a detailed scope review.
+                                    </p>
+                                </div>
+
+                                <!-- 5. What This Includes -->
+                                <div style="margin-top: 30px;">
+                                    <h4 style="margin: 0 0 12px; font-size: 13px; color: #fff;">What's included in this estimate?</h4>
+                                    <ul style="margin: 0; padding-left: 20px; color: #cbd5e1; font-size: 13px; line-height: 1.6;">
+                                        <li style="margin-bottom: 6px;">Professional design and mobile-responsive layout</li>
+                                        <li style="margin-bottom: 6px;">Implementation of all selected features (${selections.features ? selections.features.length : 0} items)</li>
+                                        <li style="margin-bottom: 6px;">SEO-friendly structure and performance optimization</li>
+                                        ${selections.deployment && selections.deployment.includes('Hosting Setup') ? '<li style="margin-bottom: 6px;">Full hosting setup and domain configuration</li>' : ''}
+                                        ${selections.content === 'Ready' ? '<li style="margin-bottom: 6px;">Content integration (provided by you)</li>' : ''}
+                                    </ul>
+                                </div>
+
+                                <!-- 6. Next Steps -->
+                                <div style="margin-top: 30px; background: #0b1120; border-left: 2px solid #38bdf8; padding: 16px;">
+                                    <h4 style="margin: 0 0 8px; font-size: 13px; color: #fff;">What happens next?</h4>
+                                    <p style="margin: 0; font-size: 13px; color: #94a3b8; line-height: 1.5;">
+                                        I will personally review your submission to ensure all details align with your goals. I may follow up with a few clarifying questions or propose a brief discovery call to finalize the scope before issuing a formal proposal.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <!-- 7. Footer -->
+                            <div style="background: #0b1120; padding: 24px; text-align: center; border-top: 1px solid #1e293b;">
+                                <p style="margin: 0 0 8px; font-size: 12px; color: #fff; font-weight: 600;">Pineforge Digital LLC</p>
+                                <p style="margin: 0 0 16px; font-size: 11px; color: #64748b;">Wisconsin, USA</p>
+                                <a href="https://pineforge.digital" style="color: #38bdf8; text-decoration: none; font-size: 11px;">pineforge.digital</a>
+                            </div>
+
+                        </div>
+                    </body>
+                    </html>
+                    `;
+
+                } else {
+                    // ----------------------------------------
+                    // OPTION B: STANDARD INQUIRY TEMPLATE (Legacy)
+                    // ----------------------------------------
+                    userHtml = `
                                         <!DOCTYPE html>
                                         <html>
                                             <body style="font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #0B1120; color: #f8fafc; padding: 40px 20px; margin: 0;">
@@ -535,7 +641,16 @@ ${message}`;
                                                 </table>
                                             </body>
                                         </html>
-                                        `
+                    `;
+                }
+
+                await resend.emails.send({
+                    from: 'Pineforge Digital <admin@pineforge.digital>',
+                    to: [email],
+                    reply_to: 'admin@pineforge.digital',
+                    subject: userSubject,
+                    text: `Hello ${name},\n\nWe have received your request. We will review your details and get back to you shortly.\n\nBest,\nPineforge Digital`,
+                    html: userHtml
                 });
 
                 console.log('Emails sent via Resend');
