@@ -105,17 +105,17 @@
 
         /* Selected State (The "Lit Up" Glass) */
         .option-card:has(input:checked) {
-            background: rgba(56, 189, 248, 0.15);
-            /* Accent tint */
-            border-color: var(--accent-color);
+            background: rgba(245, 158, 11, 0.15);
+            /* Amber tint */
+            border-color: var(--accent-warm);
             box-shadow:
-                0 0 20px rgba(56, 189, 248, 0.15),
-                inset 0 0 0 1px rgba(56, 189, 248, 0.2);
+                0 0 20px rgba(245, 158, 11, 0.15),
+                inset 0 0 0 1px rgba(245, 158, 11, 0.2);
         }
 
         .option-card:has(input:checked) label {
             color: #fff;
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
             font-weight: 600;
         }
 
@@ -129,22 +129,22 @@
             margin-top: 4rem;
             padding: 2.5rem;
             background: linear-gradient(145deg, rgba(15, 23, 42, 0.9) 0%, rgba(8, 12, 24, 0.95) 100%);
-            border: 1px solid var(--accent-color);
+            border: 1px solid var(--accent-warm);
             border-radius: 24px;
             text-align: center;
-            box-shadow: 0 0 50px rgba(56, 189, 248, 0.1);
+            box-shadow: 0 0 50px rgba(245, 158, 11, 0.1);
             animation: fadeIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         .price-range {
             font-size: 3rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #fff 0%, #38bdf8 100%);
+            background: linear-gradient(135deg, #fff 0%, #F59E0B 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             margin: 1.5rem 0;
-            filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.3));
+            filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.3));
         }
 
         .result-disclaimer {
@@ -417,7 +417,8 @@
                                 timeline feasibility.
                                 No obligation is created until a formal proposal is issued and accepted.
                             </p>
-                            <button type="submit" class="btn btn-primary" id="submitBtn">Request Final Quote</button>
+                            <button type="submit" class="btn btn-primary btn-accent" id="submitBtn">Request Final
+                                Quote</button>
                         </div>
 
                     </form>
