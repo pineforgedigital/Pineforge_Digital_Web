@@ -21,8 +21,8 @@
     /* Deep Sky Blue */
     --accent-secondary: #818cf8;
     /* Indigo/Purple for gradients */
-    --accent-warm: #F97316;
-    /* Molten Copper */
+    --accent-warm: #F59E0B;
+    /* True Amber (Golden) */
 
     /* Borders & Effects */
     --border-color: #1e293b;
@@ -510,19 +510,19 @@ select option {
 }
 
 .btn-accent {
-    background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(234, 88, 12, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.05) 100%);
     border: 1px solid var(--accent-warm);
     color: var(--accent-warm);
     backdrop-filter: blur(10px);
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.15);
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);
 }
 
 .btn-accent:hover {
-    background: linear-gradient(135deg, rgba(249, 115, 22, 0.25) 0%, rgba(234, 88, 12, 0.15) 100%);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.15) 100%);
     border-color: #fbbf24;
     color: #fbbf24;
-    box-shadow: 0 0 25px rgba(249, 115, 22, 0.4);
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
     transform: translateY(-2px);
 }
 
