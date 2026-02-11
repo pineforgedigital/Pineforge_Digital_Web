@@ -158,8 +158,8 @@ body::before {
         linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
         var(--gradient-hero);
     /* Add the blue glow here */
-    background-size: 40px 40px, 40px 40px, 100% 100%;
-    background-repeat: repeat, repeat, no-repeat;
+    background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
+    background-repeat: repeat, repeat, no-repeat, no-repeat;
     pointer-events: none;
     z-index: -1;
 }
