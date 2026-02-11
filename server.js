@@ -569,6 +569,13 @@ ${message}`;
                                     </p>
                                 </div>
 
+                                <!-- 7. Disclaimer -->
+                                <div style="margin-top: 24px; border-top: 1px solid #334155; padding-top: 16px;">
+                                    <p style="margin: 0; font-size: 11px; color: #64748b; line-height: 1.5; font-style: italic;">
+                                        <strong style="color: #94a3b8; font-style: normal;">Important Note:</strong> Project estimates are based on the information provided and assume technical feasibility within standard web development practices. Pineforge Digital reserves the right to decline or revise project engagements that fall outside our service scope, technical capabilities, legal constraints, or timeline feasibility. No obligation is created until a formal proposal is issued and accepted.
+                                    </p>
+                                </div>
+
                             </div>
 
                             <!-- 7. Footer -->
