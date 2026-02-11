@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputs = form.querySelectorAll('input:not([type="text"]):not([type="email"])');
 
     // Base Calculation Configuration (Hidden Logic)
-    const BASE_COST = 2000;
+    const BASE_COST = 2500;
 
     const TYPE_MULTIPLIERS = {
         'Informational': 1.0,
@@ -28,13 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const FEATURE_COSTS = {
-        'Contact Form': 100,
+        'Contact Form': 200,
         'Custom Form Logic': 400,
-        'User Accounts': 1500,
-        'CMS': 800,
-        'Database': 1200,
+        'User Accounts': 1000,
+        'CMS': 1200,
+        'Database': 1500,
         'Integrations': 1000,
-        'SEO Fundamentals': 500
+        'SEO Fundamentals': 700
     };
 
     const DEPLOY_COSTS = {
