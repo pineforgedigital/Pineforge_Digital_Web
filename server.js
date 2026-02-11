@@ -243,10 +243,7 @@ ${message}`;
                     // NEW ADMIN TEMPLATE (Internal Brief)
                     // ----------------------------------------
                     adminHtml = `
-                    // ----------------------------------------
-                    // NEW ADMIN TEMPLATE (Internal Brief)
-                    // ----------------------------------------
-                    adminHtml = `
+
                         < !DOCTYPE html >
                             <html>
                                 <body style="font-family: 'Inter', system-ui, sans-serif; background-color: #0B1120; color: #cbd5e1; padding: 20px; margin: 0;">
@@ -291,12 +288,12 @@ ${message}`;
                                                     <!-- Warning Badges in Snapshot -->
                                                     <div style="margin-top: 8px;">
                                                         ${selections.content === 'Need Help' || selections.content === 'Later' ?
-                                                            '<div><span style="color: #fca5a5;">⚠ Content Not Ready</span></div>' :
-                                                            '<div><span style="color: #94a3b8;">Content:</span> <strong style="color: #fff;">' + selections.content + '</strong></div>'}
+                            '<div><span style="color: #fca5a5;">⚠ Content Not Ready</span></div>' :
+                            '<div><span style="color: #94a3b8;">Content:</span> <strong style="color: #fff;">' + selections.content + '</strong></div>'}
 
                                                         ${selections.timeline === 'Urgent' ?
-                                                            '<div><span style="color: #fca5a5;">⚠ Urgent Timeline (&lt; 4 Weeks)</span></div>' :
-                                                            '<div><span style="color: #94a3b8;">Timeline:</span> <strong style="color: #fff;">' + selections.timeline + '</strong></div>'}
+                            '<div><span style="color: #fca5a5;">⚠ Urgent Timeline (&lt; 4 Weeks)</span></div>' :
+                            '<div><span style="color: #94a3b8;">Timeline:</span> <strong style="color: #fff;">' + selections.timeline + '</strong></div>'}
                                                     </div>
                                                 </div>
 
@@ -305,11 +302,11 @@ ${message}`;
                                                     <h3 style="margin: 0 0 12px; color: #fff; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Selected Features</h3>
                                                     <div style="font-size: 12px; color: #cbd5e1; line-height: 1.6;">
                                                         ${selections.features && selections.features.length > 0 ?
-                                                            selections.features.map(f => `<span style="display: inline-block; background: rgba(255,255,255,0.05); padding: 2px 8px; border-radius: 4px; margin: 0 4px 4px 0; border: 1px solid rgba(255,255,255,0.1);">${f}</span>`).join('')
-                                                            : '<span style="color: #64748b;">None selected</span>'}
+                            selections.features.map(f => `<span style="display: inline-block; background: rgba(255,255,255,0.05); padding: 2px 8px; border-radius: 4px; margin: 0 4px 4px 0; border: 1px solid rgba(255,255,255,0.1);">${f}</span>`).join('')
+                            : '<span style="color: #64748b;">None selected</span>'}
                                                         ${selections.deployment && selections.deployment.length > 0 ?
-                                                            selections.deployment.map(d => `<span style="display: inline-block; background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 2px 8px; border-radius: 4px; margin: 0 4px 4px 0; border: 1px solid rgba(56, 189, 248, 0.2);">${d}</span>`).join('')
-                                                            : ''}
+                            selections.deployment.map(d => `<span style="display: inline-block; background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 2px 8px; border-radius: 4px; margin: 0 4px 4px 0; border: 1px solid rgba(56, 189, 248, 0.2);">${d}</span>`).join('')
+                            : ''}
                                                     </div>
                                                 </div>
 
@@ -384,10 +381,10 @@ ${message}`;
                                         `;
 
                 } else {
-                                            // ----------------------------------------
-                                            // STANDARD INQUIRY TEMPLATE (Legacy)
-                                            // ----------------------------------------
-                                            adminHtml = `
+                    // ----------------------------------------
+                    // STANDARD INQUIRY TEMPLATE (Legacy)
+                    // ----------------------------------------
+                    adminHtml = `
                         <!DOCTYPE html>
                         <html>
                         <body style="font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #0B1120; color: #f8fafc; padding: 40px 20px; margin: 0;">
@@ -452,24 +449,24 @@ ${message}`;
                     `;
                 }
 
-                                        await resend.emails.send({
-                                            from: 'Pineforge Website <admin@pineforge.digital>',
-                                        to: ['admin@pineforge.digital'],
-                                        reply_to: email, // Reply to Customer
-                                        subject: req.body.isEstimate ? `New Estimate Request: ${name}` : `New Inquiry: ${service} - ${name}`,
-                                        text: `Name: ${name}\nEmail: ${email}\nCompany: ${company || 'N/A'}\nService: ${service}\n\nMessage:\n${message}`,
-                                        html: adminHtml
+                await resend.emails.send({
+                    from: 'Pineforge Website <admin@pineforge.digital>',
+                    to: ['admin@pineforge.digital'],
+                    reply_to: email, // Reply to Customer
+                    subject: req.body.isEstimate ? `New Estimate Request: ${name}` : `New Inquiry: ${service} - ${name}`,
+                    text: `Name: ${name}\nEmail: ${email}\nCompany: ${company || 'N/A'}\nService: ${service}\n\nMessage:\n${message}`,
+                    html: adminHtml
                 });
 
-                                        // 2. Send User Confirmation (To Customer) - UNCHANGED
-                                        // ... (Keep existing User Confirmation Logic)
-                                        await resend.emails.send({
-                                            from: 'Caleb Cannon <admin@pineforge.digital>',
-                                        to: [email],
-                                        reply_to: 'admin@pineforge.digital',
-                                        subject: `Received: Your Inquiry to Pineforge Digital`,
-                                        text: `Hello ${name},\n\nThanks for getting in touch with Pineforge Digital — I appreciate you reaching out.\n\nI’ve received your message and will take a look at the details you shared. If I need any clarification or next steps, I’ll follow up shortly. In the meantime, feel free to reply to this email if there’s anything additional you’d like me to know.\n\nLooking forward to learning more about your project.\n\nBest regards,\nCaleb Cannon\nPineforge Digital LLC\nadmin@pineforge.digital\nhttps://pineforge.digital`,
-                                        html: `
+                // 2. Send User Confirmation (To Customer) - UNCHANGED
+                // ... (Keep existing User Confirmation Logic)
+                await resend.emails.send({
+                    from: 'Caleb Cannon <admin@pineforge.digital>',
+                    to: [email],
+                    reply_to: 'admin@pineforge.digital',
+                    subject: `Received: Your Inquiry to Pineforge Digital`,
+                    text: `Hello ${name},\n\nThanks for getting in touch with Pineforge Digital — I appreciate you reaching out.\n\nI’ve received your message and will take a look at the details you shared. If I need any clarification or next steps, I’ll follow up shortly. In the meantime, feel free to reply to this email if there’s anything additional you’d like me to know.\n\nLooking forward to learning more about your project.\n\nBest regards,\nCaleb Cannon\nPineforge Digital LLC\nadmin@pineforge.digital\nhttps://pineforge.digital`,
+                    html: `
                                         <!DOCTYPE html>
                                         <html>
                                             <body style="font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #0B1120; color: #f8fafc; padding: 40px 20px; margin: 0;">
@@ -526,17 +523,17 @@ ${message}`;
                                         `
                 });
 
-                                        console.log('Emails sent via Resend');
-                                        return res.status(200).json({message: 'Message received successfully!' });
+                console.log('Emails sent via Resend');
+                return res.status(200).json({ message: 'Message received successfully!' });
 
             } catch (emailErr) {
-                                            console.error('Resend Error:', emailErr);
-                                        // Even if email fails, we saved to DB, so tell user it's ok but maybe log check
-                                        return res.status(200).json({message: 'Message saved (Email delivery issue).' });
+                console.error('Resend Error:', emailErr);
+                // Even if email fails, we saved to DB, so tell user it's ok but maybe log check
+                return res.status(200).json({ message: 'Message saved (Email delivery issue).' });
             }
         } else {
-                                            console.log('Email skipped (Resend not configured)');
-                                        return res.status(200).json({message: 'Message saved successfully!' });
+            console.log('Email skipped (Resend not configured)');
+            return res.status(200).json({ message: 'Message saved successfully!' });
         }
     });
 
@@ -547,13 +544,13 @@ ${message}`;
 
 // Fallback: 404 Handler (must be last route)
 app.use((req, res) => {
-                                            res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+    res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
-                                        if (require.main === module) {
-                                            app.listen(PORT, () => {
-                                                console.log(`Server running on http://localhost:${PORT}`);
-                                            });
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
 }
 
-                                        module.exports = app;
+module.exports = app;
