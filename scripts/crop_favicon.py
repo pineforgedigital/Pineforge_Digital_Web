@@ -29,6 +29,9 @@ def trim_transparent(image_path, output_path):
             
             new_img.paste(cropped, (paste_x, paste_y))
             
+            # Resize to standard icon size (192x192 is good for high-dpi)
+            new_img = new_img.resize((192, 192), Image.Resampling.LANCZOS)
+            
             new_img.save(output_path)
             print(f"Saved optimized favicon to: {output_path}")
             print(f"New Size: {new_img.size}")

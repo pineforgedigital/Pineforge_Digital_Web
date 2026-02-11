@@ -21,6 +21,8 @@
     /* Deep Sky Blue */
     --accent-secondary: #818cf8;
     /* Indigo/Purple for gradients */
+    --accent-warm: #F59E0B;
+    /* Forge Amber - Heat/Energy */
 
     /* Borders & Effects */
     --border-color: #1e293b;
@@ -500,6 +502,22 @@ select option {
     color: white;
 }
 
+.btn-accent {
+    background-color: rgba(245, 158, 11, 0.1);
+    border-color: var(--accent-warm);
+    color: var(--accent-warm);
+    backdrop-filter: blur(4px);
+    font-weight: 600;
+}
+
+.btn-accent:hover {
+    background-color: rgba(245, 158, 11, 0.2);
+    border-color: #fbbf24;
+    color: #fbbf24;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+    transform: translateY(-1px);
+}
+
 /* Sections */
 /* Page Headers (Privacy/Terms) */
 .page-header {
@@ -658,7 +676,7 @@ select option {
 .dot {
     width: 6px;
     height: 6px;
-    background-color: var(--accent-color);
+    background-color: var(--accent-warm);
     border-radius: 50%;
 }
 
