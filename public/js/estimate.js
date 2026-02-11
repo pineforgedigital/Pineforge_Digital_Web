@@ -42,6 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
         'Maintenance': 0 // Optional / Recurring
     };
 
+    const CONTENT_COSTS = {
+        'Ready': 0,
+        'Rough Draft': 500,
+        'Need Help': 1500,
+        'Later': 0
+    };
+
+    const TIMELINE_MULTIPLIERS = {
+        'Flexible': 1.0,
+        'Standard': 1.0,
+        'Urgent': 1.25
+    };
+
     function calculateEstimate() {
         let total = BASE_COST;
 
@@ -49,10 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const type = document.querySelector('input[name="type"]:checked')?.value || 'Informational';
         const scope = document.querySelector('input[name="scope"]:checked')?.value || 'Core Pages Only';
         const design = document.querySelector('input[name="design"]:checked')?.value || 'Standard';
+        const content = document.querySelector('input[name="content"]:checked')?.value || 'Ready';
+        const timeline = document.querySelector('input[name="timeline"]:checked')?.value || 'Flexible';
 
         // 2. Add Scope & Design Costs
         total += SCOPE_COSTS[scope] || 0;
         total += DESIGN_COSTS[design] || 0;
+        total += CONTENT_COSTS[content] || 0;
 
         // 3. Add Feature Costs
         form.querySelectorAll('input[name="features"]:checked').forEach(cb => {
@@ -64,8 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
             total += DEPLOY_COSTS[cb.value] || 0;
         });
 
-        // 5. Apply Type Multiplier (Last for complexity scaling)
-        total *= TYPE_MULTIPLIERS[type] || 1.0;
+        // 5. Apply Multipliers (Type * Timeline)
+        // We compound them to reflect that rushing a complex app is VERY expensive
+        const typeMult = TYPE_MULTIPLIERS[type] || 1.0;
+        const timeMult = TIMELINE_MULTIPLIERS[timeline] || 1.0;
+
+        total *= typeMult;
+        total *= timeMult;
 
         // 6. Calculate Range (+/- 15%)
         const min = Math.round((total * 0.85) / 100) * 100;
@@ -126,6 +147,9 @@ Scope: ${document.querySelector('input[name="scope"]:checked')?.value}
 Design: ${document.querySelector('input[name="design"]:checked')?.value}
 Features: ${Array.from(form.querySelectorAll('input[name="features"]:checked')).map(cb => cb.value).join(', ')}
 Deployment: ${Array.from(form.querySelectorAll('input[name="deployment"]:checked')).map(cb => cb.value).join(', ')}
+Content: ${document.querySelector('input[name="content"]:checked')?.value}
+Timeline: ${document.querySelector('input[name="timeline"]:checked')?.value}
+Business Goal: ${document.querySelector('input[name="goal"]:checked')?.value}
 
 Estimated Range: ${priceDisplay.textContent}
             `,

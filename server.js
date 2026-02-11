@@ -100,7 +100,7 @@ if (process.env.RESEND_API_KEY) {
 
 // API: Handle Contact Form
 app.post('/api/contact', contactLimiter, async (req, res) => {
-    const { name, email, company, service, message } = req.body;
+    const { name, email, company, service, message, content, timeline, goal } = req.body;
 
     if (!name || !email || !message || !service) {
         return res.status(400).json({ error: 'Please fill in all required fields.' });
@@ -150,7 +150,7 @@ ${message}`;
                     to: ['admin@pineforge.digital'],
                     reply_to: email, // Reply to Customer
                     subject: req.body.isEstimate ? `New Estimate Request: ${name}` : `New Inquiry: ${service} - ${name}`,
-                    text: `Name: ${name}\nEmail: ${email}\nCompany: ${company || 'N/A'}\nService: ${service}\n\nMessage:\n${message}`,
+                    text: `Name: ${name}\nEmail: ${email}\nCompany: ${company || 'N/A'}\nService: ${service}\n\n${req.body.isEstimate ? `Content: ${content}\nTimeline: ${timeline}\nGoal: ${goal}\n\n` : ''}Message:\n${message}`,
                     html: `
                         <!DOCTYPE html>
                         <html>
@@ -198,6 +198,28 @@ ${message}`;
                                                     </div>
                                                 </td>
                                             </tr>
+                                        <!-- Estimate Details (Optional Row) -->
+                                        ${req.body.isEstimate ? `
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td width="32%" valign="top" style="padding-top: 20px; padding-bottom: 5px; border-bottom: 1px solid #334155;">
+                                                    <p style="margin: 0 0 4px; font-size: 11px; text-transform: uppercase; color: #94a3b8; font-weight: 700;">Content</p>
+                                                    <p style="margin: 0; font-size: 14px; color: #f8fafc;">${content || 'N/A'}</p>
+                                                </td>
+                                                <td width="2%">&nbsp;</td>
+                                                <td width="32%" valign="top" style="padding-top: 20px; padding-bottom: 5px; border-bottom: 1px solid #334155;">
+                                                    <p style="margin: 0 0 4px; font-size: 11px; text-transform: uppercase; color: #94a3b8; font-weight: 700;">Timeline</p>
+                                                    <p style="margin: 0; font-size: 14px; color: #f8fafc;">${timeline || 'N/A'}</p>
+                                                </td>
+                                                <td width="2%">&nbsp;</td>
+                                                <td width="32%" valign="top" style="padding-top: 20px; padding-bottom: 5px; border-bottom: 1px solid #334155;">
+                                                    <p style="margin: 0 0 4px; font-size: 11px; text-transform: uppercase; color: #94a3b8; font-weight: 700;">Business Goal</p>
+                                                    <p style="margin: 0; font-size: 14px; color: #38bdf8; font-weight: 600;">${goal || 'N/A'}</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        ` : ''}
+
                                         </table>
 
                                         <!-- Message Box -->
