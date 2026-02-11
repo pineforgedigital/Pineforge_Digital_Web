@@ -21,8 +21,8 @@
     /* Deep Sky Blue */
     --accent-secondary: #818cf8;
     /* Indigo/Purple for gradients */
-    --accent-warm: #F59E0B;
-    /* Forge Amber - Heat/Energy */
+    --accent-warm: #F97316;
+    /* Molten Copper */
 
     /* Borders & Effects */
     --border-color: #1e293b;
@@ -35,7 +35,14 @@
     --gradient-hero: radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.25) 0%, rgba(129, 140, 248, 0.15) 30%, rgba(11, 17, 32, 0) 70%);
 
     /* Typography */
-    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-main: 'Inter',
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
 
     /* Spacing */
     --container-width: 1000px;
@@ -503,19 +510,20 @@ select option {
 }
 
 .btn-accent {
-    background-color: rgba(245, 158, 11, 0.1);
-    border-color: var(--accent-warm);
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(234, 88, 12, 0.05) 100%);
+    border: 1px solid var(--accent-warm);
     color: var(--accent-warm);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(10px);
     font-weight: 600;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.15);
 }
 
 .btn-accent:hover {
-    background-color: rgba(245, 158, 11, 0.2);
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.25) 0%, rgba(234, 88, 12, 0.15) 100%);
     border-color: #fbbf24;
     color: #fbbf24;
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
-    transform: translateY(-1px);
+    box-shadow: 0 0 25px rgba(249, 115, 22, 0.4);
+    transform: translateY(-2px);
 }
 
 /* Sections */
@@ -534,7 +542,7 @@ select option {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--accent-color);
+    color: var(--accent-warm);
     margin-bottom: 1rem;
     display: block;
     font-weight: 600;
@@ -642,7 +650,7 @@ select option {
 }
 
 .process-item h3 {
-    color: white;
+    color: var(--accent-warm);
     margin-bottom: 0.5rem;
 }
 
