@@ -1376,9 +1376,6 @@ main {
 
 /* Disable transform and backdrop-filter on interactions to prevent stacking context trapping */
 /* This is now handled by the JS overlay, so we can relax this or keep it for desktop if needed */
-.tech-item:hover {
-    /* valid for desktop */
-}
 
 /* Emerald Expansion (Contact Page Exclusive) */
 .text-emerald {
