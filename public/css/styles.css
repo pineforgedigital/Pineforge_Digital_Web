@@ -1297,6 +1297,32 @@ main {
     .tech-grid {
         justify-content: center;
     }
+
+    /* Mobile Tech Tooltip Fix */
+    .tech-tooltip {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.95);
+        width: 85%;
+        max-width: 320px;
+        z-index: 10000;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .tech-item:hover .tech-tooltip,
+    .tech-item:focus .tech-tooltip {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .tech-tooltip::after {
+        display: none;
+        /* Hide arrow on mobile */
+    }
 }
 
 /* Emerald Expansion (Contact Page Exclusive) */

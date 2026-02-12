@@ -243,12 +243,35 @@
             border-color: var(--accent-pop) transparent transparent transparent;
         }
 
-        .info-icon:hover .info-tooltip,
-        .info-icon:focus .info-tooltip,
         .info-icon:active .info-tooltip {
             opacity: 1;
             visibility: visible;
             transform: translateX(-50%) translateY(0);
+        }
+
+        /* Mobile Tooltip Fix ("Toast" Style) */
+        @media (max-width: 768px) {
+            .info-tooltip {
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%) translateY(20px);
+                width: 90%;
+                max-width: 350px;
+                z-index: 10000;
+                /* Super high z-index */
+            }
+
+            .info-icon:hover .info-tooltip,
+            .info-icon:focus .info-tooltip,
+            .info-icon:active .info-tooltip {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            .info-tooltip::after {
+                display: none;
+                /* Hide arrow on mobile */
+            }
         }
     </style>
 </head>
