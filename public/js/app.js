@@ -255,6 +255,39 @@ function initBackToTop() {
 
 
 // Mobile Menu Logic
+function initMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-links li');
+
+    if (hamburger && navLinks) {
+        // Toggle menu
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent document click from firing immediately
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('open');
+        });
+
+        // Close menu when clicking a link
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('open');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const isClickInsideMenu = navLinks.contains(e.target);
+            const isClickInsideHamburger = hamburger.contains(e.target);
+
+            if (!isClickInsideMenu && !isClickInsideHamburger && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('open');
+            }
+        });
+    }
+}
 
 // Initialize
 async function init() {
