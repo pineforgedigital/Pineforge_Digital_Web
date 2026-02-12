@@ -175,7 +175,6 @@ ul {
 }
 
 /* Typography */
-/* Typography */
 h1,
 h2,
 h3,
@@ -214,14 +213,13 @@ h3 {
     color: #e2e8f0;
 }
 
-/* ... (p styles remain same) ... */
 p {
     margin-bottom: var(--spacing-sm);
     color: var(--text-muted);
     font-size: 1.05rem;
 }
 
-/* ... (Layout Utilities remain same) ... */
+/* Layout Utilities */
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
@@ -240,7 +238,7 @@ section:nth-of-type(even) {
     /* Very subtle cool tint */
 }
 
-/* ... (Schematic bg remain same) ... */
+/* Schematic / Technical Visuals */
 .schematic-bg {
     position: relative;
 }
@@ -259,15 +257,15 @@ section:nth-of-type(even) {
     pointer-events: none;
 }
 
-
-/* Glass Tech Tags - "Frozen" Look */
 .tech-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 1rem;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
+/* Glass Tech Tags */
+/* Glass Tech Tags - "Frozen" Look */
 .tech-item {
     background: rgba(15, 23, 42, 0.6);
     /* Darker base */
@@ -297,8 +295,7 @@ section:nth-of-type(even) {
     /* Warm Glow */
 }
 
-
-/* ... (Engineering Log remains same) ... */
+/* Engineering Log / Timeline */
 .engineering-log {
     border-left: 2px solid rgba(56, 189, 248, 0.3);
     /* Cool Blue Line */
@@ -327,8 +324,7 @@ section:nth-of-type(even) {
 
 .log-date {
     font-size: 0.85rem;
-    color: #7dd3fc;
-    /* Structural Blue */
+    color: var(--accent-color);
     font-family: monospace;
     margin-bottom: 0.5rem;
     display: block;
@@ -341,7 +337,6 @@ section:nth-of-type(even) {
 
 
 /* Form Styles */
-/* ... (Inputs remain similar, but ensure border is cool) ... */
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -350,7 +345,7 @@ label {
     display: block;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
-    color: #cbd5e1;
+    color: var(--text-muted);
 }
 
 input,
@@ -358,27 +353,31 @@ textarea,
 select {
     width: 100%;
     padding: 0.8rem 1.25rem;
+    /* Comfier padding */
     background: linear-gradient(145deg, rgba(8, 12, 24, 0.6) 0%, rgba(15, 23, 42, 0.5) 100%);
+    /* Solid, deep base */
     backdrop-filter: blur(60px) saturate(200%);
+    /* Maximum Frost */
     -webkit-backdrop-filter: blur(60px) saturate(200%);
-    border: 1px solid rgba(56, 189, 248, 0.15);
-    /* Subtle Blue Border */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Subtler border */
     border-radius: 16px;
+    /* Matches tech items */
     color: white;
     font-family: var(--font-main);
     font-size: 1rem;
     transition: all 0.2s ease;
-    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    /* Deep carved look */
 }
 
-/* ... (Hover/Focus states) ... */
 input:hover,
 textarea:hover,
 select:hover {
-    border-color: #38bdf8;
-    /* Bright Blue */
-    background-color: rgba(56, 189, 248, 0.05);
-    box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
+    border-color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(56, 189, 248, 0.1);
+    /* Soft outer glow */
 }
 
 input:focus,
@@ -393,8 +392,226 @@ select:focus {
     box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
 }
 
-/* ... */
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+}
 
+/* =========================================
+   Final Polish: Selection & Scrollbar
+   ========================================= */
+
+::selection {
+    background: rgba(245, 158, 11, 0.3);
+    color: #fbbf24;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0B1120;
+    border-left: 1px solid #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 5px;
+    border: 2px solid #0B1120;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-warm);
+}
+
+/* Fix for Select Options (Browser Native Dropdown) */
+select option {
+    background-color: var(--bg-secondary);
+    color: white;
+}
+
+/* Header */
+/* Main Navigation: Matched Glass */
+/* Main Navigation: Absolute Fixed Top - High Vibrancy */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    /* Reduced to balance larger logo */
+    position: absolute;
+    /* Fixed to document top, scrolls away */
+    /* Fixed to document top, scrolls away */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    margin: 0;
+    /* No margin needed */
+    background: rgba(11, 17, 32, 0.5);
+    /* More translucent to let colors pop */
+    backdrop-filter: blur(50px) saturate(300%);
+    /* Hyper-Vibrant */
+    -webkit-backdrop-filter: blur(50px) saturate(300%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Slightly brighter border */
+}
+
+/* Remove gradient mask to ensure consistent background match */
+.main-nav::before {
+    content: none;
+}
+
+.hamburger {
+    display: none;
+    /* Hidden on desktop */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 65px;
+    /* Increased for better presence */
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-md);
+    font-size: 0.95rem;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* Hero */
+/* Hero */
+/* Hero */
+.hero {
+    /* Adjusted top padding for sleek header (approx 100px) */
+    padding-top: 8rem;
+    padding-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    /* Background moved to body::before for global consistency */
+    background: transparent;
+}
+
+.hero-content {
+    max-width: 680px;
+}
+
+.hero-subtext {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-md);
+    max-width: 540px;
+    line-height: 1.5;
+}
+
+/* Buttons */
+.btn-group {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.6rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: #0f172a;
+    /* Dark text on bright blue */
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border-color: var(--glass-border);
+    color: var(--text-color);
+    backdrop-filter: blur(4px);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--text-color);
+    color: white;
+}
+
+.btn-accent {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.05) 100%);
+    border: 1px solid var(--accent-warm);
+    color: var(--accent-warm);
+    backdrop-filter: blur(10px);
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);
+}
+
+.btn-accent:hover {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.15) 100%);
+    border-color: #fbbf24;
+    color: #fbbf24;
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Sections */
+/* Page Headers (Privacy/Terms) */
+.page-header {
+    padding-top: 8rem;
+    padding-bottom: 2rem;
+    max-width: 800px;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-warm);
+    margin-bottom: 1rem;
+    display: block;
+    font-weight: 600;
+}
+
+/* Cards */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Apple-Style Glassmorphism Cards */
+/* Apple-Style Glassmorphism Cards - Ultimate Depth & Vibrancy */
 /* Apple-Style Glassmorphism Cards - Ultimate Depth & Vibrancy */
 .card {
     background: linear-gradient(145deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.3) 100%);
@@ -427,9 +644,7 @@ select:focus {
     /* Blue inner glow */
 }
 
-/* Specific styling for project Tech Items - REPLACED BY ABOVE .tech-item rules, cleaning up dupes */
-/* .tech-grid dupes removed, handled above */
-/* .tech-item dupes removed, handled above */
+/* Specific styling for project Tech Items - CLEANUP DUPES IF ANY remain in target file, but relying on target content match */
 
 .card::before {
     /* Subtle inner sheen */
