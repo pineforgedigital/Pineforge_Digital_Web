@@ -1304,12 +1304,19 @@ main {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) scale(0.95);
-        width: 85%;
+        width: 90%;
         max-width: 320px;
         z-index: 10000;
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
+
+        /* User Request: Better Readability */
+        background: #0f172a;
+        /* Solid darkest blue */
+        border: 1px solid var(--accent-pop);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+        padding: 1.5rem;
     }
 
     .tech-item:hover .tech-tooltip,

@@ -4,6 +4,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const priceDisplay = document.getElementById('priceDisplay');
     const inputs = form.querySelectorAll('input:not([type="text"]):not([type="email"])');
 
+    // Tooltip Logic (Click to Toggle)
+    const infoIcons = document.querySelectorAll('.info-icon');
+
+    // Toggle tooltip on click
+    infoIcons.forEach(icon => {
+        icon.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent closing immediately
+            e.preventDefault();  // Prevent focus weirdness
+
+            // Close others
+            infoIcons.forEach(other => {
+                if (other !== icon) other.classList.remove('active');
+            });
+
+            // Toggle current
+            icon.classList.toggle('active');
+        });
+    });
+
+    // Close when clicking anywhere else
+    document.addEventListener('click', () => {
+        infoIcons.forEach(icon => icon.classList.remove('active'));
+    });
+
     // Base Calculation Configuration (Hidden Logic)
     const BASE_COST = 2500;
 
