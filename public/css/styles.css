@@ -750,14 +750,45 @@ select option {
 /* Apple-Style Glassmorphism Cards */
 /* Apple-Style Glassmorphism Cards - Ultimate Depth & Vibrancy */
 /* Apple-Style Glassmorphism Cards - Ultimate Depth & Vibrancy */
+/* Ambient Orbs */
+.ambient-orb {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.orb-cyan {
+    background: radial-gradient(circle, var(--accent-pop) 0%, transparent 70%);
+}
+
+.orb-purple {
+    background: radial-gradient(circle, var(--accent-creative) 0%, transparent 70%);
+}
+
+.orb-emerald {
+    background: radial-gradient(circle, var(--accent-growth) 0%, transparent 70%);
+}
+
+/* Card Updates */
 .card {
     background: linear-gradient(145deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.3) 100%);
     /* More Neutral/Cool Slate Base */
     backdrop-filter: blur(50px) saturate(300%);
     -webkit-backdrop-filter: blur(50px) saturate(300%);
     padding: 2.5rem;
-    border: 1px solid rgba(148, 163, 184, 0.1);
-    /* Steel border */
+
+    /* Vibrant Gradient Border */
+    border: 1px solid transparent;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-image: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.3)),
+        linear-gradient(135deg, rgba(56, 189, 248, 0.3), rgba(34, 211, 238, 0.1), rgba(139, 92, 246, 0.3));
+
     border-radius: 24px;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     height: 100%;
@@ -770,15 +801,15 @@ select option {
 
 .card:hover {
     background-color: rgba(30, 41, 59, 0.6);
-    border-color: rgba(56, 189, 248, 0.4);
-    /* Electric Blue Hover */
+    /* Electric Border Hover */
+    background-image: linear-gradient(145deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.5)),
+        linear-gradient(135deg, var(--accent-pop), var(--accent-creative));
+
     transform: translateY(-4px);
     box-shadow:
         0 20px 40px -5px rgba(0, 0, 0, 0.3),
-        0 0 0 1px rgba(56, 189, 248, 0.4),
-        /* Blue Ring */
-        inset 0 0 30px rgba(56, 189, 248, 0.1);
-    /* Blue inner glow */
+        0 0 15px rgba(34, 211, 238, 0.2);
+    /* Cyan Glow */
 }
 
 /* Specific styling for project Tech Items - CLEANUP DUPES IF ANY remain in target file, but relying on target content match */
