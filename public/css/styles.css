@@ -21,8 +21,8 @@
     /* Deep Sky Blue */
     --accent-secondary: #818cf8;
     /* Indigo/Purple for gradients */
-    --accent-warm: #F59E0B;
-    /* True Amber (Golden) */
+    --accent-pop: #22d3ee;
+    /* Electric Cyan (High Energy/Action) */
     --accent-growth: #10b981;
     /* Neon Emerald (Growth/Success) */
 
@@ -421,15 +421,15 @@ section:nth-of-type(even) {
 
 /* Fire Interaction on Hover */
 .tech-item:hover {
-    background: rgba(245, 158, 11, 0.15);
-    /* Amber Fill */
-    border-color: var(--accent-warm);
-    /* Amber Border */
-    color: #fbbf24;
-    /* Amber Text */
+    background: rgba(34, 211, 238, 0.15);
+    /* Cyan Fill */
+    border-color: var(--accent-pop);
+    /* Cyan Border */
+    color: #22d3ee;
+    /* Cyan Text */
     transform: translateY(-2px);
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
-    /* Warm Glow */
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+    /* Cool Glow */
 }
 
 /* Engineering Log / Timeline */
@@ -453,10 +453,10 @@ section:nth-of-type(even) {
     width: 10px;
     height: 10px;
     background: var(--bg-color);
-    border: 2px solid var(--accent-warm);
-    /* Amber dot for contrast */
+    border: 2px solid var(--accent-pop);
+    /* Cyan dot for contrast */
     border-radius: 50%;
-    box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+    box-shadow: 0 0 8px rgba(34, 211, 238, 0.5);
 }
 
 .log-date {
@@ -524,7 +524,7 @@ select:focus {
     /* Fire & Ice Gradient Border Logic */
     background:
         linear-gradient(145deg, rgba(8, 12, 24, 0.9) 0%, rgba(15, 23, 42, 0.8) 100%) padding-box,
-        linear-gradient(90deg, #38bdf8 0%, #F59E0B 100%) border-box;
+        linear-gradient(90deg, #38bdf8 0%, #22d3ee 100%) border-box;
     border: 1px solid transparent;
     box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
 }
@@ -539,8 +539,8 @@ textarea::placeholder {
    ========================================= */
 
 ::selection {
-    background: rgba(245, 158, 11, 0.3);
-    color: #fbbf24;
+    background: rgba(34, 211, 238, 0.3);
+    color: #22d3ee;
 }
 
 ::-webkit-scrollbar {
@@ -559,7 +559,7 @@ textarea::placeholder {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-warm);
+    background: var(--accent-pop);
 }
 
 /* Fix for Select Options (Browser Native Dropdown) */
@@ -702,19 +702,19 @@ select option {
 }
 
 .btn-accent {
-    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.05) 100%);
-    border: 1px solid var(--accent-warm);
-    color: var(--accent-warm);
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.15) 0%, rgba(6, 182, 212, 0.05) 100%);
+    border: 1px solid var(--accent-pop);
+    color: var(--accent-pop);
     backdrop-filter: blur(10px);
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);
+    box-shadow: 0 4px 15px rgba(34, 211, 238, 0.15);
 }
 
 .btn-accent:hover {
-    background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.15) 100%);
-    border-color: #fbbf24;
-    color: #fbbf24;
-    box-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.25) 0%, rgba(6, 182, 212, 0.15) 100%);
+    border-color: #22d3ee;
+    color: #22d3ee;
+    box-shadow: 0 0 25px rgba(34, 211, 238, 0.4);
     transform: translateY(-2px);
 }
 
@@ -734,7 +734,7 @@ select option {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--accent-warm);
+    color: var(--accent-pop);
     margin-bottom: 1rem;
     display: block;
     font-weight: 600;
@@ -815,7 +815,7 @@ select option {
 }
 
 .process-item h3 {
-    color: var(--accent-warm);
+    color: var(--accent-pop);
     margin-bottom: 0.5rem;
 }
 
@@ -866,7 +866,7 @@ select option {
 .dot {
     width: 6px;
     height: 6px;
-    background-color: var(--accent-warm);
+    background-color: var(--accent-pop);
     border-radius: 50%;
 }
 
@@ -912,16 +912,16 @@ footer {
     display: inline-flex;
     align-items: center;
     padding: 0.35rem 0.8rem;
-    background: rgba(245, 158, 11, 0.1);
-    color: var(--accent-warm);
+    background: rgba(34, 211, 238, 0.1);
+    color: var(--accent-pop);
     font-size: 0.75rem;
     font-weight: 600;
     border-radius: 100px;
     margin-bottom: 1.25rem;
-    border: 1px solid rgba(245, 158, 11, 0.2);
+    border: 1px solid rgba(34, 211, 238, 0.2);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 0 10px rgba(245, 158, 11, 0.1);
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.1);
 }
 
 /* Page Header (Privacy/Terms) */
@@ -1016,7 +1016,7 @@ footer {
 }
 
 .cookie-content a {
-    color: var(--accent-warm);
+    color: var(--accent-pop);
     text-decoration: underline;
 }
 
