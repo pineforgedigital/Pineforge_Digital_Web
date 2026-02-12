@@ -420,6 +420,7 @@ section:nth-of-type(even) {
 }
 
 /* Fire Interaction on Hover */
+/* Fire Interaction on Hover */
 .tech-item:hover {
     background: rgba(34, 211, 238, 0.15);
     /* Cyan Fill */
@@ -430,6 +431,65 @@ section:nth-of-type(even) {
     transform: translateY(-2px);
     box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
     /* Cool Glow */
+    z-index: 10;
+}
+
+/* Tooltip Styles */
+.tech-item {
+    position: relative;
+    cursor: help;
+}
+
+.tech-tooltip {
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 260px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid var(--accent-pop);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #e2e8f0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    text-align: left;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    pointer-events: none;
+    z-index: 100;
+}
+
+.tech-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: var(--accent-pop) transparent transparent transparent;
+}
+
+.tech-item:hover .tech-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.tooltip-title {
+    display: block;
+    color: var(--accent-pop);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(34, 211, 238, 0.2);
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
 }
 
 /* Engineering Log / Timeline */
