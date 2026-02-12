@@ -25,6 +25,10 @@
     /* Electric Cyan (High Energy/Action) */
     --accent-growth: #10b981;
     /* Neon Emerald (Growth/Success) */
+    --accent-warm: #f59e0b;
+    /* Amber */
+    --accent-creative: #8b5cf6;
+    /* Violet */
 
     /* Borders & Effects */
     --border-color: #1e293b;
@@ -394,6 +398,34 @@ section:nth-of-type(even) {
     opacity: 0.1;
     pointer-events: none;
 }
+
+/* Section Theming Utilities (Color Reinforcement) */
+.section-tint-warm {
+    background: linear-gradient(180deg, rgba(245, 158, 11, 0.02) 0%, rgba(249, 115, 22, 0.05) 50%, rgba(245, 158, 11, 0.02) 100%);
+    box-shadow: inset 0 0 100px rgba(245, 158, 11, 0.05);
+}
+
+.section-tint-creative {
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.02) 0%, rgba(167, 139, 250, 0.05) 50%, rgba(139, 92, 246, 0.02) 100%);
+    box-shadow: inset 0 0 100px rgba(139, 92, 246, 0.05);
+}
+
+.section-tint-cool {
+    background: linear-gradient(180deg, rgba(56, 189, 248, 0.02) 0%, rgba(34, 211, 238, 0.05) 50%, rgba(56, 189, 248, 0.02) 100%);
+    box-shadow: inset 0 0 100px rgba(34, 211, 238, 0.05);
+}
+
+/* Text Highlights */
+.text-highlight-warm {
+    color: var(--accent-warm);
+    text-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+}
+
+.text-highlight-cyan {
+    color: var(--accent-pop);
+    text-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+}
+
 
 .tech-grid {
     display: flex;
@@ -863,6 +895,24 @@ select option {
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
+}
+
+.card-creative {
+    background-image: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.3)),
+        linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(167, 139, 250, 0.2), rgba(139, 92, 246, 0.4));
+    box-shadow: 0 8px 32px 0 rgba(139, 92, 246, 0.15);
+}
+
+.card-growth {
+    background-image: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.3)),
+        linear-gradient(135deg, rgba(16, 185, 129, 0.4), rgba(52, 211, 153, 0.2), rgba(16, 185, 129, 0.4));
+    box-shadow: 0 8px 32px 0 rgba(16, 185, 129, 0.15);
+}
+
+.card-warm {
+    background-image: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.3)),
+        linear-gradient(135deg, rgba(245, 158, 11, 0.4), rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.4));
+    box-shadow: 0 8px 32px 0 rgba(245, 158, 11, 0.15);
 }
 
 .card:hover {
