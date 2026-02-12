@@ -23,6 +23,8 @@
     /* Indigo/Purple for gradients */
     --accent-warm: #F59E0B;
     /* True Amber (Golden) */
+    --accent-growth: #10b981;
+    /* Neon Emerald (Growth/Success) */
 
     /* Borders & Effects */
     --border-color: #1e293b;
@@ -35,6 +37,9 @@
     --gradient-hero:
         radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.25) 0%, rgba(129, 140, 248, 0.15) 30%, rgba(11, 17, 32, 0) 70%),
         radial-gradient(circle at 85% 20%, rgba(245, 158, 11, 0.08) 0%, rgba(11, 17, 32, 0) 50%);
+
+    --gradient-boreal: linear-gradient(135deg, #38bdf8 0%, #10b981 100%);
+    /* Blue -> Emerald */
 
     /* Typography */
     --font-main: 'Inter',
@@ -211,6 +216,12 @@ h3 {
     font-size: 1.25rem;
     font-weight: 500;
     color: #e2e8f0;
+}
+
+.text-growth {
+    color: var(--accent-growth);
+    font-weight: 600;
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
 }
 
 p {
@@ -693,7 +704,7 @@ select option {
 .process-number {
     width: 40px;
     height: 40px;
-    background: var(--accent-warm);
+    background: var(--gradient-boreal);
     color: #0f172a;
     border-radius: 50%;
     display: flex;
@@ -701,7 +712,8 @@ select option {
     justify-content: center;
     font-weight: 700;
     font-size: 1.1rem;
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+    /* Emerald Glow */
     border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
