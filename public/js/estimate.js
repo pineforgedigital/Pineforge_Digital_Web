@@ -99,8 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const { min, max } = calculateEstimate();
 
         // Format Currency
+        // Format Currency
         const fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
-        priceDisplay.textContent = `${fmt.format(min)} – ${fmt.format(max)}`;
+
+        // VISUAL UPDATE REMOVED - User requested "Custom Review" flow instead of immediate price.
+        // if (priceDisplay) priceDisplay.textContent = `${fmt.format(min)} – ${fmt.format(max)}`;
 
         // Show result area if hidden
         if (resultArea.style.display !== 'block') {
@@ -151,7 +154,7 @@ Content: ${document.querySelector('input[name="content"]:checked')?.value}
 Timeline: ${document.querySelector('input[name="timeline"]:checked')?.value}
 Business Goal: ${document.querySelector('input[name="goal"]:checked')?.value}
 
-Estimated Range: ${priceDisplay.textContent}
+Estimated Range: Custom Review (Public Price Hidden)
             `,
             isEstimate: true,
             selections: {

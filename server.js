@@ -538,14 +538,14 @@ ${message}`;
                                     </div>` : ''}
                                 </div>
 
-                                <!-- 4. Estimated Investment Range -->
+                                <!-- 4. Project Details Received (No Price) -->
                                 <div style="margin-top: 30px; text-align: center; background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 12px; padding: 24px;">
-                                    <p style="margin: 0 0 8px; font-size: 11px; text-transform: uppercase; color: #38bdf8; letter-spacing: 1px; font-weight: 600;">Estimated Investment Range</p>
-                                    <div style="font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 8px; text-shadow: 0 2px 10px rgba(56,189,248,0.2);">
-                                        ${fmt(pricingBreakdown.clientRange.min)} – ${fmt(pricingBreakdown.clientRange.max)}
+                                    <p style="margin: 0 0 8px; font-size: 11px; text-transform: uppercase; color: #38bdf8; letter-spacing: 1px; font-weight: 600;">Project Details Received</p>
+                                    <div style="font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px;">
+                                        We have received your project information and will review the details carefully.
                                     </div>
-                                    <p style="margin: 0; font-size: 11px; color: #64748b; line-height: 1.4; max-width: 80%; margin: 0 auto;">
-                                        This range is an estimate based on the information provided and may change after a detailed scope review.
+                                    <p style="margin: 0; font-size: 13px; color: #cbd5e1; line-height: 1.4; max-width: 90%; margin: 0 auto;">
+                                        You will receive a structured proposal after our evaluation.
                                     </p>
                                 </div>
 
