@@ -1311,12 +1311,16 @@ main {
         visibility: hidden;
         pointer-events: none;
 
-        /* User Request: Better Readability */
-        background: #0f172a;
-        /* Solid darkest blue */
-        border: 1px solid var(--accent-pop);
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+        /* User Request: Better Readability - Forced Solid Background */
+        background: #0b1120 !important;
+        /* Deepest Navy (Theme BG) */
+        background-color: #0b1120 !important;
+        border: 1px solid #22d3ee !important;
+        /* Bright Cyan Border */
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.95) !important;
         padding: 1.5rem;
+        color: #f8fafc !important;
+        /* Force white text */
     }
 
     /* Disable transform and backdrop-filter on interactions to prevent stacking context trapping */
