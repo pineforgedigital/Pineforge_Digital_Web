@@ -59,6 +59,10 @@
         padding: 1.5rem;
         /* Slightly smaller padding on mobile */
     }
+
+    .modal-content {
+        padding: 2rem 1.5rem;
+    }
 }
 
 /* Success Modal Styles */
@@ -100,6 +104,9 @@
     text-align: center;
     transform: scale(0.9) translateY(20px);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Mobile Scroll Fix */
+    max-height: 85vh;
+    overflow-y: auto;
 }
 
 .modal-overlay.active .modal-content {
