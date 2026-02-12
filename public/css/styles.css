@@ -1313,39 +1313,27 @@ main {
     background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, rgba(16, 185, 129, 0) 70%);
 }
 
-.status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.25rem 0.75rem;
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    border-radius: 20px;
-    font-size: 0.85rem;
-    color: var(--accent-growth);
-    margin-bottom: 1.5rem;
-    font-weight: 500;
+/* Emerald Theme Overrides */
+.contact-theme-emerald ::selection {
+    background: var(--accent-growth);
+    color: #000;
 }
 
-.status-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--accent-growth);
-    border-radius: 50%;
-    box-shadow: 0 0 8px var(--accent-growth);
-    animation: pulse 2s infinite;
+.contact-theme-emerald input:focus,
+.contact-theme-emerald textarea:focus,
+.contact-theme-emerald .custom-select.open .select-trigger {
+    border-color: var(--accent-growth);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.3) !important;
 }
 
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-    }
+.btn-emerald {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
 
-    70% {
-        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-    }
+.btn-emerald:hover {
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+    transform: translateY(-2px);
 }
