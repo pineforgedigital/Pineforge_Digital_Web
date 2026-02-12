@@ -357,25 +357,6 @@ p {
     font-size: 1.05rem;
 }
 
-/* Emerald Expansion Utilities */
-.text-emerald {
-    color: var(--accent-growth) !important;
-}
-
-.bg-emerald-tint {
-    background: rgba(16, 185, 129, 0.05);
-    border: 1px solid rgba(16, 185, 129, 0.2);
-}
-
-.border-emerald-glow {
-    border-color: var(--accent-growth) !important;
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.15) !important;
-}
-
-.orb-emerald {
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, rgba(16, 185, 129, 0) 70%);
-}
-
 /* Layout Utilities */
 .container {
     max-width: var(--container-width);
