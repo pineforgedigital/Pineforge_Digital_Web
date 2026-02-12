@@ -86,7 +86,7 @@ body {
 
 .reveal.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
 }
 
 /* 404 Page Styles */
@@ -1148,7 +1148,7 @@ footer {
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: none;
     }
 }
 
@@ -1324,6 +1324,11 @@ main {
         opacity: 1;
         visibility: visible;
         transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* Disable transform on hover to prevent stacking context trapping the fixed tooltip */
+    .tech-item:hover {
+        transform: none;
     }
 
     .tech-tooltip::after {
