@@ -168,6 +168,76 @@
                 transform: translateY(0) scale(1);
             }
         }
+
+        /* Tooltip Styles */
+        .info-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-left: 0.5rem;
+            cursor: help;
+            position: relative;
+            z-index: 10;
+            /* Above input overlay */
+            pointer-events: auto;
+            /* Re-enable clicks since label has pointer-events: none */
+            transition: all 0.2s;
+        }
+
+        .info-icon:hover {
+            background: var(--accent-pop);
+            color: #0f172a;
+            border-color: var(--accent-pop);
+            box-shadow: 0 0 10px rgba(34, 211, 238, 0.4);
+        }
+
+        .info-tooltip {
+            position: absolute;
+            bottom: 150%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            width: 200px;
+            padding: 0.75rem;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid var(--accent-pop);
+            border-radius: 8px;
+            color: #e2e8f0;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            font-weight: 400;
+            text-shadow: none;
+        }
+
+        .info-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -6px;
+            border-width: 6px;
+            border-style: solid;
+            border-color: var(--accent-pop) transparent transparent transparent;
+        }
+
+        .info-icon:hover .info-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
     </style>
 </head>
 
@@ -218,19 +288,39 @@
                             <div class="radio-grid">
                                 <div class="option-card">
                                     <input type="radio" name="type" id="type_info" value="Informational" checked>
-                                    <label for="type_info">Informational Business Site</label>
+                                    <label for="type_info">Informational Business Site
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">A digital brochure. Perfect for displaying
+                                                services, hours, and contact info.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="radio" name="type" id="type_service" value="Service-Based">
-                                    <label for="type_service">Service-Based Business</label>
+                                    <label for="type_service">Service-Based Business
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Designed to generate leads, book appointments, or
+                                                showcase a portfolio.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="radio" name="type" id="type_professional" value="Professional Firm">
-                                    <label for="type_professional">Professional Firm (Legal/Finance)</label>
+                                    <label for="type_professional">Professional Firm (Legal/Finance)
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">High-trust design with case studies, team bios,
+                                                and resource libraries.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="radio" name="type" id="type_app" value="Custom Web App">
-                                    <label for="type_app">Custom Web Application</label>
+                                    <label for="type_app">Custom Web Application
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Software users log into. Like a portal,
+                                                dashboard, or internal tool.</span>
+                                        </span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -241,19 +331,39 @@
                             <div class="radio-grid">
                                 <div class="option-card">
                                     <input type="radio" name="scope" id="scope_core" value="Core Pages Only" checked>
-                                    <label for="scope_core">Core Pages Only (Home, About, Contact)</label>
+                                    <label for="scope_core">Core Pages Only (Home, About, Contact)
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">The essentials. Just enough to establish your
+                                                online presence.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="radio" name="scope" id="scope_small" value="Small Site">
-                                    <label for="scope_small">Small Site (4–6 Pages)</label>
+                                    <label for="scope_small">Small Site (4–6 Pages)
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Adds pages like "Services", "FAQ", or
+                                                "Testimonials". Standard for most small businesses.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="radio" name="scope" id="scope_medium" value="Medium Site">
-                                    <label for="scope_medium">Medium Site (7–10 Pages)</label>
+                                    <label for="scope_medium">Medium Site (7–10 Pages)
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">For businesses with multiple service lines or
+                                                location pages.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="radio" name="scope" id="scope_large" value="Large Site">
-                                    <label for="scope_large">Large Site (10+ Pages)</label>
+                                    <label for="scope_large">Large Site (10+ Pages)
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Extensive content. Good for knowledge bases or
+                                                large catalogs.</span>
+                                        </span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -264,15 +374,30 @@
                             <div class="radio-grid">
                                 <div class="option-card">
                                     <input type="radio" name="design" id="design_std" value="Standard" checked>
-                                    <label for="design_std">Standard Professional Design</label>
+                                    <label for="design_std">Standard Professional Design
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Clean, modern, and mobile-friendly using our
+                                                best-practice guidelines.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="radio" name="design" id="design_custom" value="Custom Branding">
-                                    <label for="design_custom">Custom Layout & Branding Alignment</label>
+                                    <label for="design_custom">Custom Layout & Branding Alignment
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">We adhere strictly to your brand guidelines and
+                                                create unique layouts.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="radio" name="design" id="design_advanced" value="Advanced UI">
-                                    <label for="design_advanced">Advanced UI Interactions & Animations</label>
+                                    <label for="design_advanced">Advanced UI Interactions & Animations
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Motion graphics, scroll effects, and premium
+                                                "app-like" interactions.</span>
+                                        </span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -283,31 +408,66 @@
                             <div class="checkbox-grid">
                                 <div class="option-card">
                                     <input type="checkbox" name="features" id="feat_contact" value="Contact Form">
-                                    <label for="feat_contact">Contact Form</label>
+                                    <label for="feat_contact">Contact Form
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Allow visitors to send you messages directly from
+                                                the site.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="checkbox" name="features" id="feat_logic" value="Custom Form Logic">
-                                    <label for="feat_logic">Custom Form Logic / Validation</label>
+                                    <label for="feat_logic">Custom Form Logic / Validation
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Forms that change based on user input (e.g., "If
+                                                X, show Y").</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="checkbox" name="features" id="feat_auth" value="User Accounts">
-                                    <label for="feat_auth">User Accounts / Authentication</label>
+                                    <label for="feat_auth">User Accounts / Authentication
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Allow users to sign up, log in, and manage a
+                                                profile.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="checkbox" name="features" id="feat_cms" value="CMS">
-                                    <label for="feat_cms">Admin Dashboard or CMS</label>
+                                    <label for="feat_cms">Admin Dashboard or CMS
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Allows you to edit text, blog posts, and images
+                                                yourself without code.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="checkbox" name="features" id="feat_db" value="Database">
-                                    <label for="feat_db">Database-Backed Content</label>
+                                    <label for="feat_db">Database-Backed Content
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Stores dynamic data like products, real estate
+                                                listings, or directories.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="checkbox" name="features" id="feat_api" value="Integrations">
-                                    <label for="feat_api">Third-Party Integrations (API/CRM)</label>
+                                    <label for="feat_api">Third-Party Integrations (API/CRM)
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Connects your site to tools like Salesforce,
+                                                HubSpot, or Stripe.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="checkbox" name="features" id="feat_seo" value="SEO Fundamentals">
-                                    <label for="feat_seo">SEO Fundamentals</label>
+                                    <label for="feat_seo">SEO Fundamentals
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Technical optimizations to help Google find and
+                                                rank your site.</span>
+                                        </span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -318,11 +478,21 @@
                             <div class="checkbox-grid">
                                 <div class="option-card">
                                     <input type="checkbox" name="deployment" id="dept_hosting" value="Hosting Setup">
-                                    <label for="dept_hosting">Hosting & Deployment Setup</label>
+                                    <label for="dept_hosting">Hosting & Deployment Setup
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">We configure the server, domain, and SSL security
+                                                for you.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="checkbox" name="deployment" id="dept_maint" value="Maintenance">
-                                    <label for="dept_maint">Ongoing Maintenance (Optional)</label>
+                                    <label for="dept_maint">Ongoing Maintenance (Optional)
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Monthly updates, backups, and security checks to
+                                                keep your site safe.</span>
+                                        </span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -333,19 +503,39 @@
                             <div class="radio-grid">
                                 <div class="option-card">
                                     <input type="radio" name="content" id="content_ready" value="Ready" checked>
-                                    <label for="content_ready">I have all text & images ready</label>
+                                    <label for="content_ready">I have all text & images ready
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">You can send us a folder with everything prepared
+                                                immediately.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="radio" name="content" id="content_draft" value="Rough Draft">
-                                    <label for="content_draft">I have a rough draft (Needs refinement)</label>
+                                    <label for="content_draft">I have a rough draft (Needs refinement)
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">You have a start, but need us to polish the text
+                                                and formatting.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="radio" name="content" id="content_help" value="Need Help">
-                                    <label for="content_help">I need copywriting & asset creation</label>
+                                    <label for="content_help">I need copywriting & asset creation
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">We will interview you and write the professional
+                                                copy from scratch.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="radio" name="content" id="content_later" value="Later">
-                                    <label for="content_later">I will provide content later</label>
+                                    <label for="content_later">I will provide content later
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">You will add the text/images yourself after we
+                                                build the site frame.</span>
+                                        </span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -356,15 +546,30 @@
                             <div class="radio-grid">
                                 <div class="option-card">
                                     <input type="radio" name="timeline" id="time_flex" value="Flexible" checked>
-                                    <label for="time_flex">Flexible / No hard deadline</label>
+                                    <label for="time_flex">Flexible / No hard deadline
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Most cost-effective. We fit the work in around
+                                                other active projects.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="radio" name="timeline" id="time_std" value="Standard">
-                                    <label for="time_std">Standard (4-8 Weeks)</label>
+                                    <label for="time_std">Standard (4-8 Weeks)
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Our typical turnaround time for a project of this
+                                                size.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="radio" name="timeline" id="time_urgent" value="Urgent">
-                                    <label for="time_urgent">Urgent (&lt; 4 Weeks)</label>
+                                    <label for="time_urgent">Urgent (&lt; 4 Weeks)
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">We prioritize your project to launch ASAP (Rush
+                                                fees may apply).</span>
+                                        </span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -375,19 +580,39 @@
                             <div class="radio-grid">
                                 <div class="option-card">
                                     <input type="radio" name="goal" id="goal_leads" value="Generate Leads" checked>
-                                    <label for="goal_leads">Generate New Leads / Sales</label>
+                                    <label for="goal_leads">Generate New Leads / Sales
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Optimization for conversion: Forms, phone
+                                                numbers, and calls-to-action.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="radio" name="goal" id="goal_auto" value="Automate Workflows">
-                                    <label for="goal_auto">Automate Internal Workflows</label>
+                                    <label for="goal_auto">Automate Internal Workflows
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Tools to save your team time, like intake forms
+                                                or customer portals.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="radio" name="goal" id="goal_cred" value="Brand Credibility">
-                                    <label for="goal_cred">Establish Brand Credibility</label>
+                                    <label for="goal_cred">Establish Brand Credibility
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">High-end design to impress investors, partners,
+                                                or sophisticated clients.</span>
+                                        </span>
+                                    </label>
                                 </div>
                                 <div class="option-card">
                                     <input type="radio" name="goal" id="goal_product" value="Launch Product">
-                                    <label for="goal_product">Launch a New Product/Service</label>
+                                    <label for="goal_product">Launch a New Product/Service
+                                        <span class="info-icon" tabindex="0">?
+                                            <span class="info-tooltip">Focused landing pages to explain and sell a
+                                                specific offering.</span>
+                                        </span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
