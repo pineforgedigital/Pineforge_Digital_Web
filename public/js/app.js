@@ -255,39 +255,6 @@ function initBackToTop() {
 
 
 // Mobile Menu Logic
-function initMobileMenu() {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const links = document.querySelectorAll('.nav-links li');
-
-    if (hamburger && navLinks) {
-        // Toggle menu
-        hamburger.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent document click from firing immediately
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('open');
-        });
-
-        // Close menu when clicking a link
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('open');
-            });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            const isClickInsideMenu = navLinks.contains(e.target);
-            const isClickInsideHamburger = hamburger.contains(e.target);
-
-            if (!isClickInsideMenu && !isClickInsideHamburger && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('open');
-            }
-        });
-    }
-}
 
 // Initialize
 async function init() {
@@ -298,10 +265,13 @@ async function init() {
         loadEngineeringLog()
     ]);
 
+    console.log('App initialized');
+
     initBackToTop();
     initMobileMenu();
     initScrollReveal();
     initCustomSelect();
+    initMobileTooltips();
 
     // Bind Form Submit manually
     const contactForm = document.getElementById('contactForm');
@@ -326,6 +296,63 @@ async function init() {
             }
         });
     }
+}
+
+// Mobile Tech Stack Tooltips (JS Solution)
+function initMobileTooltips() {
+    if (window.innerWidth > 768) return; // Only needed on mobile
+
+    const techItems = document.querySelectorAll('.tech-item');
+
+    // Create overlay if it doesn't exist
+    let overlay = document.querySelector('.mobile-tooltip-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'mobile-tooltip-overlay';
+        document.body.appendChild(overlay);
+
+        // Close on overlay click
+        overlay.addEventListener('click', () => {
+            overlay.classList.remove('active');
+            // Clear content after animation
+            setTimeout(() => {
+                overlay.innerHTML = '';
+            }, 300);
+        });
+    }
+
+    techItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            // Prevent default behavior if needed
+            e.preventDefault();
+            e.stopPropagation();
+
+            const tooltip = item.querySelector('.tech-tooltip');
+            if (!tooltip) return;
+
+            // Clone content
+            const title = tooltip.querySelector('.tooltip-title') ? tooltip.querySelector('.tooltip-title').innerText : '';
+            // Get text content excluding title span
+            let text = '';
+            tooltip.childNodes.forEach(node => {
+                if (node.nodeType === 3) text += node.nodeValue.trim() + ' ';
+            });
+
+            // Set overlay content
+            overlay.innerHTML = `
+            <div class="mobile-tooltip-content">
+                <h4>${title}</h4>
+                <p>${text}</p>
+                <span class="close-hint">Tap outside to close</span>
+            </div>
+        `;
+
+            // Timeout to allow DOM update before class add for transition
+            setTimeout(() => {
+                overlay.classList.add('active');
+            }, 10);
+        });
+    });
 }
 
 // Scroll Reveal Logic
