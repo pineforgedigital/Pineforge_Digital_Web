@@ -100,7 +100,10 @@
             pointer-events: none;
             /* Let clicks pass through to input */
             transition: color 0.3s ease;
-            z-index: 1;
+            z-index: 5;
+            /* Ensure label sits above input */
+            position: relative;
+            /* Required for z-index to work */
         }
 
         /* Selected State (The "Lit Up" Glass) */
@@ -184,42 +187,49 @@
             margin-left: 0.5rem;
             cursor: help;
             position: relative;
-            z-index: 10;
-            /* Above input overlay */
+            z-index: 20;
+            /* Keep above label */
             pointer-events: auto;
-            /* Re-enable clicks since label has pointer-events: none */
+            /* Re-enable clicks */
             transition: all 0.2s;
         }
 
-        .info-icon:hover {
+        .info-icon:hover,
+        .info-icon:focus {
             background: var(--accent-pop);
             color: #0f172a;
             border-color: var(--accent-pop);
             box-shadow: 0 0 10px rgba(34, 211, 238, 0.4);
+            outline: none;
         }
 
         .info-tooltip {
             position: absolute;
-            bottom: 150%;
+            bottom: 130%;
+            /* Slightly closer */
             left: 50%;
             transform: translateX(-50%) translateY(10px);
-            width: 200px;
-            padding: 0.75rem;
-            background: rgba(15, 23, 42, 0.95);
+            width: 220px;
+            /* Slightly wider */
+            padding: 1rem;
+            background: rgba(15, 23, 42, 0.98);
+            /* More opaque */
             border: 1px solid var(--accent-pop);
-            border-radius: 8px;
+            border-radius: 12px;
             color: #e2e8f0;
-            font-size: 0.8rem;
-            line-height: 1.4;
+            font-size: 0.85rem;
+            line-height: 1.5;
             text-align: center;
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
             transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             font-weight: 400;
             text-shadow: none;
+            z-index: 100;
+            /* Ensure on top of everything */
         }
 
         .info-tooltip::after {
@@ -233,7 +243,9 @@
             border-color: var(--accent-pop) transparent transparent transparent;
         }
 
-        .info-icon:hover .info-tooltip {
+        .info-icon:hover .info-tooltip,
+        .info-icon:focus .info-tooltip,
+        .info-icon:active .info-tooltip {
             opacity: 1;
             visibility: visible;
             transform: translateX(-50%) translateY(0);
