@@ -174,9 +174,11 @@ Estimated Range: ${priceDisplay.textContent}
             });
 
             if (response.ok) {
-                submitBtn.textContent = 'Request Sent!';
-                submitBtn.style.backgroundColor = '#10b981'; // Green
-                submitBtn.style.borderColor = '#10b981';
+                submitBtn.textContent = 'Request Sent';
+                submitBtn.classList.add('btn-disabled'); // Optional: add a disabled look if needed, or just rely on disabled attribute
+                // Remove generic green overrides to keep Amber theme
+                // submitBtn.style.backgroundColor = '#10b981'; 
+                // submitBtn.style.borderColor = '#10b981';
                 submitBtn.textContent = 'Request Sent!';
                 submitBtn.style.backgroundColor = '#10b981'; // Green
                 submitBtn.style.borderColor = '#10b981';
