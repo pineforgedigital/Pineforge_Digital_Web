@@ -866,11 +866,19 @@ select option {
 
     .hero-content {
         margin: 0 auto;
+        margin-bottom: 4rem;
+        /* Space for visual */
     }
 
     .hero-visual {
-        display: none;
-        /* Simplify for mobile, or simpler version */
+        display: flex;
+        /* Unhide */
+        transform: scale(0.85);
+        /* Scale down fits better */
+        margin: 0 auto;
+        justify-content: center;
+        height: 300px;
+        /* Reduce height slightly */
     }
 }
 
@@ -1175,19 +1183,19 @@ select option {
     margin-bottom: 3rem;
     display: flex;
     gap: 1.5rem;
-    flex-direction: column;
+    flex-direction: row;
+    /* Always row, even on mobile as requested */
 }
 
 @media (min-width: 768px) {
     .process-step {
-        flex-direction: row;
         gap: 3rem;
     }
+}
 
-    .process-number {
-        flex-shrink: 0;
-        /* Prevent shrinking */
-    }
+/* Base style needs flex-shrink so it doesn't squish on mobile */
+.process-number {
+    flex-shrink: 0;
 }
 
 footer {
