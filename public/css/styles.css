@@ -670,7 +670,8 @@ select option {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on extreme zoom */
+    flex-wrap: wrap;
+    /* Allow wrapping on extreme zoom */
     padding: 0.75rem 2rem;
     position: absolute;
     top: 0;
@@ -696,15 +697,20 @@ select option {
 .logo {
     display: flex;
     align-items: center;
-    /* Improved Contrast: Subtle backing */
-    background: rgba(11, 17, 32, 0.4);
-    padding: 5px 10px;
+    /* High Contrast: Light Frosted Glass for Dark Logo Text */
+    background: rgba(248, 250, 252, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    /* Increased padding */
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .logo img {
-    height: 75px; /* Increased from 65px (~15% larger) */
+    height: 75px;
+    /* Increased from 65px (~15% larger) */
     width: auto;
     object-fit: contain;
 }
@@ -713,7 +719,8 @@ select option {
     display: flex;
     gap: var(--spacing-md);
     font-size: 0.95rem;
-    flex-wrap: wrap; /* Safe wrapping */
+    flex-wrap: wrap;
+    /* Safe wrapping */
 }
 
 .nav-links a {
