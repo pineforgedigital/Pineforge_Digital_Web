@@ -1157,8 +1157,9 @@ select option {
     position: absolute;
     left: 44px;
     /* Align with numbers */
-    top: 5rem;
-    bottom: 5rem;
+    top: 2rem;
+    bottom: 0;
+    /* Ends at the bottom of the steps group */
     width: 2px;
     background: repeating-linear-gradient(to bottom,
             rgba(56, 189, 248, 0.3) 0,
