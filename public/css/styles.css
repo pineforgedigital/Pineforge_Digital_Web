@@ -872,23 +872,34 @@ select option {
 
     .hero-visual {
         display: flex;
-        /* Unhide */
-        transform: scale(0.75);
-        /* Scale down fits better */
-        margin: 0 auto;
-        justify-content: center;
+        transform: scale(0.7);
+        margin: 2rem auto 0;
+        /* Add top margin */
+        width: 320px;
+        /* Fix width to ensure centering works */
         height: 300px;
-        /* Reduce height slightly */
+        position: relative;
+        left: -10px;
+        /* Slight nudge left to center the visual weight */
     }
 
-    /* Bring floating cards inside to prevent cutoff */
+    /* Reset positions to be relative to the 320px container */
+    .hero-visual .card-main {
+        position: absolute;
+        left: 0;
+        top: 20px;
+    }
+
     .hero-visual .card-stat {
-        left: 10px;
-        bottom: 0;
+        left: -10px;
+        /* Relative to the 320px container */
+        bottom: 20px;
     }
 
     .hero-visual .card-code {
-        right: 10px;
+        right: -10px;
+        /* Relative to the 320px container */
+        top: 60px;
     }
 }
 
