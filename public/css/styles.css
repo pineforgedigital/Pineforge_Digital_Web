@@ -873,12 +873,22 @@ select option {
     .hero-visual {
         display: flex;
         /* Unhide */
-        transform: scale(0.85);
+        transform: scale(0.75);
         /* Scale down fits better */
         margin: 0 auto;
         justify-content: center;
         height: 300px;
         /* Reduce height slightly */
+    }
+
+    /* Bring floating cards inside to prevent cutoff */
+    .hero-visual .card-stat {
+        left: 10px;
+        bottom: 0;
+    }
+
+    .hero-visual .card-code {
+        right: 10px;
     }
 }
 
