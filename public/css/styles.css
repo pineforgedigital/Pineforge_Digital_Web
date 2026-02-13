@@ -1625,7 +1625,17 @@ main {
     }
 }
 
-/* Disable transform and backdrop-filter on interactions to prevent stacking context trapping */
+/* Mobile Utility Helpers */
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-only {
+        display: inline;
+    }
+}
+
 /* This is now handled by the JS overlay, so we can relax this or keep it for desktop if needed */
 
 /* Emerald Expansion (Contact Page Exclusive) */
