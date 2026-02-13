@@ -747,6 +747,134 @@ select option {
     line-height: 1.5;
 }
 
+/* Service Icons */
+.service-icon-container {
+    display: inline-flex;
+    padding: 12px;
+    background: rgba(56, 189, 248, 0.1);
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    color: var(--accent-warm);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* Hero Graphic (The Blueprint) */
+.hero-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-visual {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.blueprint-card {
+    position: absolute;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease;
+}
+
+.card-main {
+    width: 320px;
+    height: 220px;
+    z-index: 2;
+    transform: rotateY(-10deg) rotateX(5deg);
+    border-top: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.card-code {
+    width: 280px;
+    z-index: 3;
+    top: 20%;
+    right: -20px;
+    transform: rotateY(-10deg) translateZ(50px);
+    background: rgba(11, 17, 32, 0.9);
+    border: 1px solid var(--accent-pop);
+}
+
+.code-line {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.code-line.short {
+    width: 40%;
+}
+
+.code-line.medium {
+    width: 70%;
+}
+
+.code-line.long {
+    width: 90%;
+}
+
+.code-line.accent {
+    background: var(--accent-pop);
+    width: 30%;
+}
+
+.card-stat {
+    width: 180px;
+    bottom: -20px;
+    left: -20px;
+    z-index: 4;
+    transform: rotateY(-10deg) translateZ(80px);
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid var(--accent-growth);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stat-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--accent-growth);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-growth);
+}
+
+.stat-text {
+    font-size: 0.85rem;
+    color: var(--accent-growth);
+    font-weight: 600;
+}
+
+/* Responsive Hero */
+@media (max-width: 992px) {
+    .hero-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin: 0 auto;
+    }
+
+    .hero-visual {
+        display: none;
+        /* Simplify for mobile, or simpler version */
+    }
+}
+
+
 /* Buttons */
 .btn-group {
     display: flex;
@@ -1017,7 +1145,50 @@ select option {
     border-radius: 50%;
 }
 
-/* Footer */
+/* Process Flow Visualization */
+.process-container {
+    position: relative;
+    max-width: 800px;
+    padding: 3rem 1.5rem;
+    border-radius: 24px;
+}
+
+.process-line {
+    position: absolute;
+    left: 44px;
+    /* Align with numbers */
+    top: 5rem;
+    bottom: 5rem;
+    width: 2px;
+    background: repeating-linear-gradient(to bottom,
+            rgba(56, 189, 248, 0.3) 0,
+            rgba(56, 189, 248, 0.3) 8px,
+            transparent 8px,
+            transparent 16px);
+    z-index: 0;
+}
+
+.process-step {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 3rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .process-step {
+        flex-direction: row;
+        gap: 3rem;
+    }
+
+    .process-number {
+        flex-shrink: 0;
+        /* Prevent shrinking */
+    }
+}
+
 footer {
     padding: var(--spacing-lg) 0;
     border-top: 1px solid var(--border-color);
