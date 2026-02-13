@@ -664,28 +664,24 @@ select option {
 /* Header */
 /* Main Navigation: Matched Glass */
 /* Main Navigation: Absolute Fixed Top - High Vibrancy */
+/* Main Navigation: Matched Glass */
+/* Main Navigation: Absolute Fixed Top - High Vibrancy */
 .main-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on extreme zoom */
     padding: 0.75rem 2rem;
-    /* Reduced to balance larger logo */
     position: absolute;
-    /* Fixed to document top, scrolls away */
-    /* Fixed to document top, scrolls away */
     top: 0;
     left: 0;
     width: 100%;
     z-index: 999;
     margin: 0;
-    /* No margin needed */
     background: rgba(11, 17, 32, 0.5);
-    /* More translucent to let colors pop */
     backdrop-filter: blur(50px) saturate(300%);
-    /* Hyper-Vibrant */
     -webkit-backdrop-filter: blur(50px) saturate(300%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    /* Slightly brighter border */
 }
 
 /* Remove gradient mask to ensure consistent background match */
@@ -695,24 +691,29 @@ select option {
 
 .hamburger {
     display: none;
-    /* Hidden on desktop */
 }
 
 .logo {
     display: flex;
     align-items: center;
+    /* Improved Contrast: Subtle backing */
+    background: rgba(11, 17, 32, 0.4);
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .logo img {
-    height: 65px;
-    /* Increased for better presence */
+    height: 75px; /* Increased from 65px (~15% larger) */
     width: auto;
+    object-fit: contain;
 }
 
 .nav-links {
     display: flex;
     gap: var(--spacing-md);
     font-size: 0.95rem;
+    flex-wrap: wrap; /* Safe wrapping */
 }
 
 .nav-links a {

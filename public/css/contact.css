@@ -47,12 +47,8 @@
     .contact-section {
         grid-template-columns: 1fr;
         /* Stack vertically */
-        gap: 3rem;
-    }
-
-    .contact-card {
-        padding: 1.5rem;
-        /* Slightly smaller padding on mobile */
+        gap: 1.5rem;
+        /* Reduced from 3rem */
     }
 
     .contact-card {
