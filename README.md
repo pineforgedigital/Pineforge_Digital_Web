@@ -2,7 +2,7 @@
 
 The official corporate website for [Pineforge Digital LLC](https://pineforge.digital). Built with a focus on performance, clean aesthetics, and reliability.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 *   **Frontend:** HTML5, CSS3 (Custom Variables, Flexbox/Grid), Vanilla JavaScript.
 *   **Backend:** Node.js, Express.js.
@@ -11,7 +11,7 @@ The official corporate website for [Pineforge Digital LLC](https://pineforge.dig
 *   **Security:** Helmet (Headers), Express Rate Limit, Input Validation.
 *   **Deployment:** Vercel to Serverless Functions.
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -54,20 +54,20 @@ npm run dev
 
 Visit `http://localhost:3000` in your browser.
 
-## 📂 Project Structure
+## Project Structure
 
 *   **/public**: Static assets (HTML, CSS, Images).
 *   **/public/js**: Frontend logic (`script.js` for UI, `cookies.js` for consent).
 *   **server.js**: Main Express application entry point.
 *   **database.js**: Database connection manager (Hybrid SQLite/PG).
 
-## 🔒 Security & Privacy
+## Security & Privacy
 
 *   **Clean URLs:** Routes are served extension-less (e.g., `/about` instead of `/about.html`).
 *   **Cookies:** Uses a minimal `visitor_id` for anonymous unique visitor counting.
 *   **Headers:** Secured with `helmet` (HSTS, No-Sniff, XSS Filter).
 
-## 📦 Deployment
+## Deployment
 
 This project is configured for **Vercel**.
 1.  Connect your GitHub repository to Vercel.
