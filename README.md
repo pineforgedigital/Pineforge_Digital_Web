@@ -1,4 +1,4 @@
-# Pineforge Digital LLC Website
+# Pineforge Digital Website
 
 The official corporate website for [Pineforge Digital LLC](https://pineforge.digital). Built with a focus on performance, clean aesthetics, and reliability.
 
