@@ -917,8 +917,8 @@ select option {
     }
 
     .hero-visual .card-stat {
-        left: -10px;
-        /* Relative to the 320px container */
+        left: 0;
+        /* Relative to the 320px container - Adjusted to prevent cutoff */
         bottom: 20px;
     }
 
@@ -1351,6 +1351,14 @@ footer {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
+    }
+
+    /* Mobile Orb Fix - Prevent clipping */
+    .ambient-orb {
+        right: -5% !important;
+        /* Pull closer to center */
+        opacity: 0.1;
+        /* Slightly fade to soften edge */
     }
 }
 
