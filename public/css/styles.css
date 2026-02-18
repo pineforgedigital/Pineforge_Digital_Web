@@ -79,6 +79,14 @@ body {
     color: var(--text-color);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    width: 100%;
+}
+
+/* Global Overflow Fix for iOS */
+html,
+body {
+    overflow-x: hidden;
+    position: relative;
 }
 
 /* Scroll Reveal Animation */
@@ -748,6 +756,9 @@ select option {
     padding-bottom: var(--spacing-xl);
     /* Background moved to body::before for global consistency */
     background: transparent;
+    /* iOS RWD Fix: Clip ambient orbs */
+    overflow: hidden;
+    position: relative;
 }
 
 .hero-content {
@@ -1759,4 +1770,11 @@ main {
 .btn-emerald:hover {
     box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
     transform: translateY(-2px);
+}
+
+/* iOS RWD Fix for Sections with Ambient Orbs */
+#what-we-build,
+#how-we-work {
+    overflow: hidden;
+    position: relative;
 }
