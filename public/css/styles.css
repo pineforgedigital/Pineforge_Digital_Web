@@ -917,7 +917,7 @@ select option {
     }
 
     .hero-visual .card-stat {
-        left: 0;
+        left: 30px;
         /* Relative to the 320px container - Adjusted to prevent cutoff */
         bottom: 20px;
     }
