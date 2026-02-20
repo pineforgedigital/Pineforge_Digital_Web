@@ -883,6 +883,12 @@ select option {
     font-weight: 600;
 }
 
+@media (min-width: 993px) {
+    .hero {
+        overflow: visible;
+    }
+}
+
 /* Responsive Hero */
 @media (max-width: 992px) {
     .hero-wrapper {
