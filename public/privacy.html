@@ -52,7 +52,58 @@
         <p>Last Updated: May 2026</p>
     </section>
 
-    <section style="max-width: 800px;">
+    <section class="legal-content" style="max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 3rem; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.2); backdrop-filter: blur(20px);">
+        <style>
+            .legal-content {
+                position: relative;
+                z-index: 2;
+            }
+            .legal-content h3 {
+                color: var(--text-color);
+                font-size: 1.4rem;
+                margin-top: 2.5rem;
+                margin-bottom: 1rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+            }
+            .legal-content h3:first-of-type {
+                margin-top: 0;
+            }
+            .legal-content p {
+                color: var(--text-muted);
+                line-height: 1.8;
+                margin-bottom: 1.2rem;
+                font-size: 1.05rem;
+            }
+            .legal-content ul {
+                color: var(--text-muted);
+                line-height: 1.8;
+                margin-bottom: 1.5rem;
+                padding-left: 1.5rem;
+                list-style-type: disc;
+            }
+            .legal-content li {
+                margin-bottom: 0.5rem;
+            }
+            .legal-content strong {
+                color: var(--text-color);
+                font-weight: 600;
+            }
+            .legal-content a {
+                color: var(--accent-pop);
+                transition: all 0.2s ease;
+            }
+            .legal-content a:hover {
+                color: var(--accent-hover);
+                text-decoration: underline;
+            }
+            @media (max-width: 768px) {
+                .legal-content {
+                    padding: 1.5rem !important;
+                    margin: 0 1rem !important;
+                }
+            }
+        </style>
         <h3>1. Overview</h3>
         <p>Pine Forge Digital LLC ("we," "us," or "our") respects your privacy and is committed to handling your personal information responsibly. This Privacy Policy explains what information we collect, how it is used, how it is protected, and the limited circumstances under which it is shared.</p>
 
