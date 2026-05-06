@@ -384,9 +384,14 @@ section {
 }
 
 /* Alternating Section Tints for Depth */
-section:nth-of-type(even) {
+section:nth-of-type(even),
+.section-tint-warm,
+.section-tint-cool,
+.section-tint-creative {
     background: linear-gradient(180deg, transparent 0%, rgba(56, 189, 248, 0.03) 50%, transparent 100%);
-    /* Very subtle cool tint */
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+    border-radius: 24px;
 }
 
 /* Schematic / Technical Visuals */
