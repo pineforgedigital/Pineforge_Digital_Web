@@ -1897,6 +1897,7 @@ body::before {
     background: transparent !important;
     box-shadow: none !important;
     background-image: none !important;
+    border: none !important;
 }
 
 /* 11. Fix Nav Logo (Remove glowing white box & resize) */
