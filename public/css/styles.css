@@ -1798,3 +1798,94 @@ main {
     overflow: hidden;
     position: relative;
 }
+
+/* ========================================================================= */
+/* PREMIUM CORPORATE SLATE OVERRIDES - REMOVING NEON/CYBERPUNK AESTHETICS */
+/* ========================================================================= */
+
+/* 1. Hide all ambient orbs globally */
+.ambient-orb {
+    display: none !important;
+}
+
+/* 2. Flatten Cards (Remove crazy gradients and glowing borders) */
+.card, .card-creative, .card-growth, .card-warm {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    background-image: none !important;
+}
+
+.card:hover, .card-creative:hover, .card-growth:hover, .card-warm:hover {
+    background: rgba(30, 41, 59, 0.8) !important;
+    border: 1px solid var(--accent-secondary) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2) !important;
+    transform: translateY(-2px) !important;
+    background-image: none !important;
+}
+
+.card::before {
+    display: none !important;
+}
+
+/* 3. Fix Buttons (Solid, professional, no neon glow) */
+.btn-accent {
+    background: var(--accent-pop) !important;
+    border: 1px solid var(--accent-pop) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}
+
+.btn-accent:hover {
+    background: var(--accent-hover) !important;
+    border-color: var(--accent-hover) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* 4. Fix Inputs & Textareas (No glowing borders on focus) */
+input:focus, textarea:focus, select:focus {
+    background: rgba(15, 23, 42, 0.8) !important;
+    border: 1px solid var(--accent-pop) !important;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2) !important; /* Subtle blue ring */
+}
+
+/* 5. Fix Status Badges */
+.status-badge {
+    background: rgba(2, 132, 199, 0.15) !important;
+    border: 1px solid rgba(2, 132, 199, 0.3) !important;
+    color: #38bdf8 !important; /* Keep a bit of brightness for readability */
+    box-shadow: none !important;
+}
+
+/* 6. Fix Timeline/Log Entry dots */
+.log-entry::before {
+    border: 2px solid var(--accent-pop) !important;
+    box-shadow: none !important;
+}
+
+/* 7. Fix Global Body Grid/Glow */
+body::before {
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px) !important;
+    background-size: 40px 40px, 40px 40px !important;
+}
+
+/* 8. Tech Items */
+.tech-item:hover {
+    background: rgba(2, 132, 199, 0.15) !important;
+    border-color: var(--accent-pop) !important;
+    color: #f8fafc !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* 9. Text selection */
+::selection {
+    background: rgba(2, 132, 199, 0.4) !important;
+    color: #ffffff !important;
+}
