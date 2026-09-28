@@ -1920,7 +1920,7 @@ body::before {
 }
 
 .logo img {
-    height: 35px !important;
+    height: 55px !important;
     filter: brightness(0) invert(1) !important; /* Transforms the dark logo to pure white */
 }
 
