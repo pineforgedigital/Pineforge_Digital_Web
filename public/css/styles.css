@@ -1919,3 +1919,28 @@ body::before {
 .logo img {
     height: 45px !important;
 }
+
+/* 12. Constrain Navbar Width & Polish Links */
+.main-nav {
+    padding-left: max(2rem, calc((100% - 1100px) / 2)) !important;
+    padding-right: max(2rem, calc((100% - 1100px) / 2)) !important;
+}
+
+.nav-links {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.nav-links a {
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    color: #e2e8f0 !important;
+    transition: color 0.2s ease !important;
+    font-size: 1rem !important;
+}
+
+.nav-links a:hover {
+    color: var(--accent-pop) !important;
+    text-shadow: none !important;
+}.nav-links a::after { display: none !important; }
