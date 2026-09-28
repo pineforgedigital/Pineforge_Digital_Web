@@ -1900,24 +1900,28 @@ body::before {
     border: none !important;
 }
 
-/* 11. Fix Nav Logo (Remove glowing white box & resize) */
+/* 11. Fix Nav Logo (Make white with subtle glassmorphism) */
 .logo {
-    background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(10px) saturate(150%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    padding: 6px 16px !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    transition: background 0.3s ease, border-color 0.3s ease !important;
 }
 
 .logo:hover {
-    background: transparent !important;
-    box-shadow: none !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15) !important;
     transform: none !important;
 }
 
 .logo img {
-    height: 45px !important;
+    height: 35px !important;
+    filter: brightness(0) invert(1) !important; /* Transforms the dark logo to pure white */
 }
 
 /* 12. Constrain Navbar Width & Polish Links */
