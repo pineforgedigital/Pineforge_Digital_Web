@@ -1,46 +1,46 @@
 :root {
-    /* "Cool Steel & Ice" Palette (Matches Logo) */
-    /* Base Backgrounds (Deep Slate/Navy) */
-    --bg-color: #0B1120;
-    /* Deep Midnight Slate */
-    --bg-secondary: #0f172a;
-    /* Lighter Navy Surface */
-    --card-bg: rgba(15, 23, 42, 0.6);
-    /* Glass-ready Slate */
+    /* "Premium Corporate Slate" Palette */
+    /* Base Backgrounds */
+    --bg-color: #0f172a;
+    /* Slate 900 */
+    --bg-secondary: #1e293b;
+    /* Slate 800 */
+    --card-bg: rgba(30, 41, 59, 0.6);
+    /* Glass-ready Slate 800 */
 
     /* Text */
     --text-color: #f8fafc;
-    /* Crisp White/Ice */
+    /* Crisp White */
     --text-muted: #94a3b8;
     /* Cool Grey */
 
-    /* Accents (Matching Logo: Blue/Purple) */
-    --accent-color: #38bdf8;
-    /* Electric Sky Blue */
-    --accent-hover: #0ea5e9;
-    /* Deep Sky Blue */
-    --accent-secondary: #818cf8;
-    /* Indigo/Purple for gradients */
-    --accent-pop: #22d3ee;
-    /* Electric Cyan (High Energy/Action) */
-    --accent-growth: #10b981;
-    /* Neon Emerald (Growth/Success) */
-    --accent-warm: #38bdf8;
-    /* Sky Blue (Cool Replacement) */
-    --accent-creative: #8b5cf6;
-    /* Violet */
+    /* Accents (Professional Blues) */
+    --accent-color: #0284c7;
+    /* Muted Blue */
+    --accent-hover: #0369a1;
+    /* Deeper Blue */
+    --accent-secondary: #475569;
+    /* Slate 600 */
+    --accent-pop: #0284c7;
+    /* Muted Blue */
+    --accent-growth: #0f766e;
+    /* Professional Teal */
+    --accent-warm: #0284c7;
+    /* Muted Blue */
+    --accent-creative: #64748b;
+    /* Slate 500 */
 
     /* Borders & Effects */
-    --border-color: #1e293b;
-    --glass-border: rgba(56, 189, 248, 0.1);
+    --border-color: #334155;
+    --glass-border: rgba(2, 132, 199, 0.1);
     /* Subtle Blue Tint */
-    --glow-color: rgba(56, 189, 248, 0.25);
+    --glow-color: rgba(2, 132, 199, 0.15);
 
     /* Gradients */
-    /* Vibrant "Aurora" - Bright enough to show through glass */
+    /* Subdued Aurora */
     --gradient-hero:
-        radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.25) 0%, rgba(129, 140, 248, 0.15) 30%, rgba(11, 17, 32, 0) 70%),
-        radial-gradient(circle at 85% 20%, rgba(245, 158, 11, 0.08) 0%, rgba(11, 17, 32, 0) 50%);
+        radial-gradient(circle at 50% -10%, rgba(2, 132, 199, 0.15) 0%, rgba(71, 85, 105, 0.1) 30%, rgba(15, 23, 42, 0) 70%),
+        radial-gradient(circle at 85% 20%, rgba(15, 118, 110, 0.05) 0%, rgba(15, 23, 42, 0) 50%);
 
     --gradient-boreal: linear-gradient(135deg, #38bdf8 0%, #10b981 100%);
     /* Blue -> Emerald */
