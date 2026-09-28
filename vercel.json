@@ -1,13 +1,9 @@
 {
     "version": 2,
-    "functions": {
-        "server.js": {
-            "includeFiles": "public/**"
-        }
-    },
+    "cleanUrls": true,
     "rewrites": [
         {
-            "source": "/(.*)",
+            "source": "/api/(.*)",
             "destination": "/server.js"
         }
     ]
