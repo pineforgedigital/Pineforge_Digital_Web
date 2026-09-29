@@ -2235,36 +2235,59 @@ body::before {
     pointer-events: none;
 }
 
-/* Alternate Section Backgrounds for Structure (Not Color) */
-.section-tint-cool, .section-tint-warm, .section-tint-creative {
-    background: #f8fafc !important; /* Soft Slate 50 */
-    border-top: 1px solid #f1f5f9 !important;
-    border-bottom: 1px solid #f1f5f9 !important;
-}
+/* 17. RICH COLOR PALETTE OVERHAUL */
 
-/* Enterprise Cards - Crisp, clean, professional */
+/* Deep Navy Hero */
+.hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+    position: relative;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at top right, rgba(14, 165, 233, 0.15), transparent 40%);
+    pointer-events: none;
+}
+.hero h1, .hero .text-highlight-warm { color: #38bdf8 !important; -webkit-text-fill-color: #38bdf8 !important; }
+.hero p { color: #cbd5e1 !important; }
+
+/* Footer Deep Navy */
+footer {
+    background: #0f172a !important;
+    color: #cbd5e1 !important;
+    border-top: none !important;
+}
+footer h3, footer h4, footer a, footer .brand-name, footer p {
+    color: #cbd5e1 !important;
+}
+footer a:hover { color: #ffffff !important; }
+
+/* Rich Tinted Sections */
+.section-tint-cool { background: #f0f9ff !important; border-top: 1px solid #e0f2fe !important; }
+.section-tint-creative { background: #f5f3ff !important; border-top: 1px solid #ede9fe !important; }
+.section-tint-warm { background: #f8fafc !important; border-top: 1px solid #f1f5f9 !important; }
+
+/* Enterprise Cards - Rich Top Borders */
 .card, .process-step .card, .blueprint-card {
     background: #ffffff !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
     border: 1px solid #e2e8f0 !important;
-    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 
-                0 2px 4px -1px rgba(15, 23, 42, 0.03) !important;
+    border-top-width: 4px !important;
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -1px rgba(15, 23, 42, 0.03) !important;
     border-radius: 12px !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
 }
 
 .card:hover, .blueprint-card:hover {
     transform: translateY(-4px) !important;
-    box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 
-                0 4px 6px -2px rgba(15, 23, 42, 0.04) !important;
-    border-color: #cbd5e1 !important;
+    box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04) !important;
 }
 
-/* Remove vibrant borders */
-.card:nth-child(1), .card:nth-child(2), .card:nth-child(3), .card:nth-child(4) {
-    border-top: 1px solid #e2e8f0 !important;
-}
+/* Distinct Color Accents for Cards */
+.card:nth-child(4n+1) { border-top-color: #0ea5e9 !important; } /* Sky Blue */
+.card:nth-child(4n+2) { border-top-color: #8b5cf6 !important; } /* Violet */
+.card:nth-child(4n+3) { border-top-color: #10b981 !important; } /* Emerald */
+.card:nth-child(4n+4) { border-top-color: #f59e0b !important; } /* Amber */
 
 /* Refined Typography */
 h1, h2, h3, h4, h5, h6 {
@@ -2301,5 +2324,7 @@ p, li, .hero-subtext {
     background: none !important;
     -webkit-text-fill-color: #0ea5e9 !important;
 }
+
+
 
 
