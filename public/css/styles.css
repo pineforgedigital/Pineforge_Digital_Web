@@ -2468,3 +2468,72 @@ p, li, .hero-subtext {
 
 
 
+
+
+/* 19. Clean Forms & Inputs (Override Dark Mode Frost) */
+input, textarea, select, .custom-select .select-trigger {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important; /* Slate-300 */
+    color: #0f172a !important; /* Slate-900 */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+    border-radius: 8px !important;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #94a3b8 !important; /* Slate-400 */
+}
+
+input:focus, textarea:focus, select:focus, .custom-select.open .select-trigger {
+    background: #ffffff !important;
+    border-color: #0f172a !important; /* Slate-900 focus */
+    box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1) !important; /* Subtle slate ring */
+}
+
+/* 20. Professional Muted Buttons (Replace bright blue) */
+.btn-primary, .btn-secondary, .btn-emerald, .btn-accent {
+    background: #0f172a !important; /* Slate-900 */
+    color: #ffffff !important;
+    border: 1px solid #0f172a !important;
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.2) !important;
+}
+
+.btn-primary:hover, .btn-secondary:hover, .btn-emerald:hover, .btn-accent:hover {
+    background: #1e293b !important; /* Slate-800 */
+    border-color: #1e293b !important;
+    box-shadow: 0 6px 12px -2px rgba(15, 23, 42, 0.3) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Fix CTA secondary button */
+.cta-content .btn-primary {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border-color: #ffffff !important;
+}
+.cta-content .btn-primary:hover {
+    background: #f8fafc !important; /* Slate-50 */
+    color: #0f172a !important;
+}
+
+
+/* 21. Clean Dropdown Menu */
+.custom-options {
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.1) !important;
+}
+
+.custom-option {
+    color: #0f172a !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+}
+
+.custom-option:hover,
+.custom-option.selected {
+    background-color: #f8fafc !important; /* Slate-50 hover */
+    color: #0284c7 !important; /* Slate Blue text on hover */
+}
