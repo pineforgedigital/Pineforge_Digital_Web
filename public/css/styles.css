@@ -72,7 +72,6 @@
 
 html {
     scroll-behavior: smooth;
-    zoom: 0.9;
 }
 
 body {
@@ -2190,7 +2189,7 @@ body::after {
     max-width: 100% !important;
     width: 100% !important;
     padding: 0 !important;
-    overflow-x: hidden !important;
+    overflow: visible !important; /* FIXED CLIPPING CAUSE */
 }
 
 /* Center content using padding dynamically */
@@ -2277,3 +2276,4 @@ h1, h2, h3, h4 {
 p {
     color: #334155 !important;
 }
+
