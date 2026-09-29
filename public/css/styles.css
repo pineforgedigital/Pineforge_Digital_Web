@@ -2187,17 +2187,24 @@ body::after {
 
 /* Break out of the box! */
 .container {
-    max-width: 100vw !important;
+    max-width: 100% !important;
+    width: 100% !important;
     padding: 0 !important;
     overflow-x: hidden !important;
 }
 
 /* Center content using padding dynamically */
 section, footer, .page-header {
-    padding-left: max(2rem, calc((100vw - 1200px) / 2)) !important;
-    padding-right: max(2rem, calc((100vw - 1200px) / 2)) !important;
-    width: 100vw !important;
+    padding-left: max(2rem, calc((100% - 1200px) / 2)) !important;
+    padding-right: max(2rem, calc((100% - 1200px) / 2)) !important;
+    width: 100% !important;
     box-sizing: border-box !important;
+    overflow: visible !important; /* PREVENT CLIPPING OF BLURRED ORBS */
+}
+
+/* Fix Hero Clipping */
+.hero {
+    overflow: visible !important; /* PREVENT CLIPPING OF HERO ORB */
 }
 
 /* Add Vibrant, Sweeping Color Gradients to the Background */
