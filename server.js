@@ -57,6 +57,7 @@ app.use((req, res, next) => {
 });
 
 // Clean URL Redirects
+app.get('/api/debug-url', (req, res) => res.json({ url: req.url, originalUrl: req.originalUrl, headers: req.headers, path: req.path }));
 app.use((req, res, next) => {
     if (req.path.endsWith('.html')) {
         return res.redirect(301, req.path.slice(0, -5));
@@ -69,6 +70,7 @@ app.use((req, res, next) => {
 
 // Password Protection Middleware
 app.use((req, res, next) => {
+    console.log('REQ URL:', req.url, 'ORIGINAL URL:', req.originalUrl);
     // If no PIN_CODE is set, skip lock entirely
     if (!process.env.PIN_CODE) {
         return next();
@@ -91,6 +93,7 @@ app.use((req, res, next) => {
 });
 
 // PIN Verification Endpoint
+app.get('/api/debug-env', (req, res) => { res.json({ hasPin: !!process.env.PIN_CODE, pinLength: process.env.PIN_CODE ? process.env.PIN_CODE.length : 0 }); });
 app.post('/api/verify-pin', (req, res) => {
     const pin = req.body.pin || '';
     if (pin.trim() === process.env.PIN_CODE.trim()) {
@@ -736,6 +739,9 @@ if (require.main === module) {
 }
 
 module.exports = app;
+
+
+
 
 
 

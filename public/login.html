@@ -58,6 +58,7 @@
         </form>
     </div>
     <script>
+        console.log('Document cookies:', document.cookie);
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('error')) {
             document.getElementById('error-msg').style.display = 'block';
@@ -66,3 +67,4 @@
     </script>
 </body>
 </html>
+
