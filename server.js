@@ -34,6 +34,7 @@ app.use(helmet({
     }
 }));
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
@@ -80,7 +81,7 @@ app.use((req, res, next) => {
     }
     
     // Check for access cookie
-    if (req.cookies.site_access === process.env.PIN_CODE) {
+    if (req.cookies.site_access === process.env.PIN_CODE.trim()) {
         return next();
     }
     
@@ -91,14 +92,24 @@ app.use((req, res, next) => {
 
 // PIN Verification Endpoint
 app.post('/api/verify-pin', (req, res) => {
-    const { pin } = req.body;
+    const pin = req.body.pin || '';
     if (pin.trim() === process.env.PIN_CODE.trim()) {
-        res.cookie('site_access', pin, { 
+        res.cookie('site_access', pin.trim(), { 
             httpOnly: true, 
-            sameSite: 'lax',
+            path: '/',
             maxAge: 12 * 60 * 60 * 1000 // 12 hours
         });
+        
+        // Check if this was a standard form submission or fetch
+        if (req.headers['content-type'] === 'application/x-www-form-urlencoded') {
+            return res.redirect('/');
+        }
         return res.status(200).json({ success: true });
+    }
+    
+    // Check if this was a standard form submission or fetch
+    if (req.headers['content-type'] === 'application/x-www-form-urlencoded') {
+        return res.redirect('/?error=1');
     }
     return res.status(401).json({ success: false });
 });
@@ -725,4 +736,6 @@ if (require.main === module) {
 }
 
 module.exports = app;
+
+
 

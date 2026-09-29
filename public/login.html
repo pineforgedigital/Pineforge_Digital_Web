@@ -49,31 +49,20 @@
         <img src="/images/Brand_Logo_clear.png" alt="Pineforge Digital">
         <h1>Private Access</h1>
         <p>This site is currently in development. Please enter the PIN to continue.</p>
-        <form id="loginForm">
+        <form id="loginForm" action="/api/verify-pin" method="POST" enctype="application/x-www-form-urlencoded">
             <div class="input-group">
-                <input type="password" id="pin" placeholder="••••••" required>
+                <input type="password" name="pin" id="pin" placeholder="      " required>
             </div>
             <button type="submit">Enter Site</button>
             <div id="error-msg">Invalid PIN code.</div>
         </form>
     </div>
     <script>
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const pin = document.getElementById('pin').value;
-            const res = await fetch('/api/verify-pin', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ pin })
-            });
-            if (res.ok) {
-                window.location.href = '/';
-            } else {
-                document.getElementById('error-msg').style.display = 'block';
-                document.getElementById('pin').value = '';
-            }
-        });
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('error')) {
+            document.getElementById('error-msg').style.display = 'block';
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
     </script>
 </body>
 </html>
-
