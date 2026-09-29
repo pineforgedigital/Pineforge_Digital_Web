@@ -2071,6 +2071,103 @@ body::before {
         linear-gradient(90deg, var(--grid-color) 1px, transparent 1px) !important;
     background-size: 40px 40px, 40px 40px !important;
 }
+
+/* 15. PREMIUM LIGHT MODE OVERHAUL */
+
+/* Beautiful Modern Typography */
+:root {
+    --font-main: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
+}
+
+body {
+    font-family: var(--font-main) !important;
+    letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em !important;
+    font-weight: 700 !important;
+}
+
+/* Soft, Elegant Mesh Gradients for Background */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    background: 
+        radial-gradient(circle at 15% 50%, rgba(14, 165, 233, 0.05), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(79, 70, 229, 0.05), transparent 25%);
+    pointer-events: none;
+}
+
+/* Premium Card Shadows */
+.card, .process-step .card {
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 10px 40px -10px rgba(15, 23, 42, 0.08), 
+                0 0 0 1px rgba(15, 23, 42, 0.02) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.8) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.12), 
+                0 0 0 1px rgba(14, 165, 233, 0.1) !important;
+}
+
+/* Fix Logo Background Pill */
+.logo {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* Make the Hero Blueprint Graphic Pop */
+.hero-visual {
+    perspective: 1000px;
+}
+.blueprint-card.card-main {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15) !important;
+    border-radius: 16px;
+}
+.blueprint-card.card-code {
+    background: #0f172a !important; /* Keep the code box dark for contrast */
+    color: #e2e8f0 !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    box-shadow: 0 15px 30px -5px rgba(15, 23, 42, 0.2) !important;
+}
+.blueprint-card.card-code .code-line {
+    background: #334155 !important;
+}
+.blueprint-card.card-code .code-line.accent {
+    background: #0ea5e9 !important;
+}
+.blueprint-card.card-stat {
+    background: #ffffff !important;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.1) !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+/* Button Glows */
+.btn-primary {
+    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%) !important;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3) !important;
+    border: none !important;
+    font-weight: 600 !important;
+}
+.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4) !important;
+    transform: translateY(-2px);
+}
     padding: 0 !important;
 }
 
