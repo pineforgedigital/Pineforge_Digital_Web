@@ -2364,3 +2364,63 @@ p, li, .hero-subtext {
     box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.2), 0 4px 6px -2px rgba(14, 165, 233, 0.1) !important;
     transform: translateY(-2px) !important;
 }
+
+/* CTA Banner */
+.cta-banner {
+    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%) !important;
+    color: #ffffff !important;
+    text-align: center;
+    padding: 6rem 2rem !important;
+}
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.cta-content h2 {
+    color: #ffffff !important;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.cta-content p {
+    color: #e0f2fe !important;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+.cta-content .btn-primary {
+    background: #ffffff !important;
+    color: #0284c7 !important;
+}
+.cta-content .btn-secondary {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    color: #ffffff !important;
+}
+
+/* Process Section Overhaul */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    position: relative;
+}
+.process-item {
+    background: #ffffff !important;
+    padding: 2rem !important;
+    border-radius: 12px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05) !important;
+    position: relative;
+    z-index: 2;
+}
+.process-item h3 {
+    color: #0ea5e9 !important;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+.process-item p {
+    margin: 0;
+    color: #64748b !important;
+    font-size: 0.95rem;
+}
+
