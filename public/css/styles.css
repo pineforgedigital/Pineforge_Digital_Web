@@ -767,7 +767,11 @@ select option {
 }
 
 .hero-content {
-    max-width: 680px;
+    max-width: 800px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-subtext {
@@ -791,11 +795,12 @@ select option {
 
 /* Hero Graphic (The Blueprint) */
 .hero-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    max-width: 1200px;
+    text-align: center;
+    justify-content: center;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -2296,4 +2301,5 @@ p, li, .hero-subtext {
     background: none !important;
     -webkit-text-fill-color: #0ea5e9 !important;
 }
+
 
