@@ -1987,6 +1987,93 @@ body {
     padding: 0 !important;
 }
 
+/* 14. LIGHT MODE SPECIFIC FIXES */
+
+/* Hide all glowing orbs - they look terrible in light mode */
+.ambient-orb {
+    display: none !important;
+}
+
+/* Fix Headings: Remove text shadow and gradients */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color) !important;
+    background: none !important;
+    -webkit-text-fill-color: var(--text-color) !important;
+    text-shadow: none !important;
+}
+
+/* Fix text highlights that are invisible on white */
+.text-creative, .text-warm, .text-pop, .text-growth, .text-highlight-warm {
+    color: var(--accent-pop) !important;
+    background: none !important;
+    -webkit-text-fill-color: var(--accent-pop) !important;
+    text-shadow: none !important;
+}
+
+/* Fix Navbar Background */
+.main-nav {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* Nav links must be dark */
+.nav-links a {
+    color: var(--text-color) !important;
+    font-weight: 500 !important;
+    text-shadow: none !important;
+}
+
+/* Nav links hover */
+.nav-links a:hover {
+    color: var(--accent-pop) !important;
+}
+
+/* Blueprint Cards in Hero */
+.blueprint-card {
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+/* Fix specific blueprint card colors */
+.blueprint-card.card-main, 
+.blueprint-card.card-code, 
+.blueprint-card.card-stat {
+    background: #ffffff !important;
+}
+
+/* Blueprint grid inside main card */
+.card-main div {
+    border-color: var(--border-color) !important;
+}
+
+/* Status Dot in Blueprint */
+.stat-dot {
+    background: #10b981 !important; /* Green */
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.2) !important;
+}
+
+.stat-text {
+    color: var(--text-muted) !important;
+}
+
+/* Fix footer background */
+footer {
+    background: #ffffff !important;
+    border-top: 1px solid var(--border-color) !important;
+}
+
+/* Clear any rogue body::before grids */
+body::before {
+    background: 
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px) !important;
+    background-size: 40px 40px, 40px 40px !important;
+}
+    padding: 0 !important;
+}
+
 .nav-links a {
     text-decoration: none !important;
     font-weight: 500 !important;
