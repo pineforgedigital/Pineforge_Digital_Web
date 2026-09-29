@@ -1921,7 +1921,58 @@ body::before {
 
 .logo img {
     height: 55px !important;
-    filter: brightness(0) invert(1) !important; /* Transforms the dark logo to pure white */
+    /* We'll remove the invert filter because we need the dark logo on the white background now! */
+}
+
+/* 13. ENTERPRISE LIGHT MODE OVERHAUL */
+:root {
+    /* Base Backgrounds */
+    --bg-color: #fafafa !important; /* Very soft warm off-white */
+    --bg-secondary: #f1f5f9 !important; /* Slate 100 */
+    --card-bg: #ffffff !important; /* Pure white cards */
+
+    /* Text */
+    --text-color: #0f172a !important; /* Slate 900 for extremely crisp reading */
+    --text-muted: #475569 !important; /* Slate 600 */
+
+    /* Accents */
+    --accent-color: #0ea5e9 !important; /* Professional Sky Blue 500 */
+    --accent-hover: #0284c7 !important; /* Sky Blue 600 */
+    --accent-secondary: #cbd5e1 !important; /* Slate 300 */
+    --accent-pop: #0ea5e9 !important; 
+    --accent-growth: #0d9488 !important; /* Professional Teal */
+    --accent-warm: #0284c7 !important; 
+    --accent-creative: #4f46e5 !important; /* Indigo 600 */
+
+    /* Borders & Effects */
+    --border-color: #e2e8f0 !important; /* Slate 200 */
+    --glass-border: rgba(15, 23, 42, 0.05) !important;
+    --glow-color: transparent !important;
+
+    /* Blueprint grid lines */
+    --grid-color: rgba(15, 23, 42, 0.03) !important; /* Extremely faint dark grid lines */
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: 
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px) !important;
+}
+
+/* Fix Card Shadows for Light Mode */
+.card, .blueprint-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Fix Hero Button Text Color */
+.btn-primary {
+    color: #ffffff !important;
+}
+
+/* Make Nav Links Dark */
+.nav-links a {
+    color: var(--text-color) !important;
 }
 
 /* 12. Constrain Navbar Width & Polish Links */
