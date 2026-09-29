@@ -1,215 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Pineforge Digital</title>
-    <meta name="description"
-        content="From custom web applications to business process automation. Discover how Pineforge Digital can streamline your operations and reduce administrative overhead.">
-    <meta property="og:title" content="Services | Pineforge Digital">
-    <meta property="og:description"
-        content="Custom software development, web applications, and business automation services.">
-    <!-- Social Preview -->
-    <meta property="og:image" content="https://pineforge.digital/images/logo-social.jpg?v=5">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://pineforge.digital/images/logo-social.jpg?v=5">
-    <meta itemprop="image" content="https://pineforge.digital/images/logo-social.jpg?v=5">
-    <link rel="canonical" href="https://pineforge.digital/services" />
+    <link rel="stylesheet" href="css/styles.css?v=new">
     <link rel="icon" type="image/png" href="images/favicon_optimized.png">
-    <link rel="stylesheet" href="css/styles.css?v=8">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [{
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://pineforge.digital/"
-          },{
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Services",
-            "item": "https://pineforge.digital/services"
-          }]
-        },
-        {
-          "@type": "Service",
-          "name": "Custom Software Development",
-          "provider": {
-            "@id": "https://pineforge.digital/#organization"
-          },
-          "serviceType": "Web Development",
-          "areaServed": {
-            "@type": "State",
-            "name": "Wisconsin"
-          },
-          "description": "Custom web applications, business automation, and internal tools."
-        }
-      ]
-    }
-    </script>
-    <!-- Vercel Analytics -->
-    <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <!-- Vercel Speed Insights -->
-    <script>window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };</script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <div class="container">
-        <!-- Navigation -->
-        <header class="main-nav">
+    <header class="navbar">
+        <div class="container nav-container">
             <a href="/" class="logo">
                 <img src="images/Brand_Logo_clear.png" alt="Pineforge Digital">
             </a>
             <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
             <nav>
                 <ul class="nav-links">
                     <li><a href="/">Home</a></li>
                     <li><a href="/services">Services</a></li>
-                    <li><a href="/portfolio">Portfolio</a></li>
                     <li><a href="/process">Process</a></li>
                     <li><a href="/about">About</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/contact" class="btn btn-primary nav-btn">Contact</a></li>
                 </ul>
             </nav>
-        </header>
+        </div>
+    </header>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Engineering Services</h1>
+                <p>Enterprise-grade development for Wisconsin businesses.</p>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                
+<div class="grid grid-2">
+    <div class="card">
+        <h3>Custom Software Development</h3>
+        <p class="mb-4">We build tailored software applications from the ground up to solve your unique operational challenges. From complex internal dashboards to customer-facing SaaS platforms, our engineering ensures high availability, scalability, and security.</p>
+        <ul style="list-style: disc; margin-left: 1.5rem; color: var(--text-600);">
+            <li>Web Applications</li>
+            <li>API Development & Integration</li>
+            <li>Legacy System Modernization</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>Internal Tools & Automations</h3>
+        <p class="mb-4">Stop running your business on messy spreadsheets. We build bespoke internal systems that automate your workflows, integrate your data, and provide clear visibility into your operations.</p>
+        <ul style="list-style: disc; margin-left: 1.5rem; color: var(--text-600);">
+            <li>Custom CRMs & ERPs</li>
+            <li>Workflow Automation</li>
+            <li>Data Dashboards & Reporting</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>High-Performance Web Apps</h3>
+        <p class="mb-4">Your public-facing applications need to be blazingly fast and perfectly responsive. We utilize modern frameworks to build secure web apps that convert visitors into customers.</p>
+        <ul style="list-style: disc; margin-left: 1.5rem; color: var(--text-600);">
+            <li>E-Commerce Integrations</li>
+            <li>Progressive Web Apps (PWAs)</li>
+            <li>Performance Optimization</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>Cloud & Data Engineering</h3>
+        <p class="mb-4">Robust infrastructure is the foundation of reliable software. We handle cloud deployments, database architecture, and data migration so your systems never go down.</p>
+        <ul style="list-style: disc; margin-left: 1.5rem; color: var(--text-600);">
+            <li>AWS / Google Cloud Deployment</li>
+            <li>Database Design & Optimization</li>
+            <li>CI/CD Pipeline Setup</li>
+        </ul>
+    </div>
+</div>
 
-        <main>
-            <section class="hero" style="padding-bottom: 2rem;">
-                <div class="ambient-orb orb-purple" style="top: -10%; right: -10%;"></div>
-                <div class="hero-content reveal">
-                    <h1>Services</h1>
-                    <p class="hero-subtext">We build reliable custom software to solve specific business problems.</p>
-                </div>
-            </section>
-
-            <section class="section-tint-cool schematic-bg" style="position: relative;">
-                <div style="max-width: 800px; margin: 0 auto; padding: 3rem 1.5rem;">
-                <div class="ambient-orb orb-cyan" style="top: 20%; left: -20%; width: 500px; height: 500px;"></div>
-                <div class="process-divider reveal"></div>
-
-                <!-- Custom Web Development -->
-                <div class="reveal" style="margin-bottom: 4rem;">
-                    <div class="service-icon-container">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-warm)"
-                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="3" y1="9" x2="21" y2="9"></line>
-                            <line x1="9" y1="21" x2="9" y2="9"></line>
-                        </svg>
-                    </div>
-                    <h2>Custom Website Design</h2>
-                    <p class="intro-text" style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1rem;">
-                        High-performance websites that act as your best salesperson, 24/7.
-                    </p>
-                    <p><strong>The Problem with Templates:</strong> Many businesses rely on platforms like WordPress or Wix. While easy to set up, these templates are often bloated with unnecessary code, leading to slow load times, poor Google rankings, and a frustrating user experience.</p>
-                    <p><strong class="text-growth">Our Solution:</strong> We build your website from the ground up using clean, optimized code. This ensures your site loads instantly, looks perfectly on mobile devices, and is structured exactly how search engines prefer. You get a professional digital storefront that you own completely—no monthly builder fees or unexpected crashes.</p>
-                </div>
-
-                <!-- Web Applications -->
-                <!-- Web Applications -->
-                <div class="reveal" style="margin-bottom: 4rem;">
-                    <div class="service-icon-container">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="3" y1="9" x2="21" y2="9"></line>
-                            <line x1="9" y1="21" x2="9" y2="9"></line>
-                            <path d="M9 21V9"></path>
-                        </svg>
-                    </div>
-                    <h2>Business Portals & Client Dashboards</h2>
-                    <p class="intro-text" style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1rem;">
-                        Secure web applications designed to streamline your daily operations.
-                    </p>
-                    <p><strong>Beyond the Spreadsheet:</strong> As businesses grow, tracking clients, orders, and internal data via spreadsheets becomes a liability. Off-the-shelf software is often too rigid to fit your unique processes, forcing your team to work around the software rather than the software working for them.</p>
-                    <p><strong class="text-growth">Our Solution:</strong> We build custom portals and dashboards tailored precisely to your workflow. Whether you need a secure portal for clients to log in and view their accounts, or an internal dashboard to track inventory and employee performance, we create the exact tool you need to run your business efficiently.</p>
-                </div>
-
-                <!-- Business Automation -->
-                <!-- Business Automation -->
-                <div class="reveal" style="margin-bottom: 4rem;">
-                    <div class="service-icon-container">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83">
-                            </path>
-                            <circle cx="12" cy="12" r="3"></circle>
-                        </svg>
-                    </div>
-                    <h2>Business Automation</h2>
-                    <p class="intro-text" style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1rem;">
-                        Scripts and integrations to eliminate manual busywork.
-                    </p>
-                    <p><strong>Who it's for:</strong> Teams spending hours on repetitive data entry, file management, or
-                        cross-posting between systems.</p>
-                    <p><strong class="text-growth">The Business Outcome:</strong> Your staff can focus on high-value
-                        work instead of data
-                        entry. We automate the connection between your existing tools (CRM, Email, Billing) to reduce
-                        human error and save hours per week.</p>
-                </div>
-
-                <!-- Mobile Applications -->
-                <div class="reveal" style="margin-bottom: 4rem;">
-                    <h2>Mobile Applications</h2>
-                    <p class="intro-text" style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1rem;">
-                        Native iOS and Android apps for specific operational needs.
-                    </p>
-                    <p><strong>Who it's for:</strong> Businesses with field teams, hardware integration requirements, or
-                        offline data collection needs.</p>
-                    <p><strong class="text-growth">The Business Outcome:</strong> Access to your business systems from
-                        anywhere, even
-                        without an internet connection. We build tools that leverage device hardware (Camera, GPS,
-                        Bluetooth) to solve physical-world problems.</p>
-                </div>
-
-                <div class="reveal"
-                    style="margin-top: 3rem; padding: 2rem; background: rgba(255, 255, 255, 0.03); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                    <h3>Ready to discuss your project?</h3>
-                    <p style="margin-bottom: 1.5rem;">We'll tell you upfront if custom software is the right fit.</p>
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <a href="/contact" class="btn btn-primary btn-accent">Start a Conversation</a>
-                    </div>
-                </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <div class="footer-top">
-                <div class="footer-col" style="max-width: 300px;">
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
                     <h4>Pineforge Digital</h4>
                     <p>Building reliable software products and systems in Wisconsin.</p>
-                    <p style="margin-top: 1rem;">(262) 234-1027</p>
+                    <p class="text-brand" style="margin-top:1rem">(262) 234-1027</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Company</h4>
+                    <h5>Company</h5>
                     <ul>
                         <li><a href="/services">Services</a></li>
-                    <li><a href="/portfolio">Portfolio</a></li>
-                    <li><a href="/process">Process</a></li>
+                        <li><a href="/process">Process</a></li>
                         <li><a href="/about">About</a></li>
                         <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Legal</h4>
+                    <h5>Legal</h5>
                     <ul>
                         <li><a href="/privacy">Privacy Policy</a></li>
                         <li><a href="/terms">Terms of Service</a></li>
@@ -217,14 +105,18 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Pineforge Digital LLC. All rights reserved.</p>
-                <p>Designed & Built in Wisconsin, USA.</p>
+                <p>&copy; 2026 Pineforge Digital LLC. Designed & Built in Wisconsin, USA.</p>
             </div>
-        </footer>
+        </div>
+    </footer>
+    <div id="cookie-banner">
+        <p>We use essential cookies to provide our services. We do not track you.</p>
+        <div class="cookie-buttons">
+            <button id="accept-cookies" class="btn btn-primary">Accept</button>
+            <button id="decline-cookies" class="btn btn-secondary">Decline</button>
+        </div>
     </div>
     <script src="js/cookies.js"></script>
     <script src="js/app.js"></script>
 </body>
-
 </html>
-

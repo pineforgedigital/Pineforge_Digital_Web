@@ -1,229 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Our Process | Pineforge Digital</title>
-    <meta name="description"
-        content="Our transparent 5-step software development process: Discovery, Scope, Design, Review, and Launch. Predictable pricing and clear timelines.">
-    <meta property="og:title" content="Our Process | Pineforge Digital">
-    <meta property="og:description" content="A transparent, step-by-step guide to our software development process.">
-    <!-- Social Preview -->
-    <meta property="og:image" content="https://pineforge.digital/images/logo-social.jpg?v=5">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://pineforge.digital/images/logo-social.jpg?v=5">
-    <meta itemprop="image" content="https://pineforge.digital/images/logo-social.jpg?v=5">
-    <link rel="canonical" href="https://pineforge.digital/process" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process | Pineforge Digital</title>
+    <link rel="stylesheet" href="css/styles.css?v=new">
     <link rel="icon" type="image/png" href="images/favicon_optimized.png">
-    <link rel="stylesheet" href="css/styles.css?v=8">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [{
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://pineforge.digital/"
-          },{
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Process",
-            "item": "https://pineforge.digital/process"
-          }]
-        },
-        {
-          "@type": "HowTo",
-          "name": "Software Development Process",
-          "description": "Our 5-step process for building custom software.",
-          "step": [
-            { "@type": "HowToStep", "name": "Inquiry & Discovery", "position": 1 },
-            { "@type": "HowToStep", "name": "Scope Definition", "position": 2 },
-            { "@type": "HowToStep", "name": "Design & Development", "position": 3 },
-            { "@type": "HowToStep", "name": "Review & Revisions", "position": 4 },
-            { "@type": "HowToStep", "name": "Launch & Handoff", "position": 5 }
-          ]
-        }
-      ]
-    }
-    </script>
-    <!-- Vercel Analytics -->
-    <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <!-- Vercel Speed Insights -->
-    <script>window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };</script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <div class="container">
-        <!-- Navigation -->
-        <header class="main-nav">
+    <header class="navbar">
+        <div class="container nav-container">
             <a href="/" class="logo">
                 <img src="images/Brand_Logo_clear.png" alt="Pineforge Digital">
             </a>
             <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
             <nav>
                 <ul class="nav-links">
                     <li><a href="/">Home</a></li>
                     <li><a href="/services">Services</a></li>
-                    <li><a href="/portfolio">Portfolio</a></li>
                     <li><a href="/process">Process</a></li>
                     <li><a href="/about">About</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/contact" class="btn btn-primary nav-btn">Contact</a></li>
                 </ul>
             </nav>
-        </header>
+        </div>
+    </header>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Engineering Process</h1>
+                <p>Transparent, iterative, and secure development.</p>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                
+<div style="max-width: 800px; margin: 0 auto;">
+    <div class="card mb-4">
+        <h3>1. Discovery & Architecture</h3>
+        <p>We don't write code until we understand your business logic perfectly. We start with a deep dive into your operations, identify bottlenecks, and draft a robust technical architecture.</p>
+    </div>
+    <div class="card mb-4">
+        <h3>2. Iterative Engineering</h3>
+        <p>We build in transparent, rapid sprints. You get continuous updates, staging links, and full visibility into the codebase. We prioritize security and testing at every step.</p>
+    </div>
+    <div class="card mb-4">
+        <h3>3. Deployment & Integration</h3>
+        <p>Launching is just the beginning. We handle zero-downtime deployments, data migrations, and seamless integration with your existing business tools.</p>
+    </div>
+    <div class="card">
+        <h3>4. Long-Term Reliability</h3>
+        <p>Software requires maintenance. We provide ongoing support, monitoring, and scaling infrastructure so your applications grow with your business.</p>
+    </div>
+</div>
 
-        <main>
-            <section class="hero" style="padding-bottom: 2rem;">
-                <div class="ambient-orb orb-emerald" style="top: -10%; right: -10%;"></div>
-                <div class="hero-content reveal">
-                    <h1>How We Work</h1>
-                    <p class="hero-subtext">A predictable, transparent process designed to reduce risk and ensure we
-                        solve the right problem.</p>
-                </div>
-            </section>
-
-            <section class="section-tint-cool process-container">
-                <div class="ambient-orb orb-cyan" style="bottom: 10%; left: -10%; width: 500px; height: 500px;"></div>
-
-                <div class="process-steps-group" style="position: relative;">
-                    <!-- Visual Flow Line -->
-                    <div class="process-line"></div>
-
-                    <!-- 1. Inquiry -->
-                    <div class="reveal process-step">
-                        <div class="process-number">1</div>
-                        <div class="card card-creative" style="flex: 1;">
-                            <h3 style="color: var(--text-color);">Inquiry & Discovery</h3>
-                            <p>We begin with a straightforward conversation to assess your needs. We are looking to determine if custom software is the most efficient solution for your problem. If we believe a standard commercial product would serve you better, we will tell you immediately.</p>
-                            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-                                <strong style="color: var(--accent-pop); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">Client Deliverables:</strong>
-                                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--text-muted); font-size: 0.95rem;">
-                                    <li>Initial 30-minute consultation</li>
-                                    <li>High-level project feasibility assessment</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2. Scope -->
-                    <div class="reveal process-step">
-                        <div class="process-number">2</div>
-                        <div class="card card-creative" style="flex: 1;">
-                            <h3 style="color: var(--text-color);">Scope Definition & Proposal</h3>
-                            <p>We provide a written proposal detailing exactly what will be built, the technology we will use, and the fixed cost of the project. This document serves as our shared roadmap. There are no hidden fees or surprise invoices.</p>
-                            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-                                <strong style="color: var(--accent-pop); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">Client Deliverables:</strong>
-                                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--text-muted); font-size: 0.95rem;">
-                                    <li>Detailed Technical Scope of Work</li>
-                                    <li>Fixed-Price Quote & Project Timeline</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 3. Development -->
-                    <div class="reveal process-step">
-                        <div class="process-number">3</div>
-                        <div class="card card-creative" style="flex: 1;">
-                            <h3 style="color: var(--text-color);">Design & Development</h3>
-                            <p>We build your software in logical stages. We provide regular updates and access to a staging environment so you can see the work in progress. This transparency ensures we are building exactly what you expect.</p>
-                            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-                                <strong style="color: var(--accent-pop); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">Client Deliverables:</strong>
-                                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--text-muted); font-size: 0.95rem;">
-                                    <li>Initial UI Wireframes & Mockups</li>
-                                    <li>Private Staging Server Link (Updated Weekly)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 4. Review -->
-                    <div class="reveal process-step">
-                        <div class="process-number">4</div>
-                        <div class="card card-creative" style="flex: 1;">
-                            <h3 style="color: var(--text-color);">Review & Revisions</h3>
-                            <p>Before launch, we review the completed system together. We test functionality, refine the user interface, and ensure all requirements from the scope have been met. We do not consider the project complete until you are satisfied.</p>
-                            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-                                <strong style="color: var(--accent-pop); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">Client Deliverables:</strong>
-                                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--text-muted); font-size: 0.95rem;">
-                                    <li>Complete Feature Testing Session</li>
-                                    <li>2 Rounds of Design Revisions</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 5. Launch -->
-                    <div class="reveal process-step">
-                        <div class="process-number">5</div>
-                        <div class="card card-creative" style="flex: 1;">
-                            <h3 style="color: var(--text-color);">Launch & Handoff</h3>
-                            <p>We deploy the software to your live environment. We configure all necessary hosting, security, and backups. Upon completion, we provide all documentation and transfer full ownership of the system and code to you.</p>
-                            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-                                <strong style="color: var(--accent-pop); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">Client Deliverables:</strong>
-                                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--text-muted); font-size: 0.95rem;">
-                                    <li>Live Production Website/Application</li>
-                                    <li>Complete Source Code (.zip or GitHub Repo)</li>
-                                    <li>System Documentation & Admin Walkthrough</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="reveal card-warm" style="margin-top: 3rem; padding: 2rem; border-radius: 12px;">
-                    <h3>Optional: Maintenance & Support</h3>
-                    <p style="margin-bottom: 1.5rem;">Software needs care. We offer ongoing maintenance agreements to
-                        handle security updates, server monitoring, and small feature additions so your system stays
-                        healthy.</p>
-                </div>
-
-                <div class="reveal card-creative" style="margin-top: 3rem; padding: 2rem; border-radius: 12px;">
-                    <h3>Ready to build something reliable?</h3>
-                    <p style="margin-bottom: 1.5rem;">We'll walk you through every step of the process, from concept to
-                        launch.</p>
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <a href="/contact" class="btn btn-primary btn-accent">Start a Conversation</a>
-                    </div>
-                </div>
-
-            </section>
-        </main>
-
-        <footer>
-            <div class="footer-top">
-                <div class="footer-col" style="max-width: 300px;">
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
                     <h4>Pineforge Digital</h4>
                     <p>Building reliable software products and systems in Wisconsin.</p>
-                    <p style="margin-top: 1rem;">(262) 234-1027</p>
+                    <p class="text-brand" style="margin-top:1rem">(262) 234-1027</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Company</h4>
+                    <h5>Company</h5>
                     <ul>
                         <li><a href="/services">Services</a></li>
-                    <li><a href="/portfolio">Portfolio</a></li>
-                    <li><a href="/process">Process</a></li>
+                        <li><a href="/process">Process</a></li>
                         <li><a href="/about">About</a></li>
                         <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Legal</h4>
+                    <h5>Legal</h5>
                     <ul>
                         <li><a href="/privacy">Privacy Policy</a></li>
                         <li><a href="/terms">Terms of Service</a></li>
@@ -231,14 +85,18 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Pineforge Digital LLC. All rights reserved.</p>
-                <p>Designed & Built in Wisconsin, USA.</p>
+                <p>&copy; 2026 Pineforge Digital LLC. Designed & Built in Wisconsin, USA.</p>
             </div>
-        </footer>
+        </div>
+    </footer>
+    <div id="cookie-banner">
+        <p>We use essential cookies to provide our services. We do not track you.</p>
+        <div class="cookie-buttons">
+            <button id="accept-cookies" class="btn btn-primary">Accept</button>
+            <button id="decline-cookies" class="btn btn-secondary">Decline</button>
+        </div>
     </div>
     <script src="js/cookies.js"></script>
     <script src="js/app.js"></script>
 </body>
-
 </html>
-

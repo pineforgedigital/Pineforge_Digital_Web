@@ -1,153 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Pineforge Digital</title>
-    <meta name="description"
-        content="A Wisconsin-based software consultancy dedicated to craftsmanship and long-term partnerships. We build software systems that last.">
-    <meta property="og:title" content="About Us | Pineforge Digital">
-    <meta property="og:description"
-        content="We are a small, privately held team of developers and designers building tools that last.">
-    <!-- Social Preview -->
-    <meta property="og:image" content="https://pineforge.digital/images/logo-social.jpg?v=5">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://pineforge.digital/images/logo-social.jpg?v=5">
-    <meta itemprop="image" content="https://pineforge.digital/images/logo-social.jpg?v=5">
-    <link rel="canonical" href="https://pineforge.digital/about" />
+    <link rel="stylesheet" href="css/styles.css?v=new">
     <link rel="icon" type="image/png" href="images/favicon_optimized.png">
-    <link rel="stylesheet" href="css/styles.css?v=8">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [{
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://pineforge.digital/"
-          },{
-            "@type": "ListItem",
-            "position": 2,
-            "name": "About",
-            "item": "https://pineforge.digital/about"
-          }]
-        },
-        {
-          "@type": "AboutPage",
-          "mainEntity": {
-            "@id": "https://pineforge.digital/#organization"
-          }
-        }
-      ]
-    }
-    </script>
-    <!-- Vercel Analytics -->
-    <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <!-- Vercel Speed Insights -->
-    <script>window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };</script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <div class="container">
-        <!-- Navigation -->
-        <header class="main-nav">
+    <header class="navbar">
+        <div class="container nav-container">
             <a href="/" class="logo">
                 <img src="images/Brand_Logo_clear.png" alt="Pineforge Digital">
             </a>
             <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
             <nav>
                 <ul class="nav-links">
                     <li><a href="/">Home</a></li>
                     <li><a href="/services">Services</a></li>
-                    <li><a href="/portfolio">Portfolio</a></li>
                     <li><a href="/process">Process</a></li>
                     <li><a href="/about">About</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/contact" class="btn btn-primary nav-btn">Contact</a></li>
                 </ul>
             </nav>
-        </header>
+        </div>
+    </header>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>About Pineforge</h1>
+                <p>Local dedication, global engineering standards.</p>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                
+<div style="max-width: 800px; margin: 0 auto; text-align: center;">
+    <h2 class="mb-4">Rooted in Wisconsin, Engineering for the Future.</h2>
+    <p class="mb-4" style="font-size: 1.1rem;">Pineforge Digital was founded on a simple principle: businesses deserve reliable, enterprise-grade software without the bloat and jargon of traditional agencies.</p>
+    <p class="mb-8" style="font-size: 1.1rem;">We are a team of dedicated software engineers based in Wisconsin. We don't offshore our code. We don't use black-box website builders. We write clean, secure, and scalable code that solves real operational problems for our clients.</p>
+    
+    <div class="card" style="text-align: left;">
+        <h3>Our Engineering Philosophy</h3>
+        <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 1rem;">
+            <li><strong>Reliability Over Trends:</strong> We use proven, battle-tested technologies rather than chasing the latest hype.</li>
+            <li><strong>Radical Transparency:</strong> Our clients own their code and have full visibility into our engineering process.</li>
+            <li><strong>Security First:</strong> Every application is built with strict access controls and data protection measures from day one.</li>
+        </ul>
+    </div>
+</div>
 
-        <main>
-            <section style="max-width: 800px; margin: 10rem auto 4rem auto; position: relative; padding: 0 1.5rem;">
-                <h2 class="reveal" style="text-align: center; margin-bottom: 3rem;">About Pineforge Digital</h2>
-                <div class="reveal">
-                    <p>Pineforge Digital is a Wisconsin-based web development agency built for businesses that demand more than just a template. We design and build high-performance websites, customer portals, and internal tools that drive real revenue and operational clarity.</p>
-
-                    <p>We work directly with business owners—not through layers of project managers. We are not a volume-based agency that churns out cheap Wix or WordPress sites. We take on a limited number of partnerships to ensure your digital presence is hand-coded, lightning-fast, and built exactly to your specifications.</p>
-
-                    <p>When you work with us, you are working with a dedicated, local technical partner. We understand that your website is often the first impression a customer has of your business, and we treat that responsibility with the seriousness it deserves.</p>
-                </div>
-
-                <h3 class="reveal" style="margin-top: 3rem; color: var(--text-color);">Core Values</h3>
-                <div class="reveal">
-                    <p>We believe software is a business tool — not an end in itself. Our engineering philosophy is
-                        grounded in:</p>
-                    <ul style="margin-bottom: 2rem; padding-left: 1.5rem; color: var(--text-muted);">
-                        <li><strong>Performance:</strong> Fast-loading websites rank better on Google and keep customers on your page. Speed is a feature.
-                        </li>
-                        <li><strong>Ownership:</strong> You own 100% of the code and digital assets we build for you. No holding your business hostage.</li>
-                        <li><strong>Clarity:</strong> We speak plain English, not developer jargon. We explain what we are doing and why it matters to your bottom line.
-                        </li>
-                    </ul>
-                </div>
-
-                <h3 class="reveal" style="margin-top: 3rem; color: var(--text-color);">Our Approach</h3>
-                <div class="reveal">
-                    <p>Successful software is rarely a one-time event. It requires planning, disciplined implementation,
-                        and long-term thinking.</p>
-
-                    <p>We aim to operate as a dependable technical partner for businesses that rely on digital systems
-                        to
-                        function properly. Whether the need is a new application or the improvement of an existing
-                        system, our objective remains the same: build it correctly and build it to last.</p>
-                </div>
-                <div class="reveal"
-                    style="margin-top: 3rem; padding: 2rem; background: rgba(255, 255, 255, 0.03); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                    <h3>Let's Talk</h3>
-                    <p style="margin-bottom: 1.5rem;">If you are seeking a serious, Wisconsin-based team to build or
-                        maintain critical software systems, we welcome the opportunity to discuss your requirements. We
-                        will tell you directly whether custom development is the right fit for your goals.</p>
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <a href="/contact" class="btn btn-primary btn-accent">Contact Us</a>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <div class="footer-top">
-                <div class="footer-col" style="max-width: 300px;">
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
                     <h4>Pineforge Digital</h4>
                     <p>Building reliable software products and systems in Wisconsin.</p>
-                    <p style="margin-top: 1rem;">(262) 234-1027</p>
+                    <p class="text-brand" style="margin-top:1rem">(262) 234-1027</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Company</h4>
+                    <h5>Company</h5>
                     <ul>
                         <li><a href="/services">Services</a></li>
-                    <li><a href="/portfolio">Portfolio</a></li>
-                    <li><a href="/process">Process</a></li>
+                        <li><a href="/process">Process</a></li>
                         <li><a href="/about">About</a></li>
                         <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Legal</h4>
+                    <h5>Legal</h5>
                     <ul>
                         <li><a href="/privacy">Privacy Policy</a></li>
                         <li><a href="/terms">Terms of Service</a></li>
@@ -155,14 +81,18 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Pineforge Digital LLC. All rights reserved.</p>
-                <p>Designed & Built in Wisconsin, USA.</p>
+                <p>&copy; 2026 Pineforge Digital LLC. Designed & Built in Wisconsin, USA.</p>
             </div>
-        </footer>
+        </div>
+    </footer>
+    <div id="cookie-banner">
+        <p>We use essential cookies to provide our services. We do not track you.</p>
+        <div class="cookie-buttons">
+            <button id="accept-cookies" class="btn btn-primary">Accept</button>
+            <button id="decline-cookies" class="btn btn-secondary">Decline</button>
+        </div>
     </div>
-    <script src="js/app.js"></script>
     <script src="js/cookies.js"></script>
+    <script src="js/app.js"></script>
 </body>
-
 </html>
-
