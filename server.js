@@ -96,7 +96,7 @@ app.post('/api/verify-pin', (req, res) => {
         res.cookie('site_access', pin, { 
             httpOnly: true, 
             secure: process.env.NODE_ENV === 'production',
-            maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days
+            maxAge: 12 * 60 * 60 * 1000 // 12 hours
         });
         return res.status(200).json({ success: true });
     }
