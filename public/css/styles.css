@@ -1386,16 +1386,16 @@ footer {
     transform: translateX(-50%) translateY(150%);
     width: 90%;
     max-width: 650px;
-    background: rgba(30, 41, 59, 0.65); /* Glass Slate 800 */
+    background: rgba(255, 255, 255, 0.85); /* Light Glass */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(15, 23, 42, 0.1);
     border-radius: 16px;
     padding: 1.5rem 2rem;
     z-index: 1000;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    color: var(--text-color);
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15), 0 0 0 1px rgba(15, 23, 42, 0.05);
+    color: #0f172a;
 }
 
 #cookie-banner.visible {
@@ -1413,20 +1413,20 @@ footer {
     margin: 0;
     font-size: 0.95rem;
     line-height: 1.5;
-    color: #e2e8f0; /* Slate 200 for better readability */
+    color: #475569; /* Slate 600 for high contrast */
 }
 
 .cookie-content a {
-    color: #38bdf8;
+    color: #0ea5e9;
     text-decoration: none;
     font-weight: 500;
-    border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+    border-bottom: 1px solid rgba(14, 165, 233, 0.3);
     transition: all 0.2s;
 }
 
 .cookie-content a:hover {
-    color: #7dd3fc;
-    border-bottom-color: #7dd3fc;
+    color: #0284c7;
+    border-bottom-color: #0284c7;
 }
 
 .cookie-buttons {
@@ -1444,32 +1444,31 @@ footer {
 }
 
 .cookie-buttons #accept-cookies {
-    background: var(--accent-color);
+    background: #0ea5e9;
     color: white;
-    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .cookie-buttons #accept-cookies:hover {
-    background: var(--accent-hover);
+    background: #0284c7;
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
 }
 
 .cookie-buttons #decline-cookies {
-    background: rgba(255, 255, 255, 0.05);
-    color: #cbd5e1; /* Slate 300 - High Contrast */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.05);
+    color: #475569;
+    border: 1px solid rgba(15, 23, 42, 0.1);
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .cookie-buttons #decline-cookies:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+    background: rgba(15, 23, 42, 0.1);
+    color: #0f172a;
 }
-
 @media (max-width: 600px) {
     .cookie-content {
         flex-direction: column;
