@@ -2022,8 +2022,8 @@ body {
 
 /* 12. Constrain Navbar Width & Polish Links */
 .main-nav {
-    padding-left: max(2rem, calc((100% - 1100px) / 2)) !important;
-    padding-right: max(2rem, calc((100% - 1100px) / 2)) !important;
+    padding-left: max(2rem, calc((100vw - 1100px) / 2)) !important;
+    padding-right: max(2rem, calc((100vw - 1100px) / 2)) !important;
 }
 
 .nav-links {
@@ -2240,8 +2240,8 @@ body::after {
 }
 
 section, footer, .page-header {
-    padding-left: max(2rem, calc((100% - 1100px) / 2)) !important;
-    padding-right: max(2rem, calc((100% - 1100px) / 2)) !important;
+    padding-left: max(2rem, calc((100vw - 1100px) / 2)) !important;
+    padding-right: max(2rem, calc((100vw - 1100px) / 2)) !important;
     width: 100% !important;
     box-sizing: border-box !important;
     overflow: hidden !important; /* Re-enable clean section clipping */
@@ -2378,8 +2378,8 @@ p, li, .hero-subtext {
     border-bottom: 1px solid #1e293b !important;
     border-top: 1px solid #1e293b !important;
     color: #94a3b8 !important;
-    padding-left: max(2rem, calc((100% - 1100px) / 2)) !important;
-    padding-right: max(2rem, calc((100% - 1100px) / 2)) !important;
+    padding-left: max(2rem, calc((100vw - 1100px) / 2)) !important;
+    padding-right: max(2rem, calc((100vw - 1100px) / 2)) !important;
 }
 .credibility-item .dot {
     background: #0ea5e9 !important;
