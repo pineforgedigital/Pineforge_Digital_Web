@@ -2280,11 +2280,22 @@ body::before {
 
 /* 17. RICH COLOR PALETTE OVERHAUL */
 
-/* Deep Navy Hero */
+/* Clean Light Hero */
 .hero {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
-    position: relative;
+    background: #f8fafc !important; /* Slate 50 */
+    border-bottom: 1px solid #e2e8f0 !important;
 }
+.hero h1 {
+    color: #0f172a !important; /* Dark Slate */
+}
+.hero p, .hero-subtext {
+    color: #475569 !important; /* Slate 600 */
+}
+/* Ensure the nav perfectly blends into the top */
+.main-nav {
+    border-bottom: 1px solid rgba(15, 23, 42, 0.05) !important;
+}
+
 .hero::before {
     content: '';
     position: absolute;
@@ -2470,70 +2481,69 @@ p, li, .hero-subtext {
 
 
 
-/* 19. Clean Forms & Inputs (Override Dark Mode Frost) */
+/* 19. Light Glassmorphism Forms */
 input, textarea, select, .custom-select .select-trigger {
-    background: #ffffff !important;
-    border: 1px solid #cbd5e1 !important; /* Slate-300 */
-    color: #0f172a !important; /* Slate-900 */
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+    background: rgba(255, 255, 255, 0.4) !important;
+    border: 1px solid rgba(15, 23, 42, 0.1) !important;
+    color: #0f172a !important;
+    backdrop-filter: blur(12px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8), 0 2px 5px rgba(0, 0, 0, 0.02) !important;
     border-radius: 8px !important;
+    transition: all 0.2s ease !important;
 }
 
 input::placeholder, textarea::placeholder {
-    color: #94a3b8 !important; /* Slate-400 */
+    color: #64748b !important;
 }
 
 input:focus, textarea:focus, select:focus, .custom-select.open .select-trigger {
-    background: #ffffff !important;
-    border-color: #0f172a !important; /* Slate-900 focus */
-    box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1) !important; /* Subtle slate ring */
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(2, 132, 199, 0.5) !important;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 1), 0 0 0 3px rgba(2, 132, 199, 0.15) !important;
 }
 
-/* 20. Professional Muted Buttons (Replace bright blue) */
+/* 20. Professional Blue Buttons */
 .btn-primary, .btn-secondary, .btn-emerald, .btn-accent {
-    background: #0f172a !important; /* Slate-900 */
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important; /* Sky 600 -> Sky 700 */
     color: #ffffff !important;
-    border: 1px solid #0f172a !important;
-    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.2) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    box-shadow: 0 4px 6px -1px rgba(2, 132, 199, 0.2), inset 0 1px 0 rgba(255,255,255,0.2) !important;
 }
 
 .btn-primary:hover, .btn-secondary:hover, .btn-emerald:hover, .btn-accent:hover {
-    background: #1e293b !important; /* Slate-800 */
-    border-color: #1e293b !important;
-    box-shadow: 0 6px 12px -2px rgba(15, 23, 42, 0.3) !important;
+    background: linear-gradient(135deg, #0369a1 0%, #075985 100%) !important; /* Sky 700 -> Sky 800 */
+    box-shadow: 0 6px 12px -2px rgba(2, 132, 199, 0.3), inset 0 1px 0 rgba(255,255,255,0.2) !important;
     transform: translateY(-1px) !important;
 }
 
 /* Fix CTA secondary button */
 .cta-content .btn-primary {
     background: #ffffff !important;
-    color: #0f172a !important;
+    color: #0369a1 !important;
     border-color: #ffffff !important;
 }
 .cta-content .btn-primary:hover {
-    background: #f8fafc !important; /* Slate-50 */
-    color: #0f172a !important;
+    background: #f8fafc !important;
+    color: #0369a1 !important;
 }
 
-
-/* 21. Clean Dropdown Menu */
+/* 21. Light Glass Dropdown Menu */
 .custom-options {
-    background-color: #ffffff !important;
-    border: 1px solid #cbd5e1 !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+    background-color: rgba(255, 255, 255, 0.85) !important;
+    border: 1px solid rgba(15, 23, 42, 0.1) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
     box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.1) !important;
 }
 
 .custom-option {
     color: #0f172a !important;
-    border-bottom: 1px solid #f1f5f9 !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.05) !important;
 }
 
 .custom-option:hover,
 .custom-option.selected {
-    background-color: #f8fafc !important; /* Slate-50 hover */
-    color: #0284c7 !important; /* Slate Blue text on hover */
+    background-color: rgba(2, 132, 199, 0.05) !important; 
+    color: #0284c7 !important; 
 }
