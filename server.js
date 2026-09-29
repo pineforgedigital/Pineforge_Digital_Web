@@ -33,6 +33,14 @@ app.use(helmet({
         }
     }
 }));
+// Restore Vercel original path
+app.use((req, res, next) => {
+    if (req.query.vpath !== undefined) {
+        req.url = '/' + req.query.vpath;
+        req.path = '/' + req.query.vpath;
+    }
+    next();
+});
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 const cookieParser = require('cookie-parser');
@@ -739,6 +747,7 @@ if (require.main === module) {
 }
 
 module.exports = app;
+
 
 
 

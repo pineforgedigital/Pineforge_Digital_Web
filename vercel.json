@@ -16,7 +16,7 @@
         },
         {
             "source": "/(.*)",
-            "destination": "/server.js"
+            "destination": "/server.js?vpath=$1"
         }
     ]
 }
