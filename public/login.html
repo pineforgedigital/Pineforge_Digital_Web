@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Access | Pineforge Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0; padding: 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            display: flex; align-items: center; justify-content: center;
+            height: 100vh; width: 100vw;
+        }
+        .login-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem; border-radius: 16px;
+            text-align: center; max-width: 400px; width: 100%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .login-card img { width: 140px; margin-bottom: 2rem; }
+        .login-card h1 { font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 600; }
+        .login-card p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 2rem; }
+        .input-group { position: relative; margin-bottom: 1.5rem; }
+        input[type="password"] {
+            width: 100%; padding: 1rem; border-radius: 8px;
+            background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white; font-size: 1.2rem; text-align: center; outline: none;
+            box-sizing: border-box; letter-spacing: 0.5rem;
+            transition: border-color 0.2s;
+        }
+        input[type="password"]:focus { border-color: #0ea5e9; }
+        button {
+            width: 100%; padding: 1rem; border-radius: 8px;
+            background: #0ea5e9; color: white; border: none; font-size: 1rem;
+            font-weight: 600; cursor: pointer; transition: background 0.2s;
+        }
+        button:hover { background: #0284c7; }
+        #error-msg { color: #ef4444; font-size: 0.85rem; margin-top: 1rem; display: none; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <img src="/images/Brand_Logo_clear.png" alt="Pineforge Digital">
+        <h1>Private Access</h1>
+        <p>This site is currently in development. Please enter the PIN to continue.</p>
+        <form id="loginForm">
+            <div class="input-group">
+                <input type="password" id="pin" placeholder="••••••" required>
+            </div>
+            <button type="submit">Enter Site</button>
+            <div id="error-msg">Invalid PIN code.</div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const pin = document.getElementById('pin').value;
+            const res = await fetch('/api/verify-pin', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ pin })
+            });
+            if (res.ok) {
+                window.location.reload();
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+                document.getElementById('pin').value = '';
+            }
+        });
+    </script>
+</body>
+</html>

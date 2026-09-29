@@ -66,8 +66,42 @@ app.use((req, res, next) => {
     next();
 });
 
-// Serve 'home' manually since there is no home.html
-// Route for Home is handled by root '/' and middleware redirect above.
+// Password Protection Middleware
+app.use((req, res, next) => {
+    // If no PIN_CODE is set, skip lock entirely
+    if (!process.env.PIN_CODE) {
+        return next();
+    }
+    
+    // Allow static assets, API login, and the login page itself
+    const publicPaths = ['/css/', '/images/', '/js/', '/api/verify-pin', '/login.html'];
+    if (publicPaths.some(p => req.path.startsWith(p))) {
+        return next();
+    }
+    
+    // Check for access cookie
+    if (req.cookies.site_access === process.env.PIN_CODE) {
+        return next();
+    }
+    
+    // Not authenticated -> serve login
+    res.setHeader('Cache-Control', 'no-store, no-cache');
+    return res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
+
+// PIN Verification Endpoint
+app.post('/api/verify-pin', (req, res) => {
+    const { pin } = req.body;
+    if (pin === process.env.PIN_CODE) {
+        res.cookie('site_access', pin, { 
+            httpOnly: true, 
+            secure: process.env.NODE_ENV === 'production',
+            maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days
+        });
+        return res.status(200).json({ success: true });
+    }
+    return res.status(401).json({ success: false });
+});
 
 // Explicitly serve root to prevent static middleware ambiguity
 app.get('/', (req, res) => {
