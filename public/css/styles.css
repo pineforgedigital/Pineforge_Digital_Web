@@ -767,7 +767,8 @@ select option {
 }
 
 .hero-content {
-    max-width: 800px;
+    margin: 0 auto;
+    max-width: 800px; margin: 0 auto;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -1015,7 +1016,7 @@ select option {
 .page-header {
     padding-top: 8rem;
     padding-bottom: 2rem;
-    max-width: 800px;
+    max-width: 800px; margin: 0 auto;
 }
 
 .section-header {
