@@ -2016,10 +2016,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Fix Navbar Background */
 .main-nav {
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(15px) !important;
-    -webkit-backdrop-filter: blur(15px) !important;
-    border-bottom: 1px solid var(--border-color) !important;
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(24px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05) !important;
 }
 
 /* Nav links must be dark */
@@ -2324,6 +2325,7 @@ p, li, .hero-subtext {
     background: none !important;
     -webkit-text-fill-color: #0ea5e9 !important;
 }
+
 
 
 
