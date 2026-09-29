@@ -92,10 +92,10 @@ app.use((req, res, next) => {
 // PIN Verification Endpoint
 app.post('/api/verify-pin', (req, res) => {
     const { pin } = req.body;
-    if (pin === process.env.PIN_CODE) {
+    if (pin.trim() === process.env.PIN_CODE.trim()) {
         res.cookie('site_access', pin, { 
             httpOnly: true, 
-            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'lax',
             maxAge: 12 * 60 * 60 * 1000 // 12 hours
         });
         return res.status(200).json({ success: true });
@@ -725,3 +725,4 @@ if (require.main === module) {
 }
 
 module.exports = app;
+

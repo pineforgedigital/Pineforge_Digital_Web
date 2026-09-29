@@ -67,7 +67,7 @@
                 body: JSON.stringify({ pin })
             });
             if (res.ok) {
-                window.location.reload();
+                window.location.href = '/';
             } else {
                 document.getElementById('error-msg').style.display = 'block';
                 document.getElementById('pin').value = '';
@@ -76,3 +76,4 @@
     </script>
 </body>
 </html>
+
