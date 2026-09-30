@@ -490,13 +490,9 @@ input:focus, textarea:focus {
 
 /* To make navbar switch to light mode when scrolled past hero, we need a small script in app.js. For now, this styling makes it stunningly dark mode native. */
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.9);
-    border-bottom: 1px solid var(--border-subtle);
+    background: rgba(2, 6, 23, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
-.navbar.scrolled .nav-links a { color: var(--text-secondary); }
-.navbar.scrolled .nav-links a:hover { color: var(--text-primary); }
-.navbar.scrolled .hamburger span { background: var(--text-primary); }
-.navbar.scrolled .logo img { filter: invert(0); }
 
 .navbar .logo img { filter: brightness(0) invert(1); }
 
