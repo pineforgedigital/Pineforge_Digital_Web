@@ -300,7 +300,7 @@ async function init() {
 
     console.log('App initialized');
 
-    initBackToTop();
+    // initBackToTop();
     initMobileMenu();
     initScrollReveal();
     initCustomSelect();
