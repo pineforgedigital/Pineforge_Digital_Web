@@ -1,3 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /login
+Disallow: /scratch/
+Disallow: /*.json
+Disallow: /admin/
+
 Sitemap: https://pineforge.digital/sitemap.xml
