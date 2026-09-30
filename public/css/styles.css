@@ -631,11 +631,11 @@ input:focus, textarea:focus {
 .circular-chart-svg { display: block; margin: 0 auto; max-width: 140px; max-height: 140px; }
 .circle-bg { fill: none; stroke: #e2e8f0; stroke-width: 3.8; }
 .highlight .circle-bg { stroke: rgba(255,255,255,0.1); }
-.circle { fill: none; stroke-width: 2.8; stroke-linecap: round; }
+.circle { fill: none; stroke-width: 2.8; stroke-linecap: round; animation-play-state: paused; }
 .red .circle { stroke: #ef4444; animation: progressRed 2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 .green .circle { stroke: #10b981; filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.4)); animation: progressGreen 2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
-.percentage { fill: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 0.6em; text-anchor: middle; font-weight: 800; }
+.percentage { fill: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 0.55em; text-anchor: middle; font-weight: 800; }
 .highlight .percentage { fill: #ffffff; }
 
 @keyframes progressRed {
@@ -648,4 +648,4 @@ input:focus, textarea:focus {
 }
 
 /* Pause animation until hovered or in view */
-.performance-metrics:hover .circle { animation-play-state: running; }
+.performance-metrics.animate-play .circle { animation-play-state: running; }
