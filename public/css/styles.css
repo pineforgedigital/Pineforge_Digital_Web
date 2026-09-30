@@ -605,3 +605,47 @@ input:focus, textarea:focus {
 }
 .cta-dark h2 { font-size: 3rem; margin-bottom: 1.5rem; color: white; }
 .cta-dark p { font-size: 1.25rem; color: var(--text-tertiary); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+
+/* ==========================================================================
+   PERFORMANCE SPEED SECTION
+   ========================================================================== */
+.performance-metrics {
+    display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+}
+.metric-card {
+    background: var(--bg-surface); border: 1px solid var(--border-subtle);
+    border-radius: 16px; padding: 2.5rem 2rem; text-align: center;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.05); width: 240px;
+    transition: transform 0.3s ease; position: relative;
+}
+.metric-card.highlight {
+    background: #020617; color: white; border-color: rgba(255,255,255,0.1);
+    transform: scale(1.05); box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+}
+.metric-card h4 { margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.2rem; }
+.metric-card p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+.metric-card.highlight h4 { color: white; }
+.metric-card.highlight p { color: var(--text-tertiary); }
+
+.circular-chart-svg { display: block; margin: 0 auto; max-width: 140px; max-height: 140px; }
+.circle-bg { fill: none; stroke: #e2e8f0; stroke-width: 3.8; }
+.highlight .circle-bg { stroke: rgba(255,255,255,0.1); }
+.circle { fill: none; stroke-width: 2.8; stroke-linecap: round; }
+.red .circle { stroke: #ef4444; animation: progressRed 2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.green .circle { stroke: #10b981; filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.4)); animation: progressGreen 2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+.percentage { fill: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 0.6em; text-anchor: middle; font-weight: 800; }
+.highlight .percentage { fill: #ffffff; }
+
+@keyframes progressRed {
+    0% { stroke-dasharray: 0, 100; }
+    100% { stroke-dasharray: 42, 100; }
+}
+@keyframes progressGreen {
+    0% { stroke-dasharray: 0, 100; }
+    100% { stroke-dasharray: 100, 100; }
+}
+
+/* Pause animation until hovered or in view */
+.performance-metrics:hover .circle { animation-play-state: running; }
