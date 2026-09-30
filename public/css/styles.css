@@ -16,6 +16,15 @@
     --brand-blue-hover: #0369a1;
     --brand-blue-light: #e0f2fe;
     
+    --accent-emerald: #059669;
+    --accent-emerald-light: #d1fae5;
+    
+    --accent-violet: #7c3aed;
+    --accent-violet-light: #ede9fe;
+    
+    --accent-amber: #d97706;
+    --accent-amber-light: #fef3c7;
+    
     --shadow-card: 0 20px 40px -10px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.05), 0 0 0 1px var(--border-subtle);
     --shadow-card-hover: 0 30px 60px -15px rgba(15, 23, 42, 0.08), 0 4px 6px rgba(15, 23, 42, 0.05), 0 0 0 1px var(--border-strong);
     
@@ -82,6 +91,18 @@ ul { list-style: none; }
     border-radius: 50%;
     box-shadow: 0 0 8px var(--brand-blue);
 }
+
+.badge-blue { background: var(--brand-blue-light); color: var(--brand-blue); border-color: rgba(2, 132, 199, 0.2); }
+.badge-blue::before { background: var(--brand-blue); box-shadow: none; }
+
+.badge-emerald { background: var(--accent-emerald-light); color: var(--accent-emerald); border-color: rgba(5, 150, 105, 0.2); }
+.badge-emerald::before { background: var(--accent-emerald); box-shadow: none; }
+
+.badge-violet { background: var(--accent-violet-light); color: var(--accent-violet); border-color: rgba(124, 58, 237, 0.2); }
+.badge-violet::before { background: var(--accent-violet); box-shadow: none; }
+
+.badge-amber { background: var(--accent-amber-light); color: var(--accent-amber); border-color: rgba(217, 119, 6, 0.2); }
+.badge-amber::before { background: var(--accent-amber); box-shadow: none; }
 
 /* Buttons */
 .btn {
@@ -235,6 +256,11 @@ ul { list-style: none; }
     color: var(--text-primary);
     box-shadow: 0 2px 4px rgba(15, 23, 42, 0.02), inset 0 0 0 1px var(--border-subtle);
 }
+.icon-blue { background: var(--brand-blue-light); color: var(--brand-blue); border-color: rgba(2, 132, 199, 0.2); }
+.icon-emerald { background: var(--accent-emerald-light); color: var(--accent-emerald); border-color: rgba(5, 150, 105, 0.2); }
+.icon-violet { background: var(--accent-violet-light); color: var(--accent-violet); border-color: rgba(124, 58, 237, 0.2); }
+.icon-amber { background: var(--accent-amber-light); color: var(--accent-amber); border-color: rgba(217, 119, 6, 0.2); }
+
 .bento-card h3 { font-size: 1.75rem; margin-bottom: 1rem; margin-top: 2rem; }
 .bento-card p { font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7; }
 
