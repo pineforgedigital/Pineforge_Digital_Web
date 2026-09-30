@@ -398,7 +398,7 @@ input:focus, textarea:focus {
 
 /* Hero Visual (Abstract 3D Shape) */
 .hero-image-container {
-    position: relative; width: 100%; aspect-ratio: 1; 
+    position: relative; width: 100%; /* aspect-ratio: 1; removed to allow flex vertical alignment */ 
     display: flex; justify-content: center; align-items: center;
 }
 .floating-image {
