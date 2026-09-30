@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Pineforge Digital</title>
-    <link rel="stylesheet" href="css/styles.css?v=new">
+    <link rel="stylesheet" href="css/styles.css?v=ultra">
     <link rel="icon" type="image/png" href="images/favicon_optimized.png">
 </head>
 <body>
     <header class="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo">
+            <a href="/" class="logo animate-fade-up">
                 <img src="images/Brand_Logo_clear.png" alt="Pineforge Digital">
             </a>
             <div class="hamburger">
@@ -18,11 +18,11 @@
             </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/process">Process</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact" class="btn btn-primary nav-btn">Contact</a></li>
+                    <li class="animate-fade-up delay-1"><a href="/">Home</a></li>
+                    <li class="animate-fade-up delay-2"><a href="/services">Services</a></li>
+                    <li class="animate-fade-up delay-3"><a href="/process">Process</a></li>
+                    <li class="animate-fade-up delay-3"><a href="/about">About</a></li>
+                    <li class="animate-fade-up delay-3"><a href="/contact" class="btn btn-primary nav-btn">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -30,16 +30,16 @@
 
     <main>
         <section class="page-header">
-            <div class="container">
+            <div class="container animate-fade-up">
                 <h1>Contact Us</h1>
-                <p>If you have questions about our services or want to discuss a project, please get in touch. We look forward to hearing from you.</p>
+                <p>If you have questions about our services or want to discuss a project, please get in touch.</p>
             </div>
         </section>
 
-        <section>
+        <section style="padding: 6rem 0;">
             <div class="container">
                 <div class="contact-grid">
-                    <div>
+                    <div class="animate-fade-up delay-1">
                         <form id="contactForm">
                             <div class="form-group">
                                 <label for="name">Name</label>
@@ -80,9 +80,9 @@
                         </form>
                     </div>
 
-                    <div>
+                    <div class="animate-fade-up delay-2">
                         <div class="contact-info-card">
-                            <h3 class="mb-4">Information</h3>
+                            <h3 class="mb-4" style="margin-top:0;">Information</h3>
                             
                             <div class="info-block">
                                 <h4>Response Time</h4>
@@ -96,7 +96,7 @@
 
                             <div class="info-block">
                                 <h4>Primary Service Areas</h4>
-                                <ul style="margin-top:0.5rem; color: var(--text-600); list-style: disc; margin-left: 1.5rem;">
+                                <ul style="margin-top:0.5rem; color: var(--text-secondary); list-style: disc; margin-left: 1.5rem;">
                                     <li>Kenosha, WI</li>
                                     <li>Pleasant Prairie, WI</li>
                                     <li>Gurnee, IL</li>
@@ -105,7 +105,7 @@
                             </div>
                             
                             <div class="info-block" style="margin-top: 2rem;">
-                                <p style="font-size: 0.9rem; color: var(--text-600);">We offer remote services nationwide, but specialize in local partnerships throughout Wisconsin and Illinois.</p>
+                                <p style="font-size: 0.9rem; color: var(--text-tertiary);">We offer remote services nationwide, but specialize in local partnerships throughout Wisconsin and Illinois.</p>
                             </div>
                         </div>
                     </div>
@@ -120,7 +120,7 @@
                 <div class="footer-brand">
                     <h4>Pineforge Digital</h4>
                     <p>Building reliable software products and systems in Wisconsin.</p>
-                    <p class="text-brand" style="margin-top:1rem">(262) 234-1027</p>
+                    <p style="margin-top:1rem; color: #0ea5e9;">(262) 234-1027</p>
                 </div>
                 <div class="footer-col">
                     <h5>Company</h5>
@@ -141,6 +141,10 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Pineforge Digital LLC. Designed & Built in Wisconsin, USA.</p>
+                <div style="display:flex; gap:1rem;">
+                    <a href="#" style="color:var(--text-tertiary);">LinkedIn</a>
+                    <a href="#" style="color:var(--text-tertiary);">GitHub</a>
+                </div>
             </div>
         </div>
     </footer>

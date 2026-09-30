@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pineforge Digital | Engineering Reliable Software</title>
-    <link rel="stylesheet" href="css/styles.css?v=new">
+    <link rel="stylesheet" href="css/styles.css?v=ultra">
     <link rel="icon" type="image/png" href="images/favicon_optimized.png">
 </head>
 <body>
     <header class="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo">
+            <a href="/" class="logo animate-fade-up">
                 <img src="images/Brand_Logo_clear.png" alt="Pineforge Digital">
             </a>
             <div class="hamburger">
@@ -18,11 +18,11 @@
             </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/process">Process</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact" class="btn btn-primary nav-btn">Contact</a></li>
+                    <li class="animate-fade-up delay-1"><a href="/">Home</a></li>
+                    <li class="animate-fade-up delay-2"><a href="/services">Services</a></li>
+                    <li class="animate-fade-up delay-3"><a href="/process">Process</a></li>
+                    <li class="animate-fade-up delay-3"><a href="/about">About</a></li>
+                    <li class="animate-fade-up delay-3"><a href="/contact" class="btn btn-primary nav-btn">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -30,63 +30,79 @@
 
     <main>
         <section class="hero">
-            <div class="container hero-container">
-                <span class="badge">Enterprise Software Engineering</span>
-                <h1 class="hero-title">Engineering Reliable Software</h1>
-                <p class="hero-subtitle">Build secure, scalable, and resilient digital solutions with an expert engineering agency dedicated to enterprise reliability and architectural excellence.</p>
-                <div class="hero-actions">
+            <div class="container">
+                <span class="badge animate-fade-up">Enterprise Software Engineering</span>
+                <h1 class="hero-title animate-fade-up delay-1">Engineering<br>Reliable Software</h1>
+                <p class="hero-subtitle animate-fade-up delay-2">We build secure, scalable, and resilient digital solutions. An expert engineering agency dedicated to enterprise reliability and architectural excellence.</p>
+                <div class="hero-actions animate-fade-up delay-3">
                     <a href="/contact" class="btn btn-primary">Schedule Consultation</a>
-                    <a href="/services" class="btn btn-secondary">Discover Our Services</a>
+                    <a href="/services" class="btn btn-secondary">Discover Services</a>
                 </div>
             </div>
         </section>
 
-        <section class="section-alt">
+        <section class="bento-section">
             <div class="container">
-                <div class="section-header text-center mb-8">
-                    <span class="badge">Core Competencies</span>
+                <div class="section-header animate-fade-up">
+                    <span class="badge" style="margin-bottom: 1rem;">Core Competencies</span>
                     <h2>What We Build</h2>
+                    <p>Enterprise-grade architectures tailored precisely to your operational workflows.</p>
                 </div>
-                <div class="grid grid-3">
-                    <div class="card">
-                        <div class="card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                
+                <div class="bento-grid">
+                    <!-- Large Card (Spans 2 columns) -->
+                    <div class="bento-card bento-large animate-fade-up">
+                        <div class="bento-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
                         </div>
-                        <h3>Custom Development</h3>
-                        <p>Full-stack applications tailored precisely to your operational workflows and business logic.</p>
+                        <h3>Custom Software Development</h3>
+                        <p>We build tailored full-stack applications from the ground up to solve unique operational challenges. Our engineering ensures high availability, scalability, and airtight security across every layer of the stack.</p>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                    
+                    <!-- Small Card -->
+                    <div class="bento-card animate-fade-up delay-1">
+                        <div class="bento-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
                         </div>
                         <h3>Data Systems</h3>
                         <p>Robust database architectures and data pipelines designed for high availability and consistency.</p>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"></path><line x1="2" y1="20" x2="2.01" y2="20"></line></svg>
+
+                    <!-- Small Card -->
+                    <div class="bento-card animate-fade-up">
+                        <div class="bento-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"></path><line x1="2" y1="20" x2="2.01" y2="20"></line></svg>
                         </div>
                         <h3>Cloud Infrastructure</h3>
                         <p>Scalable, secure, and automated cloud deployments utilizing modern DevOps practices.</p>
+                    </div>
+
+                    <!-- Large Card (Spans 2 columns) -->
+                    <div class="bento-card bento-large animate-fade-up delay-1">
+                        <div class="bento-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                        </div>
+                        <h3>Internal Tooling & Automation</h3>
+                        <p>Stop running your business on messy spreadsheets. We build bespoke internal systems that automate your workflows, integrate your data, and provide clear visibility into your operations.</p>
                     </div>
                 </div>
             </div>
         </section>
         
-        <section>
+        <section style="padding: 10rem 0; background: #ffffff;">
             <div class="container">
-                <div class="section-header text-center mb-8">
+                <div class="section-header animate-fade-up">
                     <h2>Trusted Execution</h2>
-                    <p class="hero-subtitle" style="margin-top:1rem">We focus on the hard problems so you can focus on your business.</p>
+                    <p style="margin-top:1rem">We focus on the hard problems so you can focus on your business.</p>
                 </div>
                 <div class="grid grid-2">
-                    <div class="card">
+                    <div class="bento-card animate-fade-up">
                         <h3 class="mb-2">Wisconsin Based</h3>
-                        <p>We are a local agency serving Wisconsin and Northern Illinois businesses with face-to-face dedication and Midwest reliability.</p>
+                        <p>We are a local agency serving Wisconsin and Northern Illinois businesses with face-to-face dedication and Midwest reliability. We never offshore our code.</p>
                     </div>
-                    <div class="card">
+                    <div class="bento-card animate-fade-up delay-1">
                         <h3 class="mb-2">Transparent Process</h3>
-                        <p>No black boxes. We provide clear documentation, iterative delivery, and constant communication throughout the engineering lifecycle.</p>
+                        <p>No black boxes. We provide clear documentation, iterative delivery, and constant communication throughout the entire software engineering lifecycle.</p>
                     </div>
                 </div>
             </div>
@@ -99,7 +115,7 @@
                 <div class="footer-brand">
                     <h4>Pineforge Digital</h4>
                     <p>Building reliable software products and systems in Wisconsin.</p>
-                    <p class="text-brand" style="margin-top:1rem">(262) 234-1027</p>
+                    <p style="margin-top:1rem; color: #0ea5e9;">(262) 234-1027</p>
                 </div>
                 <div class="footer-col">
                     <h5>Company</h5>
@@ -120,6 +136,10 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Pineforge Digital LLC. Designed & Built in Wisconsin, USA.</p>
+                <div style="display:flex; gap:1rem;">
+                    <a href="#" style="color:var(--text-tertiary);">LinkedIn</a>
+                    <a href="#" style="color:var(--text-tertiary);">GitHub</a>
+                </div>
             </div>
         </div>
     </footer>
