@@ -444,14 +444,17 @@ input:focus, textarea:focus {
 }
 
 /* CSS Mockup Window */
+@keyframes floatMockup {
+    0%, 100% { transform: perspective(1000px) rotateY(-10deg) rotateX(5deg) translateY(0); }
+    50% { transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) translateY(-10px); }
+}
 .mockup-window {
     width: 100%; max-width: 320px; height: 220px; background: white;
     border-radius: 12px; box-shadow: 0 10px 30px rgba(15,23,42,0.1);
     border: 1px solid var(--border-subtle); display: flex; flex-direction: column;
-    overflow: hidden; transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
-    transition: transform 0.4s ease;
+    overflow: hidden;
+    animation: floatMockup 5s ease-in-out infinite;
 }
-.bento-card:hover .mockup-window { transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) translateY(-10px); }
 .mockup-header { height: 24px; background: var(--bg-surface); border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; padding: 0 10px; gap: 6px; }
 .mockup-header span { width: 8px; height: 8px; border-radius: 50%; background: #e2e8f0; }
 .mockup-header span:nth-child(1) { background: #fca5a5; }
@@ -507,6 +510,11 @@ input:focus, textarea:focus {
 }
 
 /* Database Stack Animation */
+@keyframes floatLayer1 { 0%, 100% { transform: rotateX(60deg) rotateZ(-45deg); } 50% { transform: rotateX(60deg) rotateZ(-45deg) translateZ(10px); } }
+@keyframes floatLayer2 { 0%, 100% { transform: rotateX(60deg) rotateZ(-45deg); } 50% { transform: rotateX(60deg) rotateZ(-45deg) translateZ(30px); } }
+@keyframes floatLayer3 { 0%, 100% { transform: rotateX(60deg) rotateZ(-45deg); border-color: var(--border-strong); } 50% { transform: rotateX(60deg) rotateZ(-45deg) translateZ(50px); border-color: var(--accent-emerald); } }
+@keyframes floatGlow { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+
 .db-stack {
     position: relative; width: 120px; height: 120px;
     perspective: 1000px; transform-style: preserve-3d;
@@ -517,22 +525,16 @@ input:focus, textarea:focus {
     border: 1px solid var(--border-strong); border-radius: 50% 50% 50% 50% / 30% 30% 30% 30%;
     box-shadow: 0 10px 20px rgba(15,23,42,0.05), inset 0 -4px 8px rgba(15,23,42,0.02);
     transform: rotateX(60deg) rotateZ(-45deg);
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.layer-1 { bottom: 0; z-index: 1; }
-.layer-2 { bottom: 20px; z-index: 2; }
-.layer-3 { bottom: 40px; z-index: 3; }
+.layer-1 { bottom: 0; z-index: 1; animation: floatLayer1 4s infinite ease-in-out; }
+.layer-2 { bottom: 20px; z-index: 2; animation: floatLayer2 4s infinite ease-in-out 0.2s; }
+.layer-3 { bottom: 40px; z-index: 3; animation: floatLayer3 4s infinite ease-in-out 0.4s; }
 .db-glow {
     position: absolute; width: 80px; height: 80px;
     background: radial-gradient(circle, rgba(5, 150, 105, 0.4) 0%, transparent 70%);
     bottom: 0; left: 50%; transform: translateX(-50%) rotateX(60deg);
-    filter: blur(20px); opacity: 0; transition: opacity 0.5s ease;
+    filter: blur(20px); opacity: 0; animation: floatGlow 4s infinite ease-in-out 0.4s;
 }
-.bento-card:hover .db-layer { transform: rotateX(60deg) rotateZ(-45deg) translateZ(20px); }
-.bento-card:hover .layer-1 { transform: rotateX(60deg) rotateZ(-45deg) translateZ(10px); }
-.bento-card:hover .layer-2 { transform: rotateX(60deg) rotateZ(-45deg) translateZ(30px); }
-.bento-card:hover .layer-3 { transform: rotateX(60deg) rotateZ(-45deg) translateZ(50px); border-color: var(--accent-emerald); }
-.bento-card:hover .db-glow { opacity: 1; }
 
 /* Automation Pipeline Animation */
 .automation-pipeline {
@@ -549,11 +551,15 @@ input:focus, textarea:focus {
 .task-box.complete { border-style: solid; border-color: var(--accent-amber); background: var(--accent-amber); }
 .task-box.complete svg { width: 24px; height: 24px; opacity: 0; transform: scale(0.5); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
 
-/* The actual animation sequence triggered on hover */
-.bento-card:hover .task-box.processed { animation: processTask 1s forwards 0.2s; }
-.bento-card:hover .task-box.complete svg { opacity: 1; transform: scale(1); transition-delay: 1.2s; }
-.bento-card:hover .arrow { animation: flashArrow 1.5s infinite; }
-.bento-card:hover .arrow:nth-of-type(2) { animation-delay: 0.5s; }
+/* Permanent Loop Animation */
+@keyframes showComplete {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    30%, 70% { opacity: 1; transform: scale(1); }
+}
+.task-box.processed { animation: processTask 3s infinite ease-in-out 0.2s; }
+.task-box.complete svg { animation: showComplete 3s infinite ease-in-out 1.2s; opacity: 0; transform: scale(0.5); }
+.arrow { animation: flashArrow 1.5s infinite; }
+.arrow:nth-of-type(2) { animation-delay: 0.5s; }
 
 @keyframes processTask {
     0% { transform: scale(1); }
