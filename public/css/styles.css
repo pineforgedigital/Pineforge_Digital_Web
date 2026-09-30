@@ -215,7 +215,7 @@ ul { list-style: none; }
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 350px;
+    grid-auto-rows: minmax(400px, auto);
     gap: 1.5rem;
 }
 @media (max-width: 900px) {
