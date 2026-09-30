@@ -340,7 +340,7 @@ input:focus, textarea:focus {
 .hero-dark {
     background-color: #020617;
     position: relative;
-    padding: 14rem 0 10rem;
+    padding: 10rem 0 8rem;
     overflow: hidden;
     color: white;
 }
