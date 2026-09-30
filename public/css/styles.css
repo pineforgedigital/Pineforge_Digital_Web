@@ -651,7 +651,7 @@ input:focus, textarea:focus {
    PURE CSS HERO VISUAL
    ========================================================================== */
 .css-hero-visual {
-    position: relative; width: 100%; max-width: 500px; height: 350px;
+    position: relative; width: 100%; max-width: 600px; height: 400px;
     z-index: 2; perspective: 1000px; margin: 0 auto;
 }
 .code-window {
