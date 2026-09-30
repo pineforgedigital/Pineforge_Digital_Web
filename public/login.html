@@ -3,68 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Access | Pineforge Digital</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0; padding: 0;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #ffffff;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            display: flex; align-items: center; justify-content: center;
-            height: 100vh; width: 100vw;
-        }
-        .login-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 3rem; border-radius: 16px;
-            text-align: center; max-width: 400px; width: 100%;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-        .login-card img { width: 140px; margin-bottom: 2rem; }
-        .login-card h1 { font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 600; }
-        .login-card p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 2rem; }
-        .input-group { position: relative; margin-bottom: 1.5rem; }
-        input[type="password"] {
-            width: 100%; padding: 1rem; border-radius: 8px;
-            background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white; font-size: 1.2rem; text-align: center; outline: none;
-            box-sizing: border-box; letter-spacing: 0.5rem;
-            transition: border-color 0.2s;
-        }
-        input[type="password"]:focus { border-color: #0ea5e9; }
-        button {
-            width: 100%; padding: 1rem; border-radius: 8px;
-            background: #0ea5e9; color: white; border: none; font-size: 1rem;
-            font-weight: 600; cursor: pointer; transition: background 0.2s;
-        }
-        button:hover { background: #0284c7; }
-        #error-msg { color: #ef4444; font-size: 0.85rem; margin-top: 1rem; display: none; }
-    </style>
+    <title>Client Access | Pineforge Digital</title>
+
+    <meta name="description" content="Pineforge Digital is a premier software engineering agency based in Wisconsin. We build secure, reliable, and scalable enterprise applications, internal tools, and high-performance web systems.">
+    <meta property="og:title" content="Pineforge Digital | Engineering Reliable Software">
+    <meta property="og:description" content="We build tailored full-stack applications from the ground up to solve unique operational challenges.">
+    <meta property="og:image" content="https://pineforge.digital/images/og_image.jpg">
+    <meta property="og:url" content="https://pineforge.digital">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css?v=ultra">
+    <link rel="icon" type="image/png" href="images/favicon_optimized.png">
+    <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-    <div class="login-card">
-        <img src="/images/Brand_Logo_clear.png" alt="Pineforge Digital">
-        <h1>Private Access</h1>
-        <p>This site is currently in development. Please enter the PIN to continue.</p>
-        <form id="loginForm" action="/api/verify-pin" method="POST" enctype="application/x-www-form-urlencoded">
-            <div class="input-group">
-                <input type="password" name="pin" id="pin" placeholder="      " required>
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo animate-fade-up">
+                <img src="images/Brand_Logo_clear.png" alt="Pineforge Digital">
+            </a>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
             </div>
-            <button type="submit">Enter Site</button>
-            <div id="error-msg">Invalid PIN code.</div>
-        </form>
+            <nav>
+                <ul class="nav-links">
+                    <li class="animate-fade-up delay-1"><a href="/">Home</a></li>
+                    <li class="animate-fade-up delay-2"><a href="/services">Services</a></li>
+                    <li class="animate-fade-up delay-2"><a href="/work">Work</a></li>
+                    <li class="animate-fade-up delay-3"><a href="/process">Process</a></li>
+                    <li class="animate-fade-up delay-3"><a href="/about">About</a></li>
+                    <li class="animate-fade-up delay-3"><a href="/contact" class="btn btn-primary nav-btn">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main style="padding-top: 100px;">
+        
+<section class="page-header" style="padding: 12rem 0; min-height: 80vh; display: flex; align-items: center;">
+    <div class="container animate-fade-up">
+        <div class="bento-card" style="max-width: 450px; margin: 0 auto; text-align: center;">
+            <h2 style="margin-bottom: 1rem;">Client Access</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Please enter your access PIN to continue.</p>
+            <form id="loginForm">
+                <div class="form-group" style="text-align: left;">
+                    <input type="password" id="pinCode" placeholder="Enter PIN" required style="text-align: center; letter-spacing: 0.2em; font-size: 1.5rem; padding: 1rem;">
+                </div>
+                <button type="submit" id="loginBtn" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Authenticate</button>
+                <p id="loginError" style="color: #ef4444; margin-top: 1rem; font-size: 0.9rem; display: none;">Invalid PIN. Please try again.</p>
+            </form>
+        </div>
     </div>
-    <script>
-        console.log('Document cookies:', document.cookie);
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('error')) {
-            document.getElementById('error-msg').style.display = 'block';
-            window.history.replaceState({}, document.title, window.location.pathname);
+</section>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const pin = document.getElementById('pinCode').value;
+        const btn = document.getElementById('loginBtn');
+        const err = document.getElementById('loginError');
+        
+        btn.disabled = true;
+        btn.innerText = 'Verifying...';
+        err.style.display = 'none';
+
+        try {
+            const res = await fetch('/api/verify-pin', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ pin })
+            });
+
+            const data = await res.json();
+            if (res.ok && data.success) {
+                window.location.href = '/';
+            } else {
+                err.style.display = 'block';
+                btn.disabled = false;
+                btn.innerText = 'Authenticate';
+            }
+        } catch (error) {
+            err.innerText = 'An error occurred. Try again.';
+            err.style.display = 'block';
+            btn.disabled = false;
+            btn.innerText = 'Authenticate';
         }
-    </script>
+    });
+</script>
+
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>Pineforge Digital</h4>
+                    <p>Building reliable software products and systems in Wisconsin.</p>
+                    <p style="margin-top:1rem; color: #0ea5e9;">(262) 234-1027</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/work">Work</a></li>
+                        <li><a href="/process">Process</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pineforge Digital LLC. Designed & Built in Wisconsin, USA.</p>
+                <div style="display:flex; gap:1rem;">
+                    <a href="#" style="color:var(--text-tertiary);">LinkedIn</a>
+                    <a href="#" style="color:var(--text-tertiary);">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/app.js"></script>
 </body>
 </html>
-
