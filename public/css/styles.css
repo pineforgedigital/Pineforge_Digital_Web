@@ -776,3 +776,9 @@ input:focus, textarea:focus, select:focus {
     .bottom-left { left: 0; }
     .top-right { right: 0; }
 }
+
+
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.info-block { margin-bottom: 1.25rem; }
+.info-block h4 { margin-bottom: 0.25rem; }
