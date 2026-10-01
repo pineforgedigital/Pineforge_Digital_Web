@@ -74,6 +74,14 @@
             </div>
         </section>
         
+        <style>
+            .hover-link-container:hover .hover-overlay {
+                opacity: 1 !important;
+            }
+            .hover-link-container:hover img {
+                transform: scale(1.05) !important;
+            }
+        </style>
         <section style="padding: 6rem 0;">
             <div class="container">
                 <div style="display: flex; flex-direction: column; gap: 4rem;">
@@ -81,19 +89,22 @@
                     <!-- Case Study 1 -->
                     <div class="bento-card portfolio-card animate-fade-up">
                         <div class="portfolio-content">
-                            <span class="badge badge-blue mb-4">[Industry / Category]</span>
-                            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">[Client Name / Project Title]</h2>
-                            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem;">[Short description of the project, the problem you solved, and the results achieved.]</p>
+                            <span class="badge badge-blue mb-4">Luxury Home Remodeling</span>
+                            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Aesthetic Design & Construction</h2>
+                            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem;">A high-end, custom-engineered website for a luxury design and construction firm in Southeastern WI. Built with React and Next.js, this enterprise-grade platform seamlessly merges their interior design and construction services, showcasing their premium portfolio with lightning-fast load speeds to drive high-ticket conversions.</p>
                             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                <span class="badge" style="background:var(--bg-base); box-shadow:none; border-color:var(--border-strong);">[Service 1]</span>
-                                <span class="badge" style="background:var(--bg-base); box-shadow:none; border-color:var(--border-strong);">[Service 2]</span>
-                                <span class="badge" style="background:var(--bg-base); box-shadow:none; border-color:var(--border-strong);">[Service 3]</span>
+                                <span class="badge" style="background:var(--bg-base); box-shadow:none; border-color:var(--border-strong);">Custom Web Development</span>
+                                <span class="badge" style="background:var(--bg-base); box-shadow:none; border-color:var(--border-strong);">UI/UX Architecture</span>
+                                <span class="badge" style="background:var(--bg-base); box-shadow:none; border-color:var(--border-strong);">Sanity CMS</span>
                             </div>
                         </div>
                         <div class="portfolio-visual">
-                            <div class="portfolio-visual-inner left">
-                                <img src="/images/mockup_logistics.jpg" alt="Construction Website Mockup" style="width: 100%; height: 100%; object-fit: cover; object-position: top left; filter: sepia(0.2) hue-rotate(-10deg);">
-                            </div>
+                            <a href="https://aestheticdesignconstruction.com/" target="_blank" class="portfolio-visual-inner left hover-link-container" style="display: block; position: relative; overflow: hidden; height: 100%; text-decoration: none;">
+                                <img src="https://cdn.sanity.io/images/uvfvl0gt/production/d8b8103a73f8a90f071405a51bd8156e20410de2-3702x2172.jpg" alt="Aesthetic Design & Construction Website" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);">
+                                <div class="hover-overlay" style="position: absolute; inset: 0; background: rgba(15, 23, 42, 0.6); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; backdrop-filter: blur(4px);">
+                                    <span style="color: white; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.05em; border: 1px solid rgba(255,255,255,0.2); padding: 0.75rem 2rem; border-radius: 50px; background: rgba(0,0,0,0.5); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);">Click to visit site</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
