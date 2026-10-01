@@ -782,3 +782,16 @@ input:focus, textarea:focus, select:focus {
 .mb-4 { margin-bottom: 1.5rem; }
 .info-block { margin-bottom: 1.25rem; }
 .info-block h4 { margin-bottom: 0.25rem; }
+
+
+/* Form Error States */
+.error-message {
+    display: block;
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: 0.4rem;
+    min-height: 1.2rem;
+}
+.input-error {
+    border-color: #ef4444 !important;
+}

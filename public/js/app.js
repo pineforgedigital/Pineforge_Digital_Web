@@ -6,10 +6,48 @@ async function submitForm(event) {
     const submitBtn = document.getElementById('submitBtn');
     const statusText = document.getElementById('formStatus');
 
+    // Clear previous errors
+    document.querySelectorAll('.error-message').forEach(el => el.innerText = '');
+    document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+    statusText.innerText = '';
+
+    let isValid = true;
+    
+    if (!form.name.value.trim()) {
+        document.getElementById('nameError').innerText = 'Please enter your name.';
+        form.name.classList.add('input-error');
+        isValid = false;
+    }
+    
+    if (!form.email.value.trim()) {
+        document.getElementById('emailError').innerText = 'Please enter your email address.';
+        form.email.classList.add('input-error');
+        isValid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value.trim())) {
+        document.getElementById('emailError').innerText = 'Please enter a valid email (e.g., name@company.com).';
+        form.email.classList.add('input-error');
+        isValid = false;
+    }
+    
+    if (!form.service.value) {
+        document.getElementById('serviceError').innerText = 'Please select a service.';
+        form.service.classList.add('input-error');
+        isValid = false;
+    }
+    
+    if (!form.message.value.trim()) {
+        document.getElementById('messageError').innerText = 'Please tell us a bit about your project.';
+        form.message.classList.add('input-error');
+        isValid = false;
+    }
+    
+    if (!isValid) {
+        return;
+    }
+
     // Disable button
     submitBtn.disabled = true;
     submitBtn.innerText = 'Sending...';
-    statusText.innerText = '';
 
     const formData = {
         name: form.name.value,
@@ -18,15 +56,6 @@ async function submitForm(event) {
         service: form.service.value,
         message: form.message.value
     };
-
-    // Client-side validation for custom select
-    if (!formData.service) {
-        statusText.style.color = '#ef4444';
-        statusText.innerText = 'Please select a service.';
-        submitBtn.disabled = false;
-        submitBtn.innerText = 'Send Message';
-        return;
-    }
 
     try {
         const response = await fetch('/api/contact', {
