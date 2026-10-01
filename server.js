@@ -279,7 +279,7 @@ ${message}`;
     db.run(sql, [name, email, combinedMessage], async function (err) {
         if (err) {
             console.error('DB Error:', err.message);
-            return res.status(500).json({ error: 'Failed to save inquiry' });
+            console.log('Skipping DB insert, attempting to send email anyway...');
         }
 
         const inquiryId = this.lastID || 'postgres-id';
