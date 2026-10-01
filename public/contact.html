@@ -93,21 +93,13 @@
                             </div>
                             <div class="form-group">
                                 <label>Service Needed</label>
-                                <div class="custom-select-wrapper">
-                                    <div class="custom-select">
-                                        <div class="select-trigger">
-                                            <span>Select a service...</span>
-                                            <div class="arrow"></div>
-                                        </div>
-                                        <div class="custom-options">
-                                            <span class="custom-option" data-value="custom_software">Custom Software Development</span>
-                                            <span class="custom-option" data-value="internal_tools">Internal Tools & Systems</span>
-                                            <span class="custom-option" data-value="web_apps">High-Performance Web Apps</span>
-                                            <span class="custom-option" data-value="other">Other / Consultation</span>
-                                        </div>
-                                    </div>
-                                    <input type="hidden" id="service" name="service" required>
-                                </div>
+                                <select id="service" name="service" required>
+                                    <option value="" disabled selected>Select a service...</option>
+                                    <option value="custom_software">Custom Software Development</option>
+                                    <option value="internal_tools">Internal Tools & Systems</option>
+                                    <option value="web_apps">High-Performance Web Apps</option>
+                                    <option value="other">Other / Consultation</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
