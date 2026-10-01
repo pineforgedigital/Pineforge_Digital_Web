@@ -1,5 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+
+/* Dark Theme Overrides */
+.dark-theme {
+    --bg-base: #020617;
+    --bg-surface: #0f172a;
+    --bg-surface-hover: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-tertiary: #64748b;
+    --border-subtle: rgba(255, 255, 255, 0.1);
+    --border-strong: rgba(255, 255, 255, 0.2);
+}
+.dark-theme .btn-primary {
+    background: var(--text-primary);
+    color: #020617;
+}
+.dark-theme .btn-primary:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
 :root {
     --bg-base: #ffffff;
     --bg-surface: #f8fafc;
