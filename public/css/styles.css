@@ -340,6 +340,7 @@ ul { list-style: none; }
 
 .contact-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 4rem; padding: 6rem 0; }
 @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+.form-group { margin-bottom: 1.5rem; }
 .form-group label { display: block; margin-bottom: 0.75rem; font-weight: 600; font-size: 0.95rem; color: var(--text-primary); }
 input, textarea, select {
     width: 100%; padding: 1.25rem; border-radius: 12px; font-family: inherit; font-size: 1rem;
