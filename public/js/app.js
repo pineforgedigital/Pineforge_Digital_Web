@@ -319,7 +319,51 @@ function initMobileMenu() {
 }
 
 // Initialize
-async function init() {
+async 
+// Spotlight and Magnetic Effects
+function initPremiumAnimations() {
+    // Spotlight Effect for Bento Cards
+    document.querySelectorAll('.bento-card').forEach(card => {
+        // Add glow element
+        if (!card.querySelector('.glow')) {
+            const glow = document.createElement('div');
+            glow.className = 'glow';
+            card.insertBefore(glow, card.firstChild);
+        }
+        
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+
+    // Magnetic Buttons
+    document.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            // Pull the button slightly towards cursor
+            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+        });
+        
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = `translate(0px, 0px)`;
+            // Wait for transition to finish then clear so hover effects still work
+            setTimeout(() => {
+                if(!btn.matches(':hover')) {
+                    btn.style.transform = '';
+                }
+            }, 300);
+        });
+    });
+}
+
+function init() {
+    initPremiumAnimations();
     // Wait for content to load before enabling scroll observer
     await Promise.all([
         loadProjects(),
