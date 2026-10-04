@@ -45,8 +45,8 @@ def trim_transparent(image_path, output_path):
         return False
 
 # Paths
-source = r"c:\Users\canno\Desktop\Pineforge Digital LLC\Website\public\images\logo_resized_clear.png"
-dest = r"c:\Users\canno\Desktop\Pineforge Digital LLC\Website\public\images\favicon_optimized.png"
+source = r"public\images\Brand_Logo_clear.png"
+dest = r"public\images\favicon_optimized.png"
 
 if __name__ == "__main__":
     trim_transparent(source, dest)
