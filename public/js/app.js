@@ -319,7 +319,6 @@ function initMobileMenu() {
 }
 
 // Initialize
-async 
 // Spotlight and Magnetic Effects
 function initPremiumAnimations() {
     // Spotlight Effect for Bento Cards
@@ -362,7 +361,7 @@ function initPremiumAnimations() {
     });
 }
 
-function init() {
+async function init() {
     initPremiumAnimations();
     // Wait for content to load before enabling scroll observer
     await Promise.all([
