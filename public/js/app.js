@@ -338,27 +338,6 @@ function initPremiumAnimations() {
             card.style.setProperty('--mouse-y', `${y}px`);
         });
     });
-
-    // Magnetic Buttons
-    document.querySelectorAll('.btn').forEach(btn => {
-        btn.addEventListener('mousemove', e => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            // Pull the button slightly towards cursor
-            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-        });
-        
-        btn.addEventListener('mouseleave', () => {
-            btn.style.transform = `translate(0px, 0px)`;
-            // Wait for transition to finish then clear so hover effects still work
-            setTimeout(() => {
-                if(!btn.matches(':hover')) {
-                    btn.style.transform = '';
-                }
-            }, 300);
-        });
-    });
 }
 
 async function init() {

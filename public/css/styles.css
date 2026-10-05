@@ -142,8 +142,7 @@ ul { list-style: none; }
 
 /* Buttons */
 .btn {
-    transition: background-color 0.2s, transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s;
-    will-change: transform;
+    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
