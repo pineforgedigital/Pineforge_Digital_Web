@@ -65,7 +65,6 @@ app.use((req, res, next) => {
 });
 
 // Clean URL Redirects
-app.get('/api/debug-url', (req, res) => res.json({ url: req.url, originalUrl: req.originalUrl, headers: req.headers, path: req.path }));
 app.use((req, res, next) => {
     if (req.path.endsWith('.html')) {
         return res.redirect(301, req.path.slice(0, -5));
@@ -101,7 +100,6 @@ app.use((req, res, next) => {
 });
 
 // PIN Verification Endpoint
-app.get('/api/debug-env', (req, res) => { res.json({ hasPin: !!process.env.PIN_CODE, pinLength: process.env.PIN_CODE ? process.env.PIN_CODE.length : 0 }); });
 app.post('/api/verify-pin', (req, res) => {
     const pin = req.body.pin || '';
     if (pin.trim() === process.env.PIN_CODE.trim()) {
@@ -156,7 +154,7 @@ if (process.env.RESEND_API_KEY) {
 
 // API: Handle Contact Form
 app.post('/api/contact', contactLimiter, async (req, res) => {
-    const { name, email, company, service, message, isEstimate, selections } = req.body;
+    let { name, email, company, service, message, isEstimate, selections } = req.body;
 
     if (!name || !email || !message || !service) {
         return res.status(400).json({ error: 'Please fill in all required fields.' });
@@ -173,6 +171,14 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
     if (!emailRegex.test(email)) {
         return res.status(400).json({ error: 'Invalid email address.' });
     }
+
+    // Escape HTML to prevent injection in emails
+    const escapeHtml = (unsafe) => (!unsafe ? '' : String(unsafe).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;"));
+    name = escapeHtml(name);
+    email = escapeHtml(email);
+    company = escapeHtml(company);
+    service = escapeHtml(service);
+    message = escapeHtml(message);
 
     // ---------------------------------------------------------
     // INTERNAL PRICING LOGIC (Mirrors estimate.js)

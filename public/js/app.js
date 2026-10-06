@@ -77,10 +77,14 @@ async function submitForm(event) {
 
             form.reset();
             // Reset custom select UI
-            document.getElementById('selectTriggerText').innerText = 'Select a service...';
-            document.getElementById('selectTriggerText').style.color = '';
+            const triggerText = document.getElementById('selectTriggerText');
+            if (triggerText) {
+                triggerText.innerText = 'Select a service...';
+                triggerText.style.color = '';
+            }
             document.querySelectorAll('.custom-option').forEach(opt => opt.classList.remove('selected'));
-            document.getElementById('service').value = '';
+            const serviceSelect = document.getElementById('service');
+            if (serviceSelect) serviceSelect.value = '';
         } else {
             statusText.style.color = '#ef4444'; // Red-ish for error
             statusText.innerText = result.error || 'Failed to send message.';
