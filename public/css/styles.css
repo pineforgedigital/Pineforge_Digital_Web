@@ -580,7 +580,7 @@ input:focus, textarea:focus, select:focus {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.navbar .logo img { filter: brightness(0) invert(1); }
+
 
 
 /* Graphic Bento Vertical (For tall, single-column cards) */

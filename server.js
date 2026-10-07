@@ -471,7 +471,7 @@ ${message}`;
                                 <!-- Header -->
                                 <tr>
                                     <td style="background-color: #0f172a; padding: 30px; text-align: center; border-bottom: 1px solid #1e293b;">
-                                        <img src="https://pineforge.digital/images/Brand_Logo_clear.png" alt="Pineforge Digital" style="width: 140px; height: auto; display: block; margin: 0 auto 15px;">
+                                        <img src="https://pineforge.digital/images/Brand_Logo_white.png" alt="Pineforge Digital" style="width: 140px; height: auto; display: block; margin: 0 auto 15px;">
                                         <p style="margin: 0; color: #94a3b8; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">Website Inquiry</p>
                                     </td>
                                 </tr>
@@ -555,7 +555,7 @@ ${message}`;
                             
                             <!-- 1. Header -->
                             <div style="background: #0f172a; padding: 30px 20px; border-bottom: 1px solid #1e293b; text-align: center;">
-                                <img src="https://pineforge.digital/images/Brand_Logo_clear.png" alt="Pineforge Digital" style="width: 120px; height: auto; display: block; margin: 0 auto 16px;">
+                                <img src="https://pineforge.digital/images/Brand_Logo_white.png" alt="Pineforge Digital" style="width: 120px; height: auto; display: block; margin: 0 auto 16px;">
                                 <h1 style="margin: 0; color: #fff; font-size: 18px; font-weight: 600; letter-spacing: 0.5px;">Your Project Estimate Has Been Received</h1>
                             </div>
 
@@ -666,7 +666,7 @@ ${message}`;
                                                     <!-- Header -->
                                                     <tr>
                                                         <td style="background-color: #0f172a; padding: 30px; text-align: center; border-bottom: 1px solid #1e293b;">
-                                                            <img src="https://pineforge.digital/images/Brand_Logo_clear.png" alt="Pineforge Digital" style="width: 140px; height: auto; display: block; margin: 0 auto 15px;">
+                                                            <img src="https://pineforge.digital/images/Brand_Logo_white.png" alt="Pineforge Digital" style="width: 140px; height: auto; display: block; margin: 0 auto 15px;">
                                                         </td>
                                                     </tr>
 
