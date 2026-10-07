@@ -312,7 +312,7 @@ ${message}`;
                             <div style="max-width: 600px; margin: 0 auto; background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; overflow: hidden;">
                                 
                                 <!-- 1. Header -->
-                                <div style="background: #1e293b; padding: 15px; border-bottom: 1px solid #334155; text-align: center;">
+                                <div style="background: #0f172a; padding: 20px; border-bottom: 1px solid #1e293b; text-align: center;">
                                     <h2 style="margin: 0; color: #fff; font-size: 16px; letter-spacing: 0.5px; text-transform: uppercase;">Pineforge Digital</h2>
                                     <p style="margin: 4px 0 0; font-size: 11px; color: #94a3b8; text-transform: uppercase;">New Website Estimate Submission</p>
                                     <p style="margin: 2px 0 0; font-size: 10px; color: #475569;">${new Date().toLocaleString()}</p>
@@ -470,7 +470,7 @@ ${message}`;
                                 
                                 <!-- Header -->
                                 <tr>
-                                    <td style="background-color: #1e293b; background-image: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); padding: 30px; text-align: center; border-bottom: 2px solid #38bdf8;">
+                                    <td style="background-color: #0f172a; padding: 30px; text-align: center; border-bottom: 1px solid #1e293b;">
                                         <img src="https://pineforge.digital/images/Brand_Logo_clear.png" alt="Pineforge Digital" style="width: 140px; height: auto; display: block; margin: 0 auto 15px;">
                                         <p style="margin: 0; color: #94a3b8; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">Website Inquiry</p>
                                     </td>
@@ -478,7 +478,7 @@ ${message}`;
 
                                 <!-- Content -->
                                 <tr>
-                                    <td style="padding: 40px 30px; background-color: #0B1120;">
+                                    <td style="padding: 40px 30px; background-color: #0f172a;">
                                         
                                         <!-- Key Details Grid (2-Column) -->
                                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
@@ -554,7 +554,7 @@ ${message}`;
                         <div style="max-width: 600px; margin: 0 auto; background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; overflow: hidden;">
                             
                             <!-- 1. Header -->
-                            <div style="background: #1e293b; padding: 30px 20px; border-bottom: 2px solid #38bdf8; text-align: center;">
+                            <div style="background: #0f172a; padding: 30px 20px; border-bottom: 1px solid #1e293b; text-align: center;">
                                 <img src="https://pineforge.digital/images/Brand_Logo_clear.png" alt="Pineforge Digital" style="width: 120px; height: auto; display: block; margin: 0 auto 16px;">
                                 <h1 style="margin: 0; color: #fff; font-size: 18px; font-weight: 600; letter-spacing: 0.5px;">Your Project Estimate Has Been Received</h1>
                             </div>
@@ -665,14 +665,14 @@ ${message}`;
 
                                                     <!-- Header -->
                                                     <tr>
-                                                        <td style="background-color: #1e293b; background-image: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); padding: 30px; text-align: center; border-bottom: 2px solid #38bdf8;">
+                                                        <td style="background-color: #0f172a; padding: 30px; text-align: center; border-bottom: 1px solid #1e293b;">
                                                             <img src="https://pineforge.digital/images/Brand_Logo_clear.png" alt="Pineforge Digital" style="width: 140px; height: auto; display: block; margin: 0 auto 15px;">
                                                         </td>
                                                     </tr>
 
                                                     <!-- Content -->
                                                     <tr>
-                                                        <td style="padding: 40px 30px; background-color: #0B1120; background-image: radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.2) 0%, rgba(129, 140, 248, 0.1) 30%, rgba(11, 17, 32, 0) 70%), linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px); background-size: 100% 100%, 20px 20px, 20px 20px; background-repeat: no-repeat, repeat, repeat;">
+                                                        <td style="padding: 40px 30px; background-color: #0f172a;">
                                                             <p style="margin: 0 0 20px; font-size: 16px; color: #f8fafc; line-height: 1.6;">
                                                                 Hello ${name},
                                                             </p>
