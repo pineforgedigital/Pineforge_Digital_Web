@@ -65,17 +65,19 @@
             </nav>
         </div>
     </header>
-    <main style="padding-top: 100px;">
-        
-<section class="page-header" style="padding: 16rem 0; text-align: center;">
-    <div class="container animate-fade-up">
-        <h1 style="font-size: 6rem; margin-bottom: 1rem; color: var(--brand-blue);">404</h1>
-        <h2>Page Not Found</h2>
-        <p style="margin-bottom: 2rem;">The page you are looking for does not exist or has been moved.</p>
-        <a href="/" class="btn btn-primary">Return Home</a>
-    </div>
-</section>
-
+    <main>
+        <section class="page-header-dark" style="padding: 12rem 0 8rem; text-align: center; position: relative; overflow: hidden; min-height: 80vh; display: flex; align-items: center; justify-content: center;">
+            <!-- Background glow -->
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(2, 132, 199, 0.15) 0%, transparent 70%); border-radius: 50%; filter: blur(60px); z-index: 0; pointer-events: none;"></div>
+            
+            <div class="container animate-fade-up" style="position: relative; z-index: 1;">
+                <span class="badge badge-dark" style="margin-bottom: 1.5rem;">Error 404</span>
+                <h1 style="font-size: clamp(6rem, 15vw, 12rem); margin-bottom: 0; line-height: 1; letter-spacing: -0.05em; background: linear-gradient(135deg, #ffffff 0%, var(--brand-blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">404</h1>
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: white;">Page Not Found</h2>
+                <p style="margin-bottom: 2.5rem; color: rgba(255,255,255,0.7); font-size: 1.15rem;">The page you are looking for has been moved, deleted, or never existed.</p>
+                <a href="/" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; border-radius: 12px;">Return Home</a>
+            </div>
+        </section>
     </main>
     <footer class="footer">
         <div class="container">
