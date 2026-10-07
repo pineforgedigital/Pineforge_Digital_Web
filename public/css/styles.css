@@ -725,11 +725,11 @@ input:focus, textarea:focus, select:focus {
 
 @keyframes progressRed {
     0% { stroke-dasharray: 0, 100; }
-    100% { stroke-dasharray: 42, 100; }
+    100% { stroke-dasharray: 50, 100; }
 }
 @keyframes progressGreen {
     0% { stroke-dasharray: 0, 100; }
-    100% { stroke-dasharray: 99, 100; }
+    100% { stroke-dasharray: 95, 100; }
 }
 
 /* Pause animation until hovered or in view */
