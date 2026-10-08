@@ -14,7 +14,7 @@
 }
 .dark-theme .btn-primary {
     background: var(--text-primary);
-    color: #020617;
+    color: #020617 !important;
 }
 .dark-theme .btn-primary:hover {
     background: #ffffff;
@@ -156,13 +156,19 @@ ul { list-style: none; }
 }
 .btn-primary {
     background: var(--text-primary);
-    color: #ffffff;
+    color: #ffffff !important;
     box-shadow: 0 4px 12px rgba(2, 6, 23, 0.2), inset 0 1px 0 rgba(255,255,255,0.15);
 }
-.btn-primary:hover {
+.btn-primary:hover:not(:disabled) {
     background: #000000;
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(2, 6, 23, 0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+}
+.btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: #334155;
+    color: #ffffff !important;
 }
 .btn-secondary {
     background: var(--bg-base);
