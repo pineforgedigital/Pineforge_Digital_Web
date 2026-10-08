@@ -54,7 +54,8 @@ async function submitForm(event) {
         email: form.email.value,
         company: form.company.value,
         service: form.service.value,
-        message: form.message.value
+        message: form.message.value,
+        website_url: form.website_url ? form.website_url.value : ''
     };
 
     try {

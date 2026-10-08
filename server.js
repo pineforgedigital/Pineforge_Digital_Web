@@ -154,7 +154,14 @@ if (process.env.RESEND_API_KEY) {
 
 // API: Handle Contact Form
 app.post('/api/contact', contactLimiter, async (req, res) => {
-    let { name, email, company, service, message, isEstimate, selections } = req.body;
+    let { name, email, company, service, message, isEstimate, selections, website_url } = req.body;
+
+    // Honeypot Check (Spam Prevention)
+    if (website_url && website_url.trim() !== '') {
+        console.log(`[SPAM BLOCKED] Honeypot filled by ${email}`);
+        // Return 200 so the bot thinks it succeeded, but drop the data
+        return res.status(200).json({ message: 'Message received successfully!' });
+    }
 
     if (!name || !email || !message || !service) {
         return res.status(400).json({ error: 'Please fill in all required fields.' });
