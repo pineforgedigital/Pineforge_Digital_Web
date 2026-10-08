@@ -906,3 +906,5 @@ input:focus, textarea:focus, select:focus {
         border-bottom: 1px solid var(--border-subtle);
     }
 }
+
+@media (max-width: 768px) { .hidden-mobile { display: none !important; } }
