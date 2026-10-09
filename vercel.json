@@ -3,6 +3,18 @@
     "cleanUrls": true,
     "rewrites": [
         {
+            "source": "/sitemap.xml",
+            "destination": "/public/sitemap.xml"
+        },
+        {
+            "source": "/robots.txt",
+            "destination": "/public/robots.txt"
+        },
+        {
+            "source": "/googleef42f328f91ef003.html",
+            "destination": "/public/googleef42f328f91ef003.html"
+        },
+        {
             "source": "/css/(.*)",
             "destination": "/public/css/$1"
         },

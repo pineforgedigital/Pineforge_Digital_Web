@@ -84,7 +84,7 @@ app.use((req, res, next) => {
     }
     
     // Allow static assets, API login, and the login page itself
-    const publicPaths = ['/css/', '/images/', '/js/', '/api/verify-pin', '/login.html'];
+    const publicPaths = ['/css/', '/images/', '/js/', '/api/verify-pin', '/login.html', '/sitemap.xml', '/robots.txt', '/googleef42f328f91ef003.html'];
     if (publicPaths.some(p => req.path.startsWith(p))) {
         return next();
     }
