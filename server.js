@@ -1,269 +1,219 @@
 // Load environment variables locally
 try {
-  process.loadEnvFile();
+    process.loadEnvFile();
 } catch (err) {
-  // .env file not found (normal in production/Vercel)
+    // .env file not found (normal in production/Vercel)
 }
 
-const express = require("express");
-const bodyParser = require("body-parser");
-const path = require("path");
-const db = require("./src/database");
-const nodemailer = require("nodemailer");
-const helmet = require("helmet");
-const rateLimit = require("express-rate-limit");
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const db = require('./src/database');
+const nodemailer = require('nodemailer');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const compression = require("compression");
+const compression = require('compression');
 
 // Middleware
-app.set("trust proxy", 1); // Trust first proxy (Vercel)
+app.set('trust proxy', 1); // Trust first proxy (Vercel)
 app.use(compression()); // Gzip Compression
-app.use(
-  helmet({
+app.use(helmet({
     contentSecurityPolicy: {
-      directives: {
-        "default-src": ["'self'"],
-        "script-src": [
-          "'self'",
-          "vercel.live",
-          "vercel.com",
-          "'unsafe-inline'",
-        ],
-        "style-src": ["'self'", "'unsafe-inline'", "fonts.googleapis.com"],
-        "font-src": ["'self'", "fonts.gstatic.com"],
-        "img-src": ["'self'", "data:", "pineforge.digital"],
-        "connect-src": ["'self'", "vercel.live", "vercel.com"],
-      },
-    },
-  }),
-);
+        directives: {
+            "default-src": ["'self'"],
+            "script-src": ["'self'", "vercel.live", "vercel.com", "'unsafe-inline'"],
+            "style-src": ["'self'", "'unsafe-inline'", "fonts.googleapis.com"],
+            "font-src": ["'self'", "fonts.gstatic.com"],
+            "img-src": ["'self'", "data:", "pineforge.digital"],
+            "connect-src": ["'self'", "vercel.live", "vercel.com"]
+        }
+    }
+}));
 // Restore Vercel original path
 app.use((req, res, next) => {
-  if (req.query.vpath !== undefined) {
-    req.url = "/" + req.query.vpath;
-    req.path = "/" + req.query.vpath;
-  }
-  next();
+    if (req.query.vpath !== undefined) {
+        req.url = '/' + req.query.vpath;
+        req.path = '/' + req.query.vpath;
+    }
+    next();
 });
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
-const cookieParser = require("cookie-parser");
+const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
 // Rate Limiting (Max 5 inquiries per hour per IP)
 const contactLimiter = rateLimit({
-  windowMs: 60 * 60 * 1000, // 1 hour
-  max: 5,
-  message: { error: "Too many requests, please try again later." },
+    windowMs: 60 * 60 * 1000, // 1 hour
+    max: 5,
+    message: { error: 'Too many requests, please try again later.' }
 });
 
 // Cookie Logger Middleware
 app.use((req, res, next) => {
-  const visitorId = req.cookies.visitor_id;
-  if (visitorId) {
-    console.log(`[Visitor] Returning ID: ${visitorId}`);
-  } else {
-    console.log(`[Visitor] New or Anonymous Session`);
-  }
-  next();
+    const visitorId = req.cookies.visitor_id;
+    if (visitorId) {
+        console.log(`[Visitor] Returning ID: ${visitorId}`);
+    } else {
+        console.log(`[Visitor] New or Anonymous Session`);
+    }
+    next();
 });
 
 // Clean URL Redirects
 app.use((req, res, next) => {
-  if (req.path.endsWith(".html")) {
-    return res.redirect(301, req.path.slice(0, -5));
-  }
-  if (req.path === "/index" || req.path === "/home") {
-    return res.redirect(301, "/");
-  }
-  next();
+    if (req.path.endsWith('.html')) {
+        return res.redirect(301, req.path.slice(0, -5));
+    }
+    if (req.path === '/index' || req.path === '/home') {
+        return res.redirect(301, '/');
+    }
+    next();
 });
 
 // Password Protection Middleware
 app.use((req, res, next) => {
-  console.log("REQ URL:", req.url, "ORIGINAL URL:", req.originalUrl);
-  // If no PIN_CODE is set, skip lock entirely
-  if (!process.env.PIN_CODE) {
-    return next();
-  }
+    console.log('REQ URL:', req.url, 'ORIGINAL URL:', req.originalUrl);
+    // If no PIN_CODE is set, skip lock entirely
+    if (!process.env.PIN_CODE) {
+        return next();
+    }
 
-  // Allow static assets, API login, and the login page itself
-  const publicPaths = [
-    "/css/",
-    "/images/",
-    "/js/",
-    "/api/verify-pin",
-    "/login.html",
-    "/sitemap.xml",
-    "/robots.txt",
-    "/googleef42f328f91ef003.html",
-  ];
-  if (publicPaths.some((p) => req.path.startsWith(p))) {
-    return next();
-  }
+    // Allow static assets, API login, and the login page itself
+    const publicPaths = ['/css/', '/images/', '/js/', '/api/verify-pin', '/login.html'];
+    if (publicPaths.some(p => req.path.startsWith(p))) {
+        return next();
+    }
 
-  // Check for access cookie
-  if (req.cookies.site_access === process.env.PIN_CODE.trim()) {
-    return next();
-  }
+    // Check for access cookie
+    if (req.cookies.site_access === process.env.PIN_CODE.trim()) {
+        return next();
+    }
 
-  // Not authenticated -> serve login
-  res.setHeader("Cache-Control", "no-store, no-cache");
-  return res.sendFile(path.join(__dirname, "public", "login.html"));
+    // Not authenticated -> serve login
+    res.setHeader('Cache-Control', 'no-store, no-cache');
+    return res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
 // PIN Verification Endpoint
-app.post("/api/verify-pin", (req, res) => {
-  const pin = req.body.pin || "";
-  if (pin.trim() === process.env.PIN_CODE.trim()) {
-    res.cookie("site_access", pin.trim(), {
-      httpOnly: true,
-      path: "/",
-      maxAge: 12 * 60 * 60 * 1000, // 12 hours
-    });
+app.post('/api/verify-pin', (req, res) => {
+    const pin = req.body.pin || '';
+    if (pin.trim() === process.env.PIN_CODE.trim()) {
+        res.cookie('site_access', pin.trim(), {
+            httpOnly: true,
+            path: '/',
+            maxAge: 12 * 60 * 60 * 1000 // 12 hours
+        });
+
+        // Check if this was a standard form submission or fetch
+        if (req.headers['content-type'] === 'application/x-www-form-urlencoded') {
+            return res.redirect('/');
+        }
+        return res.status(200).json({ success: true });
+    }
 
     // Check if this was a standard form submission or fetch
-    if (req.headers["content-type"] === "application/x-www-form-urlencoded") {
-      return res.redirect("/");
+    if (req.headers['content-type'] === 'application/x-www-form-urlencoded') {
+        return res.redirect('/?error=1');
     }
-    return res.status(200).json({ success: true });
-  }
-
-  // Check if this was a standard form submission or fetch
-  if (req.headers["content-type"] === "application/x-www-form-urlencoded") {
-    return res.redirect("/?error=1");
-  }
-  return res.status(401).json({ success: false });
+    return res.status(401).json({ success: false });
 });
 
 // Explicitly serve root to prevent static middleware ambiguity
-app.get("/", (req, res) => {
-  res.setHeader(
-    "Cache-Control",
-    "no-store, no-cache, must-revalidate, proxy-revalidate",
-  );
-  res.setHeader("Pragma", "no-cache");
-  res.setHeader("Expires", "0");
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+app.get('/', (req, res) => {
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.use(
-  express.static(path.join(__dirname, "public"), {
-    extensions: ["html"],
+app.use(express.static(path.join(__dirname, 'public'), {
+    extensions: ['html'],
     setHeaders: (res, path) => {
-      res.setHeader(
-        "Cache-Control",
-        "no-store, no-cache, must-revalidate, proxy-revalidate",
-      );
-      res.setHeader("Pragma", "no-cache");
-      res.setHeader("Expires", "0");
-    },
-  }),
-);
+        res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+        res.setHeader('Pragma', 'no-cache');
+        res.setHeader('Expires', '0');
+    }
+}));
 
 // Email Setup (Mock for now, easy to swap for real SMTP)
 // For production, use real credentials or a service like SendGrid
-const { Resend } = require("resend");
+const { Resend } = require('resend');
 let resend;
 if (process.env.RESEND_API_KEY) {
-  resend = new Resend(process.env.RESEND_API_KEY);
+    resend = new Resend(process.env.RESEND_API_KEY);
 } else {
-  console.warn("Resend API Key is missing. Email sending will be disabled.");
+    console.warn("Resend API Key is missing. Email sending will be disabled.");
 }
 
 // ... (Middleware remains)
 
 // API: Handle Contact Form
-app.post("/api/contact", contactLimiter, async (req, res) => {
-  let { name, email, company, service, message, website_url } = req.body;
+app.post('/api/contact', contactLimiter, async (req, res) => {
+    let { name, email, company, service, message } = req.body;
 
-  // Honeypot Check (Spam Prevention)
-  if (website_url && website_url.trim() !== "") {
-    console.log(`[SPAM BLOCKED] Honeypot filled by ${email}`);
-    // Return 200 so the bot thinks it succeeded, but drop the data
-    return res.status(200).json({ message: "Message received successfully!" });
-  }
+    if (!name || !email || !message || !service) {
+        return res.status(400).json({ error: 'Please fill in all required fields.' });
+    }
 
-  if (!name || !email || !message || !service) {
-    return res
-      .status(400)
-      .json({ error: "Please fill in all required fields." });
-  }
+    // Input Validation
+    if (name.length > 100) return res.status(400).json({ error: 'Name is too long.' });
+    if (email.length > 255) return res.status(400).json({ error: 'Email is too long.' });
+    if (company && company.length > 100) return res.status(400).json({ error: 'Company name is too long.' });
+    if (message.length > 2000) return res.status(400).json({ error: 'Message is too long.' });
 
-  // Input Validation
-  if (name.length > 100)
-    return res.status(400).json({ error: "Name is too long." });
-  if (email.length > 255)
-    return res.status(400).json({ error: "Email is too long." });
-  if (company && company.length > 100)
-    return res.status(400).json({ error: "Company name is too long." });
-  if (message.length > 2000)
-    return res.status(400).json({ error: "Message is too long." });
+    // Basic Email Validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        return res.status(400).json({ error: 'Invalid email address.' });
+    }
 
-  // Basic Email Validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    return res.status(400).json({ error: "Invalid email address." });
-  }
+    // Escape HTML to prevent injection in emails
+    const escapeHtml = (unsafe) => (!unsafe ? '' : String(unsafe).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;"));
+    name = escapeHtml(name);
+    email = escapeHtml(email);
+    company = escapeHtml(company);
+    service = escapeHtml(service);
+    message = escapeHtml(message);
 
-  // Escape HTML to prevent injection in emails
-  const escapeHtml = (unsafe) =>
-    !unsafe
-      ? ""
-      : String(unsafe)
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;")
-          .replace(/'/g, "&#039;");
-  name = escapeHtml(name);
-  email = escapeHtml(email);
-  company = escapeHtml(company);
-  service = escapeHtml(service);
-  message = escapeHtml(message);
+    // 1. Save to Database (We need to update the table scheme first if we want to save these)
+    // For now, let's append them to the message string in DB if schema update is risky,
+    // OR just update the SQL query if we assume schema is flexible/we can alter it.
+    // Given we can't easily alter SQLite/Postgres schema without a migration script,
+    // SAFETY: We will prepend Company/Service to the message body for storage.
 
-  // 1. Save to Database (We need to update the table scheme first if we want to save these)
-  // For now, let's append them to the message string in DB if schema update is risky,
-  // OR just update the SQL query if we assume schema is flexible/we can alter it.
-  // Given we can't easily alter SQLite/Postgres schema without a migration script,
-  // SAFETY: We will prepend Company/Service to the message body for storage.
-
-  const combinedMessage = `
-[Company: ${company || "N/A"}]
+    const combinedMessage = `
+[Company: ${company || 'N/A'}]
 [Service: ${service}]
 
 ${message}`;
 
-  const sql = `INSERT INTO inquiries (name, email, message) VALUES (?, ?, ?)`;
+    const sql = `INSERT INTO inquiries (name, email, message) VALUES (?, ?, ?)`;
 
-  db.run(sql, [name, email, combinedMessage], async function (err) {
-    if (err) {
-      console.error("DB Error:", err.message);
-      console.log("Skipping DB insert, attempting to send email anyway...");
-    }
+    db.run(sql, [name, email, combinedMessage], async function (err) {
+        if (err) {
+            console.error('DB Error:', err.message);
+            console.log('Skipping DB insert, attempting to send email anyway...');
+        }
 
-    const inquiryId = this.lastID || "postgres-id";
-    console.log(`Inquiry saved. ID: ${inquiryId}`);
+        const inquiryId = this.lastID || 'postgres-id';
+        console.log(`Inquiry saved. ID: ${inquiryId}`);
 
-    // Helper for Currency
-    const fmt = (num) =>
-      new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-        maximumFractionDigits: 0,
-      }).format(num);
+        // Helper for Currency
+        const fmt = (num) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(num);
 
-    // 2. Send Real Email via Resend
-    if (resend) {
-      try {
-        // 1. Send Admin Notification (To You)
-        let adminHtml = "";
-
-        // STANDARD INQUIRY TEMPLATE
-        adminHtml = `
+        // 2. Send Real Email via Resend
+        if (resend) {
+            try {
+                // 1. Send Admin Notification (To You)
+                let adminHtml = `
+// STANDARD INQUIRY TEMPLATE (Legacy)
+                    // ----------------------------------------
+                    adminHtml = `
                         <!DOCTYPE html>
                         <html>
                         <body style="font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #0B1120; color: #f8fafc; padding: 40px 20px; margin: 0;">
@@ -300,7 +250,7 @@ ${message}`;
                                             <tr>
                                                 <td width="48%" valign="top" style="padding-top: 20px; padding-bottom: 5px;">
                                                     <p style="margin: 0 0 4px; font-size: 12px; text-transform: uppercase; color: #94a3b8; font-weight: 700;">Company</p>
-                                                    <p style="margin: 0; font-size: 16px; color: #f8fafc; font-weight: 500;">${company || "N/A"}</p>
+                                                    <p style="margin: 0; font-size: 16px; color: #f8fafc; font-weight: 500;">${company || 'N/A'}</p>
                                                 </td>
                                                 <td width="4%" style="">&nbsp;</td>
                                                 <td width="48%" valign="top" style="padding-top: 20px; padding-bottom: 5px;">
@@ -316,7 +266,7 @@ ${message}`;
                                         <div style="margin-top: 35px;">
                                             <p style="margin: 0 0 12px; font-size: 12px; text-transform: uppercase; color: #94a3b8; font-weight: 700;">Message</p>
                                             <div style="background-color: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 24px; color: #e2e8f0; font-size: 15px; line-height: 1.6;">
-                                                ${message.replace(/\n/g, "<br>")}
+                                                ${message.replace(/\n/g, '<br>')}
                                             </div>
                                         </div>
 
@@ -327,22 +277,22 @@ ${message}`;
                         </html>
                     `;
 
-        await resend.emails.send({
-          from: "Pineforge Website <admin@pineforge.digital>",
-          to: ["admin@pineforge.digital"],
-          reply_to: email, // Reply to Customer
-          subject: `New Inquiry: ${service} - ${name}`,
-          text: `Name: ${name}\nEmail: ${email}\nCompany: ${company || "N/A"}\nService: ${service}\n\nMessage:\n${message}`,
-          html: adminHtml,
-        });
+await resend.emails.send({
+                    from: 'Pineforge Website <admin@pineforge.digital>',
+                    to: ['admin@pineforge.digital'],
+                    reply_to: email, // Reply to Customer
+                    subject: `New Inquiry: ${service} - ${name}`,
+                    text: `Name: ${name}\nEmail: ${email}\nCompany: ${company || 'N/A'}\nService: ${service}\n\nMessage:\n${message}`,
+                    html: adminHtml
+                });
 
-        // 2. Send User Confirmation (To Customer)
-        // ----------------------------------------
-        let userSubject = `Received: Your Inquiry to Pineforge Digital`;
-        let userHtml = "";
-
-        // STANDARD INQUIRY TEMPLATE
-        userHtml = `
+                // 2. Send User Confirmation (To Customer)
+                // ----------------------------------------
+                let userSubject = `Received: Your Inquiry to Pineforge Digital`;
+                let userHtml = `
+// OPTION B: STANDARD INQUIRY TEMPLATE (Legacy)
+                    // ----------------------------------------
+                    userHtml = `
                                         <!DOCTYPE html>
                                         <html>
                                             <body style="font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #0B1120; color: #f8fafc; padding: 40px 20px; margin: 0;">
@@ -398,31 +348,29 @@ ${message}`;
                                         </html>
                     `;
 
-        await resend.emails.send({
-          from: "Pineforge Digital <admin@pineforge.digital>",
-          to: [email],
-          reply_to: "admin@pineforge.digital",
-          subject: userSubject,
-          text: `Hello ${name},\n\nWe have received your request. We will review your details and get back to you shortly.\n\nBest,\nPineforge Digital`,
-          html: userHtml,
-        });
+await resend.emails.send({
+                    from: 'Pineforge Digital <admin@pineforge.digital>',
+                    to: [email],
+                    reply_to: 'admin@pineforge.digital',
+                    subject: userSubject,
+                    text: `Hello ${name},\n\nWe have received your request. We will review your details and get back to you shortly.\n\nBest,\nPineforge Digital`,
+                    html: userHtml
+                });
 
-        console.log("Emails sent via Resend");
-        return res
-          .status(200)
-          .json({ message: "Message received successfully!" });
-      } catch (emailErr) {
-        console.error("Resend Error:", emailErr);
-        // Even if email fails, we saved to DB, so tell user it's ok but maybe log check
-        return res
-          .status(200)
-          .json({ message: "Message saved (Email delivery issue)." });
-      }
-    } else {
-      console.log("Email skipped (Resend not configured)");
-      return res.status(200).json({ message: "Message saved successfully!" });
-    }
-  });
+                console.log('Emails sent via Resend');
+                return res.status(200).json({ message: 'Message received successfully!' });
+
+            } catch (emailErr) {
+                console.error('Resend Error:', emailErr);
+                // Even if email fails, we saved to DB, so tell user it's ok but maybe log check
+                return res.status(200).json({ message: 'Message saved (Email delivery issue).' });
+            }
+        } else {
+            console.log('Email skipped (Resend not configured)');
+            return res.status(200).json({ message: 'Message saved successfully!' });
+        }
+    });
+
 });
 
 // Fallback for SPA (if we were using one, but for static files this is fine)
@@ -430,13 +378,20 @@ ${message}`;
 
 // Fallback: 404 Handler (must be last route)
 app.use((req, res) => {
-  res.status(404).sendFile(path.join(__dirname, "public", "404.html"));
+    res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
 if (require.main === module) {
-  app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
 }
 
 module.exports = app;
+
+
+
+
+
+
+
