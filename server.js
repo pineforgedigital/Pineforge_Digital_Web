@@ -211,9 +211,6 @@ ${message}`;
             try {
                 // 1. Send Admin Notification (To You)
                 let adminHtml = `
-// STANDARD INQUIRY TEMPLATE (Legacy)
-                    // ----------------------------------------
-                    adminHtml = `
                         <!DOCTYPE html>
                         <html>
                         <body style="font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #0B1120; color: #f8fafc; padding: 40px 20px; margin: 0;">
@@ -290,9 +287,6 @@ await resend.emails.send({
                 // ----------------------------------------
                 let userSubject = `Received: Your Inquiry to Pineforge Digital`;
                 let userHtml = `
-// OPTION B: STANDARD INQUIRY TEMPLATE (Legacy)
-                    // ----------------------------------------
-                    userHtml = `
                                         <!DOCTYPE html>
                                         <html>
                                             <body style="font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #0B1120; color: #f8fafc; padding: 40px 20px; margin: 0;">
