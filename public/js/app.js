@@ -378,6 +378,19 @@ async function init() {
     if (contactForm) {
         console.log('Contact form found, binding listener');
         contactForm.addEventListener('submit', submitForm);
+
+        // Pre-select service from URL query param if present
+        const urlParams = new URLSearchParams(window.location.search);
+        const serviceParam = urlParams.get('service');
+        if (serviceParam && contactForm.service) {
+            const query = serviceParam.toLowerCase();
+            for (const option of contactForm.service.options) {
+                if (option.value && option.value.toLowerCase().includes(query)) {
+                    contactForm.service.value = option.value;
+                    break;
+                }
+            }
+        }
     }
     // Bind Modal Close Logic
     const closeBtn = document.getElementById('closeModalBtn');
