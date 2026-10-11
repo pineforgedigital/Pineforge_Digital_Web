@@ -15,7 +15,16 @@
     <meta name="twitter:card" content="summary_large_image">
     <script defer src="/_vercel/insights/script.js"></script>
 
-    <link rel="stylesheet" href="css/styles.css?v=1.4">
+    <!-- Fonts Optimization: Preconnect & Non-render-blocking async load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    </noscript>
+
+    <link rel="stylesheet" href="css/styles.css?v=1.5">
     <link rel="icon" type="image/png" href="images/favicon_optimized.png">
 
     <!-- Local SEO Schema -->
@@ -58,7 +67,7 @@
     <header class="navbar">
         <div class="container nav-container">
             <a href="/" class="logo animate-fade-up">
-                <img src="images/Brand_Logo_white.png" alt="Pineforge Digital">
+                <img src="images/Brand_Logo_white_opt.png" alt="Pineforge Digital" width="64" height="64">
             </a>
             <div class="hamburger">
                 <span></span><span></span><span></span>

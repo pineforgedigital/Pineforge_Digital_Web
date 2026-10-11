@@ -21,10 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const consent = localStorage.getItem("cookie_consent");
 
     if (!consent) {
-        // Show banner with a slight delay
+        // Show banner after page initial paint & LCP have settled
         setTimeout(() => {
             cookieBanner.classList.add("visible");
-        }, 1000);
+        }, 2500);
     } else if (consent === "accepted") {
         setVisitorCookie();
     }
