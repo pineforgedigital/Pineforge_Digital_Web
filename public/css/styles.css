@@ -421,6 +421,8 @@ input:focus, textarea:focus, select:focus {
     text-align: center; display: flex; flex-direction: column; gap: 1rem;
 }
 #cookie-banner.visible { bottom: 2rem; }
+#cookie-banner a { color: #38bdf8; text-decoration: underline; font-weight: 500; }
+#cookie-banner a:hover { color: #ffffff; }
 .cookie-buttons { display: flex; justify-content: center; gap: 1rem; }
 
 

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cookieBanner.id = "cookie-banner";
         cookieBanner.innerHTML = `
             <div class="cookie-content">
-                <p>We use essential cookies to provide our services and ensure security. See our <a href="/privacy" style="color: var(--brand-blue); text-decoration: underline;">Privacy Policy</a>.</p>
+                <p>We use essential cookies to provide our services and ensure security. See our <a href="/privacy" style="color: #38bdf8; text-decoration: underline; font-weight: 500;">Privacy Policy</a>.</p>
                 <div class="cookie-buttons">
                     <button id="accept-cookies" class="btn btn-primary btn-sm">Accept</button>
                     <button id="decline-cookies" class="btn btn-secondary btn-sm">Decline</button>
