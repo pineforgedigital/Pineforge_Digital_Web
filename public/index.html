@@ -6,6 +6,7 @@
     <title>Website Designer in Kenosha, WI | Pineforge Digital</title>
 
     <meta name="description" content="Pineforge Digital is Kenosha's premier website designer and custom software development studio. We build websites that bring in local customers.">
+    <link rel="canonical" href="https://pineforge.digital/">
     <meta property="og:title" content="Pineforge Digital | Premium Custom Web Development">
     <meta property="og:description" content="We build premium, custom websites that help local businesses generate more leads and revenue.">
     <meta property="og:image" content="https://pineforge.digital/images/og_image.jpg">
@@ -17,39 +18,88 @@
     <link rel="stylesheet" href="css/styles.css?v=1.4">
     <link rel="icon" type="image/png" href="images/favicon_optimized.png">
 
-    <!-- Local SEO Schema -->
+    <!-- Local SEO & FAQ Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Pineforge Digital LLC",
-      "url": "https://pineforge.digital",
-      "logo": "https://pineforge.digital/images/Brand_Logo_white.png",
-      "description": "Custom website design, web development, and custom web development for small and mid-sized businesses.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Bristol",
-        "addressRegion": "WI",
-        "postalCode": "53104",
-        "addressCountry": "US"
-      },
-      "areaServed": [
-        {"@type": "City", "name": "Kenosha"},
-        {"@type": "City", "name": "Racine"},
-        {"@type": "City", "name": "Milwaukee"},
-        {"@type": "State", "name": "Wisconsin"}
-      ],
-      "telephone": "+1-262-234-1027",
-      "email": "admin@pineforge.digital",
-      "openingHoursSpecification": [
+      "@graph": [
         {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "09:00",
-          "closes": "17:00"
+          "@type": "ProfessionalService",
+          "name": "Pineforge Digital LLC",
+          "url": "https://pineforge.digital",
+          "logo": "https://pineforge.digital/images/Brand_Logo_white.png",
+          "description": "Custom website design, web development, and custom web development for small and mid-sized businesses.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bristol",
+            "addressRegion": "WI",
+            "postalCode": "53104",
+            "addressCountry": "US"
+          },
+          "areaServed": [
+            {"@type": "City", "name": "Kenosha"},
+            {"@type": "City", "name": "Racine"},
+            {"@type": "City", "name": "Milwaukee"},
+            {"@type": "State", "name": "Wisconsin"}
+          ],
+          "telephone": "+1-262-234-1027",
+          "email": "admin@pineforge.digital",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "09:00",
+              "closes": "17:00"
+            }
+          ],
+          "priceRange": "$$"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Why should I choose custom web development over WordPress, Wix, or Squarespace?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Unlike off-the-shelf website builders that rely on bloated templates and dozens of third-party plugins, we write clean, custom code from scratch. This delivers near-instant page load speeds, rock-solid security with zero plugin vulnerabilities, and structural code optimization designed specifically to outrank competitors in Google search results."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does a custom website help my business rank higher in Kenosha and local Google searches?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Local SEO requires fast load times, clean semantic HTML, mobile responsiveness, and rich Schema.org structured data. Search engines prioritize websites that deliver exceptional user experience and accurate local business metadata. We build all of these directly into your website's foundation so local customers throughout Kenosha, Racine, and Southeastern Wisconsin find you first."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does it take to build a custom website with Pineforge Digital?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most standard business websites are completed and launched within 2 to 4 weeks. Complex web applications or custom customer portals typically take 4 to 8 weeks depending on scope. Throughout the entire project, you communicate directly with our Wisconsin developers with transparent milestones and zero unnecessary technical jargon."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I own my website and code once the project is finished?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, completely. Once final payment is made, you own 100% of your website, design assets, and source code. We do not lock you into proprietary hosting contracts or hidden licensing fees. If you prefer, we also offer ongoing managed maintenance and cloud hosting so you never have to worry about updates or uptime."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What areas and industries do you serve?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We are proudly based in Southeastern Wisconsin and work with local small businesses, professional service providers, contractors, medical practices, and growing companies throughout Kenosha, Pleasant Prairie, Racine, Milwaukee, and Northern Illinois."
+              }
+            }
+          ]
         }
-      ],
-      "priceRange": "$$"
+      ]
     }
     </script>
 </head>
@@ -371,45 +421,7 @@
             </div>
         </section>
 
-        
-        <!-- Performance Counter Script -->
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            // Trigger CSS animation
-                            entry.target.classList.add('animate-play');
-                            
-                            // Trigger JS counting animation
-                            const counters = entry.target.querySelectorAll('.count-up');
-                            counters.forEach(counter => {
-                                const target = +counter.getAttribute('data-target');
-                                const duration = 2000; // 2 seconds
-                                const increment = target / (duration / 16); // 60fps
-                                let current = 0;
-                                
-                                const updateCounter = () => {
-                                    current += increment;
-                                    if (current < target) {
-                                        counter.textContent = Math.ceil(current);
-                                        requestAnimationFrame(updateCounter);
-                                    } else {
-                                        counter.textContent = target;
-                                    }
-                                };
-                                updateCounter();
-                            });
-                            // Unobserve once triggered so it doesn't run every scroll up/down
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.5 });
-                
-                const perfSection = document.querySelector('.performance-metrics');
-                if (perfSection) observer.observe(perfSection);
-            });
-        </script>
+
 
         <!-- Local Service Area Section -->
         <section style="padding: 8rem 0; background: var(--bg-surface); border-top: 1px solid var(--border-subtle); position: relative; overflow: hidden;">
@@ -425,6 +437,41 @@
                 <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.75; margin-bottom: 1.5rem;">
                     Pineforge Digital is Kenosha's dedicated web design and custom software studio. We don't use templates and we never outsource our development. When you need high-performance web applications, beautiful UI/UX, or complex automation, you partner directly with expert local developers right here in Southeastern Wisconsin.
                 </p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section style="padding: 8rem 0; background: #ffffff; border-top: 1px solid var(--border-subtle);">
+            <div class="container">
+                <div class="section-header animate-fade-up">
+                    <span class="badge" style="margin-bottom: 1rem;">Common Questions</span>
+                    <h2>Frequently Asked Questions</h2>
+                    <p style="margin-top: 1rem; max-width: 650px; margin-left: auto; margin-right: auto;">
+                        Everything you need to know about working with Pineforge Digital to design and build your custom website.
+                    </p>
+                </div>
+                <div style="max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div class="bento-card animate-fade-up" style="padding: 2.25rem;">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Why should I choose custom web development over WordPress, Wix, or Squarespace?</h3>
+                        <p style="color: var(--text-secondary); line-height: 1.75;">Unlike off-the-shelf website builders that rely on bloated templates and dozens of third-party plugins, we write clean, custom code from scratch. This delivers near-instant page load speeds, rock-solid security with zero plugin vulnerabilities, and structural code optimization designed specifically to outrank competitors in Google search results.</p>
+                    </div>
+                    <div class="bento-card animate-fade-up delay-1" style="padding: 2.25rem;">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">How does a custom website help my business rank higher in Kenosha and local Google searches?</h3>
+                        <p style="color: var(--text-secondary); line-height: 1.75;">Local SEO requires fast load times, clean semantic HTML, mobile responsiveness, and rich Schema.org structured data. Search engines prioritize websites that deliver exceptional user experience and accurate local business metadata. We build all of these directly into your website's foundation so local customers throughout Kenosha, Racine, and Southeastern Wisconsin find you first.</p>
+                    </div>
+                    <div class="bento-card animate-fade-up delay-2" style="padding: 2.25rem;">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">How long does it take to build a custom website with Pineforge Digital?</h3>
+                        <p style="color: var(--text-secondary); line-height: 1.75;">Most standard business websites are completed and launched within 2 to 4 weeks. Complex web applications or custom customer portals typically take 4 to 8 weeks depending on scope. Throughout the entire project, you communicate directly with our Wisconsin developers with transparent milestones and zero unnecessary technical jargon.</p>
+                    </div>
+                    <div class="bento-card animate-fade-up" style="padding: 2.25rem;">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Do I own my website and code once the project is finished?</h3>
+                        <p style="color: var(--text-secondary); line-height: 1.75;">Yes, completely. Once final payment is made, you own 100% of your website, design assets, and source code. We do not lock you into proprietary hosting contracts or hidden licensing fees. If you prefer, we also offer ongoing managed maintenance and cloud hosting so you never have to worry about updates or uptime.</p>
+                    </div>
+                    <div class="bento-card animate-fade-up delay-1" style="padding: 2.25rem;">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">What areas and industries do you serve?</h3>
+                        <p style="color: var(--text-secondary); line-height: 1.75;">We are proudly based in Southeastern Wisconsin and work with local small businesses, professional service providers, contractors, medical practices, and growing companies throughout Kenosha, Pleasant Prairie, Racine, Milwaukee, and Northern Illinois.</p>
+                    </div>
+                </div>
             </div>
         </section>
 

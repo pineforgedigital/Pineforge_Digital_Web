@@ -361,6 +361,7 @@ async function init() {
     initScrollReveal();
     initCustomSelect();
     initMobileTooltips();
+    initPerformanceCounters();
 
     // Bind Form Submit manually
     const contactForm = document.getElementById('contactForm');
@@ -479,3 +480,38 @@ window.addEventListener('scroll', () => {
         navbar.classList.remove('scrolled');
     }
 });
+
+// Performance Metric Counters (Homepage)
+function initPerformanceCounters() {
+    const perfSection = document.querySelector('.performance-metrics');
+    if (!perfSection) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-play');
+                const counters = entry.target.querySelectorAll('.count-up');
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 2000;
+                    const increment = target / (duration / 16);
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.textContent = Math.ceil(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+                    updateCounter();
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    observer.observe(perfSection);
+}
