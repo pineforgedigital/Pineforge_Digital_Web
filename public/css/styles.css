@@ -918,3 +918,59 @@ input:focus, textarea:focus, select:focus {
 }
 
 @media (max-width: 768px) { .hidden-mobile { display: none !important; } }
+
+/* ==========================================================================
+   LEGAL / PROSE DOCUMENT STYLING
+   ========================================================================== */
+.legal-section {
+    padding: 5rem 0 8rem;
+    background: var(--bg-base);
+    min-height: 60vh;
+}
+
+.legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.legal-content h2 {
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-top: 3.5rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+}
+
+.legal-content h2:first-of-type {
+    margin-top: 0;
+}
+
+.legal-content p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.legal-content p:last-child {
+    margin-bottom: 0;
+}
+
+.legal-content strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.legal-content a {
+    color: var(--brand-blue);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.legal-content a:hover {
+    color: var(--brand-blue-hover);
+}
