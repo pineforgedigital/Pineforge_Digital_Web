@@ -1,0 +1,17 @@
+[
+    {
+        "date": "Feb 04, 2026",
+        "title": "Refactoring Core Architecture",
+        "text": "Migrating our primary API services to a more modular structure to support future scalability. Focus on reducing dependency coupling."
+    },
+    {
+        "date": "Jan 28, 2026",
+        "title": "FitTrack Beta Testing",
+        "text": "Initial closed beta group started for the FitTrack mobile app. optimizing touch response times on older Android devices."
+    },
+    {
+        "date": "Jan 15, 2026",
+        "title": "Infrastructure Upgrade",
+        "text": "Moved internal build pipelines to a self-hosted runner to improve CI/CD speed and security."
+    }
+]
