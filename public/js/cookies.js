@@ -1,17 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const cookieBanner = document.createElement("div");
-    cookieBanner.id = "cookie-banner";
-    cookieBanner.innerHTML = `
-        <div class="cookie-content">
-            <p>We use cookies to improve your experience and analyze technical performance. 
-            See our <a href="privacy.html">Privacy Policy</a>.</p>
-            <div class="cookie-buttons">
-                <button id="accept-cookies" class="btn btn-primary btn-sm">Accept</button>
-                <button id="decline-cookies" class="btn btn-secondary btn-sm">Decline</button>
+    // Check if banner already exists in DOM to prevent duplicate IDs
+    let cookieBanner = document.getElementById("cookie-banner");
+    
+    if (!cookieBanner) {
+        cookieBanner = document.createElement("div");
+        cookieBanner.id = "cookie-banner";
+        cookieBanner.innerHTML = `
+            <div class="cookie-content">
+                <p>We use essential cookies to provide our services and ensure security. See our <a href="/privacy" style="color: var(--brand-blue); text-decoration: underline;">Privacy Policy</a>.</p>
+                <div class="cookie-buttons">
+                    <button id="accept-cookies" class="btn btn-primary btn-sm">Accept</button>
+                    <button id="decline-cookies" class="btn btn-secondary btn-sm">Decline</button>
+                </div>
             </div>
-        </div>
-    `;
-    document.body.appendChild(cookieBanner);
+        `;
+        document.body.appendChild(cookieBanner);
+    }
 
     // Check if user has already made a choice
     const consent = localStorage.getItem("cookie_consent");
@@ -25,17 +29,24 @@ document.addEventListener("DOMContentLoaded", function () {
         setVisitorCookie();
     }
 
-    // Handle clicks
-    document.getElementById("accept-cookies").addEventListener("click", function () {
-        localStorage.setItem("cookie_consent", "accepted");
-        setVisitorCookie();
-        hideBanner();
-    });
+    // Handle clicks safely
+    const acceptBtn = document.getElementById("accept-cookies");
+    const declineBtn = document.getElementById("decline-cookies");
 
-    document.getElementById("decline-cookies").addEventListener("click", function () {
-        localStorage.setItem("cookie_consent", "declined");
-        hideBanner();
-    });
+    if (acceptBtn) {
+        acceptBtn.addEventListener("click", function () {
+            localStorage.setItem("cookie_consent", "accepted");
+            setVisitorCookie();
+            hideBanner();
+        });
+    }
+
+    if (declineBtn) {
+        declineBtn.addEventListener("click", function () {
+            localStorage.setItem("cookie_consent", "declined");
+            hideBanner();
+        });
+    }
 
     function hideBanner() {
         cookieBanner.classList.remove("visible");
