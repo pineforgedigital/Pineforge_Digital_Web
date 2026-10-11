@@ -28,8 +28,9 @@ app.use(helmet({
             "script-src": ["'self'", "vercel.live", "vercel.com", "'unsafe-inline'"],
             "style-src": ["'self'", "'unsafe-inline'", "fonts.googleapis.com"],
             "font-src": ["'self'", "fonts.gstatic.com"],
-            "img-src": ["'self'", "data:", "pineforge.digital"],
-            "connect-src": ["'self'", "vercel.live", "vercel.com"]
+            "img-src": ["'self'", "data:", "pineforge.digital", "vercel.com", "vercel.live", "assets.vercel.com"],
+            "connect-src": ["'self'", "vercel.live", "vercel.com"],
+            "frame-src": ["'self'", "vercel.live"]
         }
     }
 }));
