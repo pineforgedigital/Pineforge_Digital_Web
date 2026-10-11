@@ -15,6 +15,10 @@
             "destination": "/public/googleef42f328f91ef003.html"
         },
         {
+            "source": "/BingSiteAuth.xml",
+            "destination": "/public/BingSiteAuth.xml"
+        },
+        {
             "source": "/css/(.*)",
             "destination": "/public/css/$1"
         },
