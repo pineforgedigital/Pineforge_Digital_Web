@@ -83,26 +83,26 @@
         <section class="page-header-dark">
             <div class="container animate-fade-up">
                 <span class="badge badge-dark" style="margin-bottom: 1rem;">Our Mission</span>
-                <h1 style="font-size: 4rem; line-height: 1.1; letter-spacing: -0.04em;">Precision Craftsmanship.<br>Wisconsin Roots.</h1>
-                <p style="font-size: 1.25rem;">We are two dedicated web developers building premium, high-performance digital infrastructure for growing local businesses.</p>
+                <h1>Precision Craftsmanship.<br>Wisconsin Roots.</h1>
+                <p>We are two dedicated web developers building premium, high-performance digital infrastructure for growing local businesses.</p>
             </div>
         </section>
 
         <!-- Our Story Section -->
-        <section style="padding: 8rem 0; background: var(--bg-base);">
+        <section class="about-section" style="background: var(--bg-base);">
             <div class="container">
-                <div class="grid grid-2" style="gap: 4rem; align-items: center;">
-                    <div class="animate-fade-up">
-                        <h2 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.03em;">A different approach.</h2>
-                        <p style="font-size: 1.25rem; color: var(--text-secondary); line-height: 1.8;">
+                <div class="grid grid-2" style="gap: clamp(2rem, 5vw, 4rem); align-items: center;">
+                    <div class="about-story-col-1 animate-fade-up">
+                        <h2>A different approach.</h2>
+                        <p>
                             Pineforge Digital was built to give local businesses access to agency-level web development without the inflated enterprise price tags.
                         </p>
                     </div>
-                    <div class="animate-fade-up delay-1" style="border-left: 2px solid var(--border-subtle); padding-left: 2rem;">
-                        <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+                    <div class="about-story-col-2 animate-fade-up delay-1">
+                        <p>
                             We noticed too many businesses struggling with slow, generic websites that didn't actually generate leads. They were stuck paying monthly fees for pre-built templates that they didn't fully own or control.
                         </p>
-                        <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.8;">
+                        <p>
                             We do things differently. Every platform we build is hand-coded from scratch. No bloated templates, no clunky page builders, and no vendor lock-in. This approach guarantees lightning-fast load times, flawless mobile performance, and a digital storefront built entirely around your unique business goals.
                         </p>
                     </div>
@@ -111,7 +111,7 @@
         </section>
 
         <!-- Our Philosophy (Dark Section) -->
-        <section class="dark-theme" style="padding: 8rem 0; background: #020617; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <section class="dark-theme about-section" style="background: #020617; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
             <div class="container">
                 <div class="section-header animate-fade-up">
                     <h2 style="color: white;">Our Development Philosophy</h2>
@@ -134,7 +134,7 @@
         </section>
 
         <!-- Meet the Founders -->
-        <section style="padding: 8rem 0; background: var(--bg-surface);">
+        <section class="about-section" style="background: var(--bg-surface);">
             <div class="container">
                 <div class="section-header animate-fade-up">
                     <h2>Leadership</h2>
@@ -143,8 +143,8 @@
                 
                 <div class="grid grid-2" style="gap: 2rem; max-width: 1000px; margin: 0 auto;">
                     <!-- Caleb Card -->
-                    <div class="bento-card animate-fade-up" style="padding: 4rem 3rem;">
-                        <h3 style="font-size: 2.25rem; margin-bottom: 0.5rem; letter-spacing: -0.02em;">Caleb Cannon</h3>
+                    <div class="bento-card leadership-card animate-fade-up">
+                        <h3>Caleb Cannon</h3>
                         <p style="color: var(--accent-blue); font-weight: 600; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem;">Co-Founder & Technical Lead</p>
                         <p style="color: var(--text-secondary); line-height: 1.7; font-size: 1.05rem;">
                             Merging a rigorous background in Cyber Security with a deep understanding of front-end development, React, web design, and graphic art, Caleb ensures that every Pineforge Digital platform is not only highly secure, but visually stunning. He focuses on crafting premium user experiences that drive real business growth.
@@ -152,8 +152,8 @@
                     </div>
                     
                     <!-- Richard Card -->
-                    <div class="bento-card animate-fade-up delay-1" style="padding: 4rem 3rem;">
-                        <h3 style="font-size: 2.25rem; margin-bottom: 0.5rem; letter-spacing: -0.02em;">Richard Firkin</h3>
+                    <div class="bento-card leadership-card animate-fade-up delay-1">
+                        <h3>Richard Firkin</h3>
                         <p style="color: var(--accent-emerald); font-weight: 600; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem;">Co-Founder & Lead Developer</p>
                         <p style="color: var(--text-secondary); line-height: 1.7; font-size: 1.05rem;">
                             With a strong background in Python, Java, and back-end development, Richard brings deep expertise in databases and SQL to ensure raw performance and clean architecture. He translates complex business logic into lightning-fast, highly optimized code—ensuring that every project we deploy performs flawlessly under pressure.
@@ -164,26 +164,28 @@
         </section>
 
         <!-- Tech Stack Banner -->
-        <section style="padding: 6rem 0; border-top: 1px solid var(--border-subtle); text-align: center;">
+        <section style="padding: clamp(3.5rem, 6vw, 6rem) 0; border-top: 1px solid var(--border-subtle); text-align: center;">
             <div class="container animate-fade-up">
                 <p style="text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary); font-weight: 600; font-size: 0.85rem; margin-bottom: 2rem;">Powered By Enterprise Infrastructure</p>
-                <div style="display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; opacity: 0.8; filter: grayscale(100%);">
-                    <span style="font-size: 1.5rem; font-weight: 700; letter-spacing: -0.05em; color: var(--text-primary);">React</span>
-                    <span style="font-size: 1.5rem; font-weight: 700; letter-spacing: -0.05em; color: var(--text-primary);">Next.js</span>
-                    <span style="font-size: 1.5rem; font-weight: 700; letter-spacing: -0.05em; color: var(--text-primary);">Vercel</span>
-                    <span style="font-size: 1.5rem; font-weight: 700; letter-spacing: -0.05em; color: var(--text-primary);">Supabase</span>
-                    <span style="font-size: 1.5rem; font-weight: 700; letter-spacing: -0.05em; color: var(--text-primary);">Node.js</span>
+                <div style="display: flex; justify-content: center; gap: clamp(1.75rem, 4vw, 4rem); flex-wrap: wrap; opacity: 0.8; filter: grayscale(100%);">
+                    <span style="font-size: 1.35rem; font-weight: 700; letter-spacing: -0.05em; color: var(--text-primary);">React</span>
+                    <span style="font-size: 1.35rem; font-weight: 700; letter-spacing: -0.05em; color: var(--text-primary);">Next.js</span>
+                    <span style="font-size: 1.35rem; font-weight: 700; letter-spacing: -0.05em; color: var(--text-primary);">Vercel</span>
+                    <span style="font-size: 1.35rem; font-weight: 700; letter-spacing: -0.05em; color: var(--text-primary);">Supabase</span>
+                    <span style="font-size: 1.35rem; font-weight: 700; letter-spacing: -0.05em; color: var(--text-primary);">Node.js</span>
                 </div>
             </div>
         </section>
         
         <!-- CTA Section -->
-        <section style="padding: 8rem 0; background: var(--bg-base); text-align: center;">
+        <section class="about-section" style="background: var(--bg-base); text-align: center;">
             <div class="container animate-fade-up">
-                <h2 style="font-size: 3rem; margin-bottom: 1.5rem; letter-spacing: -0.02em;">Ready to elevate your digital presence?</h2>
-                <p style="font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">Contact us to explore how a custom, high-performance website can drive your business forward.</p>
-                <a href="/contact" class="btn btn-primary" style="padding: 1.25rem 3rem; font-size: 1.1rem;">Schedule Consultation</a>
-                <a href="/services" class="btn btn-secondary" style="padding: 1.25rem 3rem; font-size: 1.1rem; margin-left: 1rem; border: 1px solid var(--border-subtle); background: transparent; color: var(--text-primary);">View Services</a>
+                <h2 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1.5rem; letter-spacing: -0.02em;">Ready to elevate your digital presence?</h2>
+                <p style="font-size: clamp(1.05rem, 2.5vw, 1.25rem); color: var(--text-secondary); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">Contact us to explore how a custom, high-performance website can drive your business forward.</p>
+                <div class="responsive-cta-actions">
+                    <a href="/contact" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.05rem;">Schedule Consultation</a>
+                    <a href="/services" class="btn btn-secondary" style="padding: 1rem 2.5rem; font-size: 1.05rem; border: 1px solid var(--border-subtle); background: transparent; color: var(--text-primary);">View Services</a>
+                </div>
             </div>
         </section>
 </main>
