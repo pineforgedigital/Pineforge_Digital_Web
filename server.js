@@ -76,29 +76,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// Password Protection Middleware
-app.use((req, res, next) => {
-    console.log('REQ URL:', req.url, 'ORIGINAL URL:', req.originalUrl);
-    // If no PIN_CODE is set, skip lock entirely
-    if (!process.env.PIN_CODE) {
-        return next();
-    }
-
-    // Allow static assets, API login, and the login page itself
-    const publicPaths = ['/css/', '/images/', '/js/', '/api/verify-pin', '/login.html'];
-    if (publicPaths.some(p => req.path.startsWith(p))) {
-        return next();
-    }
-
-    // Check for access cookie
-    if (req.cookies.site_access === process.env.PIN_CODE.trim()) {
-        return next();
-    }
-
-    // Not authenticated -> serve login
-    res.setHeader('Cache-Control', 'no-store, no-cache');
-    return res.sendFile(path.join(__dirname, 'public', 'login.html'));
-});
+// Password protection removed - site is fully public and live
 
 // PIN Verification Endpoint
 app.post('/api/verify-pin', (req, res) => {
