@@ -19,6 +19,10 @@
             "destination": "/public/BingSiteAuth.xml"
         },
         {
+            "source": "/favicon.ico",
+            "destination": "/public/favicon.ico"
+        },
+        {
             "source": "/css/(.*)",
             "destination": "/public/css/$1"
         },
