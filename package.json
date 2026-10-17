@@ -1,28 +1,25 @@
 {
   "name": "pineforge-digital",
-  "version": "1.0.0",
-  "description": "Corporate website for Pineforge Digital LLC",
-  "main": "server.js",
+  "version": "2.0.0",
+  "private": true,
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@vercel/analytics": "^1.6.1",
-    "@vercel/speed-insights": "^1.3.1",
-    "body-parser": "^1.20.2",
-    "compression": "^1.8.1",
-    "cookie-parser": "^1.4.7",
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "express-rate-limit": "^8.2.1",
-    "helmet": "^8.1.0",
-    "nodemailer": "^8.0.1",
-    "pg": "^8.18.0",
-    "resend": "^6.9.1",
-    "uuid": "^13.0.0"
+    "@vercel/analytics": "^1.4.1",
+    "@vercel/speed-insights": "^1.1.0",
+    "next": "14.2.15",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "resend": "^3.5.0"
   },
   "devDependencies": {
-    "sqlite3": "^5.0.2"
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.4.5"
   }
 }
