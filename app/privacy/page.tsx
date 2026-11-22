@@ -31,7 +31,7 @@ export default function PrivacyPage() {
         }}
       />
       <main id="main-content">
-        <section className="page-header-dark" style={{ padding: "12rem 0 4rem" }}>
+        <section className="page-header-dark">
           <div className="container animate-fade-up">
             <h1>Privacy Policy</h1>
             <p>Last Updated: November 2026</p>

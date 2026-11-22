@@ -84,7 +84,8 @@ export default function ServicesPage() {
                     Clean semantic HTML &amp; Schema.org technical foundations
                   </li>
                   <li>
-                    Optional headless CMS (Sanity.io) when scoped in your SOW
+                    Sanity.io headless CMS included for effortless content
+                    updates
                   </li>
                 </ul>
               </div>
@@ -326,7 +327,7 @@ export default function ServicesPage() {
           }}
         >
           <div className="container">
-            <div className="section-header animate-fade-up text-center">
+            <div className="section-header animate-fade-up">
               <span className="badge badge-blue" style={{ marginBottom: "1rem" }}>
                 Transparent Pricing
               </span>
@@ -671,7 +672,8 @@ export default function ServicesPage() {
                   }}
                 >
                   Custom web applications, internal dashboards, and secure
-                  client portals engineered specifically to your written SOW.
+                  client portals engineered specifically to your operational
+                  requirements.
                 </p>
 
                 <div
@@ -866,15 +868,13 @@ export default function ServicesPage() {
             >
               <div className="bento-card animate-fade-up" style={{ padding: "2rem" }}>
                 <h3 style={{ fontSize: "1.25rem", marginBottom: "0.5rem" }}>
-                  Do you use templates like WordPress or guarantee search
-                  rankings?
+                  Do you use WordPress or website templates?
                 </h3>
                 <p style={{ color: "var(--text-secondary)" }}>
-                  No to both. We hand-code websites from scratch for speed and
-                  clean semantic markup rather than relying on bloated WordPress
-                  templates—and under our contracts, we never promise or
-                  guarantee specific Google rankings, traffic volumes, or
-                  commercial revenue outcomes.
+                  No. We hand-code every website from scratch rather than
+                  relying on bloated WordPress themes or drag-and-drop builders.
+                  You get faster load times, tighter security with zero plugin
+                  vulnerabilities, and clean semantic markup built to last.
                 </p>
               </div>
               <div

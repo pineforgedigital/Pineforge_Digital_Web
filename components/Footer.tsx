@@ -7,19 +7,44 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <h3>Pineforge Digital</h3>
-            <p>Premium, hand-coded websites for Wisconsin businesses.</p>
-            <p style={{ marginTop: "1rem" }}>
+            <p>
+              Custom websites, web applications, and digital infrastructure for
+              Wisconsin businesses.
+            </p>
+            <p style={{ marginTop: "1rem", fontSize: "0.95rem" }}>
+              Serving Kenosha, Racine, Milwaukee &amp; Northern Illinois
+            </p>
+            <div
+              style={{
+                marginTop: "1rem",
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.4rem",
+              }}
+            >
               <a
                 href="tel:2622341027"
                 style={{
                   color: "#38bdf8",
                   textDecoration: "none",
                   fontWeight: 500,
+                  width: "fit-content",
                 }}
               >
                 (262) 234-1027
               </a>
-            </p>
+              <a
+                href="mailto:admin@pineforge.digital"
+                style={{
+                  color: "#38bdf8",
+                  textDecoration: "none",
+                  fontWeight: 500,
+                  width: "fit-content",
+                }}
+              >
+                admin@pineforge.digital
+              </a>
+            </div>
           </div>
           <div className="footer-col">
             <h4>Company</h4>
@@ -51,7 +76,10 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2026 Pineforge Digital LLC. Designed & Built in Wisconsin, USA.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Pineforge Digital LLC. Designed
+            &amp; Built in Wisconsin, USA.
+          </p>
         </div>
       </div>
     </footer>

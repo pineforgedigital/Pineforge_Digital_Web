@@ -60,7 +60,7 @@ const jsonLd = {
           name: "How do technical foundations help my business in local searches?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Modern search engines evaluate page speed, clean semantic HTML, mobile responsiveness, and accurate Schema.org metadata. We engineer these technical foundations directly into your codebase, while noting that specific search rankings or traffic volumes are never guaranteed.",
+            text: "We engineer the fast, semantic foundation search engines reward—clean HTML, fast load speeds, mobile responsiveness, and Schema.org metadata. Because search algorithms are controlled by Google, we focus on measurable technical quality rather than guaranteeing specific rankings.",
           },
         },
         {
@@ -76,7 +76,7 @@ const jsonLd = {
           name: "Do I own my website and code once the project is finished?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes. Upon full payment of all amounts due under your Statement of Work, you own the final deliverables expressly identified in your SOW with no vendor lock-in. Every launch includes a 14-day defect warranty, and optional maintenance agreements are available separately.",
+            text: "Yes. Once your project is complete and paid in full, you own your custom code and finished deliverables with zero vendor lock-in. Every launch includes a 14-day defect warranty, and optional maintenance agreements are available separately if needed.",
           },
         },
         {
@@ -101,7 +101,7 @@ export default function HomePage() {
       />
       <main id="main-content">
         {/* Dark Mode Hero */}
-        <section className="hero hero-dark">
+        <section className="hero-dark">
           <div className="container hero-grid">
             <div className="hero-content text-left">
               <span className="badge badge-dark">
@@ -122,7 +122,7 @@ export default function HomePage() {
                 style={{ justifyContent: "flex-start" }}
               >
                 <Link href="/contact" className="btn btn-primary-dark">
-                  Schedule Consultation
+                  Request a Consultation
                 </Link>
                 <Link href="/services" className="btn btn-secondary-dark">
                   Discover Services
@@ -423,12 +423,17 @@ export default function HomePage() {
                   <span className="badge badge-emerald">Client Launch</span>
                 </div>
                 <h3>Aesthetic Design &amp; Construction</h3>
-                <p style={{ marginBottom: "1.5rem" }}>
+                <p style={{ marginBottom: "1.25rem" }}>
                   A bespoke, hand-coded website built for a family-owned
                   residential remodeling and custom construction firm. Designed
                   to showcase finished craftsmanship, clarify service offerings,
                   and guide homeowners directly to project inquiries.
                 </p>
+                <ul className="portfolio-highlights">
+                  <li>Custom multi-page architecture &amp; project gallery</li>
+                  <li>Mobile-first responsive layout &amp; direct inquiry flow</li>
+                  <li>Hand-coded with Sanity CMS and zero WordPress bloat</li>
+                </ul>
                 <div
                   style={{
                     display: "flex",
@@ -458,8 +463,8 @@ export default function HomePage() {
                   <Image
                     src="/images/aesthetic_design_mockup.png"
                     alt="Aesthetic Design & Construction custom website homepage preview"
-                    width={1440}
-                    height={720}
+                    width={2048}
+                    height={1006}
                     sizes="(max-width: 900px) 100vw, 55vw"
                     className="portfolio-visual-img"
                   />
@@ -494,7 +499,8 @@ export default function HomePage() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                gridTemplateColumns:
+                  "repeat(auto-fit, minmax(min(300px, 100%), 1fr))",
                 gap: "2rem",
                 maxWidth: "1000px",
                 margin: "0 auto",
@@ -930,9 +936,10 @@ export default function HomePage() {
                   Sanity.io
                 </h3>
                 <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)" }}>
-                  <strong>Headless Content Management.</strong> When scoped, a
-                  clean content dashboard lets your team update text and photos
-                  without risking site layout or speed.
+                  <strong>Headless Content Management.</strong> Every website
+                  ships with a clean, custom content dashboard so your team can
+                  update text and photos effortlessly—without risking layout or
+                  speed.
                 </p>
               </div>
 
@@ -1130,8 +1137,7 @@ export default function HomePage() {
                   marginRight: "auto",
                 }}
               >
-                Everything you need to know about working with Pineforge Digital
-                LLC under our Statement of Work process.
+                Clear answers on timelines, ownership, pricing, and how we work.
               </p>
             </div>
             <div
@@ -1168,11 +1174,11 @@ export default function HomePage() {
                   searches?
                 </h3>
                 <p style={{ color: "var(--text-secondary)", lineHeight: 1.75 }}>
-                  Modern search engines evaluate page speed, clean semantic
-                  HTML, mobile responsiveness, and accurate Schema.org metadata.
-                  We engineer these technical foundations directly into your
-                  codebase—while noting clearly in our agreements that we do not
-                  guarantee specific search rankings or traffic volumes.
+                  We engineer the fast, semantic foundation search engines
+                  reward—clean HTML, fast load speeds, mobile responsiveness,
+                  and Schema.org metadata. Because search algorithms are
+                  controlled by Google, we focus on measurable technical quality
+                  rather than guaranteeing specific rankings.
                 </p>
               </div>
               <div
@@ -1198,11 +1204,11 @@ export default function HomePage() {
                   Do I own my website and code once the project is finished?
                 </h3>
                 <p style={{ color: "var(--text-secondary)", lineHeight: 1.75 }}>
-                  Yes. Once final payment is received, you own the final
-                  deliverables expressly identified in your Statement of Work
-                  with zero vendor lock-in. Every project includes a 14-day
-                  post-launch defect warranty, with optional separate
-                  maintenance agreements available if desired.
+                  Yes. Once your project is complete and paid in full, you own
+                  your custom code and finished deliverables with zero vendor
+                  lock-in. Every launch includes a 14-day defect warranty, and
+                  optional maintenance agreements are available separately if
+                  needed.
                 </p>
               </div>
               <div

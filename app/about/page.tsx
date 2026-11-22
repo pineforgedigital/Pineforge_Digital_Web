@@ -96,7 +96,7 @@ export default function AboutPage() {
             <div className="section-header animate-fade-up">
               <h2 style={{ color: "white" }}>Our Development Philosophy</h2>
             </div>
-            <div className="bento-grid">
+            <div className="grid grid-3">
               <div
                 className="bento-card animate-fade-up"
                 style={{
@@ -141,8 +141,8 @@ export default function AboutPage() {
                 </h3>
                 <p style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.7 }}>
                   We believe in transparent partnerships, not vendor lock-in.
-                  Once final payment is received under your Statement of Work,
-                  the completed deliverables belong to you.
+                  Once your project is complete and paid in full, you own your
+                  code and finished deliverables.
                 </p>
               </div>
             </div>
@@ -302,6 +302,16 @@ export default function AboutPage() {
                   color: "var(--text-primary)",
                 }}
               >
+                Sanity.io
+              </span>
+              <span
+                style={{
+                  fontSize: "1.35rem",
+                  fontWeight: 700,
+                  letterSpacing: "-0.05em",
+                  color: "var(--text-primary)",
+                }}
+              >
                 PostgreSQL
               </span>
               <span
@@ -352,7 +362,7 @@ export default function AboutPage() {
                 className="btn btn-primary"
                 style={{ padding: "1rem 2.5rem", fontSize: "1.05rem" }}
               >
-                Schedule Consultation
+                Request a Consultation
               </Link>
               <Link
                 href="/services"

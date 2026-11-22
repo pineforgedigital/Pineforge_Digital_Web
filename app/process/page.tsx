@@ -274,7 +274,7 @@ export default function ProcessPage() {
                 className="btn btn-primary"
                 style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}
               >
-                Schedule Consultation
+                Request a Consultation
               </Link>
               <Link
                 href="/services"

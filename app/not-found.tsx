@@ -57,7 +57,7 @@ export default function NotFound() {
           </p>
           <Link
             href="/"
-            className="btn btn-primary"
+            className="btn btn-primary-dark"
             style={{ padding: "1rem 2.5rem", fontSize: "1.1rem" }}
           >
             Return Home

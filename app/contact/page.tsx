@@ -94,7 +94,7 @@ export default function ContactPage() {
                           fontWeight: 500,
                         }}
                       >
-                        9:00 AM – 5:00 PM
+                        9:00 AM – 5:00 PM CT
                       </strong>
                       <span>Saturday:</span>
                       <span>Closed</span>

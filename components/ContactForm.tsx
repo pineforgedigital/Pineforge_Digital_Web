@@ -326,6 +326,18 @@ export default function ContactForm() {
           {isSubmitting ? "Sending..." : "Send Message"}
         </button>
 
+        <p
+          style={{
+            marginTop: "0.85rem",
+            textAlign: "center",
+            fontSize: "0.875rem",
+            color: "var(--text-tertiary)",
+          }}
+        >
+          No obligation—we review every inquiry and reply within one business
+          day.
+        </p>
+
         {formStatus && (
           <p
             id="formStatus"
