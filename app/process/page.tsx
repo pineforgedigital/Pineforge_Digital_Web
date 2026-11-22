@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { professionalServiceJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Our Web Design Process | Pineforge Digital",
+  title: "Our Development Process",
   description:
-    "Learn about our streamlined, transparent web design and development process. From initial discovery to launch, we partner with you every step of the way.",
+    "Explore Pineforge Digital's four-phase development process—from SOW discovery and UI/UX wireframing to custom engineering, 5-day acceptance review, and our 14-day warranty.",
   alternates: {
     canonical: "https://pineforge.digital/process",
   },
   openGraph: {
-    title: "Pineforge Digital | Premium Custom Web Development",
+    title: "Our Development Process | Pineforge Digital",
     description:
-      "We build premium, custom websites that help local businesses generate more leads and revenue.",
+      "Transparent, milestone-driven custom web and software development governed by clear Statement of Work specifications.",
     url: "https://pineforge.digital/process",
     images: ["/images/logo-social.jpg"],
   },
@@ -21,49 +22,16 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Pineforge Digital LLC",
-  "url": "https://pineforge.digital",
-  "logo": "https://pineforge.digital/images/Brand_Logo_white.png",
-  "image": "https://pineforge.digital/images/logo-social.jpg",
-  "description":
-    "Custom website design, web development, and custom web development for small and mid-sized businesses.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bristol",
-    "addressRegion": "WI",
-    "postalCode": "53104",
-    "addressCountry": "US",
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Kenosha" },
-    { "@type": "City", "name": "Racine" },
-    { "@type": "City", "name": "Milwaukee" },
-    { "@type": "State", "name": "Wisconsin" },
-  ],
-  "telephone": "+1-262-234-1027",
-  "email": "admin@pineforge.digital",
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "17:00",
-    },
-  ],
-  "priceRange": "$$",
-};
-
 export default function ProcessPage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(professionalServiceJsonLd),
+        }}
       />
-      <main>
+      <main id="main-content">
         <section className="page-header-dark">
           <div className="container animate-fade-up">
             <span className="badge badge-dark" style={{ marginBottom: "1rem" }}>
@@ -71,8 +39,8 @@ export default function ProcessPage() {
             </span>
             <h1>Development Process</h1>
             <p>
-              Transparent, iterative, and secure development from concept to
-              deployment.
+              Transparent, milestone-driven engineering from Statement of Work
+              definition through launch and acceptance.
             </p>
           </div>
         </section>
@@ -91,7 +59,7 @@ export default function ProcessPage() {
               <div className="bento-card animate-fade-up">
                 <span className="badge badge-blue">Phase 1</span>
                 <h2 style={{ marginTop: "1rem", fontSize: "2rem" }}>
-                  Discovery &amp; Strategy
+                  Discovery &amp; Scope Definition
                 </h2>
                 <p
                   style={{
@@ -100,11 +68,11 @@ export default function ProcessPage() {
                     marginBottom: "1.5rem",
                   }}
                 >
-                  Every successful website starts with a deep understanding of
-                  your business goals. We sit down with you to understand your
-                  target audience, identify your unique selling points, and map
-                  out exactly how your website can generate more leads and
-                  revenue.
+                  Every project begins with technical discovery to align on your
+                  business goals, required integrations, and exact pages or
+                  features. We document everything in a written Statement of Work
+                  with clear milestones and upfront pricing—so scope is never a
+                  guess.
                 </p>
                 <h3
                   style={{
@@ -122,17 +90,19 @@ export default function ProcessPage() {
                     color: "var(--text-secondary)",
                   }}
                 >
-                  <li>Initial consultation and goal alignment</li>
-                  <li>Competitor and local market analysis</li>
-                  <li>Sitemap and core feature outline</li>
-                  <li>Project timeline and transparent pricing</li>
+                  <li>Initial technical consultation and goal alignment</li>
+                  <li>
+                    Written Statement of Work (pages, features, and API specs)
+                  </li>
+                  <li>Sitemap and architecture outline</li>
+                  <li>Defined timeline, payment schedule, and deposit invoice</li>
                 </ul>
               </div>
 
               <div className="bento-card animate-fade-up delay-1">
                 <span className="badge badge-emerald">Phase 2</span>
                 <h2 style={{ marginTop: "1rem", fontSize: "2rem" }}>
-                  Design &amp; Copywriting
+                  UI/UX Design &amp; Wireframing
                 </h2>
                 <p
                   style={{
@@ -141,11 +111,10 @@ export default function ProcessPage() {
                     marginBottom: "1.5rem",
                   }}
                 >
-                  First impressions are everything. We design clean, minimalist
-                  interfaces that strip away distractions and focus entirely on
-                  your value proposition. Alongside a beautiful design, we write
-                  compelling copy that guides your visitors exactly where they
-                  need to go.
+                  We design clean, focused interfaces tailored to your brand
+                  using the text copy, logos, and imagery you supply. Layouts
+                  are reviewed through structured revision rounds and formally
+                  approved before custom development begins.
                 </p>
                 <h3
                   style={{
@@ -163,17 +132,19 @@ export default function ProcessPage() {
                     color: "var(--text-secondary)",
                   }}
                 >
-                  <li>Custom high-fidelity design mockups</li>
-                  <li>Brand color and typography selection</li>
-                  <li>SEO-optimized content strategy and copywriting</li>
-                  <li>Design review and refinement cycles</li>
+                  <li>High-fidelity UI/UX wireframes and design mockups</li>
+                  <li>Typography, spacing, and visual hierarchy alignment</li>
+                  <li>Integration of client-supplied copy and brand assets</li>
+                  <li>
+                    Structured design review rounds and formal phase sign-off
+                  </li>
                 </ul>
               </div>
 
               <div className="bento-card animate-fade-up delay-2">
                 <span className="badge badge-violet">Phase 3</span>
                 <h2 style={{ marginTop: "1rem", fontSize: "2rem" }}>
-                  Custom Development
+                  Core Development &amp; Staging
                 </h2>
                 <p
                   style={{
@@ -182,11 +153,10 @@ export default function ProcessPage() {
                     marginBottom: "1.5rem",
                   }}
                 >
-                  Once the design is approved, we build your website entirely
-                  from scratch. By writing custom code instead of relying on
-                  bulky page builders like WordPress or Wix, we ensure your site
-                  is incredibly fast, accessible, and looks perfect on every
-                  mobile device.
+                  Once designs are approved, we hand-code your website or web
+                  application from scratch without page-builder bloat. You
+                  receive access to a functional staging environment to verify
+                  progress against your written specifications.
                 </p>
                 <h3
                   style={{
@@ -204,19 +174,21 @@ export default function ProcessPage() {
                     color: "var(--text-secondary)",
                   }}
                 >
-                  <li>Clean, semantic HTML, CSS, and modern JavaScript</li>
-                  <li>Flawless mobile responsive implementation</li>
                   <li>
-                    Performance optimization (target 95+ Lighthouse score)
+                    Clean semantic HTML, CSS, React, and TypeScript codebase
                   </li>
-                  <li>Private staging link to track progress</li>
+                  <li>Responsive behavior across modern desktop and mobile browsers</li>
+                  <li>
+                    Performance optimization (targeting 95+ Lighthouse scores)
+                  </li>
+                  <li>Private staging link for milestone verification</li>
                 </ul>
               </div>
 
               <div className="bento-card animate-fade-up delay-3">
                 <span className="badge badge-amber">Phase 4</span>
                 <h2 style={{ marginTop: "1rem", fontSize: "2rem" }}>
-                  Launch &amp; Local SEO
+                  Final Review, Launch &amp; 14-Day Warranty
                 </h2>
                 <p
                   style={{
@@ -225,10 +197,11 @@ export default function ProcessPage() {
                     marginBottom: "1.5rem",
                   }}
                 >
-                  Launching is just the beginning. We handle all the technical
-                  heavy lifting of taking your site live, configuring your
-                  domain, and submitting it to search engines. We set up
-                  analytics so you can track your growth from day one.
+                  You complete a 5-business-day acceptance review against your
+                  Statement of Work prior to final launch. We handle production
+                  deployment, domain configuration via delegated access,
+                  analytics setup, and back every launch with a 14-day defect
+                  warranty.
                 </p>
                 <h3
                   style={{
@@ -246,10 +219,16 @@ export default function ProcessPage() {
                     color: "var(--text-secondary)",
                   }}
                 >
-                  <li>Zero-downtime deployment and domain configuration</li>
-                  <li>Google Search Console &amp; Analytics integration</li>
-                  <li>Local SEO schema markup and indexing</li>
-                  <li>30 days of post-launch monitoring and support</li>
+                  <li>5-business-day SOW conformity acceptance review</li>
+                  <li>Zero-downtime deployment &amp; DNS configuration</li>
+                  <li>
+                    Technical Schema.org markup, sitemap &amp; Search Console
+                    setup
+                  </li>
+                  <li>
+                    14-day post-launch defect warranty (optional separate
+                    maintenance available)
+                  </li>
                 </ul>
               </div>
             </div>
@@ -279,8 +258,8 @@ export default function ProcessPage() {
                 marginRight: "auto",
               }}
             >
-              Let&apos;s get on a call, discuss your business goals, and map out
-              exactly how we can build a solution to hit them.
+              Let&apos;s discuss your project requirements and map out a clear
+              Statement of Work, timeline, and budget.
             </p>
             <div
               style={{

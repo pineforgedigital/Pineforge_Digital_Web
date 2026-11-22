@@ -1,52 +1,40 @@
 # Pineforge Digital Website
 
-The official corporate website for [Pineforge Digital LLC](https://pineforge.digital). Built with a focus on performance, clean aesthetics, and reliability.
+The official corporate website for [Pineforge Digital LLC](https://pineforge.digital), built with **Next.js App Router**, **TypeScript**, and **Resend**.
 
 ## Tech Stack
 
-*   **Frontend:** HTML5, CSS3 (Custom Variables, Flexbox/Grid), Vanilla JavaScript.
-*   **Backend:** Node.js, Express.js.
-*   **Database:** SQLite (Local Dev) / PostgreSQL (Production via Neon).
-*   **Email:** Nodemailer + Resend API.
-*   **Security:** Helmet (Headers), Express Rate Limit, Input Validation.
-*   **Deployment:** Vercel to Serverless Functions.
+*   **Framework:** Next.js 16 (App Router) & React 19
+*   **Language:** TypeScript
+*   **Styling:** Custom CSS (`app/globals.css`) with Inter via `next/font/google`
+*   **Email & Lead Handling:** Next.js Server Actions (`app/actions/contact.ts`) + Resend API
+*   **Analytics:** Vercel Analytics & Vercel Speed Insights (consent-aware)
+*   **Deployment:** Vercel
 
 ## Getting Started
 
 ### Prerequisites
 
-*   Node.js (v18+)
+*   Node.js 20.9+
 *   npm
 
 ### Installation
 
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/cannonc6-cell/Pineforge_Digital_Web.git
-    cd Pineforge_Digital_Web
-    ```
-
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
+```bash
+git clone https://github.com/cannonc6-cell/Pineforge_Digital_Web.git
+cd Pineforge_Digital_Web
+npm install
+```
 
 ### Environment Variables
 
-Create a `.env` file in the root directory (optional for local dev, required for full features):
+Create a `.env.local` file in the root directory for local contact form testing:
 
 ```env
-PORT=3000
-# Database (Auto-switches: SQLite if empty, Postgres if set)
-DATABASE_URL=postgres://user:pass@host:port/dbname
-
-# Email (Required for contact form)
 RESEND_API_KEY=re_123456789
 ```
 
 ### Running Locally
-
-Start the development server with hot-reloading:
 
 ```bash
 npm run dev
@@ -54,22 +42,32 @@ npm run dev
 
 Visit `http://localhost:3000` in your browser.
 
+### Verification Commands
+
+```bash
+npx tsc --noEmit
+npm run lint
+npm run build
+```
+
 ## Project Structure
 
-*   **/public**: Static assets (HTML, CSS, Images).
-*   **/public/js**: Frontend logic (`script.js` for UI, `cookies.js` for consent).
-*   **server.js**: Main Express application entry point.
-*   **database.js**: Database connection manager (Hybrid SQLite/PG).
+*   **`app/`**: App Router pages (`/`, `/services`, `/process`, `/about`, `/contact`, `/privacy`, `/terms`), `sitemap.ts`, `robots.ts`, `not-found.tsx`, `globals.css`, and `actions/contact.ts`.
+*   **`components/`**: Shared UI and client components (`Navbar`, `Footer`, `ContactForm`, `CookieBanner`, `AnalyticsWrapper`, `SpotlightEffects`).
+*   **`lib/`**: Shared allowlists and structured data (`contact.ts`, `schema.ts`).
+*   **`public/`**: Static icons, verification files, and optimized brand/portfolio images.
 
-## Security & Privacy
+## Security & Headers
 
-*   **Clean URLs:** Routes are served extension-less (e.g., `/about` instead of `/about.html`).
-*   **Cookies:** Uses a minimal `visitor_id` for anonymous unique visitor counting.
-*   **Headers:** Secured with `helmet` (HSTS, No-Sniff, XSS Filter).
+Configured in `next.config.mjs`:
+*   Strict HTTP security headers (`Strict-Transport-Security`, `Content-Security-Policy`, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`)
+*   Permanent `308` redirects for legacy `.html` URLs
+*   Server-side contact form rate limiting, honeypot + time-trap bot filtering, strict input/allowlist validation, and explicit Resend delivery verification
 
-## Deployment
+## Vercel Deployment Notes
 
-This project is configured for **Vercel**.
-1.  Connect your GitHub repository to Vercel.
-2.  Add the environment variables in the Vercel Dashboard.
-3.  Deploy! Vercel automatically detects `server.js` and strictures it as a serverless function.
+When deploying the `v2-nextjs-migration` branch (or after merging into `main`):
+
+1.  In the Vercel Dashboard under **Project Settings -> Build and Deployment**, set **Framework Preset** to **Next.js** (switching from the legacy Express preset).
+2.  Ensure `RESEND_API_KEY` is configured in **Project Settings -> Environment Variables**.
+3.  Deploy!

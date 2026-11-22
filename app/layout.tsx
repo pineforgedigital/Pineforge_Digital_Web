@@ -5,8 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SpotlightEffects from "@/components/SpotlightEffects";
 import CookieBanner from "@/components/CookieBanner";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import AnalyticsWrapper from "@/components/AnalyticsWrapper";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,15 +16,20 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://pineforge.digital"),
   title: {
-    default: "Website Designer in Kenosha, WI | Pineforge Digital",
+    default:
+      "Website Designer & Custom Software in Kenosha, WI | Pineforge Digital",
     template: "%s | Pineforge Digital",
   },
   description:
-    "Pineforge Digital is Kenosha's premier website designer and custom software development studio. We build websites that bring in local customers.",
+    "Pineforge Digital LLC builds custom websites, web applications, internal dashboards, and API integrations for businesses in Kenosha and Southeastern Wisconsin.",
   icons: {
     icon: [
       { url: "/favicon.ico" },
-      { url: "/images/favicon_optimized.png", sizes: "192x192", type: "image/png" },
+      {
+        url: "/images/favicon_optimized.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
     ],
     apple: [{ url: "/images/apple-touch-icon.png" }],
   },
@@ -57,13 +61,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <body>
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <Navbar />
         {children}
         <Footer />
         <SpotlightEffects />
         <CookieBanner />
-        <Analytics />
-        <SpeedInsights />
+        <AnalyticsWrapper />
       </body>
     </html>
   );

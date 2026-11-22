@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import ContactForm from "@/components/ContactForm";
+import { professionalServiceJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Contact Pineforge Digital | Web Developers in Kenosha, WI",
+  title: "Contact Us | Kenosha, WI",
   description:
-    "Ready to start your custom website project? Contact Pineforge Digital today. We serve Kenosha, Racine, Bristol, and all of Southeastern Wisconsin.",
+    "Ready to start your custom website or software project? Contact Pineforge Digital LLC in Bristol, WI—serving Kenosha, Racine, Milwaukee, and Southeastern Wisconsin.",
   alternates: {
     canonical: "https://pineforge.digital/contact",
   },
   openGraph: {
-    title: "Pineforge Digital | Premium Custom Web Development",
+    title: "Contact Pineforge Digital | Southeastern Wisconsin",
     description:
-      "We build premium, custom websites that help local businesses generate more leads and revenue.",
+      "Get in touch with Pineforge Digital LLC to schedule a consultation or request a Statement of Work quote.",
     url: "https://pineforge.digital/contact",
     images: ["/images/logo-social.jpg"],
   },
@@ -22,55 +23,22 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Pineforge Digital LLC",
-  "url": "https://pineforge.digital",
-  "logo": "https://pineforge.digital/images/Brand_Logo_white.png",
-  "image": "https://pineforge.digital/images/logo-social.jpg",
-  "description":
-    "Custom website design, web development, and custom web development for small and mid-sized businesses.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bristol",
-    "addressRegion": "WI",
-    "postalCode": "53104",
-    "addressCountry": "US",
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Kenosha" },
-    { "@type": "City", "name": "Racine" },
-    { "@type": "City", "name": "Milwaukee" },
-    { "@type": "State", "name": "Wisconsin" },
-  ],
-  "telephone": "+1-262-234-1027",
-  "email": "admin@pineforge.digital",
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "17:00",
-    },
-  ],
-  "priceRange": "$$",
-};
-
 export default function ContactPage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(professionalServiceJsonLd),
+        }}
       />
-      <main>
+      <main id="main-content">
         <section className="page-header-dark">
           <div className="container animate-fade-up">
             <h1>Contact Us</h1>
             <p>
-              If you have questions about our services or want to discuss a
-              project, please get in touch.
+              If you have questions about our services or want to scope a custom
+              project, send us a message below.
             </p>
           </div>
         </section>
@@ -207,8 +175,8 @@ export default function ContactPage() {
                         color: "var(--text-tertiary)",
                       }}
                     >
-                      We offer remote services nationwide, but specialize in
-                      local partnerships throughout Wisconsin.
+                      Based in Bristol, WI. We offer remote services nationwide,
+                      with local partnerships throughout Southeastern Wisconsin.
                     </p>
                   </div>
                 </div>

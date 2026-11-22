@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { CONSENT_EVENT_NAME, CONSENT_STORAGE_KEY } from "./AnalyticsWrapper";
 
 export default function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem("cookie_consent");
+    const consent = localStorage.getItem(CONSENT_STORAGE_KEY);
     if (!consent) {
       const timer = setTimeout(() => {
         setIsVisible(true);
@@ -17,23 +18,25 @@ export default function CookieBanner() {
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem("cookie_consent", "accepted");
+    localStorage.setItem(CONSENT_STORAGE_KEY, "accepted");
+    window.dispatchEvent(new Event(CONSENT_EVENT_NAME));
     setIsVisible(false);
   };
 
   const handleDecline = () => {
-    localStorage.setItem("cookie_consent", "declined");
+    localStorage.setItem(CONSENT_STORAGE_KEY, "declined");
+    window.dispatchEvent(new Event(CONSENT_EVENT_NAME));
     setIsVisible(false);
   };
 
   if (!isVisible) return null;
 
   return (
-    <div id="cookie-banner" className="visible">
+    <div id="cookie-banner" className="visible" role="region" aria-label="Privacy notice">
       <div className="cookie-content">
         <p>
-          We use essential cookies to provide our services and ensure security.
-          See our{" "}
+          We use essential storage and privacy-friendly performance analytics to
+          keep our site fast and reliable. See our{" "}
           <Link
             href="/privacy"
             style={{
@@ -48,6 +51,7 @@ export default function CookieBanner() {
         </p>
         <div className="cookie-buttons">
           <button
+            type="button"
             id="accept-cookies"
             className="btn btn-primary btn-sm"
             onClick={handleAccept}
@@ -55,6 +59,7 @@ export default function CookieBanner() {
             Accept
           </button>
           <button
+            type="button"
             id="decline-cookies"
             className="btn btn-secondary btn-sm"
             onClick={handleDecline}

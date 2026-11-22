@@ -7,3 +7,4 @@ inquiries.db
 .next/
 out/
 build/
+tsconfig.tsbuildinfo

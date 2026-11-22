@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { professionalServiceJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Website Designer in Kenosha, WI | Pineforge Digital",
+  title: {
+    absolute:
+      "Website Designer & Custom Software in Kenosha, WI | Pineforge Digital",
+  },
   description:
-    "Pineforge Digital is Kenosha's premier website designer and custom software development studio. We build websites that bring in local customers.",
+    "Pineforge Digital LLC builds hand-coded websites, custom web applications, internal dashboards, and API integrations for businesses in Kenosha and Southeastern Wisconsin.",
   alternates: {
     canonical: "https://pineforge.digital/",
   },
   openGraph: {
-    title: "Pineforge Digital | Premium Custom Web Development",
+    title: "Pineforge Digital | Custom Web Design & Software Engineering",
     description:
-      "We build premium, custom websites that help local businesses generate more leads and revenue.",
+      "Hand-coded custom websites, web applications, and digital infrastructure built in Wisconsin for growing local businesses.",
     url: "https://pineforge.digital",
     images: ["/images/logo-social.jpg"],
   },
@@ -25,87 +30,61 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "ProfessionalService",
-      "name": "Pineforge Digital LLC",
-      "url": "https://pineforge.digital",
-      "logo": "https://pineforge.digital/images/Brand_Logo_white.png",
-      "image": "https://pineforge.digital/images/logo-social.jpg",
-      "description":
-        "Custom website design, web development, and custom web development for small and mid-sized businesses.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Bristol",
-        "addressRegion": "WI",
-        "postalCode": "53104",
-        "addressCountry": "US",
-      },
-      "areaServed": [
-        { "@type": "City", "name": "Kenosha" },
-        { "@type": "City", "name": "Racine" },
-        { "@type": "City", "name": "Milwaukee" },
-        { "@type": "State", "name": "Wisconsin" },
-      ],
-      "telephone": "+1-262-234-1027",
-      "email": "admin@pineforge.digital",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "09:00",
-          "closes": "17:00",
-        },
-      ],
-      "priceRange": "$$",
+      "@type": professionalServiceJsonLd["@type"],
+      name: professionalServiceJsonLd.name,
+      url: professionalServiceJsonLd.url,
+      logo: professionalServiceJsonLd.logo,
+      image: professionalServiceJsonLd.image,
+      description: professionalServiceJsonLd.description,
+      address: professionalServiceJsonLd.address,
+      areaServed: professionalServiceJsonLd.areaServed,
+      telephone: professionalServiceJsonLd.telephone,
+      email: professionalServiceJsonLd.email,
+      openingHoursSpecification:
+        professionalServiceJsonLd.openingHoursSpecification,
+      priceRange: professionalServiceJsonLd.priceRange,
     },
     {
       "@type": "FAQPage",
-      "mainEntity": [
+      mainEntity: [
         {
           "@type": "Question",
-          "name":
-            "Why should I choose custom web development over WordPress, Wix, or Squarespace?",
-          "acceptedAnswer": {
+          name: "Why should I choose custom web development over WordPress, Wix, or Squarespace?",
+          acceptedAnswer: {
             "@type": "Answer",
-            "text":
-              "Unlike off-the-shelf website builders that rely on bloated templates and dozens of third-party plugins, we write clean, custom code from scratch. This delivers near-instant page load speeds, rock-solid security with zero plugin vulnerabilities, and structural code optimization designed specifically to outrank competitors in Google search results.",
+            text: "Unlike off-the-shelf website builders that rely on bloated templates and third-party plugins, we write clean, custom code from scratch. This delivers near-instant page load speeds, reduced attack surface with zero plugin vulnerabilities, and clean semantic architecture.",
           },
         },
         {
           "@type": "Question",
-          "name":
-            "How does a custom website help my business rank higher in Kenosha and local Google searches?",
-          "acceptedAnswer": {
+          name: "How do technical foundations help my business in local searches?",
+          acceptedAnswer: {
             "@type": "Answer",
-            "text":
-              "Local SEO requires fast load times, clean semantic HTML, mobile responsiveness, and rich Schema.org structured data. Search engines prioritize websites that deliver exceptional user experience and accurate local business metadata. We build all of these directly into your website's foundation so local customers throughout Kenosha, Racine, and Southeastern Wisconsin find you first.",
+            text: "Modern search engines evaluate page speed, clean semantic HTML, mobile responsiveness, and accurate Schema.org metadata. We engineer these technical foundations directly into your codebase, while noting that specific search rankings or traffic volumes are never guaranteed.",
           },
         },
         {
           "@type": "Question",
-          "name":
-            "How long does it take to build a custom website with Pineforge Digital?",
-          "acceptedAnswer": {
+          name: "How long does it take to build a custom website with Pineforge Digital?",
+          acceptedAnswer: {
             "@type": "Answer",
-            "text":
-              "Most standard business websites are completed and launched within 2 to 4 weeks. Complex web applications or custom customer portals typically take 4 to 8 weeks depending on scope. Throughout the entire project, you communicate directly with our Wisconsin developers with transparent milestones and zero unnecessary technical jargon.",
+            text: "Most standard business websites are completed and launched within 2 to 4 weeks once project assets and copy are provided. Complex web applications or custom portals typically take 4 to 8 weeks depending on the written Statement of Work.",
           },
         },
         {
           "@type": "Question",
-          "name": "Do I own my website and code once the project is finished?",
-          "acceptedAnswer": {
+          name: "Do I own my website and code once the project is finished?",
+          acceptedAnswer: {
             "@type": "Answer",
-            "text":
-              "Yes, completely. Once final payment is made, you own 100% of your website, design assets, and source code. We do not lock you into proprietary hosting contracts or hidden licensing fees. If you prefer, we also offer ongoing managed maintenance and cloud hosting so you never have to worry about updates or uptime.",
+            text: "Yes. Upon full payment of all amounts due under your Statement of Work, you own the final deliverables expressly identified in your SOW with no vendor lock-in. Every launch includes a 14-day defect warranty, and optional maintenance agreements are available separately.",
           },
         },
         {
           "@type": "Question",
-          "name": "What areas and industries do you serve?",
-          "acceptedAnswer": {
+          name: "What areas and industries do you serve?",
+          acceptedAnswer: {
             "@type": "Answer",
-            "text":
-              "We are proudly based in Southeastern Wisconsin and work with local small businesses, professional service providers, contractors, medical practices, and growing companies throughout Kenosha, Pleasant Prairie, Racine, Milwaukee, and Northern Illinois.",
+            text: "Based in Bristol and serving Kenosha, Pleasant Prairie, Racine, Milwaukee, Southeastern Wisconsin, and Northern Illinois, we partner with local small businesses, contractors, professional services, and growing organizations.",
           },
         },
       ],
@@ -120,21 +99,23 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main>
+      <main id="main-content">
         {/* Dark Mode Hero */}
         <section className="hero hero-dark">
           <div className="container hero-grid">
             <div className="hero-content text-left">
               <span className="badge badge-dark">
-                Custom Web Design &amp; Development
+                Custom Web Design &amp; Software Development
               </span>
               <h1 className="hero-title-dark">
-                Custom Websites That<br />Grow Your Business
+                Custom Websites That
+                <br />
+                Grow Your Business
               </h1>
               <p className="hero-subtitle-dark">
-                We design and develop custom websites that help local businesses
-                establish a professional online presence, improve their search
-                rankings, and generate more consistent leads.
+                We engineer fast, hand-coded websites, custom web applications,
+                and internal dashboards that establish credibility and convert
+                visitors into customers.
               </p>
               <div
                 className="hero-actions"
@@ -151,7 +132,6 @@ export default function HomePage() {
             <div className="hero-visual animate-fade-up delay-2">
               <div className="hero-image-container">
                 <div className="css-hero-visual floating-image">
-                  {/* Main Window */}
                   <div className="code-window">
                     <div className="window-header">
                       <span></span>
@@ -206,8 +186,8 @@ export default function HomePage() {
               </span>
               <h2>What We Build</h2>
               <p>
-                We build premium digital assets that generate leads, build
-                trust, and outrank your competition.
+                Custom-engineered websites, portals, and workflow systems
+                designed around your exact business operations.
               </p>
             </div>
 
@@ -237,12 +217,11 @@ export default function HomePage() {
                       <line x1="9" y1="21" x2="9" y2="9"></line>
                     </svg>
                   </div>
-                  <h3>Custom Website Design</h3>
+                  <h3>Custom Website Design &amp; Build</h3>
                   <p>
-                    Your website is your 24/7 sales engine. We write every line of
-                    code from scratch to ensure your site is incredibly fast,
-                    perfectly responsive on mobile, and structurally optimized for
-                    local SEO.
+                    We write every line of code from scratch using your brand
+                    assets and copy so your storefront is ultra-fast, responsive
+                    on every device, and free of monthly page-builder bloat.
                   </p>
                 </div>
                 <div className="bento-visual">
@@ -292,12 +271,11 @@ export default function HomePage() {
                       <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                     </svg>
                   </div>
-                  <h3>Local SEO Dominance</h3>
+                  <h3>Performance &amp; Technical Foundations</h3>
                   <p>
-                    We structure your website&apos;s architecture to align with
-                    modern search algorithms. Our structured data markup and
-                    performance optimizations maximize your visibility for
-                    high-intent local searches.
+                    Clean semantic HTML, fast page speeds, and structured
+                    Schema.org markup engineered into your codebase for modern
+                    browsers and search engines.
                   </p>
                 </div>
                 <div className="bento-visual-vertical">
@@ -328,11 +306,11 @@ export default function HomePage() {
                       <path d="M16 10a4 4 0 0 1-8 0"></path>
                     </svg>
                   </div>
-                  <h3>E-Commerce &amp; Portals</h3>
+                  <h3>E-Commerce &amp; API Integrations</h3>
                   <p>
-                    Sell products online or build custom client portals. We
-                    integrate Stripe, Shopify, or custom checkout flows to make
-                    buying from you completely frictionless.
+                    Integrate Stripe checkout flows, Shopify storefronts, and
+                    standard authenticated third-party APIs to connect payments
+                    and business systems seamlessly.
                   </p>
                 </div>
                 <div className="bento-visual-vertical">
@@ -364,12 +342,12 @@ export default function HomePage() {
                       <polyline points="2 12 12 17 22 12"></polyline>
                     </svg>
                   </div>
-                  <h3>Custom Web Applications</h3>
+                  <h3>Custom Web Apps &amp; Dashboards</h3>
                   <p>
-                    Sometimes an off-the-shelf website isn&apos;t enough. We build
-                    complex, highly interactive web applications tailored
-                    entirely to your specific operational needs, from custom
-                    booking engines to specialized data dashboards.
+                    When standard software falls short, we build tailored web
+                    applications, internal dashboards, client portals, and
+                    automated operational workflows built to your exact
+                    specifications.
                   </p>
                 </div>
                 <div className="bento-visual">
@@ -419,8 +397,82 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Featured Work Section */}
+        <section
+          style={{
+            padding: "8rem 0",
+            background: "#ffffff",
+            borderTop: "1px solid var(--border-subtle)",
+          }}
+        >
+          <div className="container">
+            <div className="section-header animate-fade-up">
+              <span className="badge badge-blue" style={{ marginBottom: "1rem" }}>
+                Featured Work
+              </span>
+              <h2>Recent Launch</h2>
+              <p>
+                Real custom engineering built for local businesses—clean
+                design, fast performance, and zero page-builder bloat.
+              </p>
+            </div>
+
+            <div className="bento-card portfolio-card animate-fade-up">
+              <div className="portfolio-content">
+                <div>
+                  <span className="badge badge-emerald">Client Launch</span>
+                </div>
+                <h3>Aesthetic Design &amp; Construction</h3>
+                <p style={{ marginBottom: "1.5rem" }}>
+                  A bespoke, hand-coded website built for a family-owned
+                  residential remodeling and custom construction firm. Designed
+                  to showcase finished craftsmanship, clarify service offerings,
+                  and guide homeowners directly to project inquiries.
+                </p>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "0.5rem",
+                    flexWrap: "wrap",
+                    marginBottom: "2rem",
+                  }}
+                >
+                  <span className="badge badge-blue">Custom Code</span>
+                  <span className="badge badge-violet">Mobile-First</span>
+                  <span className="badge badge-emerald">Fast Performance</span>
+                </div>
+                <div>
+                  <a
+                    href="https://aestheticdesignconstruction.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                  >
+                    Visit Live Site
+                  </a>
+                </div>
+              </div>
+
+              <div className="portfolio-visual">
+                <div className="portfolio-visual-frame">
+                  <Image
+                    src="/images/aesthetic_design_mockup.png"
+                    alt="Aesthetic Design & Construction custom website homepage preview"
+                    width={1440}
+                    height={720}
+                    sizes="(max-width: 900px) 100vw, 55vw"
+                    className="portfolio-visual-img"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Problems Solved Section */}
-        <section style={{ padding: "8rem 0", background: "#020617", color: "white" }}>
+        <section
+          style={{ padding: "8rem 0", background: "#020617", color: "white" }}
+        >
           <div className="container animate-fade-up">
             <div style={{ textAlign: "center", marginBottom: "5rem" }}>
               <span
@@ -429,9 +481,10 @@ export default function HomePage() {
                   background: "rgba(255,255,255,0.1)",
                   color: "white",
                   borderColor: "rgba(255,255,255,0.2)",
+                  boxShadow: "none",
                 }}
               >
-                Digital Growth
+                Practical Engineering
               </span>
               <h2 style={{ color: "white", marginTop: "1rem" }}>
                 How We Help Local Businesses
@@ -473,8 +526,8 @@ export default function HomePage() {
                     lineHeight: 1.5,
                   }}
                 >
-                  &ldquo;We do great work, but when people search for our
-                  services online, our competitors always show up first.&rdquo;
+                  &ldquo;Our template site is sluggish, loaded with plugins, and
+                  doesn&apos;t represent the quality of our work.&rdquo;
                 </h3>
                 <hr
                   style={{
@@ -494,9 +547,9 @@ export default function HomePage() {
                   THE SOLUTION
                 </p>
                 <p style={{ color: "#cbd5e1", fontSize: "0.95rem" }}>
-                  We build custom websites from scratch that are structurally
-                  optimized to rank high in local Google searches and get you
-                  found.
+                  We hand-code clean, semantic websites with fast load speeds
+                  and structured Schema.org foundations—giving search engines
+                  and customers a faster, clearer experience.
                 </p>
               </div>
 
@@ -526,8 +579,8 @@ export default function HomePage() {
                     lineHeight: 1.5,
                   }}
                 >
-                  &ldquo;Our current website is outdated. We get traffic, but
-                  nobody ever calls us or fills out our contact form.&rdquo;
+                  &ldquo;Our current site fails to turn visitors into inquiries,
+                  and our manual workflows eat up hours.&rdquo;
                 </h3>
                 <hr
                   style={{
@@ -547,8 +600,9 @@ export default function HomePage() {
                   THE SOLUTION
                 </p>
                 <p style={{ color: "#cbd5e1", fontSize: "0.95rem" }}>
-                  We design premium, modern websites developed specifically to
-                  build trust and convert your traffic into paying customers.
+                  We design focused user journeys, reliable inquiry pipelines,
+                  and custom dashboards tailored directly to how your team
+                  operates.
                 </p>
               </div>
             </div>
@@ -565,32 +619,32 @@ export default function HomePage() {
               <h2>Trusted Execution</h2>
               <p style={{ marginTop: "1rem" }}>
                 You don&apos;t need to know how to code. You just need to know
-                your business. We handle the rest.
+                your business. We handle the engineering.
               </p>
             </div>
             <div className="grid grid-3">
               <div className="bento-card animate-fade-up">
                 <h3 className="mb-2">Wisconsin Based</h3>
                 <p>
-                  We are a local agency serving Wisconsin and Northern Illinois
-                  businesses with face-to-face dedication. We never offshore our
-                  code.
+                  We are a local engineering studio serving Wisconsin and
+                  Northern Illinois businesses with direct accountability. We
+                  never offshore our code.
                 </p>
               </div>
               <div className="bento-card animate-fade-up delay-1">
-                <h3 className="mb-2">Transparent Process</h3>
+                <h3 className="mb-2">Transparent Scope</h3>
                 <p>
-                  No black boxes. We provide clear documentation, iterative
-                  delivery, and constant communication throughout the entire
-                  software lifecycle.
+                  Every engagement is defined in a clear Statement of Work with
+                  explicit deliverables, fixed milestones, and direct developer
+                  communication.
                 </p>
               </div>
               <div className="bento-card animate-fade-up delay-2">
                 <h3 className="mb-2">Business-First Approach</h3>
                 <p>
-                  We don&apos;t speak in confusing technical jargon. We listen to
-                  your business goals first, then we build the exact technology
-                  required to achieve them.
+                  We don&apos;t hide behind confusing technical jargon. We align
+                  on your operational goals first, then engineer the software to
+                  support them.
                 </p>
               </div>
             </div>
@@ -635,11 +689,10 @@ export default function HomePage() {
                     marginBottom: "2rem",
                   }}
                 >
-                  Modern search engines prioritize websites that load instantly.
-                  Instead of relying on heavy templates, we build clean, custom
-                  architectures from the ground up. The result? Near-instant page
-                  loads, optimized SEO fundamentals, and a seamless experience for
-                  your customers.
+                  Users expect pages to load immediately. Instead of stacking
+                  heavy themes and plugins, we engineer clean custom
+                  architectures from the ground up—delivering fast load times,
+                  clean technical metadata, and smooth mobile usability.
                 </p>
                 <ul
                   style={{
@@ -681,7 +734,7 @@ export default function HomePage() {
                     >
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>{" "}
-                    Optimized SEO fundamentals
+                    Clean semantic HTML &amp; technical structure
                   </li>
                   <li style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                     <svg
@@ -702,7 +755,6 @@ export default function HomePage() {
               </div>
 
               <div className="performance-metrics animate-fade-up delay-2">
-                {/* Standard Web Builder */}
                 <div className="metric-card">
                   <div className="circular-chart red">
                     <svg viewBox="0 0 36 36" className="circular-chart-svg">
@@ -730,7 +782,6 @@ export default function HomePage() {
                   <p>Relies on bloated templates</p>
                 </div>
 
-                {/* Pineforge Score */}
                 <div className="metric-card highlight">
                   <div className="circular-chart green">
                     <svg viewBox="0 0 36 36" className="circular-chart-svg">
@@ -800,11 +851,10 @@ export default function HomePage() {
                   lineHeight: 1.6,
                 }}
               >
-                While most local agencies still rely on slow, clunky page
-                builders like WordPress or Wix, we write clean custom code from
-                the ground up. We use the exact same technology as top Silicon
-                Valley companies to ensure your site is faster, more secure, and
-                outranks your local competition.
+                While many local agencies rely on slow page builders like
+                WordPress or Wix, we write clean custom code from the ground up
+                using proven modern infrastructure so your site stays fast,
+                reliable, and maintainable.
               </p>
             </div>
 
@@ -841,9 +891,9 @@ export default function HomePage() {
                   Vercel
                 </h3>
                 <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)" }}>
-                  <strong>Global Cloud Hosting.</strong> The same infrastructure
-                  used by major tech companies. It ensures your site never goes
-                  down and loads instantly for every local customer.
+                  <strong>Global Cloud Hosting.</strong> Edge-cached delivery
+                  infrastructure that keeps your website responsive and reliable
+                  for every local visitor.
                 </p>
               </div>
 
@@ -880,9 +930,9 @@ export default function HomePage() {
                   Sanity.io
                 </h3>
                 <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)" }}>
-                  <strong>Modern Content Management.</strong> A lightweight
-                  alternative to WordPress. We build a simple, secure dashboard so
-                  you can update your own text and photos effortlessly.
+                  <strong>Headless Content Management.</strong> When scoped, a
+                  clean content dashboard lets your team update text and photos
+                  without risking site layout or speed.
                 </p>
               </div>
 
@@ -917,12 +967,12 @@ export default function HomePage() {
                     <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
                     <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
                   </svg>
-                  Supabase
+                  PostgreSQL &amp; Supabase
                 </h3>
                 <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)" }}>
-                  <strong>Secure Databases.</strong> If you ever need a custom
-                  booking system or secure client portal, we use bank-level data
-                  storage technology to keep your customer data safe.
+                  <strong>Relational Databases.</strong> For custom booking
+                  systems, dashboards, and portals, we engineer structured data
+                  storage with strict access controls.
                 </p>
               </div>
 
@@ -958,9 +1008,9 @@ export default function HomePage() {
                   React &amp; Next.js
                 </h3>
                 <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)" }}>
-                  <strong>Premium Coding Frameworks.</strong> The same technology
-                  powering apps like Netflix. We hand-code your site so it feels
-                  like a premium app rather than a clunky template.
+                  <strong>Modern Engineering Frameworks.</strong> Proven web
+                  architecture that delivers smooth navigation, strong type
+                  safety, and long-term maintainability.
                 </p>
               </div>
             </div>
@@ -1049,12 +1099,11 @@ export default function HomePage() {
                 marginBottom: "1.5rem",
               }}
             >
-              Pineforge Digital is Kenosha&apos;s dedicated web design and
-              custom software studio. We don&apos;t use templates and we never
-              outsource our development. When you need high-performance web
-              applications, beautiful UI/UX, or complex automation, you partner
-              directly with expert local developers right here in Southeastern
-              Wisconsin.
+              Pineforge Digital LLC is based in Bristol and serves Kenosha,
+              Racine, Milwaukee, and Northern Illinois. We don&apos;t use
+              generic templates and we never outsource development. When you need
+              high-performance websites, custom dashboards, or API
+              integrations, you partner directly with Wisconsin developers.
             </p>
           </div>
         </section>
@@ -1082,7 +1131,7 @@ export default function HomePage() {
                 }}
               >
                 Everything you need to know about working with Pineforge Digital
-                to design and build your custom website.
+                LLC under our Statement of Work process.
               </p>
             </div>
             <div
@@ -1104,11 +1153,10 @@ export default function HomePage() {
                 </h3>
                 <p style={{ color: "var(--text-secondary)", lineHeight: 1.75 }}>
                   Unlike off-the-shelf website builders that rely on bloated
-                  templates and dozens of third-party plugins, we write clean,
-                  custom code from scratch. This delivers near-instant page load
-                  speeds, rock-solid security with zero plugin vulnerabilities,
-                  and structural code optimization designed specifically to
-                  outrank competitors in Google search results.
+                  templates and third-party plugins, we write clean, custom code
+                  from scratch. This delivers near-instant page load speeds,
+                  reduced attack surface with zero plugin vulnerabilities, and
+                  clean semantic architecture.
                 </p>
               </div>
               <div
@@ -1116,17 +1164,15 @@ export default function HomePage() {
                 style={{ padding: "2.25rem" }}
               >
                 <h3 style={{ fontSize: "1.3rem", marginBottom: "0.75rem" }}>
-                  How does a custom website help my business rank higher in
-                  Kenosha and local Google searches?
+                  How do technical foundations help my business in local
+                  searches?
                 </h3>
                 <p style={{ color: "var(--text-secondary)", lineHeight: 1.75 }}>
-                  Local SEO requires fast load times, clean semantic HTML, mobile
-                  responsiveness, and rich Schema.org structured data. Search
-                  engines prioritize websites that deliver exceptional user
-                  experience and accurate local business metadata. We build all of
-                  these directly into your website&apos;s foundation so local
-                  customers throughout Kenosha, Racine, and Southeastern
-                  Wisconsin find you first.
+                  Modern search engines evaluate page speed, clean semantic
+                  HTML, mobile responsiveness, and accurate Schema.org metadata.
+                  We engineer these technical foundations directly into your
+                  codebase—while noting clearly in our agreements that we do not
+                  guarantee specific search rankings or traffic volumes.
                 </p>
               </div>
               <div
@@ -1139,11 +1185,9 @@ export default function HomePage() {
                 </h3>
                 <p style={{ color: "var(--text-secondary)", lineHeight: 1.75 }}>
                   Most standard business websites are completed and launched
-                  within 2 to 4 weeks. Complex web applications or custom customer
-                  portals typically take 4 to 8 weeks depending on scope.
-                  Throughout the entire project, you communicate directly with
-                  our Wisconsin developers with transparent milestones and zero
-                  unnecessary technical jargon.
+                  within 2 to 4 weeks once client copy and brand assets are
+                  provided. Complex web applications or custom portals typically
+                  take 4 to 8 weeks depending on the executed Statement of Work.
                 </p>
               </div>
               <div
@@ -1154,12 +1198,11 @@ export default function HomePage() {
                   Do I own my website and code once the project is finished?
                 </h3>
                 <p style={{ color: "var(--text-secondary)", lineHeight: 1.75 }}>
-                  Yes, completely. Once final payment is made, you own 100% of
-                  your website, design assets, and source code. We do not lock
-                  you into proprietary hosting contracts or hidden licensing
-                  fees. If you prefer, we also offer ongoing managed maintenance
-                  and cloud hosting so you never have to worry about updates or
-                  uptime.
+                  Yes. Once final payment is received, you own the final
+                  deliverables expressly identified in your Statement of Work
+                  with zero vendor lock-in. Every project includes a 14-day
+                  post-launch defect warranty, with optional separate
+                  maintenance agreements available if desired.
                 </p>
               </div>
               <div
@@ -1170,11 +1213,10 @@ export default function HomePage() {
                   What areas and industries do you serve?
                 </h3>
                 <p style={{ color: "var(--text-secondary)", lineHeight: 1.75 }}>
-                  We are proudly based in Southeastern Wisconsin and work with
-                  local small businesses, professional service providers,
-                  contractors, medical practices, and growing companies
-                  throughout Kenosha, Pleasant Prairie, Racine, Milwaukee, and
-                  Northern Illinois.
+                  We are based in Bristol and work with local small businesses,
+                  contractors, professional service providers, and growing
+                  organizations throughout Kenosha, Pleasant Prairie, Racine,
+                  Milwaukee, and Northern Illinois.
                 </p>
               </div>
             </div>
@@ -1186,8 +1228,8 @@ export default function HomePage() {
           <div className="container animate-fade-up">
             <h2>Ready to scale your business with custom software?</h2>
             <p>
-              Schedule a consultation to discuss your technical requirements and
-              explore what custom software can do for your business.
+              Schedule a consultation to review your technical requirements and
+              scope out a custom website or web application.
             </p>
             <Link
               href="/contact"

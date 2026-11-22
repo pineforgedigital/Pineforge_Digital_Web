@@ -1,62 +1,143 @@
 "use server";
 
+import { headers } from "next/headers";
 import { Resend } from "resend";
+import { CONTACT_SERVICES } from "@/lib/contact";
 
 export interface ContactState {
   success?: boolean;
   error?: string;
 }
 
-export async function submitContact(formData: FormData): Promise<ContactState> {
-  const name = (formData.get("name") as string)?.trim();
-  const email = (formData.get("email") as string)?.trim();
-  const company = (formData.get("company") as string)?.trim() || "";
-  const service = (formData.get("service") as string)?.trim();
-  const message = (formData.get("message") as string)?.trim();
-  const websiteUrl = (formData.get("website_url") as string)?.trim(); // Honeypot
+const MAX_REQUESTS = 5;
+const WINDOW_MS = 60 * 60 * 1000;
+const MIN_SUBMIT_TIME_MS = 1500;
+const rateLimitStore = new Map<string, number[]>();
 
-  // Spam Honeypot check: If filled, silently acknowledge
-  if (websiteUrl) {
+const ALLOWED_SERVICES = new Set<string>(
+  CONTACT_SERVICES.map((item) => item.label)
+);
+
+const CONTROL_CHARS_REGEX = /[\r\n\x00-\x1f\x7f]/;
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const windowStart = now - WINDOW_MS;
+
+  if (rateLimitStore.size > 1000) {
+    rateLimitStore.forEach((timestamps, key) => {
+      const valid = timestamps.filter((t) => t > windowStart);
+      if (valid.length === 0) {
+        rateLimitStore.delete(key);
+      } else {
+        rateLimitStore.set(key, valid);
+      }
+    });
+  }
+
+  const existing = (rateLimitStore.get(ip) || []).filter(
+    (t) => t > windowStart
+  );
+  if (existing.length >= MAX_REQUESTS) {
+    rateLimitStore.set(ip, existing);
+    return false;
+  }
+
+  existing.push(now);
+  rateLimitStore.set(ip, existing);
+  return true;
+}
+
+function escapeHtml(unsafe: string): string {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+export async function submitContact(formData: FormData): Promise<ContactState> {
+  const hdrs = await headers();
+  const forwardedFor = hdrs.get("x-forwarded-for");
+  const clientIp =
+    forwardedFor?.split(",")[0]?.trim() ||
+    hdrs.get("x-real-ip")?.trim() ||
+    "unknown";
+
+  if (!checkRateLimit(clientIp)) {
+    return {
+      error:
+        "Too many submissions. Please wait a bit or email admin@pineforge.digital directly.",
+    };
+  }
+
+  const websiteUrl = (formData.get("website_url") as string)?.trim() || "";
+  const loadedAtRaw = formData.get("formLoadedAt") as string | null;
+  const loadedAt = loadedAtRaw ? Number(loadedAtRaw) : NaN;
+
+  // Silent honeypot and automated speed-submission trap
+  if (
+    websiteUrl.length > 0 ||
+    (Number.isFinite(loadedAt) &&
+      loadedAt > 0 &&
+      Date.now() - loadedAt < MIN_SUBMIT_TIME_MS)
+  ) {
     return { success: true };
   }
 
-  // Field validation
-  if (!name || !email || !message || !service) {
+  const name = ((formData.get("name") as string) || "").trim();
+  const email = ((formData.get("email") as string) || "").trim();
+  const rawCompany = ((formData.get("company") as string) || "").trim();
+  const company = rawCompany.replace(/[\r\n\x00-\x1f\x7f]/g, " ").trim();
+  const service = ((formData.get("service") as string) || "").trim();
+  const message = ((formData.get("message") as string) || "").trim();
+
+  if (!name || !email || !service || !message) {
     return { error: "Please fill in all required fields." };
   }
 
-  if (name.length > 100) {
-    return { error: "Name is too long." };
+  if (
+    name.length < 2 ||
+    name.length > 100 ||
+    CONTROL_CHARS_REGEX.test(name)
+  ) {
+    return { error: "Please enter a valid name (2–100 characters)." };
   }
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email) || email.length > 255) {
+  if (
+    !EMAIL_REGEX.test(email) ||
+    email.length > 255 ||
+    CONTROL_CHARS_REGEX.test(email)
+  ) {
     return { error: "Please enter a valid email address." };
   }
 
   if (company.length > 100) {
-    return { error: "Company name is too long." };
+    return { error: "Company name must be 100 characters or fewer." };
   }
 
-  if (message.length > 2000) {
-    return { error: "Message is too long." };
+  if (!ALLOWED_SERVICES.has(service)) {
+    return { error: "Please select a valid service option." };
+  }
+
+  if (message.length < 10 || message.length > 2000) {
+    return {
+      error: "Please provide a message between 10 and 2,000 characters.",
+    };
   }
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.warn("RESEND_API_KEY is not set. Skipping email dispatch.");
-    return { success: true };
+    console.error("RESEND_API_KEY is not configured. Contact submission failed.");
+    return {
+      error:
+        "Our contact form is temporarily unavailable. Please email admin@pineforge.digital or call (262) 234-1027 directly.",
+    };
   }
 
   const resend = new Resend(apiKey);
-
-  const escapeHtml = (unsafe: string) =>
-    unsafe
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
 
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
@@ -65,7 +146,6 @@ export async function submitContact(formData: FormData): Promise<ContactState> {
   const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
 
   try {
-    // 1. Send Admin Notification to admin@pineforge.digital
     const adminHtml = `
       <!DOCTYPE html>
       <html>
@@ -120,16 +200,23 @@ export async function submitContact(formData: FormData): Promise<ContactState> {
       </html>
     `;
 
-    await resend.emails.send({
+    const { error: adminError } = await resend.emails.send({
       from: "Pineforge Website <admin@pineforge.digital>",
       to: ["admin@pineforge.digital"],
-      reply_to: email,
+      replyTo: email,
       subject: `New Inquiry: ${service} - ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nCompany: ${company || "N/A"}\nService: ${service}\n\nMessage:\n${message}`,
       html: adminHtml,
     });
 
-    // 2. Send Customer Confirmation
+    if (adminError) {
+      console.error("Resend Admin Notification Error:", adminError);
+      return {
+        error:
+          "Failed to send message. Please try again or email admin@pineforge.digital directly.",
+      };
+    }
+
     const userHtml = `
       <!DOCTYPE html>
       <html>
@@ -143,13 +230,12 @@ export async function submitContact(formData: FormData): Promise<ContactState> {
           <tr>
             <td style="padding: 40px 30px; background-color: #0f172a;">
               <p style="margin: 0 0 20px; font-size: 16px; color: #f8fafc; line-height: 1.6;">Hello ${safeName},</p>
-              <p style="margin: 0 0 20px; font-size: 16px; color: #cbd5e1; line-height: 1.6;">Thanks for getting in touch with Pineforge Digital — I appreciate you reaching out.</p>
-              <p style="margin: 0 0 20px; font-size: 16px; color: #cbd5e1; line-height: 1.6;">I’ve received your message and will take a look at the details you shared. If I need any clarification or next steps, I’ll follow up shortly. In the meantime, feel free to reply to this email if there’s anything additional you’d like me to know.</p>
-              <p style="margin: 0 0 20px; font-size: 16px; color: #cbd5e1; line-height: 1.6;">Looking forward to learning more about your project.</p>
+              <p style="margin: 0 0 20px; font-size: 16px; color: #cbd5e1; line-height: 1.6;">Thank you for contacting Pineforge Digital LLC regarding <strong style="color: #f8fafc;">${safeService}</strong>.</p>
+              <p style="margin: 0 0 20px; font-size: 16px; color: #cbd5e1; line-height: 1.6;">Our team has received your inquiry and will review your project details and respond within one business day. If you have any additional requirements to share in the meantime, simply reply to this email.</p>
               <div style="margin-top: 40px; border-top: 1px solid #334155; padding-top: 20px;">
                 <p style="margin: 0 0 5px; font-size: 16px; color: #f8fafc; font-weight: 600;">Best regards,</p>
-                <p style="margin: 0 0 5px; font-size: 16px; color: #38bdf8; font-weight: 700;">Caleb Cannon</p>
-                <p style="margin: 0 0 5px; font-size: 14px; color: #94a3b8;">Pineforge Digital LLC</p>
+                <p style="margin: 0 0 5px; font-size: 16px; color: #38bdf8; font-weight: 700;">Pineforge Digital LLC</p>
+                <p style="margin: 0 0 5px; font-size: 14px; color: #94a3b8;">Bristol, Wisconsin</p>
                 <p style="margin: 0 0 5px; font-size: 14px; color: #94a3b8;">
                   <a href="mailto:admin@pineforge.digital" style="color: #38bdf8; text-decoration: none;">admin@pineforge.digital</a>
                 </p>
@@ -161,7 +247,7 @@ export async function submitContact(formData: FormData): Promise<ContactState> {
           </tr>
           <tr>
             <td style="background-color: #0b1120; padding: 24px; text-align: center; border-top: 1px solid #1e293b;">
-              <p style="margin: 0; font-size: 12px; color: #475569;">&copy; ${new Date().getFullYear()} Pineforge Digital LLC</p>
+              <p style="margin: 0; font-size: 12px; color: #64748b;">&copy; ${new Date().getFullYear()} Pineforge Digital LLC</p>
             </td>
           </tr>
         </table>
@@ -169,19 +255,26 @@ export async function submitContact(formData: FormData): Promise<ContactState> {
       </html>
     `;
 
-    await resend.emails.send({
+    const { error: userError } = await resend.emails.send({
       from: "Pineforge Digital <admin@pineforge.digital>",
       to: [email],
-      reply_to: "admin@pineforge.digital",
+      replyTo: "admin@pineforge.digital",
       subject: "Received: Your Inquiry to Pineforge Digital",
-      text: `Hello ${name},\n\nWe have received your request. We will review your details and get back to you shortly.\n\nBest,\nPineforge Digital`,
+      text: `Hello ${name},\n\nThank you for contacting Pineforge Digital LLC regarding ${service}.\n\nOur team has received your inquiry and will review your details and follow up within one business day.\n\nBest regards,\nPineforge Digital LLC\nhttps://pineforge.digital`,
       html: userHtml,
     });
+
+    if (userError) {
+      console.error("Resend Customer Confirmation Error:", userError);
+    }
 
     return { success: true };
   } catch (err: unknown) {
     const error = err as Error;
     console.error("Resend Error:", error.message || error);
-    return { error: "Failed to send message. Please try again or email us directly." };
+    return {
+      error:
+        "Failed to send message. Please try again or email admin@pineforge.digital directly.",
+    };
   }
 }

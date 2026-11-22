@@ -27,40 +27,23 @@ export default function SpotlightEffects() {
       };
 
       card.addEventListener("mousemove", handleMouseMove);
-      cleanups.push(() => card.removeEventListener("mousemove", handleMouseMove));
+      cleanups.push(() =>
+        card.removeEventListener("mousemove", handleMouseMove)
+      );
     });
 
-    // 2. Scroll Reveal Animations
-    const reveals = document.querySelectorAll<HTMLElement>(".reveal");
-    if (reveals.length > 0) {
-      const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("active");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          root: null,
-          threshold: 0.15,
-          rootMargin: "0px 0px -50px 0px",
-        }
-      );
-      reveals.forEach((el) => revealObserver.observe(el));
-      cleanups.push(() => revealObserver.disconnect());
-    }
-
-    // 3. Performance Metric Counters (Home Page)
-    const perfSection = document.querySelector<HTMLElement>(".performance-metrics");
+    // 2. Performance Metric Counters (Home Page)
+    const perfSection = document.querySelector<HTMLElement>(
+      ".performance-metrics"
+    );
     if (perfSection) {
       const perfObserver = new IntersectionObserver(
         (entries, observer) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("animate-play");
-              const counters = entry.target.querySelectorAll<HTMLElement>(".count-up");
+              const counters =
+                entry.target.querySelectorAll<HTMLElement>(".count-up");
               counters.forEach((counter) => {
                 const targetStr = counter.getAttribute("data-target");
                 const target = targetStr ? parseInt(targetStr, 10) : 0;

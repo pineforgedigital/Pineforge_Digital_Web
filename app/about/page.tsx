@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { professionalServiceJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "About Pineforge Digital | Website Designers in Kenosha, WI",
+  title: "About Us | Kenosha, WI",
   description:
-    "Pineforge Digital is a local website designer and software company serving Kenosha, WI. We build premium, hand-coded websites that solve real business problems.",
+    "Meet Caleb Cannon and Richard Firkin, co-founders of Pineforge Digital LLC—a Wisconsin-based custom web design and software engineering studio.",
   alternates: {
     canonical: "https://pineforge.digital/about",
   },
   openGraph: {
-    title: "Pineforge Digital | Premium Custom Web Development",
+    title: "About Pineforge Digital | Wisconsin Web Engineering",
     description:
-      "We build premium, custom websites that help local businesses generate more leads and revenue.",
+      "100% in-house Wisconsin web development with zero templates, zero outsourcing, and full client ownership of SOW deliverables.",
     url: "https://pineforge.digital/about",
     images: ["/images/logo-social.jpg"],
   },
@@ -21,59 +22,28 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Pineforge Digital LLC",
-  "url": "https://pineforge.digital",
-  "logo": "https://pineforge.digital/images/Brand_Logo_white.png",
-  "image": "https://pineforge.digital/images/logo-social.jpg",
-  "description":
-    "Custom website design, web development, and custom web development for small and mid-sized businesses.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bristol",
-    "addressRegion": "WI",
-    "postalCode": "53104",
-    "addressCountry": "US",
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Kenosha" },
-    { "@type": "City", "name": "Racine" },
-    { "@type": "City", "name": "Milwaukee" },
-    { "@type": "State", "name": "Wisconsin" },
-  ],
-  "telephone": "+1-262-234-1027",
-  "email": "admin@pineforge.digital",
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "17:00",
-    },
-  ],
-  "priceRange": "$$",
-};
-
 export default function AboutPage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(professionalServiceJsonLd),
+        }}
       />
-      <main>
+      <main id="main-content">
         <section className="page-header-dark">
           <div className="container animate-fade-up">
             <span className="badge badge-dark" style={{ marginBottom: "1rem" }}>
               Our Mission
             </span>
             <h1>
-              Precision Craftsmanship.<br />Wisconsin Roots.
+              Precision Craftsmanship.
+              <br />
+              Wisconsin Roots.
             </h1>
             <p>
-              We are two dedicated web developers building premium,
+              We are two dedicated web developers building custom,
               high-performance digital infrastructure for growing local
               businesses.
             </p>
@@ -90,25 +60,23 @@ export default function AboutPage() {
               <div className="about-story-col-1 animate-fade-up">
                 <h2>A different approach.</h2>
                 <p>
-                  Pineforge Digital was built to give local businesses access to
-                  agency-level web development without the inflated enterprise
-                  price tags.
+                  Pineforge Digital LLC was founded to give local businesses
+                  access to direct, custom software engineering without
+                  inflated agency retainers or bloated templates.
                 </p>
               </div>
               <div className="about-story-col-2 animate-fade-up delay-1">
                 <p>
-                  We noticed too many businesses struggling with slow, generic
-                  websites that didn&apos;t actually generate leads. They were
-                  stuck paying monthly fees for pre-built templates that they
-                  didn&apos;t fully own or control.
+                  We saw too many businesses trapped paying recurring monthly
+                  fees for slow, generic template websites they didn&apos;t
+                  truly own or control.
                 </p>
                 <p>
                   We do things differently. Every platform we build is
-                  hand-coded from scratch. No bloated templates, no clunky page
-                  builders, and no vendor lock-in. This approach guarantees
-                  lightning-fast load times, flawless mobile performance, and a
-                  digital storefront built entirely around your unique business
-                  goals.
+                  hand-coded from scratch—no clunky page builders, no template
+                  bloat, and no vendor lock-in. That guarantees fast load times,
+                  reliable mobile performance, and full ownership of your final
+                  deliverables upon project completion.
                 </p>
               </div>
             </div>
@@ -139,7 +107,7 @@ export default function AboutPage() {
                 <h3 style={{ color: "white", marginBottom: "1rem" }}>
                   100% In-House Development
                 </h3>
-                <p style={{ color: "rgba(255,255,255,0.6)", lineHeight: 1.7 }}>
+                <p style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.7 }}>
                   Every line of code is written right here in Wisconsin. We
                   don&apos;t offshore or outsource. When you partner with us, you
                   work directly with the developers building your platform.
@@ -155,11 +123,10 @@ export default function AboutPage() {
                 <h3 style={{ color: "white", marginBottom: "1rem" }}>
                   Obsessive Performance
                 </h3>
-                <p style={{ color: "rgba(255,255,255,0.6)", lineHeight: 1.7 }}>
-                  Speed is not a luxury; it is a requirement. We leverage modern
-                  edge networks and custom-built static generation to guarantee
-                  instant load times, ensuring you never lose a customer to a slow
-                  page.
+                <p style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.7 }}>
+                  Speed is not a luxury; it is an engineering baseline. We
+                  leverage modern edge networks and static/server-rendered
+                  architectures so customers never bounce from a slow page.
                 </p>
               </div>
               <div
@@ -172,10 +139,10 @@ export default function AboutPage() {
                 <h3 style={{ color: "white", marginBottom: "1rem" }}>
                   Unrestricted Ownership
                 </h3>
-                <p style={{ color: "rgba(255,255,255,0.6)", lineHeight: 1.7 }}>
+                <p style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.7 }}>
                   We believe in transparent partnerships, not vendor lock-in.
-                  Once a project is completed, you own the entire codebase and all
-                  intellectual property. We build it, but it belongs to you.
+                  Once final payment is received under your Statement of Work,
+                  the completed deliverables belong to you.
                 </p>
               </div>
             </div>
@@ -196,7 +163,8 @@ export default function AboutPage() {
                   marginRight: "auto",
                 }}
               >
-                The development minds behind Pineforge Digital.
+                The co-founders and engineering minds behind Pineforge Digital
+                LLC.
               </p>
             </div>
 
@@ -226,12 +194,10 @@ export default function AboutPage() {
                     fontSize: "1.05rem",
                   }}
                 >
-                  Merging a rigorous background in Cyber Security with a deep
-                  understanding of front-end development, React, web design, and
-                  graphic art, Caleb ensures that every Pineforge Digital
-                  platform is not only highly secure, but visually stunning. He
-                  focuses on crafting premium user experiences that drive real
-                  business growth.
+                  Merging a rigorous background in cybersecurity with deep
+                  expertise in front-end engineering, React, TypeScript, and
+                  UI/UX design, Caleb ensures every Pineforge Digital platform
+                  is resilient, clean, and built to serve real business goals.
                 </p>
               </div>
 
@@ -257,12 +223,10 @@ export default function AboutPage() {
                     fontSize: "1.05rem",
                   }}
                 >
-                  With a strong background in Python, Java, and back-end
-                  development, Richard brings deep expertise in databases and SQL
-                  to ensure raw performance and clean architecture. He translates
-                  complex business logic into lightning-fast, highly optimized
-                  code—ensuring that every project we deploy performs flawlessly
-                  under pressure.
+                  With a strong background in Python, Java, back-end systems,
+                  and relational SQL databases, Richard translates complex
+                  operational workflows into fast, reliable server-side
+                  architecture and API integrations.
                 </p>
               </div>
             </div>
@@ -288,7 +252,7 @@ export default function AboutPage() {
                 marginBottom: "2rem",
               }}
             >
-              Powered By Enterprise Infrastructure
+              Built With Modern Infrastructure
             </p>
             <div
               style={{
@@ -338,7 +302,7 @@ export default function AboutPage() {
                   color: "var(--text-primary)",
                 }}
               >
-                Supabase
+                PostgreSQL
               </span>
               <span
                 style={{
@@ -379,8 +343,8 @@ export default function AboutPage() {
                 marginRight: "auto",
               }}
             >
-              Contact us to explore how a custom, high-performance website can
-              drive your business forward.
+              Contact our team to explore how a custom, high-performance website
+              or application can drive your business forward.
             </p>
             <div className="responsive-cta-actions">
               <Link

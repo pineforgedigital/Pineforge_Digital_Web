@@ -3,47 +3,61 @@
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { submitContact } from "@/app/actions/contact";
+import { CONTACT_SERVICES, matchServiceFromParam } from "@/lib/contact";
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
   const formRef = useRef<HTMLFormElement>(null);
+  const closeModalBtnRef = useRef<HTMLButtonElement>(null);
+  const formLoadedAtRef = useRef<number>(0);
+  const paramService = matchServiceFromParam(searchParams.get("service"));
+  const [prevParamService, setPrevParamService] = useState(paramService);
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
-    service: "",
+    service: paramService,
     message: "",
     website_url: "",
   });
+
+  if (paramService !== prevParamService) {
+    setPrevParamService(paramService);
+    if (paramService) {
+      setFormData((prev) => ({ ...prev, service: paramService }));
+    }
+  }
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formStatus, setFormStatus] = useState<string>("");
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
-  // Pre-select service from URL query param if present
+  // Record mount timestamp after hydration for automated speed-trap verification
   useEffect(() => {
-    const serviceParam = searchParams.get("service");
-    if (!serviceParam) return;
+    formLoadedAtRef.current = Date.now();
+  }, []);
 
-    const query = serviceParam.toLowerCase();
-    const serviceOptions = [
-      "Custom Website Design & Development",
-      "Search Engine Optimization (SEO)",
-      "E-Commerce & Payment Integration",
-      "Custom Web Applications",
-      "Website Maintenance & Hosting",
-      "Other / Consultation",
-    ];
+  // Modal focus management and Escape key handling
+  useEffect(() => {
+    if (!isSuccessModalOpen) return;
 
-    const matched = serviceOptions.find((opt) =>
-      opt.toLowerCase().includes(query)
-    );
-    if (matched) {
-      setFormData((prev) => ({ ...prev, service: matched }));
-    }
-  }, [searchParams]);
+    closeModalBtnRef.current?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsSuccessModalOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isSuccessModalOpen]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -61,25 +75,42 @@ export default function ContactForm() {
     e.preventDefault();
     setFormStatus("");
 
-    // Client-side validation
+    const trimmedName = formData.name.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedCompany = formData.company.trim();
+    const trimmedMessage = formData.message.trim();
+
     const newErrors: Record<string, string> = {};
-    if (!formData.name.trim()) {
+    if (!trimmedName) {
       newErrors.name = "Please enter your name.";
+    } else if (trimmedName.length < 2 || trimmedName.length > 100) {
+      newErrors.name = "Name must be between 2 and 100 characters.";
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.trim()) {
+    if (!trimmedEmail) {
       newErrors.email = "Please enter your email address.";
-    } else if (!emailRegex.test(formData.email.trim())) {
+    } else if (
+      !EMAIL_REGEX.test(trimmedEmail) ||
+      trimmedEmail.length > 255
+    ) {
       newErrors.email = "Please enter a valid email (e.g., name@company.com).";
+    }
+
+    if (trimmedCompany.length > 100) {
+      newErrors.company = "Company name must be 100 characters or fewer.";
     }
 
     if (!formData.service) {
       newErrors.service = "Please select a service.";
     }
 
-    if (!formData.message.trim()) {
+    if (!trimmedMessage) {
       newErrors.message = "Please tell us a bit about your project.";
+    } else if (trimmedMessage.length < 10) {
+      newErrors.message =
+        "Please provide at least 10 characters describing your project.";
+    } else if (trimmedMessage.length > 2000) {
+      newErrors.message = "Message must be 2,000 characters or fewer.";
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -91,12 +122,13 @@ export default function ContactForm() {
 
     try {
       const data = new FormData();
-      data.append("name", formData.name);
-      data.append("email", formData.email);
-      data.append("company", formData.company);
+      data.append("name", trimmedName);
+      data.append("email", trimmedEmail);
+      data.append("company", trimmedCompany);
       data.append("service", formData.service);
-      data.append("message", formData.message);
+      data.append("message", trimmedMessage);
       data.append("website_url", formData.website_url);
+      data.append("formLoadedAt", String(formLoadedAtRef.current));
 
       const result = await submitContact(data);
 
@@ -112,12 +144,15 @@ export default function ContactForm() {
           website_url: "",
         });
         setErrors({});
+        formLoadedAtRef.current = Date.now();
       } else {
         setFormStatus(result.error || "Failed to send message.");
       }
     } catch (err: unknown) {
       console.error("Form submission error:", err);
-      setFormStatus("An error occurred. Please try again later.");
+      setFormStatus(
+        "An error occurred. Please try again or email admin@pineforge.digital."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -138,10 +173,13 @@ export default function ContactForm() {
             id="name"
             name="name"
             required
+            maxLength={100}
             placeholder="Your Name"
             value={formData.name}
             onChange={handleChange}
             className={errors.name ? "input-error" : ""}
+            aria-invalid={Boolean(errors.name)}
+            aria-describedby={errors.name ? "nameError" : undefined}
           />
           {errors.name && (
             <span className="error-message" id="nameError">
@@ -171,10 +209,13 @@ export default function ContactForm() {
             id="email"
             name="email"
             required
+            maxLength={255}
             placeholder="your@email.com"
             value={formData.email}
             onChange={handleChange}
             className={errors.email ? "input-error" : ""}
+            aria-invalid={Boolean(errors.email)}
+            aria-describedby={errors.email ? "emailError" : undefined}
           />
           {errors.email && (
             <span className="error-message" id="emailError">
@@ -189,10 +230,19 @@ export default function ContactForm() {
             type="text"
             id="company"
             name="company"
+            maxLength={100}
             placeholder="Your Company"
             value={formData.company}
             onChange={handleChange}
+            className={errors.company ? "input-error" : ""}
+            aria-invalid={Boolean(errors.company)}
+            aria-describedby={errors.company ? "companyError" : undefined}
           />
+          {errors.company && (
+            <span className="error-message" id="companyError">
+              {errors.company}
+            </span>
+          )}
         </div>
 
         <div className="form-group">
@@ -205,26 +255,17 @@ export default function ContactForm() {
             value={formData.service}
             onChange={handleChange}
             className={errors.service ? "input-error" : ""}
+            aria-invalid={Boolean(errors.service)}
+            aria-describedby={errors.service ? "serviceError" : undefined}
           >
             <option value="" disabled>
               Select a service...
             </option>
-            <option value="Custom Website Design & Development">
-              Custom Website Design &amp; Development
-            </option>
-            <option value="Search Engine Optimization (SEO)">
-              Search Engine Optimization (SEO)
-            </option>
-            <option value="E-Commerce & Payment Integration">
-              E-Commerce &amp; Payment Integration
-            </option>
-            <option value="Custom Web Applications">
-              Custom Web Applications
-            </option>
-            <option value="Website Maintenance & Hosting">
-              Website Maintenance &amp; Hosting
-            </option>
-            <option value="Other / Consultation">Other / Consultation</option>
+            {CONTACT_SERVICES.map((option) => (
+              <option key={option.slug} value={option.label}>
+                {option.label}
+              </option>
+            ))}
           </select>
           {errors.service && (
             <span className="error-message" id="serviceError">
@@ -234,16 +275,35 @@ export default function ContactForm() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="message">Message</label>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "baseline",
+            }}
+          >
+            <label htmlFor="message">Message</label>
+            <span
+              style={{
+                fontSize: "0.8rem",
+                color: "var(--text-tertiary)",
+              }}
+            >
+              {formData.message.length}/2000
+            </span>
+          </div>
           <textarea
             id="message"
             name="message"
             rows={5}
             required
-            placeholder="Tell us about your project..."
+            maxLength={2000}
+            placeholder="Tell us about your project, goals, and timeline..."
             value={formData.message}
             onChange={handleChange}
             className={errors.message ? "input-error" : ""}
+            aria-invalid={Boolean(errors.message)}
+            aria-describedby={errors.message ? "messageError" : undefined}
           ></textarea>
           {errors.message && (
             <span className="error-message" id="messageError">
@@ -265,10 +325,12 @@ export default function ContactForm() {
         {formStatus && (
           <p
             id="formStatus"
+            role="alert"
             style={{
               marginTop: "1rem",
               textAlign: "center",
-              color: "#ef4444",
+              color: "#dc2626",
+              fontWeight: 500,
             }}
           >
             {formStatus}
@@ -280,6 +342,10 @@ export default function ContactForm() {
       <div
         className={`modal-overlay ${isSuccessModalOpen ? "active" : ""}`}
         id="successModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="successModalTitle"
+        aria-hidden={!isSuccessModalOpen}
         onClick={(e) => {
           if (e.target === e.currentTarget) {
             setIsSuccessModalOpen(false);
@@ -287,19 +353,7 @@ export default function ContactForm() {
         }}
       >
         <div className="modal-content">
-          <div
-            style={{
-              width: "64px",
-              height: "64px",
-              background: "rgba(14, 165, 233, 0.1)",
-              borderRadius: "50%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              margin: "0 auto 1.5rem auto",
-              color: "#0ea5e9",
-            }}
-          >
+          <div className="modal-icon-circle" aria-hidden="true">
             <svg
               width="28"
               height="28"
@@ -314,30 +368,16 @@ export default function ContactForm() {
               <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
             </svg>
           </div>
-          <h2
-            className="mb-2"
-            style={{
-              fontSize: "1.8rem",
-              fontWeight: 700,
-              letterSpacing: "-0.02em",
-            }}
-          >
-            Message Sent
-          </h2>
-          <p
-            className="mb-4"
-            style={{
-              color: "var(--text-secondary)",
-              fontSize: "1.05rem",
-              lineHeight: 1.6,
-            }}
-          >
-            Thank you for reaching out to Pineforge Digital. We will review your
-            project details and get back to you within one business day.
+          <h2 id="successModalTitle">Message Sent</h2>
+          <p>
+            Thank you for reaching out to Pineforge Digital LLC. Our team will
+            review your project details and follow up within one business day.
           </p>
           <button
+            ref={closeModalBtnRef}
+            type="button"
             id="closeModalBtn"
-            className="btn btn-primary"
+            className="btn modal-close-btn"
             style={{ width: "100%" }}
             onClick={() => setIsSuccessModalOpen(false)}
           >

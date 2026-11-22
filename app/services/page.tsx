@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { professionalServiceJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title:
-    "Web Design & Custom Software Services in Kenosha, WI | Pineforge Digital",
+  title: "Custom Web Development Services in Kenosha, WI",
   description:
-    "Explore our specialized web services for Kenosha businesses, including custom website design, client portals, and business applications.",
+    "Explore Pineforge Digital's custom website builds, web applications, internal dashboards, e-commerce payment systems, and API integrations in Southeastern Wisconsin.",
   alternates: {
     canonical: "https://pineforge.digital/services",
   },
   openGraph: {
-    title: "Pineforge Digital | Premium Custom Web Development",
+    title: "Custom Web Development Services | Pineforge Digital",
     description:
-      "We build premium, custom websites that help local businesses generate more leads and revenue.",
+      "Hand-coded websites, internal dashboards, e-commerce payment flows, and API integrations built to clear Statement of Work specifications.",
     url: "https://pineforge.digital/services",
     images: ["/images/logo-social.jpg"],
   },
@@ -22,49 +22,16 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Pineforge Digital LLC",
-  "url": "https://pineforge.digital",
-  "logo": "https://pineforge.digital/images/Brand_Logo_white.png",
-  "image": "https://pineforge.digital/images/logo-social.jpg",
-  "description":
-    "Custom website design, web development, and custom web development for small and mid-sized businesses.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bristol",
-    "addressRegion": "WI",
-    "postalCode": "53104",
-    "addressCountry": "US",
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Kenosha" },
-    { "@type": "City", "name": "Racine" },
-    { "@type": "City", "name": "Milwaukee" },
-    { "@type": "State", "name": "Wisconsin" },
-  ],
-  "telephone": "+1-262-234-1027",
-  "email": "admin@pineforge.digital",
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "17:00",
-    },
-  ],
-  "priceRange": "$$",
-};
-
 export default function ServicesPage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(professionalServiceJsonLd),
+        }}
       />
-      <main>
+      <main id="main-content">
         <section className="page-header-dark">
           <div className="container animate-fade-up">
             <span className="badge badge-dark" style={{ marginBottom: "1rem" }}>
@@ -72,26 +39,19 @@ export default function ServicesPage() {
             </span>
             <h1>Custom Web Development Services</h1>
             <p>
-              We specialize in custom website design, backed by robust custom web
-              development capabilities.
+              We build custom websites, web applications, internal dashboards,
+              and API integrations under clear Statement of Work milestones.
             </p>
           </div>
         </section>
 
         <section style={{ padding: "8rem 0" }}>
           <div className="container">
-            {/* 1. Front-End Web Development */}
-            <div
-              className="grid grid-2"
-              style={{
-                gap: "4rem",
-                alignItems: "center",
-                marginBottom: "8rem",
-              }}
-            >
-              <div className="animate-fade-up">
+            {/* 1. Custom Website Design & Build */}
+            <div className="service-row">
+              <div className="service-text animate-fade-up">
                 <h2 style={{ fontSize: "2.5rem", marginBottom: "1.5rem" }}>
-                  Front-End Web Development
+                  Custom Website Design &amp; Build
                 </h2>
                 <p
                   style={{
@@ -100,10 +60,10 @@ export default function ServicesPage() {
                     marginBottom: "2rem",
                   }}
                 >
-                  We build marketing and brochure websites from scratch using raw
-                  code. By eliminating bloated site builders, we deliver
-                  lightning-fast, highly secure, and visually striking digital
-                  storefronts that represent your brand perfectly.
+                  We build fast, reliable business websites from scratch using
+                  your copy, logos, and imagery. By eliminating bloated page
+                  builders, we deliver responsive storefronts built for speed,
+                  clarity, and straightforward ownership.
                 </p>
                 <h3 style={{ fontSize: "1.25rem", marginBottom: "1rem" }}>
                   Key Deliverables:
@@ -116,14 +76,20 @@ export default function ServicesPage() {
                     marginBottom: "2rem",
                   }}
                 >
-                  <li>Blazing fast load times (Google Lighthouse Optimized)</li>
-                  <li>Fully responsive, mobile-first design</li>
-                  <li>Custom headless CMS (Sanity.io) for easy editing</li>
-                  <li>High-converting copywriting and layouts</li>
+                  <li>
+                    Fast, lightweight custom code (Google Lighthouse optimized)
+                  </li>
+                  <li>Fully responsive, mobile-first layout</li>
+                  <li>
+                    Clean semantic HTML &amp; Schema.org technical foundations
+                  </li>
+                  <li>
+                    Optional headless CMS (Sanity.io) when scoped in your SOW
+                  </li>
                 </ul>
               </div>
               <div
-                className="bento-card animate-fade-up delay-1"
+                className="bento-card service-card animate-fade-up delay-1"
                 style={{ background: "var(--bg-surface)", padding: "3rem" }}
               >
                 <h3
@@ -141,33 +107,55 @@ export default function ServicesPage() {
                     marginBottom: "1rem",
                   }}
                 >
-                  Eliminate lag, ensure perfect mobile responsiveness, and
-                  provide your visitors with a premium browsing experience.
+                  Eliminate template lag, ensure crisp mobile usability, and
+                  present your company with a custom-built digital storefront.
                 </p>
                 <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-                  <span className="badge badge-emerald">More Leads</span>
-                  <span className="badge badge-blue">Premium Brand Image</span>
-                  <span className="badge badge-violet">Zero Frustrating Lag</span>
+                  <span className="badge badge-emerald">Fast Load Times</span>
+                  <span className="badge badge-blue">Custom Craftsmanship</span>
+                  <span className="badge badge-violet">Zero Builder Bloat</span>
                 </div>
               </div>
             </div>
 
-            {/* 2. Search Engine Optimization (SEO) */}
-            <div
-              className="grid grid-2"
-              style={{
-                gap: "4rem",
-                alignItems: "center",
-                marginBottom: "8rem",
-              }}
-            >
+            {/* 2. Custom Web Applications & Internal Dashboards */}
+            <div className="service-row service-row-reverse">
+              <div className="service-text animate-fade-up">
+                <h2 style={{ fontSize: "2.5rem", marginBottom: "1.5rem" }}>
+                  Custom Web Applications &amp; Dashboards
+                </h2>
+                <p
+                  style={{
+                    fontSize: "1.1rem",
+                    color: "var(--text-secondary)",
+                    marginBottom: "2rem",
+                  }}
+                >
+                  For when off-the-shelf software slows your team down. We
+                  architect secure internal dashboards, customer portals, and
+                  custom scheduling or operational tools tailored specifically
+                  to your workflows.
+                </p>
+                <h3 style={{ fontSize: "1.25rem", marginBottom: "1rem" }}>
+                  Key Deliverables:
+                </h3>
+                <ul
+                  style={{
+                    listStyle: "disc",
+                    marginLeft: "1.5rem",
+                    color: "var(--text-secondary)",
+                    marginBottom: "2rem",
+                  }}
+                >
+                  <li>Custom internal dashboards &amp; administrative tools</li>
+                  <li>Client portals with role-based authentication</li>
+                  <li>Relational database architecture (PostgreSQL/Supabase)</li>
+                  <li>Clean React / TypeScript front-end interfaces</li>
+                </ul>
+              </div>
               <div
-                className="bento-card animate-fade-up delay-1"
-                style={{
-                  background: "var(--bg-surface)",
-                  padding: "3rem",
-                  order: 2,
-                }}
+                className="bento-card service-card animate-fade-up delay-1"
+                style={{ background: "var(--bg-surface)", padding: "3rem" }}
               >
                 <h3
                   style={{
@@ -184,63 +172,20 @@ export default function ServicesPage() {
                     marginBottom: "1rem",
                   }}
                 >
-                  Capture organic traffic in your target market by ensuring
-                  search engines can read, index, and prioritize your content.
+                  Consolidate scattered spreadsheets and manual steps into one
+                  bespoke platform that your business owns outright.
                 </p>
                 <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-                  <span className="badge badge-emerald">
-                    Higher Search Visibility
-                  </span>
-                  <span className="badge badge-amber">More Organic Calls</span>
-                  <span className="badge badge-blue">Local Authority</span>
+                  <span className="badge badge-amber">No Per-Seat Fees</span>
+                  <span className="badge badge-emerald">Full Ownership</span>
+                  <span className="badge badge-blue">Centralized Data</span>
                 </div>
-              </div>
-              <div className="animate-fade-up" style={{ order: 1 }}>
-                <h2 style={{ fontSize: "2.5rem", marginBottom: "1.5rem" }}>
-                  Search Engine Optimization (SEO)
-                </h2>
-                <p
-                  style={{
-                    fontSize: "1.1rem",
-                    color: "var(--text-secondary)",
-                    marginBottom: "2rem",
-                  }}
-                >
-                  A beautiful website is useless if nobody finds it. We
-                  architect your site&apos;s codebase specifically to rank high
-                  on Google. We handle the technical metadata, schema markup, and
-                  speed optimizations required to push your business to the top
-                  of local search results.
-                </p>
-                <h3 style={{ fontSize: "1.25rem", marginBottom: "1rem" }}>
-                  Key Deliverables:
-                </h3>
-                <ul
-                  style={{
-                    listStyle: "disc",
-                    marginLeft: "1.5rem",
-                    color: "var(--text-secondary)",
-                    marginBottom: "2rem",
-                  }}
-                >
-                  <li>Comprehensive Schema.org Markup</li>
-                  <li>On-page SEO optimization for local keywords</li>
-                  <li>Google Business Profile integration</li>
-                  <li>Technical SEO audits and monitoring</li>
-                </ul>
               </div>
             </div>
 
-            {/* 3. E-Commerce & Portals */}
-            <div
-              className="grid grid-2"
-              style={{
-                gap: "4rem",
-                alignItems: "center",
-                marginBottom: "8rem",
-              }}
-            >
-              <div className="animate-fade-up">
+            {/* 3. E-Commerce & Payment Integration */}
+            <div className="service-row">
+              <div className="service-text animate-fade-up">
                 <h2 style={{ fontSize: "2.5rem", marginBottom: "1.5rem" }}>
                   E-Commerce &amp; Payment Integration
                 </h2>
@@ -251,11 +196,10 @@ export default function ServicesPage() {
                     marginBottom: "2rem",
                   }}
                 >
-                  We build custom checkout flows and integrate robust payment
-                  gateways like Stripe. Whether you are selling digital services,
-                  subscriptions, or physical inventory, we ensure the
-                  transaction process is frictionless, secure, and fully
-                  automated.
+                  We build streamlined checkout experiences and integrate
+                  compliant payment processors like Stripe. Whether selling
+                  products, bookings, or services, transactions stay fast,
+                  reliable, and secure.
                 </p>
                 <h3 style={{ fontSize: "1.25rem", marginBottom: "1rem" }}>
                   Key Deliverables:
@@ -271,11 +215,11 @@ export default function ServicesPage() {
                   <li>Stripe &amp; Shopify headless integrations</li>
                   <li>Custom shopping carts and checkout flows</li>
                   <li>Secure customer payment portals</li>
-                  <li>Automated receipt and inventory syncing</li>
+                  <li>Automated order notifications and receipt handling</li>
                 </ul>
               </div>
               <div
-                className="bento-card animate-fade-up delay-1"
+                className="bento-card service-card animate-fade-up delay-1"
                 style={{ background: "var(--bg-surface)", padding: "3rem" }}
               >
                 <h3
@@ -293,33 +237,56 @@ export default function ServicesPage() {
                     marginBottom: "1rem",
                   }}
                 >
-                  Reduce cart abandonment with a streamlined checkout process
-                  tailored directly to your specific sales model.
+                  Reduce checkout friction and collect payments cleanly using
+                  established, PCI-compliant payment providers.
                 </p>
                 <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-                  <span className="badge badge-emerald">Higher Conversions</span>
+                  <span className="badge badge-emerald">Smooth Checkout</span>
                   <span className="badge badge-blue">Secure Payments</span>
                   <span className="badge badge-violet">Frictionless UX</span>
                 </div>
               </div>
             </div>
 
-            {/* 4. Full-Stack Web Applications */}
-            <div
-              className="grid grid-2"
-              style={{
-                gap: "4rem",
-                alignItems: "center",
-                marginBottom: "6rem",
-              }}
-            >
+            {/* 4. API Integrations & Business Automation */}
+            <div className="service-row service-row-reverse">
+              <div className="service-text animate-fade-up">
+                <h2 style={{ fontSize: "2.5rem", marginBottom: "1.5rem" }}>
+                  API Integrations &amp; Business Automation
+                </h2>
+                <p
+                  style={{
+                    fontSize: "1.1rem",
+                    color: "var(--text-secondary)",
+                    marginBottom: "2rem",
+                  }}
+                >
+                  Connect your website or internal dashboard to the documented
+                  third-party platforms you already rely on—eliminating manual
+                  copy-and-paste work across systems.
+                </p>
+                <h3 style={{ fontSize: "1.25rem", marginBottom: "1rem" }}>
+                  Key Deliverables:
+                </h3>
+                <ul
+                  style={{
+                    listStyle: "disc",
+                    marginLeft: "1.5rem",
+                    color: "var(--text-secondary)",
+                    marginBottom: "2rem",
+                  }}
+                >
+                  <li>
+                    Authenticated integrations with documented third-party APIs
+                  </li>
+                  <li>Automated lead routing &amp; webhook processing</li>
+                  <li>CRM, scheduling, and inventory data display</li>
+                  <li>Reliable server-side validation and error handling</li>
+                </ul>
+              </div>
               <div
-                className="bento-card animate-fade-up delay-1"
-                style={{
-                  background: "var(--bg-surface)",
-                  padding: "3rem",
-                  order: 2,
-                }}
+                className="bento-card service-card animate-fade-up delay-1"
+                style={{ background: "var(--bg-surface)", padding: "3rem" }}
               >
                 <h3
                   style={{
@@ -336,47 +303,14 @@ export default function ServicesPage() {
                     marginBottom: "1rem",
                   }}
                 >
-                  Consolidate your business operations into a single, proprietary
-                  platform that you own and control completely.
+                  Save administrative time every week by automating routine data
+                  handoffs between your website and backend tools.
                 </p>
                 <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-                  <span className="badge badge-amber">No Monthly App Fees</span>
-                  <span className="badge badge-emerald">Full Ownership</span>
-                  <span className="badge badge-blue">Automate Workflows</span>
+                  <span className="badge badge-amber">Less Manual Entry</span>
+                  <span className="badge badge-emerald">Reliable Sync</span>
+                  <span className="badge badge-blue">Clean Architecture</span>
                 </div>
-              </div>
-              <div className="animate-fade-up" style={{ order: 1 }}>
-                <h2 style={{ fontSize: "2.5rem", marginBottom: "1.5rem" }}>
-                  Custom Web Applications
-                </h2>
-                <p
-                  style={{
-                    fontSize: "1.1rem",
-                    color: "var(--text-secondary)",
-                    marginBottom: "2rem",
-                  }}
-                >
-                  For when your business outgrows standard software. If you need
-                  specialized internal tools, custom booking systems, or secure
-                  client portals, we build tailored applications that streamline
-                  your daily operations.
-                </p>
-                <h3 style={{ fontSize: "1.25rem", marginBottom: "1rem" }}>
-                  Key Deliverables:
-                </h3>
-                <ul
-                  style={{
-                    listStyle: "disc",
-                    marginLeft: "1.5rem",
-                    color: "var(--text-secondary)",
-                    marginBottom: "2rem",
-                  }}
-                >
-                  <li>Custom internal tools &amp; CRMs</li>
-                  <li>Client portals with secure login</li>
-                  <li>Complex database architecture (Supabase)</li>
-                  <li>Third-party API integrations</li>
-                </ul>
               </div>
             </div>
           </div>
@@ -406,12 +340,12 @@ export default function ServicesPage() {
                   marginRight: "auto",
                 }}
               >
-                Clear, upfront pricing with no hidden fees. Choose the solution
-                that fits your business goals.
+                Clear starting pricing scoped through a written Statement of
+                Work. Choose the tier that fits your technical goals.
               </p>
             </div>
 
-            <div className="grid grid-3" style={{ gap: "2rem", marginBottom: "4rem" }}>
+            <div className="grid grid-3" style={{ gap: "2rem", marginBottom: "3rem" }}>
               {/* Tier 1 */}
               <div
                 className="bento-card animate-fade-up"
@@ -434,8 +368,8 @@ export default function ServicesPage() {
                     lineHeight: 1.6,
                   }}
                 >
-                  Perfect for local businesses needing a fast, professional, and
-                  SEO-optimized digital storefront to establish trust.
+                  Built for local businesses needing a fast, mobile-responsive,
+                  hand-coded digital storefront with clean technical markup.
                 </p>
 
                 <div
@@ -510,7 +444,7 @@ export default function ServicesPage() {
                     >
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>{" "}
-                    Lightning Fast Load Times
+                    Lightning-Fast Load Times
                   </li>
                   <li
                     style={{
@@ -530,7 +464,7 @@ export default function ServicesPage() {
                     >
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>{" "}
-                    Mobile Responsive
+                    Mobile Responsive Layout
                   </li>
                   <li
                     style={{
@@ -550,7 +484,7 @@ export default function ServicesPage() {
                     >
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>{" "}
-                    Basic Local SEO Setup
+                    Semantic HTML &amp; Schema Foundations
                   </li>
                 </ul>
 
@@ -585,8 +519,8 @@ export default function ServicesPage() {
                     lineHeight: 1.6,
                   }}
                 >
-                  For growing businesses taking payments, booking appointments,
-                  or needing powerful third-party software integrations.
+                  For growing businesses taking online payments, booking
+                  appointments, or connecting documented third-party APIs.
                 </p>
 
                 <div
@@ -701,7 +635,7 @@ export default function ServicesPage() {
                     >
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>{" "}
-                    Custom API Connections
+                    Standard API Connections
                   </li>
                 </ul>
 
@@ -736,8 +670,8 @@ export default function ServicesPage() {
                     lineHeight: 1.6,
                   }}
                 >
-                  Enterprise-level platforms, bespoke SaaS applications, and
-                  highly secure client portals built perfectly to your spec.
+                  Custom web applications, internal dashboards, and secure
+                  client portals engineered specifically to your written SOW.
                 </p>
 
                 <div
@@ -792,7 +726,7 @@ export default function ServicesPage() {
                     >
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>{" "}
-                    Complex Database Architecture
+                    Relational Database Architecture
                   </li>
                   <li
                     style={{
@@ -832,7 +766,7 @@ export default function ServicesPage() {
                     >
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>{" "}
-                    Interactive Dashboards
+                    Interactive Internal Dashboards
                   </li>
                   <li
                     style={{
@@ -852,7 +786,7 @@ export default function ServicesPage() {
                     >
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>{" "}
-                    Long-Term Retainer Options
+                    Optional Separate Maintenance Agreement
                   </li>
                 </ul>
 
@@ -865,6 +799,46 @@ export default function ServicesPage() {
                 </Link>
               </div>
             </div>
+
+            {/* SOW & Scope Callout */}
+            <div
+              className="bento-card"
+              style={{
+                background: "white",
+                padding: "2rem 2.5rem",
+                maxWidth: "960px",
+                margin: "0 auto",
+              }}
+            >
+              <p
+                style={{
+                  fontSize: "0.95rem",
+                  color: "var(--text-secondary)",
+                  margin: 0,
+                  lineHeight: 1.7,
+                }}
+              >
+                <strong style={{ color: "var(--text-primary)" }}>
+                  Engagement Terms:
+                </strong>{" "}
+                Every project is governed by our Master Services Agreement and a
+                written Statement of Work defining exact pages, integrations, and
+                milestones. Clients supply final text copy, logos, and imagery.
+                All completed launches include a 14-day defect warranty, with
+                optional separate maintenance agreements available upon request.{" "}
+                <Link
+                  href="/terms"
+                  style={{
+                    color: "var(--brand-blue)",
+                    textDecoration: "underline",
+                    fontWeight: 600,
+                  }}
+                >
+                  Review Terms of Service
+                </Link>
+                .
+              </p>
+            </div>
           </div>
         </section>
 
@@ -873,7 +847,7 @@ export default function ServicesPage() {
           className="light-theme"
           style={{
             padding: "8rem 0",
-            background: "var(--bg-surface)",
+            background: "var(--bg-base)",
             borderTop: "1px solid var(--border-subtle)",
           }}
         >
@@ -892,13 +866,15 @@ export default function ServicesPage() {
             >
               <div className="bento-card animate-fade-up" style={{ padding: "2rem" }}>
                 <h3 style={{ fontSize: "1.25rem", marginBottom: "0.5rem" }}>
-                  Do you use templates like WordPress?
+                  Do you use templates like WordPress or guarantee search
+                  rankings?
                 </h3>
                 <p style={{ color: "var(--text-secondary)" }}>
-                  No. We hand-code every website from scratch instead of using
-                  bloated WordPress templates. This results in lightning-fast
-                  load times, better security, and higher Google rankings for
-                  your business.
+                  No to both. We hand-code websites from scratch for speed and
+                  clean semantic markup rather than relying on bloated WordPress
+                  templates—and under our contracts, we never promise or
+                  guarantee specific Google rankings, traffic volumes, or
+                  commercial revenue outcomes.
                 </p>
               </div>
               <div
@@ -909,9 +885,11 @@ export default function ServicesPage() {
                   Who owns the code after the project is finished?
                 </h3>
                 <p style={{ color: "var(--text-secondary)" }}>
-                  You do. Once the project is complete and fully paid for, all
-                  intellectual property, source code, and assets are transferred
-                  entirely to your company. No vendor lock-in.
+                  You do. Upon full payment of all amounts due, ownership of the
+                  final deliverables expressly identified in your Statement of
+                  Work transfers to your business. Pre-existing libraries and
+                  third-party open-source packages remain licensed for use within
+                  your build.
                 </p>
               </div>
               <div
@@ -919,13 +897,14 @@ export default function ServicesPage() {
                 style={{ padding: "2rem" }}
               >
                 <h3 style={{ fontSize: "1.25rem", marginBottom: "0.5rem" }}>
-                  How do you handle security and data protection?
+                  How do you handle security and platform access?
                 </h3>
                 <p style={{ color: "var(--text-secondary)" }}>
-                  Security is our top priority. We use bank-level encryption,
-                  secure user authentication, and strict access controls to
-                  ensure your sensitive business data is completely protected
-                  from unauthorized access.
+                  We follow strict least-privilege practices: we never accept or
+                  store master passwords, requesting Delegated or Collaborator
+                  access only. For applications handling user logins or data, we
+                  implement encrypted transport, strict validation, and scoped
+                  database permissions.
                 </p>
               </div>
             </div>
@@ -936,7 +915,8 @@ export default function ServicesPage() {
         <section
           style={{
             padding: "6rem 0",
-            background: "var(--bg-base)",
+            background: "var(--bg-surface)",
+            borderTop: "1px solid var(--border-subtle)",
             textAlign: "center",
           }}
         >
@@ -952,8 +932,8 @@ export default function ServicesPage() {
                 margin: "0 auto 2.5rem auto",
               }}
             >
-              Schedule a consultation with our development team to map out the
-              architecture and timeline for your custom application.
+              Schedule a consultation with our development team to define your
+              Statement of Work, architecture, and timeline.
             </p>
             <div
               style={{
