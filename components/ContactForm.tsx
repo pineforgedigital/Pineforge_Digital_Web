@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { useSearchParams } from "next/navigation";
 import { submitContact } from "@/app/actions/contact";
 import { CONTACT_SERVICES, matchServiceFromParam } from "@/lib/contact";
@@ -41,10 +42,12 @@ export default function ContactForm() {
     formLoadedAtRef.current = Date.now();
   }, []);
 
-  // Modal focus management and Escape key handling
+  // Modal focus management, body scroll lock, and Escape key handling
   useEffect(() => {
     if (!isSuccessModalOpen) return;
 
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     closeModalBtnRef.current?.focus();
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -55,6 +58,7 @@ export default function ContactForm() {
 
     document.addEventListener("keydown", handleKeyDown);
     return () => {
+      document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isSuccessModalOpen]);
@@ -338,53 +342,57 @@ export default function ContactForm() {
         )}
       </form>
 
-      {/* Success Modal */}
-      <div
-        className={`modal-overlay ${isSuccessModalOpen ? "active" : ""}`}
-        id="successModal"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="successModalTitle"
-        aria-hidden={!isSuccessModalOpen}
-        onClick={(e) => {
-          if (e.target === e.currentTarget) {
-            setIsSuccessModalOpen(false);
-          }
-        }}
-      >
-        <div className="modal-content">
-          <div className="modal-icon-circle" aria-hidden="true">
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="22" y1="2" x2="11" y2="13"></line>
-              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-            </svg>
-          </div>
-          <h2 id="successModalTitle">Message Sent</h2>
-          <p>
-            Thank you for reaching out to Pineforge Digital LLC. Our team will
-            review your project details and follow up within one business day.
-          </p>
-          <button
-            ref={closeModalBtnRef}
-            type="button"
-            id="closeModalBtn"
-            className="btn modal-close-btn"
-            style={{ width: "100%" }}
-            onClick={() => setIsSuccessModalOpen(false)}
+      {/* Full-Viewport Success Modal via Portal */}
+      {isSuccessModalOpen &&
+        createPortal(
+          <div
+            className="modal-overlay active"
+            id="successModal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="successModalTitle"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) {
+                setIsSuccessModalOpen(false);
+              }
+            }}
           >
-            Done
-          </button>
-        </div>
-      </div>
+            <div className="modal-content">
+              <div className="modal-icon-circle" aria-hidden="true">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </div>
+              <h2 id="successModalTitle">Message Sent</h2>
+              <p>
+                Thank you for reaching out to Pineforge Digital LLC. Our team
+                will review your project details and follow up within one
+                business day.
+              </p>
+              <button
+                ref={closeModalBtnRef}
+                type="button"
+                id="closeModalBtn"
+                className="btn modal-close-btn"
+                style={{ width: "100%" }}
+                onClick={() => setIsSuccessModalOpen(false)}
+              >
+                Done
+              </button>
+            </div>
+          </div>,
+          document.body
+        )}
     </>
   );
 }
