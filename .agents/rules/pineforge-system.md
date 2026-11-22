@@ -24,7 +24,11 @@ All solutions must eliminate reliance on bloated, recurring enterprise software 
 - **Design Constraints**: Modular, clean architecture. Utility-first CSS frameworks like Tailwind CSS for rapid prototyping.
 
 ## 5. PROJECT ECONOMICS & CLIENT ENGAGEMENT
-- **Baseline Budget**: $1,500 - $3,000. Code generation must remain within this scope tier; do not over-engineer.
+- **Pricing Tiers**:
+  - **Standard Website**: $2,000 starting
+  - **E-Commerce Site**: $3,500 starting
+  - **Fully Custom Web Application / Dashboard**: Custom Quote
+- **Portfolio Reference**: Completed client website — Aesthetic Design & Construction (`https://aestheticdesignconstruction.com/`).
 - **Intellectual Property Guarantee**: Deliverables are "works made for hire." Clients retain 100% ownership upon final payment.
 - **Client Responsibilities**: Clients provide text, branding, and images. Default to placeholder text (Lorem Ipsum) and watermarked assets otherwise.
 

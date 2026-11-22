@@ -4,3 +4,7 @@ inquiries.db
 .DS_Store
 .vercel
 .env*
+.next/
+out/
+build/
+tsconfig.tsbuildinfo
