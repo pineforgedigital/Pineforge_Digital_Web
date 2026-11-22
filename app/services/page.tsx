@@ -522,21 +522,18 @@ export default function ServicesPage() {
 
               {/* Tier 2 */}
               <div
-                className="bento-card pricing-card-featured animate-fade-up delay-1"
+                className="bento-card animate-fade-up delay-1"
                 style={{ display: "flex", flexDirection: "column" }}
               >
-                <div className="pricing-card-header">
-                  <h3
-                    style={{
-                      fontSize: "1.75rem",
-                      marginBottom: 0,
-                      marginTop: 0,
-                    }}
-                  >
-                    E-Commerce Site
-                  </h3>
-                  <span className="badge badge-blue">Most Popular</span>
-                </div>
+                <h3
+                  style={{
+                    fontSize: "1.75rem",
+                    marginBottom: "0.5rem",
+                    marginTop: 0,
+                  }}
+                >
+                  E-Commerce Site
+                </h3>
                 <p
                   style={{
                     color: "var(--text-secondary)",
@@ -667,7 +664,7 @@ export default function ServicesPage() {
 
                 <Link
                   href="/contact?service=ecommerce"
-                  className="btn btn-primary"
+                  className="btn btn-secondary"
                   style={{ width: "100%", textAlign: "center" }}
                 >
                   Get Started

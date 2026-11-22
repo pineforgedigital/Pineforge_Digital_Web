@@ -1118,69 +1118,145 @@ input:focus, textarea:focus, select:focus {
 
 /* Featured Portfolio Card */
 .portfolio-card {
-    display: grid;
-    grid-template-columns: 1fr 1.15fr;
-    gap: 3rem;
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
     padding: 0;
     overflow: hidden;
-    align-items: stretch;
-}
-.portfolio-content {
-    padding: 3.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.portfolio-content h3 {
-    margin-top: 1.25rem;
-    margin-bottom: 1rem;
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-}
-.portfolio-highlights {
-    list-style: disc;
-    margin: 0 0 1.75rem 1.25rem;
-    color: var(--text-secondary);
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-    font-size: 0.98rem;
 }
 .portfolio-visual {
-    background: var(--bg-surface-hover);
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    border-left: 1px solid var(--border-subtle);
+    background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.14), transparent 62%), #0b1222;
+    padding: clamp(1.25rem, 3.5vw, 2.5rem);
+    border-bottom: 1px solid var(--border-subtle);
+}
+.portfolio-visual-link {
+    display: block;
+    text-decoration: none;
 }
 .portfolio-visual-frame {
     width: 100%;
     border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 20px 45px -12px rgba(15, 23, 42, 0.2);
-    border: 1px solid var(--border-strong);
-    background: #ffffff;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    background: #0f172a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.portfolio-visual-link:hover .portfolio-visual-frame {
+    transform: translateY(-3px);
+    box-shadow: 0 32px 70px -15px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(56, 189, 248, 0.35);
+}
+.portfolio-browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 1rem;
+    background: #111c32;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.portfolio-browser-dots {
+    display: inline-flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+.portfolio-browser-dots span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+.portfolio-browser-url {
+    flex: 1;
+    text-align: center;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(226, 232, 240, 0.72);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 6px;
+    padding: 0.22rem 0.75rem;
+    max-width: 320px;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .portfolio-visual-img {
     display: block;
     width: 100%;
     height: auto;
 }
-@media (max-width: 900px) {
-    .portfolio-card {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
+.portfolio-content {
+    padding: clamp(1.75rem, 4vw, 3rem);
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: clamp(1.75rem, 4vw, 3.5rem);
+    align-items: center;
+}
+.portfolio-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+.portfolio-category {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-tertiary);
+}
+.portfolio-summary h3 {
+    margin-top: 0;
+    margin-bottom: 0.85rem;
+    font-size: clamp(1.65rem, 3vw, 2.15rem);
+}
+.portfolio-summary p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1.02rem;
+    line-height: 1.7;
+}
+.portfolio-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+.portfolio-highlights {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.98rem;
+}
+.portfolio-highlights li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    line-height: 1.5;
+}
+.portfolio-highlights svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+@media (max-width: 860px) {
     .portfolio-content {
-        padding: 2.25rem 1.75rem;
-        order: 2;
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+        padding: 1.75rem 1.5rem;
     }
     .portfolio-visual {
-        order: 1;
-        padding: 1.25rem;
-        border-left: none;
-        border-bottom: 1px solid var(--border-subtle);
+        padding: 1rem;
+    }
+    .portfolio-browser-bar {
+        padding: 0.5rem 0.75rem;
+    }
+    .portfolio-browser-url {
+        font-size: 0.72rem;
+        max-width: 220px;
     }
 }
 
@@ -1228,23 +1304,6 @@ input:focus, textarea:focus, select:focus {
 }
 .legal-content a:hover {
     color: var(--brand-blue-hover);
-}
-
-/* Featured Pricing Tier */
-.pricing-card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    margin-bottom: 0.5rem;
-}
-.pricing-card-featured {
-    border: 2px solid var(--brand-blue);
-    box-shadow: 0 24px 50px -12px rgba(3, 105, 161, 0.16), 0 0 0 1px rgba(3, 105, 161, 0.12);
-}
-.pricing-card-featured:hover {
-    box-shadow: 0 32px 60px -15px rgba(3, 105, 161, 0.22), 0 4px 10px rgba(3, 105, 161, 0.12);
 }
 
 /* Dark Theme Surface Cards */

@@ -443,62 +443,144 @@ export default function HomePage() {
               </span>
               <h2>Recent Launch</h2>
               <p>
-                Real custom engineering built for local businesses—clean
-                design, fast performance, and zero template limitations.
+                A look at how we help local businesses replace generic templates
+                with fast, custom-built websites.
               </p>
             </div>
 
             <div className="bento-card portfolio-card animate-fade-up">
-              <div className="portfolio-content">
-                <div>
-                  <span className="badge badge-emerald">Client Launch</span>
-                </div>
-                <h3>Aesthetic Design &amp; Construction</h3>
-                <p style={{ marginBottom: "1.25rem" }}>
-                  A bespoke, hand-coded website built for a family-owned
-                  residential remodeling and custom construction firm. Designed
-                  to showcase finished craftsmanship, clarify service offerings,
-                  and guide homeowners directly to project inquiries.
-                </p>
-                <ul className="portfolio-highlights">
-                  <li>Custom multi-page architecture &amp; project gallery</li>
-                  <li>Mobile-first responsive layout &amp; direct inquiry flow</li>
-                  <li>Hand-coded with Sanity CMS and zero WordPress bloat</li>
-                </ul>
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "0.5rem",
-                    flexWrap: "wrap",
-                    marginBottom: "2rem",
-                  }}
+              <div className="portfolio-visual">
+                <a
+                  href="https://aestheticdesignconstruction.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="portfolio-visual-link"
+                  aria-label="Visit Aesthetic Design & Construction live website"
                 >
-                  <span className="badge badge-blue">Custom Code</span>
-                  <span className="badge badge-violet">Mobile-First</span>
-                  <span className="badge badge-emerald">Fast Performance</span>
+                  <div className="portfolio-visual-frame">
+                    <div className="portfolio-browser-bar" aria-hidden="true">
+                      <span className="portfolio-browser-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </span>
+                      <span className="portfolio-browser-url">
+                        aestheticdesignconstruction.com
+                      </span>
+                    </div>
+                    <Image
+                      src="/images/aesthetic_design_mockup.png"
+                      alt="Aesthetic Design & Construction custom website homepage preview"
+                      width={2048}
+                      height={1006}
+                      sizes="(max-width: 900px) 100vw, 1000px"
+                      className="portfolio-visual-img"
+                    />
+                  </div>
+                </a>
+              </div>
+
+              <div className="portfolio-content">
+                <div className="portfolio-summary">
+                  <div className="portfolio-meta">
+                    <span className="badge badge-emerald">Client Launch</span>
+                    <span className="portfolio-category">
+                      Residential Remodeling &amp; Construction
+                    </span>
+                  </div>
+                  <h3>Aesthetic Design &amp; Construction</h3>
+                  <p>
+                    A custom, hand-coded website built for a family-owned
+                    residential remodeling and construction company—designed to
+                    showcase finished projects, walk homeowners through their
+                    services, and make requesting a quote simple.
+                  </p>
                 </div>
-                <div>
+
+                <div className="portfolio-details">
+                  <ul className="portfolio-highlights">
+                    <li>
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--accent-emerald)"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Custom-designed multi-page site &amp; project gallery</span>
+                    </li>
+                    <li>
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--accent-emerald)"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>
+                        Mobile-friendly layout with a direct project inquiry form
+                      </span>
+                    </li>
+                    <li>
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--accent-emerald)"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>
+                        Sanity CMS included so their team can easily add new
+                        projects
+                      </span>
+                    </li>
+                  </ul>
                   <a
                     href="https://aestheticdesignconstruction.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-primary"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                    }}
                   >
                     Visit Live Site
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
                   </a>
-                </div>
-              </div>
-
-              <div className="portfolio-visual">
-                <div className="portfolio-visual-frame">
-                  <Image
-                    src="/images/aesthetic_design_mockup.png"
-                    alt="Aesthetic Design & Construction custom website homepage preview"
-                    width={2048}
-                    height={1006}
-                    sizes="(max-width: 900px) 100vw, 55vw"
-                    className="portfolio-visual-img"
-                  />
                 </div>
               </div>
             </div>
