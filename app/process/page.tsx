@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Our Development Process | Pineforge Digital",
     description:
-      "Transparent, milestone-driven custom web and software development governed by clear Statement of Work specifications.",
+      "A clear, milestone-driven custom web and software development process with upfront scope and pricing.",
     url: "https://pineforge.digital/process",
     images: ["/images/logo-social.jpg"],
   },
@@ -39,8 +39,8 @@ export default function ProcessPage() {
             </span>
             <h1>Development Process</h1>
             <p>
-              Transparent, milestone-driven engineering from Statement of Work
-              definition through launch and acceptance.
+              A clear, four-step process—from initial discovery and design
+              through launch and post-launch support.
             </p>
           </div>
         </section>
@@ -64,7 +64,7 @@ export default function ProcessPage() {
                       marginBottom: "1.5rem",
                     }}
                   >
-                    Every project begins with technical discovery to align on your
+                    Every project begins with a discovery call to align on your
                     business goals, required integrations, and exact pages or
                     features. We document everything in a written Statement of Work
                     with clear milestones and upfront pricing—so scope is never a
@@ -88,7 +88,8 @@ export default function ProcessPage() {
                   >
                     <li>Initial technical consultation and goal alignment</li>
                     <li>
-                      Written Statement of Work (pages, features, and API specs)
+                      Written Statement of Work (pages, features, and
+                      integrations)
                     </li>
                     <li>Sitemap and architecture outline</li>
                     <li>Defined timeline, payment schedule, and deposit invoice</li>
@@ -134,10 +135,10 @@ export default function ProcessPage() {
                     }}
                   >
                     <li>High-fidelity UI/UX wireframes and design mockups</li>
-                    <li>Typography, spacing, and visual hierarchy alignment</li>
+                    <li>Clean typography, spacing, and brand styling</li>
                     <li>Integration of client-supplied copy and brand assets</li>
                     <li>
-                      Structured design review rounds and formal phase sign-off
+                      Design review rounds and sign-off before coding starts
                     </li>
                   </ul>
                 </div>
@@ -160,9 +161,9 @@ export default function ProcessPage() {
                     }}
                   >
                     Once designs are approved, we hand-code your website or web
-                    application from scratch without page-builder bloat. You
-                    receive access to a functional staging environment to verify
-                    progress against your written specifications.
+                    application from scratch without clunky page builders. You
+                    get a private preview link so you can click through progress
+                    live as we build.
                   </p>
                   <h3
                     style={{
@@ -181,7 +182,7 @@ export default function ProcessPage() {
                     }}
                   >
                     <li>
-                      Clean semantic HTML, CSS, React, and TypeScript codebase
+                      Hand-coded with React, Next.js, TypeScript, and Sanity CMS
                     </li>
                     <li>
                       Responsive behavior across modern desktop and mobile
@@ -233,10 +234,10 @@ export default function ProcessPage() {
                       color: "var(--text-secondary)",
                     }}
                   >
-                    <li>5-business-day SOW conformity acceptance review</li>
+                    <li>5-business-day final review against your project scope</li>
                     <li>Zero-downtime deployment &amp; DNS configuration</li>
                     <li>
-                      Technical Schema.org markup, sitemap &amp; Search Console
+                      Search-ready metadata, sitemap &amp; Google Search Console
                       setup
                     </li>
                     <li>
@@ -274,7 +275,7 @@ export default function ProcessPage() {
               }}
             >
               Let&apos;s discuss your project requirements and map out a clear
-              Statement of Work, timeline, and budget.
+              project scope, timeline, and budget.
             </p>
             <div
               style={{

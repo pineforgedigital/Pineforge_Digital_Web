@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pineforge Digital | Custom Web Design & Software Engineering",
     description:
-      "Hand-coded custom websites, web applications, and digital infrastructure built in Wisconsin for growing local businesses.",
+      "Hand-coded custom websites, web applications, and business software built in Wisconsin for growing local businesses.",
     url: "https://pineforge.digital",
     images: ["/images/logo-social.jpg"],
   },
@@ -53,7 +53,7 @@ const jsonLd = {
           name: "Why should I choose custom web development over WordPress, Wix, or Squarespace?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Unlike off-the-shelf website builders that rely on bloated templates and third-party plugins, we write clean, custom code from scratch. This delivers near-instant page load speeds, reduced attack surface with zero plugin vulnerabilities, and clean semantic architecture.",
+            text: "Unlike off-the-shelf website builders that rely on heavy templates and third-party plugins, we write clean, custom code from scratch. This delivers near-instant page load speeds, stronger security with zero vulnerable plugins, and clean code built to last.",
           },
         },
         {
@@ -61,7 +61,7 @@ const jsonLd = {
           name: "How do technical foundations help my business in local searches?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "We engineer the fast, semantic foundation search engines reward—clean HTML, fast load speeds, mobile responsiveness, and Schema.org metadata. Because search algorithms are controlled by Google, we focus on measurable technical quality rather than guaranteeing specific rankings.",
+            text: "We build the clean code, fast load speeds, mobile-friendly design, and structured business data that search engines reward. Because search algorithms are controlled by Google, we focus on measurable technical quality rather than guaranteeing specific rankings.",
           },
         },
         {
@@ -69,7 +69,7 @@ const jsonLd = {
           name: "How long does it take to build a custom website with Pineforge Digital?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Most standard business websites are completed and launched within 2 to 4 weeks once project assets and copy are provided. Complex web applications or custom portals typically take 4 to 8 weeks depending on the written Statement of Work.",
+            text: "Most standard business websites are completed and launched within 2 to 4 weeks once your copy and brand assets are ready. Complex web applications or custom portals typically take 4 to 8 weeks depending on project scope.",
           },
         },
         {
@@ -77,7 +77,7 @@ const jsonLd = {
           name: "Do I own my website and code once the project is finished?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes. Once your project is complete and paid in full, you own your custom code and finished deliverables with zero vendor lock-in. Every launch includes a 14-day defect warranty, and optional maintenance agreements are available separately if needed.",
+            text: "Yes. Once your project is complete and paid in full, you own your custom website and code with zero vendor lock-in. Every launch includes a 14-day defect warranty, and optional maintenance agreements are available separately if needed.",
           },
         },
         {
@@ -179,9 +179,9 @@ export default function HomePage() {
               Grow Your Business
             </h1>
             <p className="hero-subtitle-dark animate-fade-up delay-2">
-              We engineer fast, hand-coded websites, custom web applications,
-              and internal dashboards that establish credibility and convert
-              visitors into customers.
+              We design and hand-code fast websites, custom web apps, and
+              internal dashboards that build trust and turn visitors into
+              customers.
             </p>
             <div className="hero-actions animate-fade-up delay-2">
               <Link href="/contact" className="btn btn-primary-dark">
@@ -213,7 +213,7 @@ export default function HomePage() {
           <div className="container">
             <div className="section-header animate-fade-up">
               <span className="badge" style={{ marginBottom: "1rem" }}>
-                Core Competencies
+                What We Do
               </span>
               <h2>What We Build</h2>
               <p>
@@ -252,7 +252,7 @@ export default function HomePage() {
                   <p>
                     We write every line of code from scratch using your brand
                     assets and copy so your storefront is ultra-fast, responsive
-                    on every device, and free of monthly page-builder bloat.
+                    on every device, and free of clunky page builders.
                   </p>
                 </div>
                 <div className="bento-visual">
@@ -304,9 +304,9 @@ export default function HomePage() {
                   </div>
                   <h3>Performance &amp; Technical Foundations</h3>
                   <p>
-                    Clean semantic HTML, fast page speeds, and structured
-                    Schema.org markup engineered into your codebase for modern
-                    browsers and search engines.
+                    Clean, lightweight code, fast load times, and built-in
+                    search metadata so Google can easily understand and index
+                    your business.
                   </p>
                 </div>
                 <div className="bento-visual-vertical">
@@ -340,8 +340,8 @@ export default function HomePage() {
                   <h3>E-Commerce &amp; API Integrations</h3>
                   <p>
                     Integrate Stripe checkout flows, Shopify storefronts, and
-                    standard authenticated third-party APIs to connect payments
-                    and business systems seamlessly.
+                    secure connections to the software tools you already
+                    use—like CRMs, booking platforms, and inventory systems.
                   </p>
                 </div>
                 <div className="bento-visual-vertical">
@@ -444,7 +444,7 @@ export default function HomePage() {
               <h2>Recent Launch</h2>
               <p>
                 Real custom engineering built for local businesses—clean
-                design, fast performance, and zero page-builder bloat.
+                design, fast performance, and zero template limitations.
               </p>
             </div>
 
@@ -584,9 +584,9 @@ export default function HomePage() {
                   THE SOLUTION
                 </p>
                 <p style={{ color: "#cbd5e1", fontSize: "0.95rem" }}>
-                  We hand-code clean, semantic websites with fast load speeds
-                  and structured Schema.org foundations—giving search engines
-                  and customers a faster, clearer experience.
+                  We hand-code fast, clean websites with search-ready
+                  structure—giving Google and your customers a noticeably smoother
+                  experience.
                 </p>
               </div>
 
@@ -637,9 +637,8 @@ export default function HomePage() {
                   THE SOLUTION
                 </p>
                 <p style={{ color: "#cbd5e1", fontSize: "0.95rem" }}>
-                  We design focused user journeys, reliable inquiry pipelines,
-                  and custom dashboards tailored directly to how your team
-                  operates.
+                  We design clear page layouts, dependable contact flows, and
+                  custom dashboards tailored directly to how your team operates.
                 </p>
               </div>
             </div>
@@ -671,9 +670,9 @@ export default function HomePage() {
               <div className="bento-card animate-fade-up delay-1">
                 <h3 className="mb-2">Transparent Scope</h3>
                 <p>
-                  Every engagement is defined in a clear Statement of Work with
-                  explicit deliverables, fixed milestones, and direct developer
-                  communication.
+                  Every project starts with a clear written scope, fixed
+                  milestones, and direct communication with the developers
+                  building your site.
                 </p>
               </div>
               <div className="bento-card animate-fade-up delay-2">
@@ -727,9 +726,9 @@ export default function HomePage() {
                   }}
                 >
                   Users expect pages to load immediately. Instead of stacking
-                  heavy themes and plugins, we engineer clean custom
-                  architectures from the ground up—delivering fast load times,
-                  clean technical metadata, and smooth mobile usability.
+                  heavy themes and plugins, we write clean, lightweight code
+                  from the ground up—delivering fast load times, search-ready
+                  page structure, and smooth mobile usability.
                 </p>
                 <ul
                   style={{
@@ -771,7 +770,7 @@ export default function HomePage() {
                     >
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>{" "}
-                    Clean semantic HTML &amp; technical structure
+                    Clean, search-friendly code structure
                   </li>
                   <li style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                     <svg
@@ -890,7 +889,7 @@ export default function HomePage() {
               >
                 While many local agencies rely on slow page builders like
                 WordPress or Wix, we write clean custom code from the ground up
-                using proven modern infrastructure so your site stays fast,
+                using proven modern technology so your site stays fast,
                 reliable, and maintainable.
               </p>
             </div>
@@ -928,9 +927,9 @@ export default function HomePage() {
                   Vercel
                 </h3>
                 <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)" }}>
-                  <strong>Global Cloud Hosting.</strong> Edge-cached delivery
-                  infrastructure that keeps your website responsive and reliable
-                  for every local visitor.
+                  <strong>Global Cloud Hosting.</strong> Fast global cloud
+                  hosting that serves your site from locations close to your
+                  visitors, keeping load times quick and uptime reliable.
                 </p>
               </div>
 
@@ -1008,9 +1007,9 @@ export default function HomePage() {
                   PostgreSQL &amp; Supabase
                 </h3>
                 <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)" }}>
-                  <strong>Relational Databases.</strong> For custom booking
-                  systems, dashboards, and portals, we engineer structured data
-                  storage with strict access controls.
+                  <strong>Reliable Databases.</strong> For custom booking tools,
+                  dashboards, and client portals, we build structured databases
+                  with strict user permissions.
                 </p>
               </div>
 
@@ -1046,9 +1045,9 @@ export default function HomePage() {
                   React &amp; Next.js
                 </h3>
                 <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)" }}>
-                  <strong>Modern Engineering Frameworks.</strong> Proven web
-                  architecture that delivers smooth navigation, strong type
-                  safety, and long-term maintainability.
+                  <strong>Modern Web Frameworks.</strong> Industry-standard
+                  technology behind smooth page transitions, reliable
+                  performance, and code that&apos;s easy to expand as you grow.
                 </p>
               </div>
             </div>
@@ -1189,11 +1188,11 @@ export default function HomePage() {
                   Wix, or Squarespace?
                 </h3>
                 <p style={{ color: "var(--text-secondary)", lineHeight: 1.75 }}>
-                  Unlike off-the-shelf website builders that rely on bloated
+                  Unlike off-the-shelf website builders that rely on heavy
                   templates and third-party plugins, we write clean, custom code
                   from scratch. This delivers near-instant page load speeds,
-                  reduced attack surface with zero plugin vulnerabilities, and
-                  clean semantic architecture.
+                  stronger security with zero vulnerable plugins, and clean code
+                  built to last.
                 </p>
               </div>
               <div
@@ -1205,11 +1204,11 @@ export default function HomePage() {
                   searches?
                 </h3>
                 <p style={{ color: "var(--text-secondary)", lineHeight: 1.75 }}>
-                  We engineer the fast, semantic foundation search engines
-                  reward—clean HTML, fast load speeds, mobile responsiveness,
-                  and Schema.org metadata. Because search algorithms are
-                  controlled by Google, we focus on measurable technical quality
-                  rather than guaranteeing specific rankings.
+                  We build the clean code, fast load speeds, mobile-friendly
+                  design, and structured business data that search engines
+                  reward. Because search algorithms are controlled by Google, we
+                  focus on measurable technical quality rather than guaranteeing
+                  specific rankings.
                 </p>
               </div>
               <div
@@ -1222,9 +1221,9 @@ export default function HomePage() {
                 </h3>
                 <p style={{ color: "var(--text-secondary)", lineHeight: 1.75 }}>
                   Most standard business websites are completed and launched
-                  within 2 to 4 weeks once client copy and brand assets are
-                  provided. Complex web applications or custom portals typically
-                  take 4 to 8 weeks depending on the executed Statement of Work.
+                  within 2 to 4 weeks once your copy and brand assets are ready.
+                  Complex web applications or custom portals typically take 4 to
+                  8 weeks depending on project scope.
                 </p>
               </div>
               <div
@@ -1236,10 +1235,9 @@ export default function HomePage() {
                 </h3>
                 <p style={{ color: "var(--text-secondary)", lineHeight: 1.75 }}>
                   Yes. Once your project is complete and paid in full, you own
-                  your custom code and finished deliverables with zero vendor
-                  lock-in. Every launch includes a 14-day defect warranty, and
-                  optional maintenance agreements are available separately if
-                  needed.
+                  your custom website and code with zero vendor lock-in. Every
+                  launch includes a 14-day defect warranty, and optional
+                  maintenance agreements are available separately if needed.
                 </p>
               </div>
               <div
@@ -1265,8 +1263,8 @@ export default function HomePage() {
           <div className="container animate-fade-up">
             <h2>Ready to scale your business with custom software?</h2>
             <p>
-              Schedule a consultation to review your technical requirements and
-              scope out a custom website or web application.
+              Tell us what you&apos;re looking to build—we&apos;ll review your
+              goals and map out a clear plan for your website or custom web app.
             </p>
             <Link
               href="/contact"

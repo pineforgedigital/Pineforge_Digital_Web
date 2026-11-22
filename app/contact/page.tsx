@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Pineforge Digital | Southeastern Wisconsin",
     description:
-      "Get in touch with Pineforge Digital LLC to schedule a consultation or request a Statement of Work quote.",
+      "Get in touch with Pineforge Digital to request a consultation or custom project quote.",
     url: "https://pineforge.digital/contact",
     images: ["/images/logo-social.jpg"],
   },
@@ -37,8 +37,8 @@ export default function ContactPage() {
           <div className="container animate-fade-up">
             <h1>Contact Us</h1>
             <p>
-              If you have questions about our services or want to scope a custom
-              project, send us a message below.
+              If you have questions about our services or want to talk through a
+              custom project, send us a message below.
             </p>
           </div>
         </section>
@@ -102,8 +102,8 @@ export default function ContactPage() {
                       <span>Closed</span>
                     </div>
                     <p>
-                      <strong>Email/Form:</strong> 24/7. We reply within one
-                      business day.
+                      <strong>Email &amp; Form:</strong> Submit anytime—we reply
+                      within one business day.
                     </p>
                   </div>
 

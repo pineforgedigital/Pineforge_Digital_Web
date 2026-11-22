@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Pineforge Digital | Wisconsin Web Engineering",
     description:
-      "100% in-house Wisconsin web development with zero templates, zero outsourcing, and full client ownership of SOW deliverables.",
+      "100% in-house Wisconsin web development with zero templates, zero outsourcing, and full ownership of your finished website and code.",
     url: "https://pineforge.digital/about",
     images: ["/images/logo-social.jpg"],
   },
@@ -43,9 +43,9 @@ export default function AboutPage() {
               Wisconsin Roots.
             </h1>
             <p>
-              We are two dedicated web developers building custom,
-              high-performance digital infrastructure for growing local
-              businesses.
+              Two Wisconsin developers building fast, custom websites and web
+              software for local businesses—without agency overhead or monthly
+              template fees.
             </p>
           </div>
         </section>
@@ -60,23 +60,22 @@ export default function AboutPage() {
               <div className="about-story-col-1 animate-fade-up">
                 <h2>A different approach.</h2>
                 <p>
-                  Pineforge Digital LLC was founded to give local businesses
-                  access to direct, custom software engineering without
-                  inflated agency retainers or bloated templates.
+                  Pineforge Digital was founded to give local businesses direct
+                  access to custom web design and software development—without
+                  inflated agency retainers or clunky templates.
                 </p>
               </div>
               <div className="about-story-col-2 animate-fade-up delay-1">
                 <p>
-                  We saw too many businesses trapped paying recurring monthly
-                  fees for slow, generic template websites they didn&apos;t
-                  truly own or control.
+                  We saw too many businesses stuck paying recurring fees for
+                  slow, generic websites they didn&apos;t truly own or control.
                 </p>
                 <p>
-                  We do things differently. Every platform we build is
-                  hand-coded from scratch—no clunky page builders, no template
-                  bloat, and no vendor lock-in. That guarantees fast load times,
-                  reliable mobile performance, and full ownership of your final
-                  deliverables upon project completion.
+                  We take a different approach. Every site and application we
+                  build is hand-coded from scratch and paired with Sanity CMS so
+                  you can update content easily—with fast load times, clean
+                  mobile usability, and 100% ownership of your website and code
+                  once your project is complete.
                 </p>
               </div>
             </div>
@@ -104,7 +103,7 @@ export default function AboutPage() {
                 <p style={{ color: "rgba(255,255,255,0.75)", lineHeight: 1.7 }}>
                   Every line of code is written right here in Wisconsin. We
                   don&apos;t offshore or outsource. When you partner with us, you
-                  work directly with the developers building your platform.
+                  work directly with the developers building your site.
                 </p>
               </div>
               <div className="bento-card dark-surface-card animate-fade-up delay-1">
@@ -112,9 +111,10 @@ export default function AboutPage() {
                   Obsessive Performance
                 </h3>
                 <p style={{ color: "rgba(255,255,255,0.75)", lineHeight: 1.7 }}>
-                  Speed is not a luxury; it is an engineering baseline. We
-                  leverage modern edge networks and static/server-rendered
-                  architectures so customers never bounce from a slow page.
+                  Speed isn&apos;t an add-on—it&apos;s built into every page
+                  from day one. By cutting out heavy plugins and hosting on fast
+                  global cloud networks, your site loads almost instantly on
+                  phones and desktops.
                 </p>
               </div>
               <div className="bento-card dark-surface-card animate-fade-up delay-2">
@@ -124,7 +124,7 @@ export default function AboutPage() {
                 <p style={{ color: "rgba(255,255,255,0.75)", lineHeight: 1.7 }}>
                   We believe in transparent partnerships, not vendor lock-in.
                   Once your project is complete and paid in full, you own your
-                  code and finished deliverables.
+                  finished website and code outright.
                 </p>
               </div>
             </div>
@@ -145,8 +145,8 @@ export default function AboutPage() {
                   marginRight: "auto",
                 }}
               >
-                The co-founders and engineering minds behind Pineforge Digital
-                LLC.
+                Meet the two Wisconsin co-founders who design and build your
+                project directly.
               </p>
             </div>
 
@@ -176,10 +176,10 @@ export default function AboutPage() {
                     fontSize: "1.05rem",
                   }}
                 >
-                  Merging a rigorous background in cybersecurity with deep
-                  expertise in front-end engineering, React, TypeScript, and
-                  UI/UX design, Caleb ensures every Pineforge Digital platform
-                  is resilient, clean, and built to serve real business goals.
+                  Combining a background in cybersecurity with front-end
+                  development (React, TypeScript) and UI/UX design, Caleb builds
+                  clean, intuitive interfaces that keep your site secure, easy
+                  to navigate, and focused on turning visitors into customers.
                 </p>
               </div>
 
@@ -205,10 +205,10 @@ export default function AboutPage() {
                     fontSize: "1.05rem",
                   }}
                 >
-                  With a strong background in Python, Java, back-end systems,
-                  and relational SQL databases, Richard translates complex
-                  operational workflows into fast, reliable server-side
-                  architecture and API integrations.
+                  With deep experience in Python, Java, and SQL databases,
+                  Richard builds the behind-the-scenes systems that power custom
+                  web apps, internal dashboards, and third-party tool
+                  integrations—keeping complex business data fast and reliable.
                 </p>
               </div>
             </div>
@@ -234,7 +234,7 @@ export default function AboutPage() {
                 marginBottom: "2rem",
               }}
             >
-              Built With Modern Infrastructure
+              Our Core Technology Stack
             </p>
             <div
               style={{
@@ -323,7 +323,7 @@ export default function AboutPage() {
                 letterSpacing: "-0.02em",
               }}
             >
-              Ready to elevate your digital presence?
+              Ready to move past generic templates?
             </h2>
             <p
               style={{

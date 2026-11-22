@@ -387,9 +387,9 @@ export default function ContactForm() {
               </div>
               <h2 id="successModalTitle">Message Sent</h2>
               <p>
-                Thank you for reaching out to Pineforge Digital LLC. Our team
-                will review your project details and follow up within one
-                business day.
+                Thank you for reaching out to Pineforge Digital. Our team will
+                review your project details and follow up within one business
+                day.
               </p>
               <button
                 ref={closeModalBtnRef}

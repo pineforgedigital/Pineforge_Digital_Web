@@ -8,8 +8,8 @@ export default function Footer() {
           <div className="footer-brand">
             <h3>Pineforge Digital</h3>
             <p>
-              Custom websites, web applications, and digital infrastructure for
-              Wisconsin businesses.
+              Custom websites, web applications, and business tools built in
+              Wisconsin.
             </p>
             <p style={{ marginTop: "1rem", fontSize: "0.95rem" }}>
               Serving Kenosha, Racine, Milwaukee &amp; Northern Illinois

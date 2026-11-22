@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Custom Web Development Services | Pineforge Digital",
     description:
-      "Hand-coded websites, internal dashboards, e-commerce payment flows, and API integrations built to clear Statement of Work specifications.",
+      "Hand-coded websites, internal dashboards, e-commerce payment flows, and API integrations built with clear scope, upfront pricing, and full client ownership.",
     url: "https://pineforge.digital/services",
     images: ["/images/logo-social.jpg"],
   },
@@ -40,7 +40,8 @@ export default function ServicesPage() {
             <h1>Custom Web Development Services</h1>
             <p>
               We build custom websites, web applications, internal dashboards,
-              and API integrations under clear Statement of Work milestones.
+              and API integrations with clear scope, upfront pricing, and zero
+              guesswork.
             </p>
           </div>
         </section>
@@ -81,7 +82,7 @@ export default function ServicesPage() {
                   </li>
                   <li>Fully responsive, mobile-first layout</li>
                   <li>
-                    Clean semantic HTML &amp; Schema.org technical foundations
+                    Search-ready code and structured business metadata
                   </li>
                   <li>
                     Sanity.io headless CMS included for effortless content
@@ -149,8 +150,8 @@ export default function ServicesPage() {
                   }}
                 >
                   <li>Custom internal dashboards &amp; administrative tools</li>
-                  <li>Client portals with role-based authentication</li>
-                  <li>Relational database architecture (PostgreSQL/Supabase)</li>
+                  <li>Client portals with secure user logins and role permissions</li>
+                  <li>Custom, scalable databases (PostgreSQL &amp; Supabase)</li>
                   <li>Clean React / TypeScript front-end interfaces</li>
                 </ul>
               </div>
@@ -239,7 +240,7 @@ export default function ServicesPage() {
                   }}
                 >
                   Reduce checkout friction and collect payments cleanly using
-                  established, PCI-compliant payment providers.
+                  trusted, PCI-compliant payment providers like Stripe.
                 </p>
                 <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
                   <span className="badge badge-emerald">Smooth Checkout</span>
@@ -262,9 +263,9 @@ export default function ServicesPage() {
                     marginBottom: "2rem",
                   }}
                 >
-                  Connect your website or internal dashboard to the documented
-                  third-party platforms you already rely on—eliminating manual
-                  copy-and-paste work across systems.
+                  Connect your website or internal dashboard to the business
+                  software you already rely on—eliminating manual copy-and-paste
+                  work across systems.
                 </p>
                 <h3 style={{ fontSize: "1.25rem", marginBottom: "1rem" }}>
                   Key Deliverables:
@@ -278,9 +279,9 @@ export default function ServicesPage() {
                   }}
                 >
                   <li>
-                    Authenticated integrations with documented third-party APIs
+                    Secure connections to supported third-party APIs
                   </li>
-                  <li>Automated lead routing &amp; webhook processing</li>
+                  <li>Automated lead routing &amp; real-time data syncing</li>
                   <li>CRM, scheduling, and inventory data display</li>
                   <li>Reliable server-side validation and error handling</li>
                 </ul>
@@ -341,8 +342,8 @@ export default function ServicesPage() {
                   marginRight: "auto",
                 }}
               >
-                Clear starting pricing scoped through a written Statement of
-                Work. Choose the tier that fits your technical goals.
+                Clear starting prices with a written scope before any work
+                begins. Choose the tier that fits your business goals.
               </p>
             </div>
 
@@ -370,7 +371,8 @@ export default function ServicesPage() {
                   }}
                 >
                   Built for local businesses needing a fast, mobile-responsive,
-                  hand-coded digital storefront with clean technical markup.
+                  hand-coded website with easy content editing and clean,
+                  search-ready code.
                 </p>
 
                 <div
@@ -485,7 +487,27 @@ export default function ServicesPage() {
                     >
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>{" "}
-                    Semantic HTML &amp; Schema Foundations
+                    Search-Ready Code &amp; Metadata
+                  </li>
+                  <li
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.75rem",
+                      color: "var(--text-secondary)",
+                    }}
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--accent-emerald)"
+                      strokeWidth="2"
+                    >
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>{" "}
+                    Sanity CMS Included
                   </li>
                 </ul>
 
@@ -524,7 +546,7 @@ export default function ServicesPage() {
                   }}
                 >
                   For growing businesses taking online payments, booking
-                  appointments, or connecting documented third-party APIs.
+                  appointments, or connecting third-party business tools.
                 </p>
 
                 <div
@@ -731,7 +753,7 @@ export default function ServicesPage() {
                     >
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>{" "}
-                    Relational Database Architecture
+                    Custom Database Design
                   </li>
                   <li
                     style={{
@@ -875,9 +897,9 @@ export default function ServicesPage() {
                 </h3>
                 <p style={{ color: "var(--text-secondary)" }}>
                   No. We hand-code every website from scratch rather than
-                  relying on bloated WordPress themes or drag-and-drop builders.
+                  relying on heavy WordPress themes or drag-and-drop builders.
                   You get faster load times, tighter security with zero plugin
-                  vulnerabilities, and clean semantic markup built to last.
+                  vulnerabilities, and clean code built to last.
                 </p>
               </div>
               <div
@@ -888,11 +910,11 @@ export default function ServicesPage() {
                   Who owns the code after the project is finished?
                 </h3>
                 <p style={{ color: "var(--text-secondary)" }}>
-                  You do. Upon full payment of all amounts due, ownership of the
-                  final deliverables expressly identified in your Statement of
-                  Work transfers to your business. Pre-existing libraries and
-                  third-party open-source packages remain licensed for use within
-                  your build.
+                  You do. Once your project is completed and paid in full,
+                  ownership of your custom website, code, and agreed project
+                  deliverables transfers to your business. Standard third-party
+                  and open-source libraries remain licensed for use in your
+                  build.
                 </p>
               </div>
               <div
@@ -903,11 +925,10 @@ export default function ServicesPage() {
                   How do you handle security and platform access?
                 </h3>
                 <p style={{ color: "var(--text-secondary)" }}>
-                  We follow strict least-privilege practices: we never accept or
-                  store master passwords, requesting Delegated or Collaborator
-                  access only. For applications handling user logins or data, we
-                  implement encrypted transport, strict validation, and scoped
-                  database permissions.
+                  We never ask for or store your master passwords—we only use
+                  delegated or collaborator access. For apps handling logins or
+                  customer data, we use HTTPS encryption, strict input
+                  validation, and role-based database permissions.
                 </p>
               </div>
             </div>
@@ -935,8 +956,8 @@ export default function ServicesPage() {
                 margin: "0 auto 2.5rem auto",
               }}
             >
-              Schedule a consultation with our development team to define your
-              Statement of Work, architecture, and timeline.
+              Reach out to our team to talk through your goals, timeline, and
+              budget—we&apos;ll follow up with a clear plan.
             </p>
             <div
               style={{
