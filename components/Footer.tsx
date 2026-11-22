@@ -44,6 +44,19 @@ export default function Footer() {
               >
                 admin@pineforge.digital
               </a>
+              <a
+                href="https://share.google/Pp6TIz4FkOKFzQPUA"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: "#38bdf8",
+                  textDecoration: "none",
+                  fontWeight: 500,
+                  width: "fit-content",
+                }}
+              >
+                Google Business Profile
+              </a>
             </div>
           </div>
           <div className="footer-col">

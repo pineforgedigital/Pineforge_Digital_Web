@@ -45,7 +45,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section style={{ padding: "8rem 0" }}>
+        <section style={{ padding: "clamp(4.5rem, 8vw, 8rem) 0" }}>
           <div className="container">
             {/* 1. Custom Website Design & Build */}
             <div className="service-row">
@@ -321,7 +321,7 @@ export default function ServicesPage() {
         <section
           className="light-theme"
           style={{
-            padding: "8rem 0",
+            padding: "clamp(4.5rem, 8vw, 8rem) 0",
             background: "var(--bg-surface)",
             borderTop: "1px solid var(--border-subtle)",
           }}
@@ -500,18 +500,21 @@ export default function ServicesPage() {
 
               {/* Tier 2 */}
               <div
-                className="bento-card animate-fade-up delay-1"
+                className="bento-card pricing-card-featured animate-fade-up delay-1"
                 style={{ display: "flex", flexDirection: "column" }}
               >
-                <h3
-                  style={{
-                    fontSize: "1.75rem",
-                    marginBottom: "0.5rem",
-                    marginTop: 0,
-                  }}
-                >
-                  E-Commerce Site
-                </h3>
+                <div className="pricing-card-header">
+                  <h3
+                    style={{
+                      fontSize: "1.75rem",
+                      marginBottom: 0,
+                      marginTop: 0,
+                    }}
+                  >
+                    E-Commerce Site
+                  </h3>
+                  <span className="badge badge-blue">Most Popular</span>
+                </div>
                 <p
                   style={{
                     color: "var(--text-secondary)",
@@ -848,7 +851,7 @@ export default function ServicesPage() {
         <section
           className="light-theme"
           style={{
-            padding: "8rem 0",
+            padding: "clamp(4.5rem, 8vw, 8rem) 0",
             background: "var(--bg-base)",
             borderTop: "1px solid var(--border-subtle)",
           }}
@@ -914,7 +917,7 @@ export default function ServicesPage() {
         {/* CTA Banner */}
         <section
           style={{
-            padding: "6rem 0",
+            padding: "clamp(4rem, 7vw, 6rem) 0",
             background: "var(--bg-surface)",
             borderTop: "1px solid var(--border-subtle)",
             textAlign: "center",

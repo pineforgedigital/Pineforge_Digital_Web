@@ -45,191 +45,206 @@ export default function ProcessPage() {
           </div>
         </section>
 
-        <section style={{ padding: "8rem 0" }}>
+        <section className="section-pad">
           <div className="container">
-            <div
-              style={{
-                maxWidth: "900px",
-                margin: "0 auto",
-                display: "flex",
-                flexDirection: "column",
-                gap: "3rem",
-              }}
-            >
-              <div className="bento-card animate-fade-up">
-                <span className="badge badge-blue">Phase 1</span>
-                <h2 style={{ marginTop: "1rem", fontSize: "2rem" }}>
-                  Discovery &amp; Scope Definition
-                </h2>
-                <p
-                  style={{
-                    fontSize: "1.1rem",
-                    color: "var(--text-secondary)",
-                    marginBottom: "1.5rem",
-                  }}
-                >
-                  Every project begins with technical discovery to align on your
-                  business goals, required integrations, and exact pages or
-                  features. We document everything in a written Statement of Work
-                  with clear milestones and upfront pricing—so scope is never a
-                  guess.
-                </p>
-                <h3
-                  style={{
-                    marginBottom: "0.5rem",
-                    fontSize: "1.1rem",
-                    fontWeight: 600,
-                  }}
-                >
-                  Deliverables:
-                </h3>
-                <ul
-                  style={{
-                    listStyle: "disc",
-                    marginLeft: "1.5rem",
-                    color: "var(--text-secondary)",
-                  }}
-                >
-                  <li>Initial technical consultation and goal alignment</li>
-                  <li>
-                    Written Statement of Work (pages, features, and API specs)
-                  </li>
-                  <li>Sitemap and architecture outline</li>
-                  <li>Defined timeline, payment schedule, and deposit invoice</li>
-                </ul>
+            <div className="process-timeline">
+              <div className="process-step animate-fade-up">
+                <div className="process-step-marker" aria-hidden="true">
+                  01
+                </div>
+                <div className="bento-card">
+                  <span className="badge badge-blue">Phase 1</span>
+                  <h2 style={{ marginTop: "1rem", fontSize: "2rem" }}>
+                    Discovery &amp; Scope Definition
+                  </h2>
+                  <p
+                    style={{
+                      fontSize: "1.1rem",
+                      color: "var(--text-secondary)",
+                      marginBottom: "1.5rem",
+                    }}
+                  >
+                    Every project begins with technical discovery to align on your
+                    business goals, required integrations, and exact pages or
+                    features. We document everything in a written Statement of Work
+                    with clear milestones and upfront pricing—so scope is never a
+                    guess.
+                  </p>
+                  <h3
+                    style={{
+                      marginBottom: "0.5rem",
+                      fontSize: "1.1rem",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Deliverables:
+                  </h3>
+                  <ul
+                    style={{
+                      listStyle: "disc",
+                      marginLeft: "1.5rem",
+                      color: "var(--text-secondary)",
+                    }}
+                  >
+                    <li>Initial technical consultation and goal alignment</li>
+                    <li>
+                      Written Statement of Work (pages, features, and API specs)
+                    </li>
+                    <li>Sitemap and architecture outline</li>
+                    <li>Defined timeline, payment schedule, and deposit invoice</li>
+                  </ul>
+                </div>
               </div>
 
-              <div className="bento-card animate-fade-up delay-1">
-                <span className="badge badge-emerald">Phase 2</span>
-                <h2 style={{ marginTop: "1rem", fontSize: "2rem" }}>
-                  UI/UX Design &amp; Wireframing
-                </h2>
-                <p
-                  style={{
-                    fontSize: "1.1rem",
-                    color: "var(--text-secondary)",
-                    marginBottom: "1.5rem",
-                  }}
-                >
-                  We design clean, focused interfaces tailored to your brand
-                  using the text copy, logos, and imagery you supply. Layouts
-                  are reviewed through structured revision rounds and formally
-                  approved before custom development begins.
-                </p>
-                <h3
-                  style={{
-                    marginBottom: "0.5rem",
-                    fontSize: "1.1rem",
-                    fontWeight: 600,
-                  }}
-                >
-                  Deliverables:
-                </h3>
-                <ul
-                  style={{
-                    listStyle: "disc",
-                    marginLeft: "1.5rem",
-                    color: "var(--text-secondary)",
-                  }}
-                >
-                  <li>High-fidelity UI/UX wireframes and design mockups</li>
-                  <li>Typography, spacing, and visual hierarchy alignment</li>
-                  <li>Integration of client-supplied copy and brand assets</li>
-                  <li>
-                    Structured design review rounds and formal phase sign-off
-                  </li>
-                </ul>
+              <div className="process-step animate-fade-up delay-1">
+                <div className="process-step-marker" aria-hidden="true">
+                  02
+                </div>
+                <div className="bento-card">
+                  <span className="badge badge-emerald">Phase 2</span>
+                  <h2 style={{ marginTop: "1rem", fontSize: "2rem" }}>
+                    UI/UX Design &amp; Wireframing
+                  </h2>
+                  <p
+                    style={{
+                      fontSize: "1.1rem",
+                      color: "var(--text-secondary)",
+                      marginBottom: "1.5rem",
+                    }}
+                  >
+                    We design clean, focused interfaces tailored to your brand
+                    using the text copy, logos, and imagery you supply. Layouts
+                    are reviewed through structured revision rounds and formally
+                    approved before custom development begins.
+                  </p>
+                  <h3
+                    style={{
+                      marginBottom: "0.5rem",
+                      fontSize: "1.1rem",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Deliverables:
+                  </h3>
+                  <ul
+                    style={{
+                      listStyle: "disc",
+                      marginLeft: "1.5rem",
+                      color: "var(--text-secondary)",
+                    }}
+                  >
+                    <li>High-fidelity UI/UX wireframes and design mockups</li>
+                    <li>Typography, spacing, and visual hierarchy alignment</li>
+                    <li>Integration of client-supplied copy and brand assets</li>
+                    <li>
+                      Structured design review rounds and formal phase sign-off
+                    </li>
+                  </ul>
+                </div>
               </div>
 
-              <div className="bento-card animate-fade-up delay-2">
-                <span className="badge badge-violet">Phase 3</span>
-                <h2 style={{ marginTop: "1rem", fontSize: "2rem" }}>
-                  Core Development &amp; Staging
-                </h2>
-                <p
-                  style={{
-                    fontSize: "1.1rem",
-                    color: "var(--text-secondary)",
-                    marginBottom: "1.5rem",
-                  }}
-                >
-                  Once designs are approved, we hand-code your website or web
-                  application from scratch without page-builder bloat. You
-                  receive access to a functional staging environment to verify
-                  progress against your written specifications.
-                </p>
-                <h3
-                  style={{
-                    marginBottom: "0.5rem",
-                    fontSize: "1.1rem",
-                    fontWeight: 600,
-                  }}
-                >
-                  Deliverables:
-                </h3>
-                <ul
-                  style={{
-                    listStyle: "disc",
-                    marginLeft: "1.5rem",
-                    color: "var(--text-secondary)",
-                  }}
-                >
-                  <li>
-                    Clean semantic HTML, CSS, React, and TypeScript codebase
-                  </li>
-                  <li>Responsive behavior across modern desktop and mobile browsers</li>
-                  <li>
-                    Performance optimization (targeting 95+ Lighthouse scores)
-                  </li>
-                  <li>Private staging link for milestone verification</li>
-                </ul>
+              <div className="process-step animate-fade-up delay-2">
+                <div className="process-step-marker" aria-hidden="true">
+                  03
+                </div>
+                <div className="bento-card">
+                  <span className="badge badge-violet">Phase 3</span>
+                  <h2 style={{ marginTop: "1rem", fontSize: "2rem" }}>
+                    Core Development &amp; Staging
+                  </h2>
+                  <p
+                    style={{
+                      fontSize: "1.1rem",
+                      color: "var(--text-secondary)",
+                      marginBottom: "1.5rem",
+                    }}
+                  >
+                    Once designs are approved, we hand-code your website or web
+                    application from scratch without page-builder bloat. You
+                    receive access to a functional staging environment to verify
+                    progress against your written specifications.
+                  </p>
+                  <h3
+                    style={{
+                      marginBottom: "0.5rem",
+                      fontSize: "1.1rem",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Deliverables:
+                  </h3>
+                  <ul
+                    style={{
+                      listStyle: "disc",
+                      marginLeft: "1.5rem",
+                      color: "var(--text-secondary)",
+                    }}
+                  >
+                    <li>
+                      Clean semantic HTML, CSS, React, and TypeScript codebase
+                    </li>
+                    <li>
+                      Responsive behavior across modern desktop and mobile
+                      browsers
+                    </li>
+                    <li>
+                      Performance optimization (targeting 95+ Lighthouse scores)
+                    </li>
+                    <li>Private staging link for milestone verification</li>
+                  </ul>
+                </div>
               </div>
 
-              <div className="bento-card animate-fade-up delay-3">
-                <span className="badge badge-amber">Phase 4</span>
-                <h2 style={{ marginTop: "1rem", fontSize: "2rem" }}>
-                  Final Review, Launch &amp; 14-Day Warranty
-                </h2>
-                <p
-                  style={{
-                    fontSize: "1.1rem",
-                    color: "var(--text-secondary)",
-                    marginBottom: "1.5rem",
-                  }}
-                >
-                  You complete a 5-business-day acceptance review against your
-                  Statement of Work prior to final launch. We handle production
-                  deployment, domain configuration via delegated access,
-                  analytics setup, and back every launch with a 14-day defect
-                  warranty.
-                </p>
-                <h3
-                  style={{
-                    marginBottom: "0.5rem",
-                    fontSize: "1.1rem",
-                    fontWeight: 600,
-                  }}
-                >
-                  Deliverables:
-                </h3>
-                <ul
-                  style={{
-                    listStyle: "disc",
-                    marginLeft: "1.5rem",
-                    color: "var(--text-secondary)",
-                  }}
-                >
-                  <li>5-business-day SOW conformity acceptance review</li>
-                  <li>Zero-downtime deployment &amp; DNS configuration</li>
-                  <li>
-                    Technical Schema.org markup, sitemap &amp; Search Console
-                    setup
-                  </li>
-                  <li>
-                    14-day post-launch defect warranty (optional separate
-                    maintenance available)
-                  </li>
-                </ul>
+              <div className="process-step animate-fade-up delay-3">
+                <div className="process-step-marker" aria-hidden="true">
+                  04
+                </div>
+                <div className="bento-card">
+                  <span className="badge badge-amber">Phase 4</span>
+                  <h2 style={{ marginTop: "1rem", fontSize: "2rem" }}>
+                    Final Review, Launch &amp; 14-Day Warranty
+                  </h2>
+                  <p
+                    style={{
+                      fontSize: "1.1rem",
+                      color: "var(--text-secondary)",
+                      marginBottom: "1.5rem",
+                    }}
+                  >
+                    You complete a 5-business-day acceptance review against your
+                    Statement of Work prior to final launch. We handle production
+                    deployment, domain configuration via delegated access,
+                    analytics setup, and back every launch with a 14-day defect
+                    warranty.
+                  </p>
+                  <h3
+                    style={{
+                      marginBottom: "0.5rem",
+                      fontSize: "1.1rem",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Deliverables:
+                  </h3>
+                  <ul
+                    style={{
+                      listStyle: "disc",
+                      marginLeft: "1.5rem",
+                      color: "var(--text-secondary)",
+                    }}
+                  >
+                    <li>5-business-day SOW conformity acceptance review</li>
+                    <li>Zero-downtime deployment &amp; DNS configuration</li>
+                    <li>
+                      Technical Schema.org markup, sitemap &amp; Search Console
+                      setup
+                    </li>
+                    <li>
+                      14-day post-launch defect warranty (optional separate
+                      maintenance available)
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -237,8 +252,8 @@ export default function ProcessPage() {
 
         {/* CTA Section */}
         <section
+          className="section-pad"
           style={{
-            padding: "8rem 0",
             background: "var(--bg-surface)",
             borderTop: "1px solid var(--border-subtle)",
             textAlign: "center",

@@ -40,6 +40,7 @@ const jsonLd = {
       areaServed: professionalServiceJsonLd.areaServed,
       telephone: professionalServiceJsonLd.telephone,
       email: professionalServiceJsonLd.email,
+      sameAs: professionalServiceJsonLd.sameAs,
       openingHoursSpecification:
         professionalServiceJsonLd.openingHoursSpecification,
       priceRange: professionalServiceJsonLd.priceRange,
@@ -133,40 +134,66 @@ export default function HomePage() {
               <div className="hero-image-container">
                 <div className="css-hero-visual floating-image">
                   <div className="code-window">
-                    <div className="window-header">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                    <div className="window-body">
-                      <div className="sidebar">
-                        <div className="skeleton-line short"></div>
-                        <div className="skeleton-line"></div>
-                        <div className="skeleton-line"></div>
-                        <div className="skeleton-line"></div>
+                    <div className="hero-window-bar">
+                      <div className="hero-window-dots" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                       </div>
-                      <div className="main-content">
-                        <div className="skeleton-title"></div>
-                        <div className="skeleton-grid">
-                          <div className="skeleton-card">
-                            <div className="sk-circle"></div>
-                            <div className="sk-line"></div>
-                          </div>
-                          <div className="skeleton-card highlight">
-                            <div
-                              className="sk-bar bg-green"
-                              style={{ height: "60%" }}
-                            ></div>
-                            <div
-                              className="sk-bar bg-blue"
-                              style={{ height: "80%" }}
-                            ></div>
-                            <div
-                              className="sk-bar bg-purple"
-                              style={{ height: "40%" }}
-                            ></div>
-                          </div>
+                      <span className="hero-window-title">
+                        pineforge.digital — production
+                      </span>
+                      <span className="hero-live-pill">
+                        <span className="hero-live-dot" aria-hidden="true"></span>
+                        Live
+                      </span>
+                    </div>
+                    <div className="hero-window-body">
+                      <div className="hero-metrics-row">
+                        <div className="hero-metric-tile">
+                          <span className="hero-metric-value hero-metric-green">
+                            99
+                          </span>
+                          <span className="hero-metric-label">Lighthouse</span>
                         </div>
+                        <div className="hero-metric-tile">
+                          <span className="hero-metric-value hero-metric-blue">
+                            0.4s
+                          </span>
+                          <span className="hero-metric-label">Load Time</span>
+                        </div>
+                        <div className="hero-metric-tile">
+                          <span className="hero-metric-value">0</span>
+                          <span className="hero-metric-label">Bloatware</span>
+                        </div>
+                      </div>
+
+                      <div className="hero-spec-panel">
+                        <div className="hero-spec-row">
+                          <span className="hero-spec-key">Stack</span>
+                          <span className="hero-spec-val">
+                            Next.js &middot; React &middot; Sanity CMS
+                          </span>
+                        </div>
+                        <div className="hero-spec-row">
+                          <span className="hero-spec-key">Hosting</span>
+                          <span className="hero-spec-val">
+                            Vercel Edge Network
+                          </span>
+                        </div>
+                        <div className="hero-spec-row">
+                          <span className="hero-spec-key">Ownership</span>
+                          <span className="hero-spec-val hero-spec-accent">
+                            100% Client IP
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="hero-window-footer">
+                        <span>Hand-Coded in Wisconsin</span>
+                        <span className="hero-footer-status">
+                          Production Ready
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -400,7 +427,7 @@ export default function HomePage() {
         {/* Featured Work Section */}
         <section
           style={{
-            padding: "8rem 0",
+            padding: "clamp(4.5rem, 8vw, 8rem) 0",
             background: "#ffffff",
             borderTop: "1px solid var(--border-subtle)",
           }}
@@ -476,7 +503,7 @@ export default function HomePage() {
 
         {/* Problems Solved Section */}
         <section
-          style={{ padding: "8rem 0", background: "#020617", color: "white" }}
+          style={{ padding: "clamp(4.5rem, 8vw, 8rem) 0", background: "#020617", color: "white" }}
         >
           <div className="container animate-fade-up">
             <div style={{ textAlign: "center", marginBottom: "5rem" }}>
@@ -616,7 +643,7 @@ export default function HomePage() {
         </section>
 
         {/* Why Pineforge Section */}
-        <section style={{ padding: "5rem 0", background: "#ffffff" }}>
+        <section style={{ padding: "clamp(4rem, 7vw, 6rem) 0", background: "#ffffff" }}>
           <div className="container">
             <div className="section-header animate-fade-up">
               <span className="badge" style={{ marginBottom: "1rem" }}>
@@ -660,7 +687,7 @@ export default function HomePage() {
         {/* Performance Section */}
         <section
           style={{
-            padding: "8rem 0",
+            padding: "clamp(4.5rem, 8vw, 8rem) 0",
             background: "white",
             borderTop: "1px solid var(--border-subtle)",
             overflow: "hidden",
@@ -822,7 +849,7 @@ export default function HomePage() {
         {/* Modern Tech Stack Section */}
         <section
           style={{
-            padding: "8rem 0",
+            padding: "clamp(4.5rem, 8vw, 8rem) 0",
             background: "#f8fafc",
             borderTop: "1px solid var(--border-subtle)",
           }}
@@ -1027,7 +1054,7 @@ export default function HomePage() {
         {/* Local Service Area Section */}
         <section
           style={{
-            padding: "8rem 0",
+            padding: "clamp(4.5rem, 8vw, 8rem) 0",
             background: "var(--bg-surface)",
             borderTop: "1px solid var(--border-subtle)",
             position: "relative",
@@ -1118,7 +1145,7 @@ export default function HomePage() {
         {/* FAQ Section */}
         <section
           style={{
-            padding: "8rem 0",
+            padding: "clamp(4.5rem, 8vw, 8rem) 0",
             background: "#ffffff",
             borderTop: "1px solid var(--border-subtle)",
           }}

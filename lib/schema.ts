@@ -22,6 +22,7 @@ export const professionalServiceJsonLd = {
   ],
   telephone: "+1-262-234-1027",
   email: "admin@pineforge.digital",
+  sameAs: ["https://share.google/Pp6TIz4FkOKFzQPUA"],
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",

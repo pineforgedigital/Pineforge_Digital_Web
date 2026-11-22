@@ -97,49 +97,31 @@ export default function AboutPage() {
               <h2 style={{ color: "white" }}>Our Development Philosophy</h2>
             </div>
             <div className="grid grid-3">
-              <div
-                className="bento-card animate-fade-up"
-                style={{
-                  background: "rgba(255,255,255,0.02)",
-                  borderColor: "rgba(255,255,255,0.05)",
-                }}
-              >
+              <div className="bento-card dark-surface-card animate-fade-up">
                 <h3 style={{ color: "white", marginBottom: "1rem" }}>
                   100% In-House Development
                 </h3>
-                <p style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.7 }}>
+                <p style={{ color: "rgba(255,255,255,0.75)", lineHeight: 1.7 }}>
                   Every line of code is written right here in Wisconsin. We
                   don&apos;t offshore or outsource. When you partner with us, you
                   work directly with the developers building your platform.
                 </p>
               </div>
-              <div
-                className="bento-card animate-fade-up delay-1"
-                style={{
-                  background: "rgba(255,255,255,0.02)",
-                  borderColor: "rgba(255,255,255,0.05)",
-                }}
-              >
+              <div className="bento-card dark-surface-card animate-fade-up delay-1">
                 <h3 style={{ color: "white", marginBottom: "1rem" }}>
                   Obsessive Performance
                 </h3>
-                <p style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.7 }}>
+                <p style={{ color: "rgba(255,255,255,0.75)", lineHeight: 1.7 }}>
                   Speed is not a luxury; it is an engineering baseline. We
                   leverage modern edge networks and static/server-rendered
                   architectures so customers never bounce from a slow page.
                 </p>
               </div>
-              <div
-                className="bento-card animate-fade-up delay-2"
-                style={{
-                  background: "rgba(255,255,255,0.02)",
-                  borderColor: "rgba(255,255,255,0.05)",
-                }}
-              >
+              <div className="bento-card dark-surface-card animate-fade-up delay-2">
                 <h3 style={{ color: "white", marginBottom: "1rem" }}>
                   Unrestricted Ownership
                 </h3>
-                <p style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.7 }}>
+                <p style={{ color: "rgba(255,255,255,0.75)", lineHeight: 1.7 }}>
                   We believe in transparent partnerships, not vendor lock-in.
                   Once your project is complete and paid in full, you own your
                   code and finished deliverables.

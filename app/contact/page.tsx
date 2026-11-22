@@ -141,6 +141,20 @@ export default function ContactPage() {
                         admin@pineforge.digital
                       </a>
                     </p>
+                    <p>
+                      Google:{" "}
+                      <a
+                        href="https://share.google/Pp6TIz4FkOKFzQPUA"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          color: "var(--brand-blue)",
+                          textDecoration: "none",
+                        }}
+                      >
+                        View Google Business Profile
+                      </a>
+                    </p>
                   </div>
 
                   <div className="info-block">
