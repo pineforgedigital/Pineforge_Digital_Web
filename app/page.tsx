@@ -101,105 +101,109 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <main id="main-content">
-        {/* Dark Mode Hero */}
+        {/* Dark Mode Centered Hero with Atmospheric Architectural Backdrop */}
         <section className="hero-dark">
-          <div className="container hero-grid">
-            <div className="hero-content text-left">
-              <span className="badge badge-dark">
-                Custom Web Design &amp; Software Development
-              </span>
-              <h1 className="hero-title-dark">
-                Custom Websites That
-                <br />
-                Grow Your Business
-              </h1>
-              <p className="hero-subtitle-dark">
-                We engineer fast, hand-coded websites, custom web applications,
-                and internal dashboards that establish credibility and convert
-                visitors into customers.
-              </p>
-              <div
-                className="hero-actions"
-                style={{ justifyContent: "flex-start" }}
-              >
-                <Link href="/contact" className="btn btn-primary-dark">
-                  Request a Consultation
-                </Link>
-                <Link href="/services" className="btn btn-secondary-dark">
-                  Discover Services
-                </Link>
-              </div>
+          <div className="hero-bg-glow" aria-hidden="true"></div>
+          <svg
+            className="hero-bg-svg"
+            viewBox="0 0 1200 680"
+            fill="none"
+            preserveAspectRatio="xMidYMid slice"
+            aria-hidden="true"
+          >
+            <defs>
+              <radialGradient id="heroArcGlow" cx="50%" cy="35%" r="55%">
+                <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.22" />
+                <stop offset="55%" stopColor="#0284c7" stopOpacity="0.08" />
+                <stop offset="100%" stopColor="#020617" stopOpacity="0" />
+              </radialGradient>
+              <linearGradient id="heroRingStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.24" />
+                <stop offset="50%" stopColor="#94a3b8" stopOpacity="0.08" />
+                <stop offset="100%" stopColor="#34d399" stopOpacity="0.2" />
+              </linearGradient>
+            </defs>
+            <ellipse cx="600" cy="240" rx="520" ry="260" fill="url(#heroArcGlow)" />
+            <circle
+              cx="600"
+              cy="320"
+              r="240"
+              stroke="url(#heroRingStroke)"
+              strokeWidth="1"
+            />
+            <circle
+              cx="600"
+              cy="320"
+              r="380"
+              stroke="url(#heroRingStroke)"
+              strokeWidth="1"
+              strokeDasharray="6 10"
+            />
+            <circle
+              cx="600"
+              cy="320"
+              r="520"
+              stroke="rgba(255, 255, 255, 0.05)"
+              strokeWidth="1"
+            />
+            <line
+              x1="120"
+              y1="560"
+              x2="1080"
+              y2="120"
+              stroke="rgba(56, 189, 248, 0.08)"
+              strokeWidth="1"
+            />
+            <line
+              x1="140"
+              y1="140"
+              x2="1060"
+              y2="540"
+              stroke="rgba(52, 211, 153, 0.06)"
+              strokeWidth="1"
+            />
+            <circle cx="384" cy="212" r="3" fill="#38bdf8" fillOpacity="0.7" />
+            <circle cx="868" cy="184" r="2.5" fill="#34d399" fillOpacity="0.6" />
+            <circle cx="944" cy="482" r="3" fill="#38bdf8" fillOpacity="0.55" />
+            <circle cx="248" cy="434" r="2.5" fill="#94a3b8" fillOpacity="0.45" />
+          </svg>
+          <div className="hero-horizon-line" aria-hidden="true"></div>
+
+          <div className="container hero-centered">
+            <span className="badge badge-dark animate-fade-up">
+              Custom Web Design &amp; Software Development
+            </span>
+            <h1 className="hero-title-dark animate-fade-up delay-1">
+              Custom Websites That
+              <br />
+              Grow Your Business
+            </h1>
+            <p className="hero-subtitle-dark animate-fade-up delay-2">
+              We engineer fast, hand-coded websites, custom web applications,
+              and internal dashboards that establish credibility and convert
+              visitors into customers.
+            </p>
+            <div className="hero-actions animate-fade-up delay-2">
+              <Link href="/contact" className="btn btn-primary-dark">
+                Request a Consultation
+              </Link>
+              <Link href="/services" className="btn btn-secondary-dark">
+                Discover Services
+              </Link>
             </div>
-            <div className="hero-visual animate-fade-up delay-2">
-              <div className="hero-image-container">
-                <div className="css-hero-visual floating-image">
-                  <div className="code-window">
-                    <div className="hero-window-bar">
-                      <div className="hero-window-dots" aria-hidden="true">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-                      <span className="hero-window-title">
-                        pineforge.digital — production
-                      </span>
-                      <span className="hero-live-pill">
-                        <span className="hero-live-dot" aria-hidden="true"></span>
-                        Live
-                      </span>
-                    </div>
-                    <div className="hero-window-body">
-                      <div className="hero-metrics-row">
-                        <div className="hero-metric-tile">
-                          <span className="hero-metric-value hero-metric-green">
-                            99
-                          </span>
-                          <span className="hero-metric-label">Lighthouse</span>
-                        </div>
-                        <div className="hero-metric-tile">
-                          <span className="hero-metric-value hero-metric-blue">
-                            0.4s
-                          </span>
-                          <span className="hero-metric-label">Load Time</span>
-                        </div>
-                        <div className="hero-metric-tile">
-                          <span className="hero-metric-value">0</span>
-                          <span className="hero-metric-label">Bloatware</span>
-                        </div>
-                      </div>
-
-                      <div className="hero-spec-panel">
-                        <div className="hero-spec-row">
-                          <span className="hero-spec-key">Stack</span>
-                          <span className="hero-spec-val">
-                            Next.js &middot; React &middot; Sanity CMS
-                          </span>
-                        </div>
-                        <div className="hero-spec-row">
-                          <span className="hero-spec-key">Hosting</span>
-                          <span className="hero-spec-val">
-                            Vercel Edge Network
-                          </span>
-                        </div>
-                        <div className="hero-spec-row">
-                          <span className="hero-spec-key">Ownership</span>
-                          <span className="hero-spec-val hero-spec-accent">
-                            100% Client IP
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className="hero-window-footer">
-                        <span>Hand-Coded in Wisconsin</span>
-                        <span className="hero-footer-status">
-                          Production Ready
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="glow-orb"></div>
-              </div>
+            <div className="hero-highlights-bar animate-fade-up delay-3">
+              <span className="hero-highlight-item">
+                <span className="hero-highlight-dot dot-blue" aria-hidden="true"></span>
+                Hand-Coded in Wisconsin
+              </span>
+              <span className="hero-highlight-item">
+                <span className="hero-highlight-dot dot-emerald" aria-hidden="true"></span>
+                Sanity CMS Included
+              </span>
+              <span className="hero-highlight-item">
+                <span className="hero-highlight-dot dot-sky" aria-hidden="true"></span>
+                100% Client Ownership
+              </span>
             </div>
           </div>
         </section>
